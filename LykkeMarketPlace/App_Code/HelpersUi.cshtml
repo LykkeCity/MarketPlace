@@ -1,0 +1,79 @@
+﻿@using Common
+@using LykkeMarketPlace.Strings
+
+@helper RenderEditAndLabel(string caption, string name, string type = null, string value = null, string placeholder = null)
+{
+    if (placeholder == null)
+    {
+        placeholder = caption;
+    }
+
+    <div class="input-group">
+        <span class="input-group-addon">@caption</span>
+        @if (string.IsNullOrEmpty(type))
+        {
+            <input id="@name.FirstLetterLowCase()" name="@name" class="form-control" placeholder="@placeholder" value="@value">
+        }
+        else
+        {
+            <input id="@name.FirstLetterLowCase()" name="@name" class="form-control" type="@type" placeholder="@placeholder" value="@value">
+        }
+    </div>
+    <img src="~/Images/shadow-300.png" class="btn-shadow"/>
+}
+
+@helper RenderEditAndLabelFocused(string caption, string name, string type = null, string placeholder = null)
+{
+if (placeholder == null)
+{
+    placeholder = caption;
+}
+
+<div class="input-group">
+    <span class="input-group-addon">@caption</span>
+    @if (string.IsNullOrEmpty(type))
+    {
+        <input id="@name.FirstLetterLowCase()" name="@name" class="form-control setCursor" placeholder="@placeholder">
+    }
+    else
+    {
+        <input id="@name.FirstLetterLowCase()" name="@name" class="form-control setCursor" type="@type" placeholder="@placeholder">
+    }
+</div>    <img src="~/Images/shadow-300.png" class="btn-shadow" />
+}
+
+
+@helper RanderActionButton(string iconType, string caption, string url, string formId)
+{
+    <div style="text-align: right; margin-top: 20px">
+        <button class="btn btn-success" style="min-width: 150px;" onclick="requests.doRequest({ url: '@url', formId: '@formId' });"><span class="glyphicon glyphicon-@iconType hideOnRequest" aria-hidden="true"></span><img src="~/Images/processing.gif" class="showOnRequest"/> @caption</button>
+    </div>
+    <img src="~/Images/shadow-300.png" class="btn-shadow" style="margin-right: 0; width: 150px;" />
+}
+
+
+@helper RanderOkCancelAction(string caption, string url, string formId, string cancelUrl, string cancelDiv)
+{
+    <div style="text-align: right; margin-top: 20px">
+        <div class="btn-group">
+            <button class="btn btn-success" style="min-width: 150px;" onclick="requests.doRequest({ url: '@url', formId: '@formId' });"><span class="glyphicon glyphicon-ok hideOnRequest" aria-hidden="true"></span><img src="~/Images/processing.gif" class="showOnRequest"/> @caption</button>
+            <button class="btn btn-default" style="min-width: 150px;" onclick="requests.doRequest({ url: '@cancelUrl', divResult: '@cancelDiv', showLoading: true });"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>@Phrases.Cancel</button>
+        </div>
+    </div>
+    <img src="~/Images/shadow-300.png" class="btn-shadow" style="margin-right:0" />
+}
+
+
+@helper RenderOkCancelDialog(string caption, string url, string formId)
+{
+    <div style="text-align: right; margin-top: 20px;">
+        <div class="btn-group">
+            <button class="btn btn-success" style="min-width: 150px;" onclick="requests.doRequest({ url: '@url', formId: '@formId' });"><span class="glyphicon glyphicon-ok hideOnRequest" aria-hidden="true"></span><img src="~/Images/processing.gif" class="showOnRequest" /> @caption</button>
+            <button class="btn btn-default" style="min-width: 150px;" onclick="ui.hideDialog();"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>@Phrases.Cancel</button>
+        </div>
+    </div>
+    <img src="~/Images/shadow-300.png" class="btn-shadow" style="margin-right: 0"/>
+    <div style="height: 20px;">
+        
+    </div>
+}

@@ -1,0 +1,57 @@
+﻿@using LykkeMarketPlace.Strings
+@model LykkeMarketPlace.Models.OrdersIndexViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutDialog.cshtml";
+    ViewBag.Title = Phrases.Orders;
+    ViewBag.Width = "95%";
+    ViewBag.Height = "95%";
+
+    var activeChecked = Model.OrdersRequestSettings.ActiveChecked ? "checked=\"checked\"" : "";
+    var doneChecked = Model.OrdersRequestSettings.DoneChecked ? "checked=\"checked\"" : "";
+    var canceldChecked = Model.OrdersRequestSettings.CanceledChecked ? "checked=\"checked\"" : "";
+
+
+}
+@section HeaderData
+{
+    <form id="frmOrdersCondition">
+        <table style="margin: auto">
+            <tr>
+                <td>
+                    <input name="Active" type="checkbox" @activeChecked onchange="getOrders()"/>
+                </td>
+                <td>
+                    @Phrases.ActiveOrders
+                </td>
+                <td style="padding-left: 20px;">
+                    <input name="Done" type="checkbox" @doneChecked onchange="getOrders()"/>
+                </td>
+                <td>
+                    @Phrases.DoneOrders
+                </td>
+                <td style="padding-left: 20px;">
+                    <input name="Canceled" type="checkbox" @canceldChecked  onchange="getOrders()"/>
+                </td>
+                <td>
+                    @Phrases.CanceldOrders
+                </td>
+                <td style="padding-left: 20px;">
+                    <a class="btn btn-primary" onclick="getOrders()">@Phrases.Request</a>
+                </td>
+            </tr>
+        </table>        
+    </form>
+    
+}
+
+
+<div id="orderData" style="height: 92%; padding: 0 10px; overflow: auto;">
+    <script>
+        function getOrders()
+        {
+            requests.doRequest({ url: '@Url.Action("Get")', divResult: '#orderData', formId:'#frmOrdersCondition', showLoading: true });
+        }
+
+        getOrders();
+    </script>
+</div>

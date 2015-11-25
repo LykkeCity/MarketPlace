@@ -1,0 +1,76 @@
+﻿@using Core.Assets
+@using Core.Orders
+@using LykkeMarketPlace.Services
+@using LykkeMarketPlace.Strings
+@model LykkeMarketPlace.Models.GetOrdersViewModel
+
+@{
+    Layout = null;
+}
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            @Phrases.Registered
+        </th>
+        <th>
+            @Phrases.Currency
+        </th>
+        <th>
+            @Phrases.Instrument
+        </th>
+        <th>
+            @Phrases.Action
+        </th>
+        <th>
+            @Phrases.Rate
+        </th>
+        <th>
+            @Phrases.Volume
+        </th>
+        <th>
+            @Phrases.Status
+        </th>
+    </tr>
+
+    @foreach (var order in Model.Orders.Where(o => o is LimitOrder).Cast<LimitOrder>().Where(o => Model.AssetPairs.ContainsKey(o.Asset)))
+    {
+        var asset = Model.AssetPairs[order.Asset];
+
+        var color = order.Status == OrderStatus.Registered ? "color:black;" :
+            order.Status == OrderStatus.Canceled ? "color:red" : "color:green";
+                    
+
+        <tr style="@color">
+            <td>
+                @order.Id
+            </td>
+            <td>
+                @order.Registered
+            </td>
+            <td>
+                <img src="~/Images/Currencies/@(order.BaseCurrency).png" style="height: 24px;"/> @order.BaseCurrency
+            </td>
+            <td>
+                <img src="~/Images/Currencies/@(asset.BaseAssetId).png" style="height: 24px;" /><img src="~/Images/Currencies/@(asset.QuotingAssetId).png" style="height: 24px;" /> @order.Asset
+            </td>
+            <td>
+                @order.Action
+            </td>
+            <td>
+                @order.Price.RateToString(asset)
+            </td>
+            <td>
+                @order.Volume.MoneyToStr() / @order.Exchanged.MoneyToStr()
+            </td>
+            <td>
+                @order.Status
+            </td>
+        </tr>
+  
+    }
+
+</table>

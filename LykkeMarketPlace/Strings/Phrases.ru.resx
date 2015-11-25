@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Action" xml:space="preserve">
+    <value>Действие</value>
+  </data>
+  <data name="ActiveOrders" xml:space="preserve">
+    <value>Активные ордера</value>
+  </data>
+  <data name="AllCurrencies" xml:space="preserve">
+    <value>Все валюты</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="CanceldOrders" xml:space="preserve">
+    <value>Отмененные ордера</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Валюта</value>
+  </data>
+  <data name="Deposit" xml:space="preserve">
+    <value>Депозит</value>
+  </data>
+  <data name="DoneOrders" xml:space="preserve">
+    <value>Исполненные ордера</value>
+  </data>
+  <data name="DoNotHaveAnAccount" xml:space="preserve">
+    <value>Нет учетной записи? Регистрация здесь...</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Электронная почта</value>
+  </data>
+  <data name="FieldShouldNotBeEmpty" xml:space="preserve">
+    <value>Поле не должно быть пустым</value>
+  </data>
+  <data name="Instrument" xml:space="preserve">
+    <value>Инструмент</value>
+  </data>
+  <data name="InvalidAmountFormat" xml:space="preserve">
+    <value>Неверный формат числа</value>
+  </data>
+  <data name="InvalidCommand" xml:space="preserve">
+    <value>Недопустимая команда</value>
+  </data>
+  <data name="InvalidRateFormat" xml:space="preserve">
+    <value>Неверный формат курса</value>
+  </data>
+  <data name="InvalidUsernameOrPassword" xml:space="preserve">
+    <value>Неверное имя пользователя или пароль</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Выход</value>
+  </data>
+  <data name="MoneyAmount" xml:space="preserve">
+    <value>Сумма</value>
+  </data>
+  <data name="NotEnoughLiquidityToPerformOperation" xml:space="preserve">
+    <value>Не хватает ликвидности для выполнения операции</value>
+  </data>
+  <data name="OrderHasBeenRegistered" xml:space="preserve">
+    <value>Ордер зарегистрирован</value>
+  </data>
+  <data name="Orders" xml:space="preserve">
+    <value>Ордера</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="PasswordAgain" xml:space="preserve">
+    <value>Пароль еще раз</value>
+  </data>
+  <data name="PasswordDoesNotMatch" xml:space="preserve">
+    <value>Пароли не совпадают</value>
+  </data>
+  <data name="PleaseTypeEmailHere" xml:space="preserve">
+    <value>Пожалуйста введите электронный адрес</value>
+  </data>
+  <data name="Rate" xml:space="preserve">
+    <value>Курс</value>
+  </data>
+  <data name="Registered" xml:space="preserve">
+    <value>Зарегистрировано</value>
+  </data>
+  <data name="Request" xml:space="preserve">
+    <value>Запрос</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Параметры</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Состояние</value>
+  </data>
+  <data name="UserWithEmalExists" xml:space="preserve">
+    <value>Пользователь с таким же Email уже зарегистрирован</value>
+  </data>
+  <data name="Volume" xml:space="preserve">
+    <value>Объем</value>
+  </data>
+</root>

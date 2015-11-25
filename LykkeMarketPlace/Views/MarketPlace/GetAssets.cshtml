@@ -1,0 +1,128 @@
+﻿@using LykkeMarketPlace.Strings
+@model LykkeMarketPlace.Models.GetAssetsViewModel
+
+
+<div style="text-align: center; padding: 20px;">
+    @foreach (var instr in Model.AssetPairs)
+    {
+
+        var cur = instr.BaseAssetId == Model.Asset ? instr.QuotingAssetId : instr.BaseAssetId;
+
+        <table style="display: inline-block;">
+            <tr>
+                <td>
+                    <img src="~/Images/bg_box-shadow-left-300.png" class="panel-shdw" style="height: 180px"/>
+                </td>
+                <td>
+
+                    <div class="asset-panel">
+                        <div class="asset-panel-heading">
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td style="text-align: left;">
+                                        <div style="margin-top: -12px; margin-bottom: -12px;">
+
+                                            <img src="~/Images/Currencies/@(instr.BaseAssetId).png" class="asset-icon"/>
+                                            <img src="~/Images/Currencies/@(instr.QuotingAssetId).png" class="asset-icon" style="margin-left: -20px;"/>
+                                        </div>
+
+                                    </td>
+
+                                    <td style="text-align: center;">
+                                        <b>@instr.BaseAssetId/@instr.QuotingAssetId</b>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+
+
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="width: 50%">
+
+                                    <div style="padding: 10px;">
+
+                                        <div class="input-group">
+                                            <span class="input-group-addon">@Model.Asset</span>
+                                            <input id="volume@(cur)" type="number" class="form-control" placeholder="@Phrases.Volume">
+                                        </div>
+
+                                    </div>
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary" style="width: 110px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.43);" onclick="lk.marketOrder('@cur', 'sell')">
+                                            <div>Sell Market</div>
+                                            <div id="bid@(instr.Id)">---</div>
+
+                                        </button>
+                                        <button class="btn btn-danger" style="width: 110px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.43);" onclick="lk.marketOrder('@cur', 'buy')">
+                                            <div>Buy Market</div>
+                                            <div id="ask@(instr.Id)">---</div>
+                                        </button>
+                                    </div>
+                                    <div style="padding: 10px 10px 5px 10px;" class="top-order">
+                                        <div class="input-group">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-primary" type="button" onclick="lk.limitOrder('@cur', 'sell')">Sell Limit Order</button>
+                                            </span>
+                                            <input id="slr@(cur)" type="text" class="form-control" placeholder="Rate"/>
+                                        </div><!-- /input-group -->
+                                    </div>
+
+
+                                    <div style="padding: 5px 10px 0 10px;">
+                                        <div class="input-group">
+                                            <input id="blr@(cur)" type="text" class="form-control" placeholder="Rate"/>
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-danger" type="button" onclick="lk.limitOrder('@cur', 'buy')">Buy Limit Order</button>
+                                            </span>
+                                        </div><!-- /input-group -->
+                                    </div>
+
+                                    <hr/>
+
+                                    <div style="padding: 5px 10px 0 10px;">
+                                        <div class="input-group">
+
+                                            <input id="lobid@(cur)" type="text" class="form-control" placeholder="BID"/>
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-success" type="button" style="border-radius: 0;" onclick="lk.limitOrder('@cur')">Order</button>
+                                            </span>
+                                            <input id="loask@(cur)" type="text" class="form-control" placeholder="ASK"/>
+                                        </div><!-- /input-group -->
+                                    </div>
+                                </td>
+                                <td style="width: 50%">
+                                    <div id="orderBook@(instr.Id)" class="order-book">
+
+                                    </div>
+
+                                </td>
+                            </tr>
+                        </table>
+
+
+
+
+                    </div>
+
+                </td>
+                <td>
+                    <img src="~/Images/bg_box-shadow-right-300.png" class="panel-shdw" style="height: 180px"/>
+                </td>
+
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <img src="~/Images/shadow-in-250.png" class="btn-shadow"/>
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+
+
+
+<script>
+    lk.setCurrentCurrency('@Model.Asset');
+</script>

@@ -1,0 +1,29 @@
+﻿@using LykkeMarketPlace.Strings
+@model LykkeMarketPlace.Areas.Settings.Models.MockDepositIndexViewModel
+
+@{
+    Layout = null;
+
+
+}
+
+<div style="width: 500px; margin: 50px auto;">
+    <form id="frmMockDeposit">
+        @HelpersUi.RenderEditAndLabel(Phrases.MoneyAmount, "Amount", "number", "10000")
+
+        
+        <div class="input-group">
+
+            <span class="input-group-addon">@Phrases.Currency</span>
+            <select id="currency" name="Currency" class="form-control">
+                @foreach (var asset in Model.Assets)
+                {
+                    <option value="@asset.Id">@asset.Name</option>
+                }
+            </select>
+        </div>
+
+    </form>
+
+    @HelpersUi.RenderOkCancelDialog(Phrases.Deposit, Url.Action("MockDeposit"), "#frmMockDeposit")
+</div>

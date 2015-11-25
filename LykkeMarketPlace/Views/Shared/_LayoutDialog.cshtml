@@ -1,0 +1,35 @@
+﻿
+@{
+    var style = "";
+    if (ViewBag.Width != null)
+    {
+        style += "width:" + ViewBag.Width + ";";
+    }
+
+    if (ViewBag.Height != null)
+    {
+        style += "height:" + ViewBag.Height + ";";
+    }
+
+}
+
+<div class="dialog-panel" style="@style" onclick="event.stopPropagation()">
+    <table style="width: 100%;">
+        <tr>
+            <td style="text-align: left; padding-left: 20px;">
+                @if (ViewBag.Title != null)
+                {
+                    <h2 style="color: navy; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.24);">@ViewBag.Title</h2>
+                }
+            </td>
+            <td>
+                @RenderSection("HeaderData", false)
+            </td>
+            <td style="text-align: right;">
+                <button class="btn btn-transparent" onclick="ui.hideDialog();"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
+            </td>
+        </tr>
+    </table>
+    @RenderBody()
+</div>
+

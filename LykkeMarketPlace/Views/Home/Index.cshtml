@@ -1,0 +1,31 @@
+﻿@using LykkeMarketPlace.Strings
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="text-align: center;">
+    <div style="margin-top: 100px;">
+        <img src="~/Images/logo-black.png"/>
+        <span style="font-size: 48px;">Marketplace</span>
+    </div>
+
+
+    <div id="entranceContent">
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            <script>
+                requests.doRequest({ url: '@Url.Action("Index","MarketPlace")', divResult: 'body', showLoading: true });
+            </script>
+        }
+        else
+        {
+            <script>
+                requests.doRequest({ url: '@Url.Action("SignInDialog")', divResult: '#entranceContent', showLoading: true });
+            </script>
+        }
+
+    </div>
+
+
+
+</div>

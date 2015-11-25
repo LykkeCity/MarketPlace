@@ -1,0 +1,131 @@
+﻿@model LykkeMarketPlace.Models.MarketPlaceIndexViewModel
+@using LykkeMarketPlace.Services
+@using LykkeMarketPlace.Strings
+@{
+    Layout = null;
+}
+@Scripts.Render(BundleConfig.Lk)
+<script src="~/Scripts/jquery.signalR-2.2.0.min.js" type="text/javascript"></script>
+<script src="~/signalr/hubs"></script>
+
+<div class="sideBar" data-autoheight="0">
+    <div class="sideBarLogo">
+        <img src="~/Images/logo-white.png"/>
+        <span style="font-size: 9px;">Marketplace</span>
+    </div>
+
+    @foreach (var cb in Model.CurrencyBalances)
+    {
+        <div id="mnu@(cb.Id)" class="sideBarItem" onclick="selectAsset('@cb.Id')">
+            <table>
+                <tr>
+                    <td style="width: 62px;">
+                        <img class="curIcon" src="~/Images/Currencies/@(cb.Id).png"/>
+                    </td>
+                    <td class="sideBarDescription">
+                        <div><b>@(Model.Assets.ContainsKey(cb.Id) ? Model.Assets[cb.Id].Name : cb.Id)</b>
+                        </div>
+                        <div style="color: white;">@(cb.Id): <span id="amount@(cb.Id)">@cb.Value.MoneyToStr()</span></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    }
+
+    @*<div id="mnuALL" class="sideBarItem"  onclick="selectAsset('ALL')">
+        <table>
+            <tr>
+                <td style="width: 62px;">
+                    <img class="curIcon" src="~/Images/Currencies/all.png" />
+                </td>
+                <td class="sideBarDescription">
+                    <div>
+                        <b>@Phrases.AllCurrencies</b>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>*@
+
+    <div class="sideBarItem" onclick="ui.showDialog('@Url.Action("Index","Orders")');">
+        <table>
+            <tr>
+                <td style="width: 62px;">
+                    <img class="curIcon" src="~/Images/Orders.png" />
+                </td>
+                <td class="sideBarDescription">
+                    <div>
+                        <b>@Phrases.Orders</b>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="sideBarItem" onclick="ui.showDialog('@Url.Action("Index","Dialog", new {area="Settings"})');">
+        <table>
+            <tr>
+                <td style="width: 62px;">
+                    <img class="curIcon" src="~/Images/Settings.png"/>
+                </td>
+                <td class="sideBarDescription">
+                    <div>
+                        <b>@Phrases.Settings</b>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div class="sideBarItem">
+        <a href="@Url.Action("Logout", "Home")" style="color: #c8c8c8; text-decoration: none;">
+            <table>
+                <tr>
+                    <td style="width: 62px;">
+                        <img class="curIcon" src="~/Images/logout.png"/>
+                    </td>
+                    <td class="sideBarDescription">
+                        <div>
+                            <b>@Phrases.Logout</b>
+                        </div>
+                        <div style="color: white;">@Model.Trader.Email</div>
+                    </td>
+                </tr>
+            </table>
+        </a>
+    </div>
+</div>
+<div id="content">
+
+</div>
+<div id="modalBackground" onclick="ui.hideDialog();">
+    <table style="width: 100%; height: 100%">
+        <tr>
+            <td id="modalData">
+
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<script>
+    var lk = new LkMarket($.connection.lkHub);
+    lk.start();
+
+    var currentAsset = undefined;
+
+    function selectAsset(id) {
+        if (currentAsset != undefined) {
+            $('#mnu' + currentAsset).removeClass('active');
+        }
+
+        currentAsset = id;
+        requests.doRequest({url:'@Url.Action("GetAssets")', params:{asset:id}, divResult:'#content', showLoading:true});
+        $('#mnu' + currentAsset).addClass('active');
+
+    }
+
+
+</script>
