@@ -17,7 +17,7 @@ namespace AzureRepositories
     public static class AzureRepoBinder
     {
 
-        public static void BindAzureRepositories(IoC ioc, string connString, ILog log)
+        public static void BindAzureRepositories(this IoC ioc, string connString, ILog log)
         {
             ioc.Register<ITradersRepository>(
                 AzureRepoFactories.CreateTradersRepository(connString, log));
@@ -41,11 +41,14 @@ namespace AzureRepositories
             ioc.Register<IAssetPairsRepository>(
                 AzureRepoFactories.Dictionaries.CreateAssetPairsRepository(connString, log));
 
+            ioc.Register<IBrowserSessionsRepository>(
+                AzureRepoFactories.CreateBrowserSessionsRepository(connString, log));
+
         }
 
 
 
-        public static void BindAzureReposInMem(IoC ioc)
+        public static void BindAzureReposInMem(this IoC ioc)
         {
             ioc.Register<ITradersRepository>(
                 new TradersRepository(new NoSqlTableInMemory<TraderEntity>(), new NoSqlTableInMemory<AzureIndex>()));
@@ -62,7 +65,6 @@ namespace AzureRepositories
             ioc.Register<ITraderSettingsRepository>(
                 new TraderSettingsRepository(new NoSqlTableInMemory<TraderSettingsEntity>()));
 
-
             var assetsRepositry = new AssetsRepository(new NoSqlTableInMemory<AssetEntity>());
             assetsRepositry.PopulateAssets();
             ioc.Register<IAssetsRepository>(assetsRepositry);
@@ -70,6 +72,9 @@ namespace AzureRepositories
             var assetPairsRepository = new AssetPairsRepository(new NoSqlTableInMemory<AssetPairEntity>());
             assetPairsRepository.PopulateAssetPairsRepository();
             ioc.Register<IAssetPairsRepository>(assetPairsRepository);
+
+            ioc.Register<IBrowserSessionsRepository>(
+                new BrowserSessionsRepository(new NoSqlTableInMemory<BrowserSessionEntity>()));
         }
 
 

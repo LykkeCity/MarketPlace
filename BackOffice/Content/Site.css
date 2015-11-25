@@ -1,24 +1,209 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿.showOnRequest {
+    display: none;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+
+    .btn-inverse.active {
+  color: rgba(255, 255, 255, 0.75);
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+.btn-inverse {
+    color: #fff;
+    -ms-text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+    text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+    background-color: #363636;
+    background-image: -moz-linear-gradient(top,#444,#222);
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#444),to(#222));
+    background-image: -webkit-linear-gradient(top,#444,#222);
+    background-image: -o-linear-gradient(top,#444,#222);
+    background-image: linear-gradient(to bottom,#444,#222);
+    background-repeat: repeat-x;
+    border-color: #222 #222 #000;
+    border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff444444',endColorstr='#ff222222',GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff',endColorstr='#ffe6e6e6',GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2),0 1px 2px rgba(0,0,0,.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2),0 1px 2px rgba(0,0,0,.05);
+    -ms-box-shadow: inset 0 1px 0 rgba(255,255,255,.2),0 1px 2px rgba(0,0,0,.05);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.2),0 1px 2px rgba(0,0,0,.05);
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.btn-inverse:hover,
+.btn-inverse:focus,
+.btn-inverse:active,
+.btn-inverse.active,
+.btn-inverse.disabled,
+.btn-inverse[disabled] {
+  color: #ffffff;
+  background-color: #222222;
+  *background-color: #151515;
+}
+
+.btn-inverse:active,
+.btn-inverse.active {
+  background-color: #080808;
+}
+
+
+.paFrame {
+        background: white; border: none;display: block; 
+}
+
+.reportIcon {
+    height: 24px;
+}
+
+.checkoutCover {
+    margin: auto;
+}
+
+#paTreeView {
+width: 265px;
+float: left;
+}
+
+.treeNode {
+    cursor: pointer;
+    padding-top: 3px;
+    padding-bottom: 3px;
+
+}
+
+
+.crmCard {
+    display: inline-block;
+    width: 300px;
+    height: 155px;
+    border-radius: 5px;
+    border: solid 1px lightgray;
+    box-shadow: 0 0 5px lightgray;
+    margin: 5px;
+    text-align: left;
+    vertical-align: top;
+    padding: 5px;
+}
+
+.crmCard .details {
+  margin-top: 5px;
+        
+}
+
+.crmCard .actions {
+    position: relative;
+    left: 218px;
+    top: -144px;
+}
+
+.crmCard .actions .btn {
+    width: 76px;
+}
+
+.bannerPreview {
+    padding: 7px;
+margin: 5px 5px 0 5px;
+ border: 1px solid #ddd; 
+ padding-bottom: 5px; 
+background: #fff;
+line-height: 1.4em;
+font-size: 12px;
+-moz-box-shadow: 1px 1px 4px #cccccc;
+-webkit-box-shadow: 1px 1px 4px #cccccc;
+    -ms-box-shadow: 1px 1px 4px #ccc;
+    box-shadow: 1px 1px 4px #ccc;
+    cursor: pointer;
+}
+
+.bannerSelected {
+    background: yellow;    
+}
+
+.multiSelect {
+    
+}
+
+.multiSelect-list {
+    width: 100%;
+    height: 200px !important;
+    background: white;
+    border: solid 1px gray;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.multiSelect-item {
+    
+}
+
+
+.listElenemt {
+border: gray solid 1px;
+padding: 2px;
+border-radius: 5px;
+
+}
+
+.listElementSelected {
+    background: purple;
+    color: white;
+    font-weight: bold;
+}
+
+.dialog-header {
+    color: rgb(82, 101, 162);
+    font-size: 24px;
+    font-weight: normal;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    letter-spacing: 1.20000004768372px;
+}
+
+.active {
+    background-color: rgba(255,255,255,.1);
+}
+
+.layout-column {
+   display: inline-block; 
+   vertical-align: top;
+}
+
+.list-item {
+        padding: 6px 0;
+    border-bottom: 1px solid lightgray;
+    cursor: pointer;
+}
+
+.list .active{
+    background: steelblue;
+    color: white;
+}
+
+.clmn-10 {
+    width:9%
+}
+.clmn-20 {
+    width:19%
+}
+.clmn-30 {
+    width:29%
+}
+.clmn-40 {
+    width:39%
+}
+.clmn-50 {
+    width:49%
+}
+.clmn-60 {
+    width:59%
+}
+.clmn-70 {
+    width:69%
+}
+.clmn-80 {
+    width:79%
+}
+.clmn-90 {
+    width:89%
 }

@@ -44,6 +44,12 @@ namespace AzureRepositories
         }
 
 
+        public static BrowserSessionsRepository CreateBrowserSessionsRepository(string connString, ILog log)
+        {
+            return new BrowserSessionsRepository(new AzureTableStorage<BrowserSessionEntity>(connString, "BrowserSessions", log));
+        }
+
+
         private const string TableNameDictionaries = "Dictionaries";
         public static class Dictionaries
         {
@@ -60,6 +66,9 @@ namespace AzureRepositories
                 return new AssetPairsRepository(new AzureTableStorage<AssetPairEntity>(connString, TableNameDictionaries, log));
             }
         }
+
+
+
 
     }
 }

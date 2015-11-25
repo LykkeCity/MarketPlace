@@ -71,6 +71,7 @@
     <Compile Include="Assets\AssetPairsRepository.cs" />
     <Compile Include="Assets\AssetsRepository.cs" />
     <Compile Include="AzureRepoFactories.cs" />
+    <Compile Include="BrowserSessionsRepository.cs" />
     <Compile Include="Finance\BalanceRepository.cs" />
     <Compile Include="IdentityGenerator.cs" />
     <Compile Include="Orders\OrdersRepository.cs" />

@@ -1,0 +1,31 @@
+﻿@using BackOffice.Translates
+@model string
+
+@{
+    Layout = null;
+}
+
+<div style="text-align: center;">
+    
+    <div class="checkout" style="width:555px; margin-top: 20px;">
+        <h2 style="margin-bottom: 20px;">@Phrases.PleaseTypeYourNewPassword</h2>
+        <form id="frmMyPswd">
+            <div class="input-group">
+                <span class="input-group-addon">@Phrases.NewPassword:</span>
+                <input id="pswd" type="password" name="newPassword" class="form-control setCursor" placeholder="@Phrases.NewPassword" />
+            </div>
+
+
+            <div class="input-group">
+                <span class="input-group-addon">@Phrases.Confirmation:</span>
+                <input id="pswdConf" type="password" name="passwordConfirmation" class="form-control" placeholder="@Phrases.Confirmation" />
+            </div>
+
+        </form>
+        <button id="btnChangePassword" class="btn btn-success" 
+                onclick="Requests.doRequest({url:'@Url.Action("ChangeMyPassword")', formId:'#frmMyPswd'})">
+            <span class="hideOnRequest glyphicon glyphicon-pencil"></span>
+            <img class="showOnRequest" src="~/Images/processing.gif" style="display: none" /> @Phrases.ChangeTheAccessPassword
+        </button>
+    </div>
+</div>

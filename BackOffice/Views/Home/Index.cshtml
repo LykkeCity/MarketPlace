@@ -1,31 +1,71 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model BackOffice.Models.IndexPageModel
+@using BackOffice.Translates
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var usernameFocus = "";
+    var passwordFocus = "";
+    var userName = "";
+
+    if (Model.BrowserSession == null)
+    {
+        usernameFocus = "autofocus";
+    }
+    else
+    if (string.IsNullOrEmpty(Model.BrowserSession.UserName))
+    {
+        usernameFocus = "autofocus";
+
+    }
+    else
+    {
+        userName = Model.BrowserSession.UserName;
+        passwordFocus = "autofocus";
+    }
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<div style="text-align: center; margin-top: 100px;">
+    <img src="~/Images/door_open.png" />
+</div>
+<
+
+<div class="panel panel-default" style="width: 500px; margin: 50px auto">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">@Phrases.SignIn</h3>
+    </div>
+    <div class="panel-body" style="text-align: right;">
+        <form id="frmLogin">
+            <div class="input-group" style="width: 100%">
+                <span class="input-group-addon">@Phrases.UserName</span>
+                <input id="username" name="Username" type="text" class="form-control" placeholder="@Phrases.UserName" value="@userName" @usernameFocus>
+            </div>
+
+            <div class="input-group" style="width: 100%">
+                <span class="input-group-addon">@Phrases.Password</span>
+                <input id="password" name="Password" type="password" class="form-control" placeholder="@Phrases.Password" @passwordFocus>
+            </div>
+        </form>
+
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: left;">
+                    <a href="@Url.Action("Index", "Home", new {LangId="EN" })" style="padding: 5px"><img src="~/Images/flags/gb.png" /></a>
+                    <a href="@Url.Action("Index", "Home", new {LangId="RU" })" style="padding: 5px"><img src="~/Images/flags/ru.png" /></a>
+                </td>
+                <td style="text-align: right;">
+                    <button class="btn btn-success" onclick="signIn()"><span class="glyphicon glyphicon-log-in hideOnRequest" aria-hidden="true"></span><img src="~/Images/processing.gif" class="showOnRequest" /> @Phrases.SignIn</button>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+
+<script>
+    function signIn() {
+        Requests.doRequest({ url: '@Url.Action("Authenticate")', formId: '#frmLogin' });
+    }
+</script>
+

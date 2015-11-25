@@ -1,0 +1,64 @@
+﻿@using BackOffice.Translates
+
+@{
+    Layout = "~/Views/Shared/_Layout.mobile.cshtml";
+
+    var usernameFocus = "";
+    var passwordFocus = "";
+    var userName = "";
+
+    if (Model.BrowserSession == null)
+    {
+        usernameFocus = "autofocus";
+    }
+    else
+    if (string.IsNullOrEmpty(Model.BrowserSession.UserName))
+    {
+        usernameFocus = "autofocus";
+
+    }
+    else
+    {
+        userName = Model.BrowserSession.UserName;
+        passwordFocus = "autofocus";
+    }
+}
+<div class="container">
+    <div style="text-align: center; margin-top: 10px;">
+        <img src="~/Images/door_open.png" />
+    </div>
+
+    <form id="frmLogin">
+
+        <div class="form-group">
+            <label class="control-label" for="username">@Phrases.UserName</label>
+            <input id="username" name="Username" type="text" class="form-control input-lg" placeholder="@Phrases.UserName" value="@userName" @usernameFocus>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label" for="password">@Phrases.Password</label>
+            <input id="password" name="Password" type="password" class="form-control input-lg" placeholder="@Phrases.Password" @passwordFocus>
+        </div>
+
+    </form>
+
+    <table style="width: 100%;">
+        <tr>
+            <td style="text-align: left;">
+                <a href="@Url.Action("Index", "Home", new {LangId = "EN"})" style="padding: 5px"><img src="~/Images/Langs/En.png" style="width: 32px;" /></a>
+                <a href="@Url.Action("Index", "Home", new {LangId = "RU"})" style="padding: 5px"><img src="~/Images/Langs/RU.png" style="width: 32px;" /></a>
+            </td>
+            <td style="text-align: right;">
+                <button class="btn btn-success btn-raised" onclick="signIn()">
+                    <span class="glyphicon glyphicon-log-in hideOnRequest" aria-hidden="true"></span><img src="~/Images/processing.gif" class="showOnRequest" /> @Phrases.SignIn
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
+<script>
+    function signIn() {
+        Requests.doRequest({ url: '@Url.Action("Authenticate")', formId: '#frmLogin' });
+    }
+</script>

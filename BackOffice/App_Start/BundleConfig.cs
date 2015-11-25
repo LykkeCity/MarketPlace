@@ -1,31 +1,80 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
-namespace BackOffice
+namespace BackEnd
 {
-    public class BundleConfig
+    public  class BundleConfig
     {
+        public const string BasicScripts = "~/Content/BasicScripts";
+        public const string BackOfficeScripts = "~/Content/BackOfficeScripts";
+        public const string BackOfficeMobileScripts = "~/Content/BackOfficeMobileScripts";
+
+        public const string BackOfficeCss = "~/Content/SpaCss";
+
+
+        public const string MobileScripts = "~/Content/MobileScripts";
+        public const string MobileCss = "~/Content/MobileCss";
+
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+            bundles.Add(new ScriptBundle(BasicScripts).Include(
+                        "~/Scripts/jquery-{version}.js"
+                                        ));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
+            bundles.Add(new ScriptBundle(BackOfficeScripts).Include(
+                        "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/bootstrap.js",
+                        "~/Scripts/date.js",
+                        "~/Scripts/UI.js",
+                        "~/Scripts/Requests.js",
+                        "~/Scripts/Backoffice.js",
+                        "~/Scripts/Layout.js",
+                        "~/Content/Scrollbar/jquery.mousewheel.js",
+                        "~/Content/Scrollbar/perfect-scrollbar.js",
+                        "~/Scripts/UiControls/GroupSelection.js",
+                        "~/Scripts/UiControls/MultiSelectWindow.js",
+                        "~/Scripts/WebSite.js"
 
-            // Use the development version of Modernizr to develop with and learn from. Then, when you're
-            // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
+                                        ));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
-
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+            bundles.Add(new StyleBundle(BackOfficeCss).Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      //"~/Content/bootstrap-theme.css",
+                                    "~/Content/material-fullpalette.css",
+                      "~/Content/Scrollbar/perfect-scrollbar.css",
+                      "~/Content/site.css",
+                      "~/Content/Other.css",
+                      "~/Content/SideMenu.css",
+                      "~/Content/monthpicker.css",
+                      "~/Content/Countries.css"
+                      ));
+
+
+
+            bundles.Add(new ScriptBundle(MobileScripts).Include(
+                        "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/bootstrap.js",
+                          "~/Scripts/UiMobile.js",
+                        "~/Scripts/Requests.js",
+                        "~/Scripts/Backoffice.js",
+                        "~/Scripts/Layout.js",
+                        "~/Scripts/UiControls/GroupSelection.js",
+                        "~/Scripts/UiControls/MultiSelectWindow.js",
+                        "~/Scripts/WebSite.js"
+                        ));
+
+
+            bundles.Add(new StyleBundle(MobileCss).Include(
+                "~/Content/bootstrap.css",
+
+                "~/Content/material-fullpalette.css",
+                "~/Content/mobile.css",
+                "~/Content/Countries.css"
+                ));
+
+
+
         }
+
     }
 }

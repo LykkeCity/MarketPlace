@@ -53,6 +53,8 @@
     <Compile Include="Finance\IBalanceRepository.cs" />
     <Compile Include="Finance\SrvBalanceAccess.cs" />
     <Compile Include="GlobalSettings.cs" />
+    <Compile Include="IBackOfficeUsersRepository.cs" />
+    <Compile Include="IBrowserSessionsRepository.cs" />
     <Compile Include="IIdentityGenerator.cs" />
     <Compile Include="Orders\IOrderExecuter.cs" />
     <Compile Include="Orders\IOrderFlowFeedConsumer.cs" />

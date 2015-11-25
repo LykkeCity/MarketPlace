@@ -1,0 +1,22 @@
+﻿@model BackOffice.Models.IPersonalAreaDialog
+@{
+    Layout = null;
+}
+<div onclick="event.stopPropagation()">
+    @if (!string.IsNullOrEmpty(Model.Caption))
+    {
+        <table style="width: 100%">
+            <tr>
+                <td>
+                    <h1 class="dialog-header">
+                        @Model.Caption
+                    </h1>
+                </td>
+                <td style="text-align: right; vertical-align: top;">
+                    <div class="btn" style="font-size: 15px;width: 26px;margin-top: -10px;margin-right: -10px;color: white;text-shadow: 0 0px 2px black;" onclick="ui.hideDialog()"><span class="glyphicon glyphicon-remove"></span></div>
+                </td>
+            </tr>
+        </table>
+    }
+    @RenderBody()
+</div>
