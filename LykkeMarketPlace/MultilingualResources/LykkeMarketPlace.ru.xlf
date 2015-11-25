@@ -143,6 +143,10 @@
           <source>Volume</source>
           <target state="final">Объем</target>
         </trans-unit>
+        <trans-unit id="Save" translate="yes" xml:space="preserve">
+          <source>Save</source>
+          <target state="new">Save</target>
+        </trans-unit>
       </group>
     </body>
   </file>

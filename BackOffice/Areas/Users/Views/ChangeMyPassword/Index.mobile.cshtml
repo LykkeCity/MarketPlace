@@ -1,28 +1,29 @@
-﻿
+﻿@using BackOffice.Translates
+
 @{
     ViewBag.Title = "ChangeMyPasswordmobile";
 }
 <div class="container">
 
-    <h4 style="margin-bottom: 20px;">@Model.Translation.PleaseProvideYourNewPassword</h4>
+    <h4 style="margin-bottom: 20px;">@Phrases.PleaseTypeYourNewPassword</h4>
     <form id="frmMyPswd">
         <div class="form-group">
-            <label class="control-label">@Model.Translation.NewPassword:</label>
-            <input id="pswd" type="password" name="newPassword" class="form-control setCursor input-lg" placeholder="@Model.Translation.NewPassword" />
+            <label class="control-label">@Phrases.NewPassword:</label>
+            <input id="pswd" type="password" name="newPassword" class="form-control setCursor input-lg" placeholder="@Phrases.NewPassword" />
         </div>
 
 
         <div class="form-group">
-            <label class="control-label">@Model.Translation.Confirmation:</label>
-            <input id="pswdConf" type="password" name="passwordConfirmation" class="form-control input-lg" placeholder="@Model.Translation.Confirmation" />
+            <label class="control-label">@Phrases.Confirmation:</label>
+            <input id="pswdConf" type="password" name="passwordConfirmation" class="form-control input-lg" placeholder="@Phrases.Confirmation" />
         </div>
 
     </form>
 
     <button id="btnChangePassword" class="btn btn-success btn-raised" style="width:100%"
-            onclick="Requests.doRequest({Url:'@Url.Action("ChangeMyPasswordExecute")', FormId:'#frmMyPswd'})">
+            onclick="Requests.doRequest({url:'@Url.Action("ChangeMyPassword")', formId:'#frmMyPswd'})">
         <span class="hideOnRequest glyphicon glyphicon-pencil"></span>
-        <img class="showOnRequest" src="~/Images/processing.gif" style="display: none" /> @Model.Translation.ChangeTheAccessPassword
+        <img class="showOnRequest" src="~/Images/processing.gif" style="display: none" /> @Phrases.ChangeTheAccessPassword
     </button>
 </div>
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using Common;
@@ -21,7 +22,8 @@ namespace BackOfficeAzureRepositories.Users
         }
 
         public string Id => RowKey;
-        public bool IsAdmn { get; set; }
+        public string FullName { get; set; }
+        public bool IsAdmin { get; set; }
         public string Hash { get; set; }
         public string Salt { get; set; }
 
@@ -32,7 +34,8 @@ namespace BackOfficeAzureRepositories.Users
             {
                 PartitionKey = GeneratePartitionKey(),
                 RowKey = GenerateRowKey(src.Id),
-                IsAdmn = src.IsAdmn
+                IsAdmin = src.IsAdmin,
+                FullName = src.FullName
 
             };
 
@@ -79,8 +82,7 @@ namespace BackOfficeAzureRepositories.Users
             _tableStorage = tableStorage;
         }
 
-
-        public Task CreateAsync(IBackOfficeUser backOfficeUser, string password)
+        public Task SaveAsync(IBackOfficeUser backOfficeUser, string password)
         {
             var newUser = BackOfficeUserEntity.Create(backOfficeUser, password);
             return _tableStorage.InsertOrReplaceAsync(newUser);
@@ -104,6 +106,17 @@ namespace BackOfficeAzureRepositories.Users
             return entity.CheckPassword(password) ? entity : null;
         }
 
+        public async Task<IBackOfficeUser> GetAsync(string id)
+        {
+            if (id == null)
+                return null;
+
+            var partitionKey = BackOfficeUserEntity.GeneratePartitionKey();
+            var rowKey = BackOfficeUserEntity.GenerateRowKey(id);
+
+            return await _tableStorage.GetDataAsync(partitionKey, rowKey);
+        }
+
         public async Task<bool> UserExists(string id)
         {
             var partitionKey = BackOfficeUserEntity.GeneratePartitionKey();
@@ -122,6 +135,12 @@ namespace BackOfficeAzureRepositories.Users
                 itm.SetPassword(newPassword);
                 return itm;
             });
+        }
+
+        public async Task<IEnumerable<IBackOfficeUser>> GetAllAsync()
+        {
+            var partitionKey = BackOfficeUserEntity.GeneratePartitionKey();
+            return await _tableStorage.GetDataAsync(partitionKey);
         }
     }
 }

@@ -43,7 +43,7 @@ namespace BackOffice
 
             if (!adminUser)
 
-                usersRepo.CreateAsync(BackOfficeUser.CreateDefaultAdminUser("admin"), "123").Wait();
+                usersRepo.SaveAsync(BackOfficeUser.CreateDefaultAdminUser("admin"), "123").Wait();
         }
 
         public static IDependencyResolver CreateDepencencyResolver()

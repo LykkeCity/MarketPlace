@@ -1,0 +1,48 @@
+﻿@using BackOffice.Translates
+@model BackOffice.Areas.Users.Models.EditUserDialogViewModel
+
+@{
+    Layout = "~/Views/Shared/_PersonalAreaDialog.cshtml";
+
+}
+
+<form id="frmEditUser">
+
+    @if (string.IsNullOrEmpty(Model.User.Id))
+    {
+        <div class="form-group">
+            <label class="control-label">Login:</label>
+            <input id="id" name="Id" class="form-control setCursor input-lg" placeholder="Login" value="@Model.User.Id"/>
+        </div>
+
+        <input name="Create" value="1" type="hidden"/>
+    }
+    else
+    {
+        <input name="Id" value="@Model.User.Id" type="hidden"/>
+    }
+
+    <div class="form-group">
+        <label class="control-label">@Phrases.FullName:</label>
+        <input id="fullName" name="FullName" class="form-control input-lg" placeholder="@Phrases.FullName" value="@Model.User.FullName"/>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">@Phrases.Password:</label>
+        <input id="password" name="Password" class="form-control input-lg" placeholder="@Phrases.Password"/>
+    </div>
+
+    @if (Model.User.IsAdmin)
+    {
+        <input type="checkbox" name="IsAdmin" checked="checked"/>
+    }
+    else
+    {
+        <input type="checkbox" name="IsAdmin"/>
+    }<span>Admin</span>
+
+
+</form>
+
+@HelpersUi.RenderSaveCancelButtonPair(Url.Action("EditUser"), "#frmEditUser")
+

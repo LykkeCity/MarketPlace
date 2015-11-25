@@ -1,0 +1,54 @@
+﻿@using System.Web.Mvc
+@using BackOffice.Translates
+@using Common
+
+
+
+
+@helper RenderSaveCancelButtonPair(string url, string formId, string savePhrase = null)
+{<div style="text-align: center;">
+        <div class="btn-group" style="margin-top: 10px;">
+            <button class="btn btn-success" style="width: 150px" onclick="Requests.doRequest({ url: '@url', formId: '@formId', showLoading: true });"><span class="glyphicon glyphicon-floppy-disk hideOnRequest" aria-hidden="true"></span><img class="showOnRequest" src="~/Images/processing.gif" style="display: none" /> @(savePhrase ?? Phrases.Save)</button>
+            <button class="btn btn-default" style="width: 150px" onclick="ui.hideDialog()"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> @Phrases.Cancel</button>
+        </div>
+    </div>
+}
+
+@helper RenderSaveCancelButtonMobilePair(string url, string formId, string savePhrase = null)
+{
+    <div style="text-align: right; margin-top: 20px;">
+            <button class="btn btn-flat btn-primary" onclick="Requests.doRequest({ url: '@url', formId: '@formId', showLoading: true });"><span class="glyphicon glyphicon-floppy-disk hideOnRequest" aria-hidden="true"></span><img class="showOnRequest" src="~/Images/processing.gif" style="display: none" /> @(savePhrase ?? Phrases.Save)</button>
+            <button class="btn btn-flat btn-primary" onclick="ui.hideDialog()"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> @Phrases.Cancel</button>
+    </div>
+}
+
+@helper RenderOkDialogButton()
+{
+    <button class="btn btn-success" style="width: 300px; margin-top: 20px;" onclick="ui.hideDialog()"><span class="glyphicon glyphicon-ok-sign hideOnRequest" aria-hidden="true"></span> OK</button>
+}
+
+@helper RenderInputWithLabelOnTop(string name, string caption, string value=null, string placeHolder = null, string type = null)
+{
+   var typeAttr = MvcHtmlString.Create(type == null ? string.Empty : "type=\"" + type + "\"");
+   var valueAttr = MvcHtmlString.Create(value == null ? string.Empty : "value=\"" + value + "\"");
+   var placeHolderAttr = MvcHtmlString.Create(placeHolder == null ? string.Empty : "placeholder=\"" + placeHolder + "\"");
+   var id = name.FirstLetterLowCase();
+
+    <div class="form-group">
+        <label class="control-label" for="@id">@caption</label>
+        <input id="@id" @typeAttr @valueAttr name="@name" class="form-control input-lg" @placeHolderAttr />
+    </div>
+}
+
+@helper RenderInputWithLabelOnTopFocused(string name, string caption, string value = null, string placeHolder = null, string type = null)
+{
+var typeAttr = MvcHtmlString.Create(type == null ? string.Empty : "type=\"" + type + "\"");
+var valueAttr = MvcHtmlString.Create(value == null ? string.Empty : "value=\"" + value + "\"");
+var placeHolderAttr = MvcHtmlString.Create(placeHolder == null ? string.Empty : "placeholder=\"" + placeHolder + "\"");
+var id = name.FirstLetterLowCase();
+
+    <div class="form-group">
+        <label class="control-label" for="@id">@caption</label>
+        <input id="@id" @typeAttr @valueAttr name="@name" class="form-control input-lg setCursor" @placeHolderAttr />
+    </div>
+}
