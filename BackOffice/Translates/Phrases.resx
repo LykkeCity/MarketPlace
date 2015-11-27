@@ -139,16 +139,13 @@
     <value>Change my password</value>
   </data>
   <data name="ChangeTheAccessPassword" xml:space="preserve">
-    <value>Change the access password</value>
+    <value>Change access password</value>
   </data>
   <data name="Confirmation" xml:space="preserve">
     <value>Confirmation</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>Create</value>
-  </data>
-  <data name="d" xml:space="preserve">
-    <value>Accuracy</value>
   </data>
   <data name="DictionaryAssetPairs" xml:space="preserve">
     <value>Dictionary Asset Pairs</value>
@@ -187,7 +184,7 @@
     <value>Passwords do not match</value>
   </data>
   <data name="PleaseTypeAccuracy" xml:space="preserve">
-    <value>Pleace, type accuracy</value>
+    <value>Please, type accuracy</value>
   </data>
   <data name="PleaseTypeYourNewPassword" xml:space="preserve">
     <value>Please, type your new password</value>

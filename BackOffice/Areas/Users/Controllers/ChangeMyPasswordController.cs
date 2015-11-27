@@ -28,13 +28,13 @@ namespace BackOffice.Areas.Users.Controllers
         {
 
             if (string.IsNullOrEmpty(model.NewPassword))
-                return this.JsonFailResult(Phrases.FieldShouldNotBeEmpty, "#pswd");
+                return this.JsonFailResult(Phrases.FieldShouldNotBeEmpty, "#newPassword");
 
             if (string.IsNullOrEmpty(model.PasswordConfirmation))
-                return this.JsonFailResult(Phrases.FieldShouldNotBeEmpty, "#pswdConf");
+                return this.JsonFailResult(Phrases.FieldShouldNotBeEmpty, "#passwordConfirmation");
 
             if (model.NewPassword != model.PasswordConfirmation)
-                return this.JsonFailResult(Phrases.PasswordsDoNotMatch, "#pswdConf");
+                return this.JsonFailResult(Phrases.PasswordsDoNotMatch, "#passwordConfirmation");
 
             var id = this.GetUserId();
             await _backOfficeUsersRepository.ChangePasswordAsync(id, model.NewPassword);

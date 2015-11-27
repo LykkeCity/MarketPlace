@@ -8,127 +8,123 @@
       <group id="BACKOFFICE/TRANSLATES/PHRASES.RESX" datatype="resx">
         <trans-unit id="ChangeMyPassword" translate="yes" xml:space="preserve">
           <source>Change my password</source>
-          <target state="new">Change my password</target>
+          <target state="final" state-qualifier="tm-suggestion">Изменить пароль</target>
         </trans-unit>
         <trans-unit id="ChangeTheAccessPassword" translate="yes" xml:space="preserve">
-          <source>Change the access password</source>
-          <target state="new">Change the access password</target>
+          <source>Change access password</source>
+          <target state="final">Изменение пароля доступа</target>
         </trans-unit>
         <trans-unit id="Confirmation" translate="yes" xml:space="preserve">
           <source>Confirmation</source>
-          <target state="new">Confirmation</target>
+          <target state="final" state-qualifier="tm-suggestion">Подтверждение</target>
         </trans-unit>
         <trans-unit id="FieldShouldNotBeEmpty" translate="yes" xml:space="preserve">
           <source>Field should not be empty</source>
-          <target state="new">Field should not be empty</target>
+          <target state="final" state-qualifier="mt-suggestion">Поле не должно быть пустым</target>
         </trans-unit>
         <trans-unit id="InvalidUsernameOrPassword" translate="yes" xml:space="preserve">
           <source>Invalid username or password</source>
-          <target state="new">Invalid username or password</target>
+          <target state="final" state-qualifier="mt-suggestion">Неверное имя пользователя или пароль</target>
         </trans-unit>
         <trans-unit id="NewPassword" translate="yes" xml:space="preserve">
           <source>New password</source>
-          <target state="new">New password</target>
+          <target state="final" state-qualifier="mt-suggestion">Новый пароль</target>
         </trans-unit>
         <trans-unit id="Password" translate="yes" xml:space="preserve">
           <source>Password</source>
-          <target state="new">Password</target>
+          <target state="final" state-qualifier="mt-suggestion">Пароль</target>
         </trans-unit>
         <trans-unit id="PasswordIsNowChanged" translate="yes" xml:space="preserve">
           <source>Password is now changed</source>
-          <target state="new">Password is now changed</target>
+          <target state="final">Пароль изменен</target>
         </trans-unit>
         <trans-unit id="PasswordsDoNotMatch" translate="yes" xml:space="preserve">
           <source>Passwords do not match</source>
-          <target state="new">Passwords do not match</target>
+          <target state="final" state-qualifier="tm-suggestion">Несовпадение паролей</target>
         </trans-unit>
         <trans-unit id="PleaseTypeYourNewPassword" translate="yes" xml:space="preserve">
           <source>Please, type your new password</source>
-          <target state="new">Please, type your new password</target>
+          <target state="final">Пожалуйста введите Ваш новый пароль</target>
         </trans-unit>
         <trans-unit id="SignIn" translate="yes" xml:space="preserve">
           <source>Sign In</source>
-          <target state="new">Sign In</target>
+          <target state="final" state-qualifier="tm-suggestion">Вход</target>
         </trans-unit>
         <trans-unit id="UserName" translate="yes" xml:space="preserve">
           <source>Username</source>
-          <target state="new">Username</target>
+          <target state="final" state-qualifier="tm-suggestion">Пользователь</target>
         </trans-unit>
         <trans-unit id="Users" translate="yes" xml:space="preserve">
           <source>Users</source>
-          <target state="new">Users</target>
+          <target state="final">Пользователи</target>
         </trans-unit>
         <trans-unit id="FullName" translate="yes" xml:space="preserve">
           <source>Full Name</source>
-          <target state="new">Full Name</target>
+          <target state="final">Фамилия Имя</target>
         </trans-unit>
         <trans-unit id="Create" translate="yes" xml:space="preserve">
           <source>Create</source>
-          <target state="new">Create</target>
+          <target state="final">Создать</target>
         </trans-unit>
         <trans-unit id="EditUser" translate="yes" xml:space="preserve">
           <source>Edit user</source>
-          <target state="new">Edit user</target>
+          <target state="final" state-qualifier="tm-suggestion">Изменить пользователя</target>
         </trans-unit>
         <trans-unit id="UserExists" translate="yes" xml:space="preserve">
           <source>User Exists</source>
-          <target state="new">User Exists</target>
+          <target state="final">Пользователь существует</target>
         </trans-unit>
         <trans-unit id="Cancel" translate="yes" xml:space="preserve">
           <source>Cancel</source>
-          <target state="new">Cancel</target>
+          <target state="final" state-qualifier="tm-suggestion">Отмена</target>
         </trans-unit>
         <trans-unit id="Save" translate="yes" xml:space="preserve">
           <source>Save</source>
-          <target state="new">Save</target>
+          <target state="final">Сохранить</target>
         </trans-unit>
         <trans-unit id="DictionaryAssetPairs" translate="yes" xml:space="preserve">
           <source>Dictionary Asset Pairs</source>
-          <target state="new">Dictionary Asset Pairs</target>
+          <target state="final">Справочник валютных пар</target>
         </trans-unit>
         <trans-unit id="DictionaryAssets" translate="yes" xml:space="preserve">
           <source>Dictionary Assets</source>
-          <target state="new">Dictionary Assets</target>
+          <target state="final">Справочник валют</target>
         </trans-unit>
         <trans-unit id="AssetName" translate="yes" xml:space="preserve">
           <source>Asset name</source>
-          <target state="new">Asset name</target>
+          <target state="final">Название</target>
         </trans-unit>
         <trans-unit id="Accuracy" translate="yes" xml:space="preserve">
           <source>Accuracy</source>
-          <target state="new">Accuracy</target>
+          <target state="final">Точность</target>
         </trans-unit>
         <trans-unit id="BaseAsset" translate="yes" xml:space="preserve">
           <source>Base Asset</source>
-          <target state="new">Base Asset</target>
+          <target state="final">Базовая валюта</target>
         </trans-unit>
         <trans-unit id="QuotingAsset" translate="yes" xml:space="preserve">
           <source>Quoting Asset</source>
-          <target state="new">Quoting Asset</target>
+          <target state="final">Котируемая валюта</target>
         </trans-unit>
         <trans-unit id="EditAsset" translate="yes" xml:space="preserve">
           <source>Edit asset</source>
-          <target state="new">Edit asset</target>
+          <target state="final">Редактировать валюту</target>
         </trans-unit>
         <trans-unit id="AssetPairWithSameIdExists" translate="yes" xml:space="preserve">
           <source>Assetpair with the same Id exists</source>
-          <target state="new">Assetpair with the same Id exists</target>
-        </trans-unit>
-        <trans-unit id="d" translate="yes" xml:space="preserve">
-          <source>Accuracy</source>
-          <target state="new">Accuracy</target>
+          <target state="final">Валютная пара с таким ID существует</target>
         </trans-unit>
         <trans-unit id="EditAssetPair" translate="yes" xml:space="preserve">
           <source>Edit asset pair</source>
-          <target state="new">Edit asset pair</target>
+          <target state="final">Редактирование валютной пары</target>
         </trans-unit>
         <trans-unit id="PleaseTypeAccuracy" translate="yes" xml:space="preserve">
-          <source>Pleace, type accuracy</source>
-          <target state="new">Pleace, type accuracy</target>
+          <source>Please, type accuracy</source>
+          <target state="final">Пожалуйста, введите точность</target>
         </trans-unit>
         <trans-unit id="AssetWithSameIdExists" translate="yes" xml:space="preserve">
           <source>Asset with the same Id exists</source>
-          <target state="new">Asset with the same Id exists</target>
+          <target state="final">Валюта с таким Id уже сущаствует</target>
         </trans-unit>
       </group>
     </body>

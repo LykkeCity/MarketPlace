@@ -12,4 +12,94 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ChangeMyPassword" xml:space="preserve">
+    <value>Изменить пароль</value>
+  </data>
+  <data name="ChangeTheAccessPassword" xml:space="preserve">
+    <value>Изменение пароля доступа</value>
+  </data>
+  <data name="Confirmation" xml:space="preserve">
+    <value>Подтверждение</value>
+  </data>
+  <data name="FieldShouldNotBeEmpty" xml:space="preserve">
+    <value>Поле не должно быть пустым</value>
+  </data>
+  <data name="InvalidUsernameOrPassword" xml:space="preserve">
+    <value>Неверное имя пользователя или пароль</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Новый пароль</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="PasswordIsNowChanged" xml:space="preserve">
+    <value>Пароль изменен</value>
+  </data>
+  <data name="PasswordsDoNotMatch" xml:space="preserve">
+    <value>Несовпадение паролей</value>
+  </data>
+  <data name="PleaseTypeYourNewPassword" xml:space="preserve">
+    <value>Пожалуйста введите Ваш новый пароль</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Вход</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Пользователь</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Пользователи</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Фамилия Имя</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Создать</value>
+  </data>
+  <data name="EditUser" xml:space="preserve">
+    <value>Изменить пользователя</value>
+  </data>
+  <data name="UserExists" xml:space="preserve">
+    <value>Пользователь существует</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="DictionaryAssetPairs" xml:space="preserve">
+    <value>Справочник валютных пар</value>
+  </data>
+  <data name="DictionaryAssets" xml:space="preserve">
+    <value>Справочник валют</value>
+  </data>
+  <data name="AssetName" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="Accuracy" xml:space="preserve">
+    <value>Точность</value>
+  </data>
+  <data name="BaseAsset" xml:space="preserve">
+    <value>Базовая валюта</value>
+  </data>
+  <data name="QuotingAsset" xml:space="preserve">
+    <value>Котируемая валюта</value>
+  </data>
+  <data name="EditAsset" xml:space="preserve">
+    <value>Редактировать валюту</value>
+  </data>
+  <data name="AssetPairWithSameIdExists" xml:space="preserve">
+    <value>Валютная пара с таким ID существует</value>
+  </data>
+  <data name="EditAssetPair" xml:space="preserve">
+    <value>Редактирование валютной пары</value>
+  </data>
+  <data name="PleaseTypeAccuracy" xml:space="preserve">
+    <value>Пожалуйста, введите точность</value>
+  </data>
+  <data name="AssetWithSameIdExists" xml:space="preserve">
+    <value>Валюта с таким Id уже сущаствует</value>
+  </data>
 </root>

@@ -124,7 +124,7 @@ namespace BackOffice.Translates {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Change the access password.
+        ///   Looks up a localized string similar to Change access password.
         /// </summary>
         public static string ChangeTheAccessPassword {
             get {
@@ -147,15 +147,6 @@ namespace BackOffice.Translates {
         public static string Create {
             get {
                 return ResourceManager.GetString("Create", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Accuracy.
-        /// </summary>
-        public static string d {
-            get {
-                return ResourceManager.GetString("d", resourceCulture);
             }
         }
         
@@ -268,7 +259,7 @@ namespace BackOffice.Translates {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pleace, type accuracy.
+        ///   Looks up a localized string similar to Please, type accuracy.
         /// </summary>
         public static string PleaseTypeAccuracy {
             get {
