@@ -1,0 +1,22 @@
+﻿@using BackOffice.Translates
+@model BackOffice.Areas.Dictionaries.Models.EditAssetDialogViewModel
+
+@{
+    Layout = "~/Views/Shared/_PersonalAreaDialog.cshtml";
+}
+
+<form id="frmEditAsset">
+
+
+    @HelpersUi.RenderInputWithLabelOnTopFocused("Id", "Id", Model.Asset.Id, "Id")
+    @if (!string.IsNullOrEmpty(Model.Asset.Id))
+    {
+        <input name="EditId" value="@Model.Asset.Id" type="hidden"/>
+    }
+
+    @HelpersUi.RenderInputWithLabelOnTop("Name", Phrases.AssetName, Model.Asset.Name, Phrases.AssetName)
+
+
+</form>
+
+@HelpersUi.RenderSaveCancelButtonPair(Url.Action("EditAsset"), "#frmEditAsset")

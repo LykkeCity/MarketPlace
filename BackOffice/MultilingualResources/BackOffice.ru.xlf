@@ -82,6 +82,34 @@
           <source>Save</source>
           <target state="new">Save</target>
         </trans-unit>
+        <trans-unit id="DictionaryAssetPairs" translate="yes" xml:space="preserve">
+          <source>DictionaryAssetPairs</source>
+          <target state="new">DictionaryAssetPairs</target>
+        </trans-unit>
+        <trans-unit id="DictionaryAssets" translate="yes" xml:space="preserve">
+          <source>Dictionary Assets</source>
+          <target state="new">Dictionary Assets</target>
+        </trans-unit>
+        <trans-unit id="AssetName" translate="yes" xml:space="preserve">
+          <source>Asset name</source>
+          <target state="new">Asset name</target>
+        </trans-unit>
+        <trans-unit id="Accuracy" translate="yes" xml:space="preserve">
+          <source>Accuracy</source>
+          <target state="new">Accuracy</target>
+        </trans-unit>
+        <trans-unit id="BaseAsset" translate="yes" xml:space="preserve">
+          <source>Base Asset</source>
+          <target state="new">Base Asset</target>
+        </trans-unit>
+        <trans-unit id="QuotingAsset" translate="yes" xml:space="preserve">
+          <source>Quoting Asset</source>
+          <target state="new">Quoting Asset</target>
+        </trans-unit>
+        <trans-unit id="EditAsset" translate="yes" xml:space="preserve">
+          <source>Edit asset</source>
+          <target state="new">Edit asset</target>
+        </trans-unit>
       </group>
     </body>
   </file>

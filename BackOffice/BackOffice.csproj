@@ -175,6 +175,11 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Dictionaries\Controllers\AssetPairsController.cs" />
+    <Compile Include="Areas\Dictionaries\Controllers\AssetsController.cs" />
+    <Compile Include="Areas\Dictionaries\DictionariesAreaRegistration.cs" />
+    <Compile Include="Areas\Dictionaries\Models\AssetPairsDictionariesModels.cs" />
+    <Compile Include="Areas\Dictionaries\Models\AssetsDictionariesModels.cs" />
     <Compile Include="Areas\Users\Controllers\ChangeMyPasswordController.cs" />
     <Compile Include="Areas\Users\Controllers\ManagementController.cs" />
     <Compile Include="Areas\Users\Models\ChangeMyPasswordModels.cs" />
@@ -264,6 +269,12 @@
     <Content Include="Areas\Users\Views\ChangeMyPassword\Index.mobile.cshtml" />
     <Content Include="Areas\Users\Views\Management\EditUserDialog.cshtml" />
     <Content Include="App_Code\HelpersUi.cshtml" />
+    <Content Include="Areas\Dictionaries\Views\web.config" />
+    <Content Include="Areas\Dictionaries\Views\Assets\Index.cshtml" />
+    <Content Include="Areas\Dictionaries\Views\AssetPairs\Index.cshtml" />
+    <Content Include="Areas\Dictionaries\Views\Assets\EditAssetDialog.cshtml" />
+    <None Include="Properties\PublishProfiles\Lke-BackOffice.pubxml" />
+    <None Include="Properties\PublishProfiles\lykke-backoffice.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
@@ -305,6 +316,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Dictionaries\Views\Shared\" />
     <Folder Include="Areas\Users\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>

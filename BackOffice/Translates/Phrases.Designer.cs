@@ -61,6 +61,33 @@ namespace BackOffice.Translates {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Accuracy.
+        /// </summary>
+        public static string Accuracy {
+            get {
+                return ResourceManager.GetString("Accuracy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Asset name.
+        /// </summary>
+        public static string AssetName {
+            get {
+                return ResourceManager.GetString("AssetName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Base Asset.
+        /// </summary>
+        public static string BaseAsset {
+            get {
+                return ResourceManager.GetString("BaseAsset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string Cancel {
@@ -102,6 +129,33 @@ namespace BackOffice.Translates {
         public static string Create {
             get {
                 return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DictionaryAssetPairs.
+        /// </summary>
+        public static string DictionaryAssetPairs {
+            get {
+                return ResourceManager.GetString("DictionaryAssetPairs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dictionary Assets.
+        /// </summary>
+        public static string DictionaryAssets {
+            get {
+                return ResourceManager.GetString("DictionaryAssets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit asset.
+        /// </summary>
+        public static string EditAsset {
+            get {
+                return ResourceManager.GetString("EditAsset", resourceCulture);
             }
         }
         
@@ -183,6 +237,15 @@ namespace BackOffice.Translates {
         public static string PleaseTypeYourNewPassword {
             get {
                 return ResourceManager.GetString("PleaseTypeYourNewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quoting Asset.
+        /// </summary>
+        public static string QuotingAsset {
+            get {
+                return ResourceManager.GetString("QuotingAsset", resourceCulture);
             }
         }
         

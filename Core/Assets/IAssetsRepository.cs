@@ -25,13 +25,24 @@ namespace Core.Assets
             };
         }
 
+        public static Asset CreateDefault()
+        {
+            return new Asset
+            {
+
+            };
+        }
+       
+
     }
     
 
     public interface IAssetsRepository
     {
         Task RegisterAssetAsync(IAsset asset);
+        Task EditAssetAsync(string id, IAsset asset);
         Task<IEnumerable<IAsset>> GetAssetsAsync();
+        Task<IAsset> GetAssetAsync(string id);
     }
 
 }

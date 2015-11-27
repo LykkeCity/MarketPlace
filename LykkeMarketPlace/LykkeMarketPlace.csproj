@@ -257,6 +257,7 @@
     <Content Include="Areas\Settings\Views\web.config" />
     <Content Include="Areas\Settings\Views\Dialog\Index.cshtml" />
     <Content Include="Areas\Settings\Views\MockDeposits\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\lykke-marketplace.pubxml" />
     <None Include="Properties\PublishProfiles\Lykke.pubxml" />
     <Content Include="Images\shadow-in-250.png" />
     <Content Include="Images\ShadowLeft.png" />
