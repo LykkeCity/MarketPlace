@@ -53,17 +53,17 @@ namespace BackOffice.Areas.Dictionaries.Controllers
             if (string.IsNullOrEmpty(model.Name))
                 return this.JsonFailResult(Phrases.FieldShouldNotBeEmpty, "#name");
 
+
+            if (string.IsNullOrEmpty(model.EditId) || model.EditId != model.Id)
+            {
+                if (await _assetsRepository.GetAssetAsync(model.Id) != null)
+                    return this.JsonFailResult(Phrases.AssetWithSameIdExists, "#id");
+            }
+
             if (string.IsNullOrEmpty(model.EditId))
                 await _assetsRepository.RegisterAssetAsync(model);
             else
-            {
-                if (model.Id == model.EditId)
-                    if (await _assetsRepository.GetAssetAsync(model.Id) != null)
-                        return this.JsonFailResult(Phrases.AssetWithSameIdExists, "#id");
-
                 await _assetsRepository.EditAssetAsync(model.EditId, model);
-            }
-
 
             return this.JsonRequestResult("#pamain", Url.Action("Index"));
         }

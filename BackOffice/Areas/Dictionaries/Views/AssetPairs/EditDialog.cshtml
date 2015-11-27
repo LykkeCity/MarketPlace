@@ -8,7 +8,7 @@
 <form id="frmEditAssetPair">
     @HelpersUi.RenderInputWithLabelOnTopFocused("Id", "Id", Model.AssetPair.Id, "Id")
 
-    @if (string.IsNullOrEmpty(Model.AssetPair.Id))
+    @if (!string.IsNullOrEmpty(Model.AssetPair.Id))
     {
         <input name="EditId" value="@Model.AssetPair.Id" type="hidden"/>
     }

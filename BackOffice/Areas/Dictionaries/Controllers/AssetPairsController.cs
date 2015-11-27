@@ -53,6 +53,12 @@ namespace BackOffice.Areas.Dictionaries.Controllers
             if (string.IsNullOrEmpty(model.Id))
                 return this.JsonFailResult(Phrases.FieldShouldNotBeEmpty, "#id");
 
+            if (string.IsNullOrEmpty(model.EditId) || model.EditId != model.Id)
+            {
+                if (await _assetPairsRepository.GetAsync(model.Id) != null)
+                    return this.JsonFailResult(Phrases.AssetPairWithSameIdExists, "#id");
+            }
+
             if (string.IsNullOrEmpty(model.BaseAssetId))
                 return this.JsonFailResult(Phrases.FieldShouldNotBeEmpty, "#baseAssetId");
 
@@ -66,19 +72,11 @@ namespace BackOffice.Areas.Dictionaries.Controllers
             if (string.IsNullOrEmpty(model.EditId))
                 await _assetPairsRepository.AddAsync(model);
             else
-            {
-                if (model.EditId != model.Id)
-                    if (await _assetPairsRepository.GetAsync(model.Id) != null)
-                        return this.JsonFailResult(Phrases.AssetPairWithSameIdExists, "#id");
-
                 await _assetPairsRepository.EditAsync(model.EditId, model);
-            }
 
             return this.JsonRequestResult(WebSiteConstants.PersonalAreaDiv, Url.Action("Index"));
-
         }
 
-
-
     }
+
 }
