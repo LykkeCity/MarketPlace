@@ -83,8 +83,8 @@
           <target state="new">Save</target>
         </trans-unit>
         <trans-unit id="DictionaryAssetPairs" translate="yes" xml:space="preserve">
-          <source>DictionaryAssetPairs</source>
-          <target state="new">DictionaryAssetPairs</target>
+          <source>Dictionary Asset Pairs</source>
+          <target state="new">Dictionary Asset Pairs</target>
         </trans-unit>
         <trans-unit id="DictionaryAssets" translate="yes" xml:space="preserve">
           <source>Dictionary Assets</source>
@@ -109,6 +109,26 @@
         <trans-unit id="EditAsset" translate="yes" xml:space="preserve">
           <source>Edit asset</source>
           <target state="new">Edit asset</target>
+        </trans-unit>
+        <trans-unit id="AssetPairWithSameIdExists" translate="yes" xml:space="preserve">
+          <source>Assetpair with the same Id exists</source>
+          <target state="new">Assetpair with the same Id exists</target>
+        </trans-unit>
+        <trans-unit id="d" translate="yes" xml:space="preserve">
+          <source>Accuracy</source>
+          <target state="new">Accuracy</target>
+        </trans-unit>
+        <trans-unit id="EditAssetPair" translate="yes" xml:space="preserve">
+          <source>Edit asset pair</source>
+          <target state="new">Edit asset pair</target>
+        </trans-unit>
+        <trans-unit id="PleaseTypeAccuracy" translate="yes" xml:space="preserve">
+          <source>Pleace, type accuracy</source>
+          <target state="new">Pleace, type accuracy</target>
+        </trans-unit>
+        <trans-unit id="AssetWithSameIdExists" translate="yes" xml:space="preserve">
+          <source>Asset with the same Id exists</source>
+          <target state="new">Asset with the same Id exists</target>
         </trans-unit>
       </group>
     </body>

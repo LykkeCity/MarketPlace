@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
+﻿using System.Threading.Tasks;
 using System.Web.Mvc;
 using BackOffice.Areas.Dictionaries.Models;
 using BackOffice.Controllers;
@@ -60,7 +56,14 @@ namespace BackOffice.Areas.Dictionaries.Controllers
             if (string.IsNullOrEmpty(model.EditId))
                 await _assetsRepository.RegisterAssetAsync(model);
             else
+            {
+                if (model.Id == model.EditId)
+                    if (await _assetsRepository.GetAssetAsync(model.Id) != null)
+                        return this.JsonFailResult(Phrases.AssetWithSameIdExists, "#id");
+
                 await _assetsRepository.EditAssetAsync(model.EditId, model);
+            }
+
 
             return this.JsonRequestResult("#pamain", Url.Action("Index"));
         }

@@ -52,3 +52,25 @@ var id = name.FirstLetterLowCase();
         <input id="@id" @typeAttr @valueAttr name="@name" class="form-control input-lg setCursor" @placeHolderAttr />
     </div>
 }
+
+@helper RenderSelect(string name, string caption, IEnumerable<string> ids,  Func<string,string> getValue = null, string currentId = null)
+{
+   var id = name.FirstLetterLowCase();
+   <div class="form-group">
+       <label class="control-label" for="@id">@caption</label>
+       <select id="@id" name="@name" class="form-control input-lg">
+           @foreach (var selectedId in ids)
+           {
+               var optionValue = getValue == null ? selectedId : getValue(selectedId);
+               if (currentId == selectedId)
+               {
+                   <option value="@selectedId" selected="selected">@optionValue</option>
+               }
+               else
+               {
+                <option value="@selectedId">@optionValue</option>
+               }
+           }
+       </select>
+   </div>
+}

@@ -195,7 +195,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Startup.cs" />
+    <Compile Include="Areas\Startup.cs" />
     <Compile Include="Translates\Phrases.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -273,6 +273,7 @@
     <Content Include="Areas\Dictionaries\Views\Assets\Index.cshtml" />
     <Content Include="Areas\Dictionaries\Views\AssetPairs\Index.cshtml" />
     <Content Include="Areas\Dictionaries\Views\Assets\EditAssetDialog.cshtml" />
+    <Content Include="Areas\Dictionaries\Views\AssetPairs\EditDialog.cshtml" />
     <None Include="Properties\PublishProfiles\Lke-BackOffice.pubxml" />
     <None Include="Properties\PublishProfiles\lykke-backoffice.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
@@ -366,6 +367,7 @@
     <EmbeddedResource Include="Translates\Phrases.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Phrases.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Translates\Phrases.ru.resx" />
   </ItemGroup>

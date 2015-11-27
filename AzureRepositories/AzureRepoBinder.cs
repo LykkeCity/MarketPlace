@@ -93,7 +93,7 @@ namespace AzureRepositories
 
         private static void PopulateAssetPairsRepository(this IAssetPairsRepository assetsRepository)
         {
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "AUDNZD",
                 BaseAssetId = "AUD",
@@ -104,7 +104,7 @@ namespace AzureRepositories
 
 
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "AUDCAD",
                 BaseAssetId = "AUD",
@@ -112,7 +112,7 @@ namespace AzureRepositories
                 Accuracy = 5
             });
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "AUDCHF",
                 BaseAssetId = "AUD",
@@ -120,7 +120,7 @@ namespace AzureRepositories
                 Accuracy = 5
             });
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "AUDJPY",
                 BaseAssetId = "AUD",
@@ -129,7 +129,7 @@ namespace AzureRepositories
             });
 
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "AUDUSD",
                 BaseAssetId = "AUD",
@@ -138,7 +138,7 @@ namespace AzureRepositories
             });
 
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "CADCHF",
                 BaseAssetId = "CAD",
@@ -146,7 +146,7 @@ namespace AzureRepositories
                 Accuracy = 5
             });
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "CADJPY",
                 BaseAssetId = "CAD",
@@ -155,7 +155,7 @@ namespace AzureRepositories
             });
 
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "CHFJPY",
                 BaseAssetId = "CHF",
@@ -164,7 +164,7 @@ namespace AzureRepositories
             });
 
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "EURAUD",
                 BaseAssetId = "EUR",
@@ -172,7 +172,7 @@ namespace AzureRepositories
                 Accuracy = 5
             });
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "EURCAD",
                 BaseAssetId = "EUR",
@@ -180,7 +180,7 @@ namespace AzureRepositories
                 Accuracy = 5
             });
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "EURCHF",
                 BaseAssetId = "EUR",
@@ -188,7 +188,7 @@ namespace AzureRepositories
                 Accuracy = 5
             });
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "EURGBP",
                 BaseAssetId = "EUR",
@@ -196,7 +196,7 @@ namespace AzureRepositories
                 Accuracy = 5
             });
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "EURJPY",
                 BaseAssetId = "EUR",
@@ -204,7 +204,7 @@ namespace AzureRepositories
                 Accuracy = 3
             });
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "EURNZD",
                 BaseAssetId = "EUR",
@@ -212,7 +212,7 @@ namespace AzureRepositories
                 Accuracy = 5
             });
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "EURUSD",
                 BaseAssetId = "EUR",
@@ -221,7 +221,7 @@ namespace AzureRepositories
             });
 
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "GBPAUD",
                 BaseAssetId = "GBP",
@@ -229,7 +229,7 @@ namespace AzureRepositories
                 Accuracy = 5
             });
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "GBPCAD",
                 BaseAssetId = "GBP",
@@ -237,7 +237,7 @@ namespace AzureRepositories
                 Accuracy = 5
             });
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "GBPCHF",
                 BaseAssetId = "GBP",
@@ -245,7 +245,7 @@ namespace AzureRepositories
                 Accuracy = 5
             });
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "GBPJPY",
                 BaseAssetId = "GBP",
@@ -253,7 +253,7 @@ namespace AzureRepositories
                 Accuracy = 3
             });
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "GBPNZD",
                 BaseAssetId = "GBP",
@@ -261,7 +261,7 @@ namespace AzureRepositories
                 Accuracy = 5
             });
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "GBPUSD",
                 BaseAssetId = "GBP",
@@ -270,7 +270,7 @@ namespace AzureRepositories
             });
 
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "NZDCAD",
                 BaseAssetId = "NZD",
@@ -278,7 +278,7 @@ namespace AzureRepositories
                 Accuracy = 5
             });
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "NZDCHF",
                 BaseAssetId = "NZD",
@@ -286,7 +286,7 @@ namespace AzureRepositories
                 Accuracy = 5
             });
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "NZDJPY",
                 BaseAssetId = "NZD",
@@ -294,7 +294,7 @@ namespace AzureRepositories
                 Accuracy = 3
             });
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "NZDUSD",
                 BaseAssetId = "NZD",
@@ -303,7 +303,7 @@ namespace AzureRepositories
             });
 
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "USDCAD",
                 BaseAssetId = "USD",
@@ -311,7 +311,7 @@ namespace AzureRepositories
                 Accuracy = 5
             });
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "USDCHF",
                 BaseAssetId = "USD",
@@ -319,7 +319,7 @@ namespace AzureRepositories
                 Accuracy = 5
             });
 
-            assetsRepository.SaveAsync(new AssetPair
+            assetsRepository.AddAsync(new AssetPair
             {
                 Id = "USDJPY",
                 BaseAssetId = "USD",

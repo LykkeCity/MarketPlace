@@ -20,12 +20,25 @@ namespace Core.Assets
         public string BaseAssetId { get; set; }
         public string QuotingAssetId { get; set; }
         public int Accuracy { get; set; }
+
+
+        public static AssetPair CreateDefault()
+        {
+            return new AssetPair
+            {
+                Accuracy = 5
+            };
+        }
+
     }
 
     public interface IAssetPairsRepository
     {
         Task<IEnumerable<IAssetPair>> GetAllAsync();
-        Task SaveAsync(IAssetPair assetPair);
+        Task<IAssetPair> GetAsync(string id);
+        Task AddAsync(IAssetPair assetPair);
+        Task EditAsync(string id, IAssetPair assetPair);
+
     }
 
 

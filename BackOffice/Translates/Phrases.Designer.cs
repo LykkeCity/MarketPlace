@@ -79,6 +79,24 @@ namespace BackOffice.Translates {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Assetpair with the same Id exists.
+        /// </summary>
+        public static string AssetPairWithSameIdExists {
+            get {
+                return ResourceManager.GetString("AssetPairWithSameIdExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Asset with the same Id exists.
+        /// </summary>
+        public static string AssetWithSameIdExists {
+            get {
+                return ResourceManager.GetString("AssetWithSameIdExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Base Asset.
         /// </summary>
         public static string BaseAsset {
@@ -133,7 +151,16 @@ namespace BackOffice.Translates {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DictionaryAssetPairs.
+        ///   Looks up a localized string similar to Accuracy.
+        /// </summary>
+        public static string d {
+            get {
+                return ResourceManager.GetString("d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dictionary Asset Pairs.
         /// </summary>
         public static string DictionaryAssetPairs {
             get {
@@ -156,6 +183,15 @@ namespace BackOffice.Translates {
         public static string EditAsset {
             get {
                 return ResourceManager.GetString("EditAsset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit asset pair.
+        /// </summary>
+        public static string EditAssetPair {
+            get {
+                return ResourceManager.GetString("EditAssetPair", resourceCulture);
             }
         }
         
@@ -228,6 +264,15 @@ namespace BackOffice.Translates {
         public static string PasswordsDoNotMatch {
             get {
                 return ResourceManager.GetString("PasswordsDoNotMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pleace, type accuracy.
+        /// </summary>
+        public static string PleaseTypeAccuracy {
+            get {
+                return ResourceManager.GetString("PleaseTypeAccuracy", resourceCulture);
             }
         }
         
