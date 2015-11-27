@@ -18,7 +18,7 @@ namespace BackOfficeAzureRepositories.Users
 
         public static string GenerateRowKey(string id)
         {
-            return id;
+            return id.ToLower();
         }
 
         public string Id => RowKey;

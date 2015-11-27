@@ -33,12 +33,6 @@ namespace LykkeMarketPlace.Controllers
             if (langId != null)
                 this.SetLanguage(langId);
 
-#if DEBUG
-#else
-            if (Request.Url.Scheme == "http")
-                return Redirect("https://" + Request.Url.Authority);
-#endif
-
             return View();
         }
 

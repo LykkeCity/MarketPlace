@@ -175,6 +175,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\Startup.Localization.cs" />
     <Compile Include="Areas\Dictionaries\Controllers\AssetPairsController.cs" />
     <Compile Include="Areas\Dictionaries\Controllers\AssetsController.cs" />
     <Compile Include="Areas\Dictionaries\DictionariesAreaRegistration.cs" />
@@ -195,7 +196,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Areas\Startup.cs" />
+    <Compile Include="Startup.cs" />
     <Compile Include="Translates\Phrases.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
