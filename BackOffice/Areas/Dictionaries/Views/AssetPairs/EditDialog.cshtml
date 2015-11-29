@@ -17,7 +17,7 @@
 
     @HelpersUi.RenderSelect("QuotingAssetId", Phrases.BaseAsset, Model.Assets.Keys, id => "[" + id + "] " + Model.Assets[id].Name, Model.AssetPair.QuotingAssetId)
 
-    @HelpersUi.RenderInputWithLabelOnTop(Phrases.Accuracy, "Accuracy", Model.AssetPair.Accuracy.ToString(), Phrases.Accuracy)
+    @HelpersUi.RenderInputWithLabelOnTop("Accuracy", Phrases.Accuracy, Model.AssetPair.Accuracy.ToString(), Phrases.Accuracy)
 </form>
 
 @HelpersUi.RenderSaveCancelButtonPair(Url.Action("Edit"), "#frmEditAssetPair")

@@ -3,12 +3,12 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using AzureStorage.Tables.Templates;
 using Common;
-using Core.Traders;
+using Core.Clients;
 using Microsoft.WindowsAzure.Storage.Table;
 
 namespace AzureRepositories.Traders
 {
-    public class TraderEntity : TableEntity, ITrader
+    public class ClientAccountEntity : TableEntity, IClientAccount
     {
         public static string GeneratePartitionKey()
         {
@@ -22,17 +22,18 @@ namespace AzureRepositories.Traders
 
         public string Id => RowKey;
         public string Email { get; set; }
-
+        public string Phone { get; set; }
         public string Salt { get; set; }
         public string Hash { get; set; }
 
-        public static TraderEntity CreateNew(ITrader trader, string password)
+        public static ClientAccountEntity CreateNew(IClientAccount clientAccount, string password)
         {
-            var result = new TraderEntity
+            var result = new ClientAccountEntity
             {
                 PartitionKey = GeneratePartitionKey(),
                 RowKey = Guid.NewGuid().ToString(),
-                Email = trader.Email.ToLower()
+                Email = clientAccount.Email.ToLower(),
+                Phone = clientAccount.Phone
             };
 
             result.SetPassword(password);
@@ -53,13 +54,13 @@ namespace AzureRepositories.Traders
             return Convert.ToBase64String(sha1);
         }
 
-        public static void SetPassword(this TraderEntity entity, string password)
+        public static void SetPassword(this ClientAccountEntity entity, string password)
         {
             entity.Salt = Guid.NewGuid().ToString();
             entity.Hash = CalcHash(password, entity.Salt);
         }
 
-        public static bool CheckPassword(this TraderEntity entity, string password)
+        public static bool CheckPassword(this ClientAccountEntity entity, string password)
         {
             var hash = CalcHash(password, entity.Salt);
             return entity.Hash == hash;
@@ -68,23 +69,23 @@ namespace AzureRepositories.Traders
     }
 
 
-    public class TradersRepository : ITradersRepository
+    public class TradersRepository : IClientAccountsRepository
     {
-        private readonly INoSQLTableStorage<TraderEntity> _tradersTableStorage;
+        private readonly INoSQLTableStorage<ClientAccountEntity> _tradersTableStorage;
         private readonly INoSQLTableStorage<AzureIndex> _emailIndices;
 
         private const string IndexEmail = "IndexEmail";
 
-        public TradersRepository(INoSQLTableStorage<TraderEntity> tradersTableStorage, INoSQLTableStorage<AzureIndex> emailIndices)
+        public TradersRepository(INoSQLTableStorage<ClientAccountEntity> tradersTableStorage, INoSQLTableStorage<AzureIndex> emailIndices)
         {
             _tradersTableStorage = tradersTableStorage;
             _emailIndices = emailIndices;
         }
 
 
-        public async Task<ITrader> RegisterAsync(ITrader trader, string password)
+        public async Task<IClientAccount> RegisterAsync(IClientAccount clientAccount, string password)
         {
-            var newEntity = TraderEntity.CreateNew(trader, password);
+            var newEntity = ClientAccountEntity.CreateNew(clientAccount, password);
             var indexEntity = AzureIndex.Create(IndexEmail, newEntity.Email, newEntity);
 
             await _emailIndices.InsertAsync(indexEntity);
@@ -103,7 +104,7 @@ namespace AzureRepositories.Traders
             return indexEntity != null;
         }
 
-        public async Task<ITrader> AuthenticateAsync(string email, string password)
+        public async Task<IClientAccount> AuthenticateAsync(string email, string password)
         {
             if (email == null || password == null)
                 return null;
@@ -123,10 +124,10 @@ namespace AzureRepositories.Traders
 
         }
 
-        public async Task<ITrader> GetByIdAsync(string id)
+        public async Task<IClientAccount> GetByIdAsync(string id)
         {
-            var partitionKey = TraderEntity.GeneratePartitionKey();
-            var rowKey = TraderEntity.GenerateRowKey(id);
+            var partitionKey = ClientAccountEntity.GeneratePartitionKey();
+            var rowKey = ClientAccountEntity.GenerateRowKey(id);
 
             return await _tradersTableStorage.GetDataAsync(partitionKey, rowKey);
         }

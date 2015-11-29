@@ -15,7 +15,7 @@ namespace AzureRepositories
         {
             const string tableName = "Traders";
             return new TradersRepository(
-                new AzureTableStorage<TraderEntity>(connstring, tableName, log), 
+                new AzureTableStorage<ClientAccountEntity>(connstring, tableName, log), 
                 new AzureTableStorage<AzureIndex>(connstring, tableName, log));
         }
 
@@ -38,9 +38,9 @@ namespace AzureRepositories
         }
 
 
-        public static TraderSettingsRepository CreateTraderSettingsRepository(string connString, ILog log)
+        public static ClientSettingsRepository CreateTraderSettingsRepository(string connString, ILog log)
         {
-            return new TraderSettingsRepository(new AzureTableStorage<TraderSettingsEntity>(connString, "TraderSettings", log));
+            return new ClientSettingsRepository(new AzureTableStorage<TraderSettingsEntity>(connString, "TraderSettings", log));
         }
 
 

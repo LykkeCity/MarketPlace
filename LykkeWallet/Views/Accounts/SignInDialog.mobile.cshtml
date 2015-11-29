@@ -1,0 +1,36 @@
+﻿@using LykkeWallet.Services
+@using LykkeWallet.Strings
+@model LykkeWallet.Models.SignInDialogViewModel
+
+@{
+    Layout = null;
+}
+
+<div class="panel panel-default panel-SignIn">
+    <div class="panel-body">
+        <form id="frmAuth">
+            @if (string.IsNullOrEmpty(Model.Email))
+            {
+                @HelpersUi.RenderEditAndLabelFocused(Phrases.Email, "Email", "email")
+                @HelpersUi.RenderEditAndLabel(Phrases.Password, "Password", "password")
+            }
+            else
+            {
+                @HelpersUi.RenderEditAndLabel(Phrases.Email, "Email", "email", Model.Email)
+                @HelpersUi.RenderEditAndLabelFocused(Phrases.Password, "Password", "password")
+            }
+        </form>
+
+    </div>
+</div>
+
+    <button class="btn btn-lg btn-warning btn-block" style="cursor: pointer" onclick="requests.doRequest({ url: '@Url.Action("SignIn")', formId: '#frmAuth'});"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> @Phrases.SignIn</button>
+    <button class="btn btn-lg btn-default btn-block" style="cursor: pointer" onclick="requests.doRequest({ url: '@Url.Action("SignUpDialog")', divResult: '#entranceContent', showLoading: true });"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> @Phrases.DoNotHaveAnAccount</button>
+
+<div style="margin-top: 20px; text-align: right;">
+    @foreach (var langId in ControllerLangExtention.GetLanguages())
+    {
+        <a href="@Url.Action("Index", "Home", new {langId})"><img class="lang-icon" src="~/Images/Lang/@(langId).png" /></a>
+    }
+</div>
+

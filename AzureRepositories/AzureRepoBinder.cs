@@ -8,9 +8,9 @@ using Common.IocContainer;
 using Common.Log;
 using Core;
 using Core.Assets;
+using Core.Clients;
 using Core.Finance;
 using Core.Orders;
-using Core.Traders;
 
 namespace AzureRepositories
 {
@@ -19,7 +19,7 @@ namespace AzureRepositories
 
         public static void BindAzureRepositories(this IoC ioc, string connString, ILog log)
         {
-            ioc.Register<ITradersRepository>(
+            ioc.Register<IClientAccountsRepository>(
                 AzureRepoFactories.CreateTradersRepository(connString, log));
 
             ioc.Register<IBalanceRepository>(
@@ -32,7 +32,7 @@ namespace AzureRepositories
                 AzureRepoFactories.CreateOrdersRepository(connString, log));
 
 
-            ioc.Register<ITraderSettingsRepository>(
+            ioc.Register<IClientSettingsRepository>(
                 AzureRepoFactories.CreateTraderSettingsRepository(connString, log));
 
             ioc.Register<IAssetsRepository>(
@@ -50,8 +50,8 @@ namespace AzureRepositories
 
         public static void BindAzureReposInMem(this IoC ioc)
         {
-            ioc.Register<ITradersRepository>(
-                new TradersRepository(new NoSqlTableInMemory<TraderEntity>(), new NoSqlTableInMemory<AzureIndex>()));
+            ioc.Register<IClientAccountsRepository>(
+                new TradersRepository(new NoSqlTableInMemory<ClientAccountEntity>(), new NoSqlTableInMemory<AzureIndex>()));
 
             ioc.Register<IBalanceRepository>(
                 new BalanceRepository(new NoSqlTableInMemory<TraderBalanceEntity>()));
@@ -62,8 +62,8 @@ namespace AzureRepositories
             ioc.Register<IOrdersRepository>(
                 new OrdersRepository(new NoSqlTableInMemory<OrderEntity>()));
 
-            ioc.Register<ITraderSettingsRepository>(
-                new TraderSettingsRepository(new NoSqlTableInMemory<TraderSettingsEntity>()));
+            ioc.Register<IClientSettingsRepository>(
+                new ClientSettingsRepository(new NoSqlTableInMemory<TraderSettingsEntity>()));
 
             var assetsRepositry = new AssetsRepository(new NoSqlTableInMemory<AssetEntity>());
             assetsRepositry.PopulateAssets();

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
-namespace Core.Traders
+namespace Core.Clients
 {
     public abstract class TraderSettingsBase
     {
@@ -46,7 +42,7 @@ namespace Core.Traders
 
 
 
-    public interface ITraderSettingsRepository
+    public interface IClientSettingsRepository
     {
         Task<T> GetSettings<T>(string traderId) where T : TraderSettingsBase, new();
         Task SetSettings<T>(string traderId, T settings) where T : TraderSettingsBase, new();

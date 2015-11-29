@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Common;
-using Core.Traders;
+using Core.Clients;
 using Microsoft.WindowsAzure.Storage.Table;
 
 namespace AzureRepositories.Traders
@@ -43,11 +43,11 @@ namespace AzureRepositories.Traders
     }
 
 
-    public class TraderSettingsRepository : ITraderSettingsRepository
+    public class ClientSettingsRepository : IClientSettingsRepository
     {
         private readonly INoSQLTableStorage<TraderSettingsEntity> _tableStorage;
 
-        public TraderSettingsRepository(INoSQLTableStorage<TraderSettingsEntity> tableStorage)
+        public ClientSettingsRepository(INoSQLTableStorage<TraderSettingsEntity> tableStorage)
         {
             _tableStorage = tableStorage;
         }

@@ -2,10 +2,10 @@
 using AzureRepositories;
 using Common.IocContainer;
 using Common.Log;
+using Core.Clients;
 using Core.Feed;
 using Core.Finance;
 using Core.Orders;
-using Core.Traders;
 using LkeServices;
 using LkeServices.Feed;
 
@@ -36,11 +36,11 @@ namespace Tests.Env
         }
 
 
-        public static ITrader RegisterTrader(this IoC ioc, string email)
+        public static IClientAccount RegisterTrader(this IoC ioc, string email)
         {
-            var trader = new Trader {Email = email};
+            var trader = new ClientAccount {Email = email};
 
-            return ioc.GetObject<ITradersRepository>().RegisterAsync(trader, "123").Result;
+            return ioc.GetObject<IClientAccountsRepository>().RegisterAsync(trader, "123").Result;
         }
 
 

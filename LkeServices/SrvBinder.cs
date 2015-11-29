@@ -3,6 +3,7 @@ using Common.IocContainer;
 using Core.Assets;
 using Core.Finance;
 using Core.Orders;
+using LkeServices.Clients;
 using LkeServices.Feed;
 using LkeServices.Orders;
 
@@ -11,8 +12,12 @@ namespace LkeServices
     public static class SrvBinder
     {
 
+
         public static void BindTraderPortalServices(IoC ioc)
         {
+
+            ioc.RegisterSingleTone<SrvClientManager>();
+
             ioc.RegisterSingleTone<SrvBalanceAccess>();
             ioc.RegisterSingleTone<SrvOrdersRegistrator>();
             ioc.RegisterSingleTone<SrvOrdersExecutor>();
@@ -29,6 +34,12 @@ namespace LkeServices
             ioc.RegisterSingleTone<AssetPairsDictionary>();
             ioc.SelfBond<IAssetPairsDictionary, AssetPairsDictionary>();
             ioc.SelfBond<IStarter, AssetPairsDictionary>();
+        }
+
+
+        public static void BindLykkeWalletServices(this IoC ioc)
+        {
+            ioc.RegisterSingleTone<SrvClientManager>();
         }
 
 

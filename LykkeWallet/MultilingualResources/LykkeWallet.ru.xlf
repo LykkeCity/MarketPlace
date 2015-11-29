@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en" target-language="ru" original="LYKKEWALLET/STRINGS/PHRASES.RESX" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.1466.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="LYKKEWALLET/STRINGS/PHRASES.RESX" datatype="resx">
+        <trans-unit id="Cancel" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="final" state-qualifier="tm-suggestion">Отмена</target>
+        </trans-unit>
+        <trans-unit id="DoNotHaveAnAccount" translate="yes" xml:space="preserve">
+          <source>Do not have account?</source>
+          <target state="final">Нет учетной записи?</target>
+        </trans-unit>
+        <trans-unit id="Email" translate="yes" xml:space="preserve">
+          <source>Email</source>
+          <target state="final" state-qualifier="tm-suggestion">Электронная почта</target>
+        </trans-unit>
+        <trans-unit id="FieldShouldNotBeEmpty" translate="yes" xml:space="preserve">
+          <source>Field should not be empty</source>
+          <target state="final" state-qualifier="mt-suggestion">Поле не должно быть пустым</target>
+        </trans-unit>
+        <trans-unit id="IdentityVerification" translate="yes" xml:space="preserve">
+          <source>Identity verification</source>
+          <target state="final">Дополнительная проверка</target>
+        </trans-unit>
+        <trans-unit id="InvalidUsernameOrPassword" translate="yes" xml:space="preserve">
+          <source>Invalid username or password</source>
+          <target state="final" state-qualifier="mt-suggestion">Неверное имя пользователя или пароль</target>
+        </trans-unit>
+        <trans-unit id="InvalidVerificaionCode" translate="yes" xml:space="preserve">
+          <source>Invalid verification code</source>
+          <target state="final" state-qualifier="mt-suggestion">Неверный код</target>
+        </trans-unit>
+        <trans-unit id="MobilePhone" translate="yes" xml:space="preserve">
+          <source>Mobile phone</source>
+          <target state="final" state-qualifier="tm-suggestion">Мобильный телефон</target>
+        </trans-unit>
+        <trans-unit id="NewVerificationCodeHasBeenSent" translate="yes" xml:space="preserve">
+          <source>New verification code has been sent</source>
+          <target state="final" state-qualifier="mt-suggestion">Был отправлен новый проверочный код</target>
+        </trans-unit>
+        <trans-unit id="Password" translate="yes" xml:space="preserve">
+          <source>Password</source>
+          <target state="final" state-qualifier="mt-suggestion">Пароль</target>
+        </trans-unit>
+        <trans-unit id="PasswordAgain" translate="yes" xml:space="preserve">
+          <source>Password again</source>
+          <target state="final" state-qualifier="mt-suggestion">Пароль еще раз</target>
+        </trans-unit>
+        <trans-unit id="PasswordDoesNotMatch" translate="yes" xml:space="preserve">
+          <source>Password does not match</source>
+          <target state="final" state-qualifier="tm-suggestion">Пароли не совпадают</target>
+        </trans-unit>
+        <trans-unit id="PleaseTypeEmailHere" translate="yes" xml:space="preserve">
+          <source>Please, type email here</source>
+          <target state="final" state-qualifier="mt-suggestion">Пожалуйста введите электронный адрес</target>
+        </trans-unit>
+        <trans-unit id="PleaseTypeVerificationCode" translate="yes" xml:space="preserve">
+          <source>Please, type verification code</source>
+          <target state="final" state-qualifier="mt-suggestion">Пожалуйста введите проверочный код</target>
+        </trans-unit>
+        <trans-unit id="SignIn" translate="yes" xml:space="preserve">
+          <source>SignIn</source>
+          <target state="final" state-qualifier="mt-suggestion">Вход</target>
+        </trans-unit>
+        <trans-unit id="SignUp" translate="yes" xml:space="preserve">
+          <source>Sign up</source>
+          <target state="final" state-qualifier="tm-suggestion">Регистрация</target>
+        </trans-unit>
+        <trans-unit id="UserWithEmalExists" translate="yes" xml:space="preserve">
+          <source>User with the chosen email already exists</source>
+          <target state="final" state-qualifier="mt-suggestion">Пользователь с выбранной электронной почты уже существует</target>
+        </trans-unit>
+        <trans-unit id="VerificationCode" translate="yes" xml:space="preserve">
+          <source>Verification code</source>
+          <target state="final" state-qualifier="tm-suggestion">Код подтверждения</target>
+        </trans-unit>
+        <trans-unit id="VerificationSmsHasBeenSent" translate="yes" xml:space="preserve">
+          <source>Verification sms has been sent to the mobile number:</source>
+          <target state="final">Сообщение было отправлено на мобильный номер:</target>
+        </trans-unit>
+        <trans-unit id="SendCodeAgain" translate="yes" xml:space="preserve">
+          <source>Send code again</source>
+          <target state="final">Отправить код еще раз</target>
+        </trans-unit>
+        <trans-unit id="Verify" translate="yes" xml:space="preserve">
+          <source>Verify</source>
+          <target state="final">Проверка</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

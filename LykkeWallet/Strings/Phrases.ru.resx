@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="DoNotHaveAnAccount" xml:space="preserve">
+    <value>Нет учетной записи?</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Электронная почта</value>
+  </data>
+  <data name="FieldShouldNotBeEmpty" xml:space="preserve">
+    <value>Поле не должно быть пустым</value>
+  </data>
+  <data name="IdentityVerification" xml:space="preserve">
+    <value>Дополнительная проверка</value>
+  </data>
+  <data name="InvalidUsernameOrPassword" xml:space="preserve">
+    <value>Неверное имя пользователя или пароль</value>
+  </data>
+  <data name="InvalidVerificaionCode" xml:space="preserve">
+    <value>Неверный код</value>
+  </data>
+  <data name="MobilePhone" xml:space="preserve">
+    <value>Мобильный телефон</value>
+  </data>
+  <data name="NewVerificationCodeHasBeenSent" xml:space="preserve">
+    <value>Был отправлен новый проверочный код</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="PasswordAgain" xml:space="preserve">
+    <value>Пароль еще раз</value>
+  </data>
+  <data name="PasswordDoesNotMatch" xml:space="preserve">
+    <value>Пароли не совпадают</value>
+  </data>
+  <data name="PleaseTypeEmailHere" xml:space="preserve">
+    <value>Пожалуйста введите электронный адрес</value>
+  </data>
+  <data name="PleaseTypeVerificationCode" xml:space="preserve">
+    <value>Пожалуйста введите проверочный код</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Вход</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
+  <data name="UserWithEmalExists" xml:space="preserve">
+    <value>Пользователь с выбранной электронной почты уже существует</value>
+  </data>
+  <data name="VerificationCode" xml:space="preserve">
+    <value>Код подтверждения</value>
+  </data>
+  <data name="VerificationSmsHasBeenSent" xml:space="preserve">
+    <value>Сообщение было отправлено на мобильный номер:</value>
+  </data>
+  <data name="SendCodeAgain" xml:space="preserve">
+    <value>Отправить код еще раз</value>
+  </data>
+  <data name="Verify" xml:space="preserve">
+    <value>Проверка</value>
+  </data>
+</root>

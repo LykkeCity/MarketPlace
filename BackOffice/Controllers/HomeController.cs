@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using BackOffice.Models;
+using BackOffice.Services;
 using BackOffice.Translates;
 using Common;
 using Core;
@@ -146,8 +147,13 @@ namespace BackOffice.Controllers
             _backOfficeUsersRepository = backOfficeUsersRepository;
         }
 
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(string langId)
         {
+
+
+            if (langId != null)
+                this.SetLanguage(langId);
+
             var sessionId = this.GetSession();
 
             var viewModel = new IndexPageModel

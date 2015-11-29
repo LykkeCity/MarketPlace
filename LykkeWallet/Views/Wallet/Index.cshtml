@@ -1,0 +1,9 @@
+﻿@model dynamic
+
+<h1>Wallet Index Page</h1>
+
+<script>
+    $('#btnMnu').show();
+
+    requests.doRequest({ url: '@Url.Action("GetMenu")', divResult: '#mnuContent' });
+</script>

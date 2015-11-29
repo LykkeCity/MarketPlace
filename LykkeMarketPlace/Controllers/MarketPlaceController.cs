@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using Core;
 using Core.Assets;
 using Core.Finance;
 using Core.Traders;
@@ -16,7 +15,6 @@ namespace LykkeMarketPlace.Controllers
         private readonly SrvBalanceAccess _srvBalanceAccess;
         private readonly IAssetsDictionary _assetsDictionary;
         private readonly IAssetPairsDictionary _assetPairsDictionary;
-
 
         public MarketPlaceController(ITradersRepository tradersRepository, SrvBalanceAccess srvBalanceAccess, 
             IAssetsDictionary assetsDictionary, IAssetPairsDictionary assetPairsDictionary)

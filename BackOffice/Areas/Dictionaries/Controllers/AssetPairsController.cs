@@ -66,7 +66,7 @@ namespace BackOffice.Areas.Dictionaries.Controllers
                 return this.JsonFailResult(Phrases.FieldShouldNotBeEmpty, "#quotingAssetId");
 
             if (model.Accuracy <=0 )
-                return this.JsonFailResult(Phrases.PleaseTypeYourNewPassword, "#accuracy");
+                return this.JsonFailResult(Phrases.PleaseTypeAccuracy, "#accuracy");
 
 
             if (string.IsNullOrEmpty(model.EditId))
