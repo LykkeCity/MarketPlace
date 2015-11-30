@@ -5,6 +5,7 @@ using Core.Finance;
 using Core.Orders;
 using LkeServices.Clients;
 using LkeServices.Feed;
+using LkeServices.Kyc;
 using LkeServices.Orders;
 
 namespace LkeServices
@@ -40,6 +41,7 @@ namespace LkeServices
         public static void BindLykkeWalletServices(this IoC ioc)
         {
             ioc.RegisterSingleTone<SrvClientManager>();
+            ioc.RegisterSingleTone<SrvKycDocuments>();
         }
 
 

@@ -123,23 +123,41 @@
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="ChooseFileToUpload" xml:space="preserve">
+    <value>Choose file to upload</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
   <data name="DoNotHaveAnAccount" xml:space="preserve">
     <value>Do not have account?</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
   </data>
-  <data name="Exchange" xml:space="preserve">
-    <value>Exchange</value>
-  </data>
   <data name="FieldShouldNotBeEmpty" xml:space="preserve">
     <value>Field should not be empty</value>
+  </data>
+  <data name="FileFormatsShouldBe" xml:space="preserve">
+    <value>File format should be</value>
+  </data>
+  <data name="FileShouldBeNoBiggerThan" xml:space="preserve">
+    <value>File should not be bigger then 3Mb</value>
+  </data>
+  <data name="FileSizeDisclamer" xml:space="preserve">
+    <value>File should be not bigger than 4Mb.</value>
   </data>
   <data name="IdentityVerification" xml:space="preserve">
     <value>Identity verification</value>
   </data>
   <data name="InterfaceLanguage" xml:space="preserve">
     <value>Interface language</value>
+  </data>
+  <data name="InternetConnectionProblem" xml:space="preserve">
+    <value>Internet connection problem</value>
+  </data>
+  <data name="InvalidFileExtention" xml:space="preserve">
+    <value>Invalid file extention</value>
   </data>
   <data name="InvalidUsernameOrPassword" xml:space="preserve">
     <value>Invalid username or password</value>
@@ -152,6 +170,12 @@
   </data>
   <data name="LanguageName" xml:space="preserve">
     <value>English</value>
+  </data>
+  <data name="MakeSelfiePhoto" xml:space="preserve">
+    <value>Please, make selfie photo</value>
+  </data>
+  <data name="MaximumFileSizeExceed" xml:space="preserve">
+    <value>Maximus file size exceed</value>
   </data>
   <data name="MobilePhone" xml:space="preserve">
     <value>Mobile phone</value>
@@ -171,11 +195,20 @@
   <data name="PersonalData" xml:space="preserve">
     <value>Personal Data</value>
   </data>
+  <data name="PleaseBePatient" xml:space="preserve">
+    <value>Please, be patient</value>
+  </data>
   <data name="PleaseTypeEmailHere" xml:space="preserve">
     <value>Please, type email here</value>
   </data>
   <data name="PleaseTypeVerificationCode" xml:space="preserve">
     <value>Please, type verification code</value>
+  </data>
+  <data name="PleaseUploadYouPassport" xml:space="preserve">
+    <value>Please, upload your passport or Id card</value>
+  </data>
+  <data name="RestrictedAreaMessage" xml:space="preserve">
+    <value>Unfortunately we cannot provide you any of our service. Apologies for any inconvenience</value>
   </data>
   <data name="SendCodeAgain" xml:space="preserve">
     <value>Send code again</value>
@@ -192,6 +225,18 @@
   <data name="SignUp" xml:space="preserve">
     <value>Sign up</value>
   </data>
+  <data name="SubmitDocuments" xml:space="preserve">
+    <value>Submit documents</value>
+  </data>
+  <data name="Trading" xml:space="preserve">
+    <value>Trading</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Uploaded</value>
+  </data>
+  <data name="UploadYouProofOfAddress" xml:space="preserve">
+    <value>Please, upload your proof of address</value>
+  </data>
   <data name="UserWithEmalExists" xml:space="preserve">
     <value>User with the chosen email already exists</value>
   </data>
@@ -203,5 +248,11 @@
   </data>
   <data name="Verify" xml:space="preserve">
     <value>Verify</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="YourDocsAreWithCompliance" xml:space="preserve">
+    <value>Your documents are with compliance officer now.</value>
   </data>
 </root>

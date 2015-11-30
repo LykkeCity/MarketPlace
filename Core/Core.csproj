@@ -56,6 +56,10 @@
     <Compile Include="IBackOfficeUsersRepository.cs" />
     <Compile Include="IBrowserSessionsRepository.cs" />
     <Compile Include="IIdentityGenerator.cs" />
+    <Compile Include="Kyc\IKycDocumentsRepository.cs" />
+    <Compile Include="Kyc\IKycDocumentsScansRepository.cs" />
+    <Compile Include="Kyc\IKycRepository.cs" />
+    <Compile Include="Kyc\IKycUploadsLog.cs" />
     <Compile Include="Orders\IOrderExecuter.cs" />
     <Compile Include="Orders\IOrderFlowFeedConsumer.cs" />
     <Compile Include="Orders\IOrdersRepository.cs" />

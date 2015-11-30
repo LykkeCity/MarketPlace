@@ -7,6 +7,7 @@ using AzureRepositories;
 using Common.IocContainer;
 using Common.Log;
 using Core.Finance;
+using Core.Kyc;
 using LkeServices;
 using MockServices;
 
@@ -57,6 +58,15 @@ namespace LykkeWallet
     public static class Dependencies
     {
 
+        public static IKycRepository KycRepository { get; private set; }
+
+
+        private static void PopulateDependencies(IoC ioc)
+        {
+            KycRepository = ioc.GetObject<IKycRepository>();
+        }
+
+
         public static IDependencyResolver CreateDepencencyResolver()
         {
 
@@ -75,6 +85,9 @@ namespace LykkeWallet
             dr.IoC.BindLykkeWalletServices();
 
             SrvBinder.StartTraderPortalServices(dr.IoC);
+
+            PopulateDependencies(dr.IoC);
+
             return dr;
         }
     }

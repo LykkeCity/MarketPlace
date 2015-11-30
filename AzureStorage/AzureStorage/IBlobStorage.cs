@@ -2,7 +2,7 @@
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Common
+namespace AzureStorage
 {
 
     public interface IBlobStorage

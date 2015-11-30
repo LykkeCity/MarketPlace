@@ -180,6 +180,11 @@
     <Compile Include="Areas\Accounts\Controllers\ListController.cs" />
     <Compile Include="Areas\Exchange\Controllers\AssetsController.cs" />
     <Compile Include="Areas\Exchange\ExchangeAreaRegistration.cs" />
+    <Compile Include="Areas\Kyc\Controllers\DocumentsController.cs" />
+    <Compile Include="Areas\Kyc\Controllers\PageController.cs" />
+    <Compile Include="Areas\Kyc\KycAreaRegistration.cs" />
+    <Compile Include="Areas\Kyc\Models\DocumentsModels.cs" />
+    <Compile Include="Areas\Kyc\Models\KycIndexPageViewModel.cs" />
     <Compile Include="Areas\PersonalData\Controllers\PageController.cs" />
     <Compile Include="Areas\PersonalData\PersonalDataAreaRegistration.cs" />
     <Compile Include="Areas\Settings\Controllers\LanguageController.cs" />
@@ -248,6 +253,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Images\wallet.png" />
+    <Content Include="Scripts\bootstrap-filestyle.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Accounts\Views\web.config" />
@@ -259,6 +265,9 @@
     <Content Include="Areas\Settings\Views\Page\Index.cshtml" />
     <Content Include="Areas\PersonalData\Views\Page\Index.cshtml" />
     <Content Include="Areas\Settings\Views\Language\Index.cshtml" />
+    <Content Include="Areas\Kyc\Views\web.config" />
+    <Content Include="Areas\Kyc\Views\Page\Index.cshtml" />
+    <Content Include="Areas\Kyc\Views\Documents\UploadFrame.cshtml" />
     <None Include="Properties\PublishProfiles\lykke-wallet.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
@@ -310,6 +319,7 @@
     <Folder Include="Areas\Accounts\Views\Shared\" />
     <Folder Include="Areas\Exchange\Models\" />
     <Folder Include="Areas\Exchange\Views\Shared\" />
+    <Folder Include="Areas\Kyc\Views\Shared\" />
     <Folder Include="Areas\PersonalData\Models\" />
     <Folder Include="Areas\PersonalData\Views\Shared\" />
     <Folder Include="Areas\Settings\Models\" />
@@ -320,6 +330,7 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\FileUploader.ts" />
     <TypeScriptCompile Include="Scripts\typings\Framework.d.ts" />
     <TypeScriptCompile Include="Scripts\MobileUi.ts" />
     <TypeScriptCompile Include="Scripts\Requests.ts" />

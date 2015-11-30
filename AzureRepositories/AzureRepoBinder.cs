@@ -1,7 +1,9 @@
 ﻿using AzureRepositories.Assets;
 using AzureRepositories.Finance;
+using AzureRepositories.Kyc;
 using AzureRepositories.Orders;
 using AzureRepositories.Traders;
+using AzureStorage;
 using AzureStorage.Tables;
 using AzureStorage.Tables.Templates;
 using Common.IocContainer;
@@ -10,6 +12,7 @@ using Core;
 using Core.Assets;
 using Core.Clients;
 using Core.Finance;
+using Core.Kyc;
 using Core.Orders;
 
 namespace AzureRepositories
@@ -20,7 +23,20 @@ namespace AzureRepositories
         public static void BindAzureRepositories(this IoC ioc, string connString, ILog log)
         {
             ioc.Register<IClientAccountsRepository>(
-                AzureRepoFactories.CreateTradersRepository(connString, log));
+                AzureRepoFactories.Clients.CreateTradersRepository(connString, log));
+
+            ioc.Register<IKycRepository>(
+                AzureRepoFactories.Clients.CreateKycRepository(connString, log));
+
+            ioc.Register<IKycDocumentsRepository>(
+                AzureRepoFactories.Clients.CreateKycDocumentsRepository(connString, log));
+
+            ioc.Register<IKycDocumentsScansRepository>(
+                AzureRepoFactories.Clients.CreatKycDocumentsScansRepository(connString));
+
+            ioc.Register<IKycUploadsLog>(
+                AzureRepoFactories.Clients.CreateKycUploadsLog(connString, log));
+
 
             ioc.Register<IBalanceRepository>(
                 AzureRepoFactories.CreateBalanceRepository(connString, log));
@@ -51,7 +67,20 @@ namespace AzureRepositories
         public static void BindAzureReposInMem(this IoC ioc)
         {
             ioc.Register<IClientAccountsRepository>(
-                new TradersRepository(new NoSqlTableInMemory<ClientAccountEntity>(), new NoSqlTableInMemory<AzureIndex>()));
+                new ClientsRepository(new NoSqlTableInMemory<ClientAccountEntity>(), new NoSqlTableInMemory<AzureIndex>()));
+
+            ioc.Register<IKycRepository>(
+                new KycRepository(new NoSqlTableInMemory<KycEntity>()));
+
+
+            ioc.Register<IKycDocumentsRepository>(
+                new KycDocumentsRepository(new NoSqlTableInMemory<KycDocumentEntity>()));
+
+            ioc.Register<IKycDocumentsScansRepository>(
+                new KycDocumentsScansRepository(new AzureBlobInMemory()));
+
+            ioc.Register<IKycUploadsLog>(
+               new KycUploadsLog(new NoSqlTableInMemory<KycUploadsLogItemEntity>()));
 
             ioc.Register<IBalanceRepository>(
                 new BalanceRepository(new NoSqlTableInMemory<TraderBalanceEntity>()));

@@ -102,10 +102,6 @@
           <source>Personal Data</source>
           <target state="new">Personal Data</target>
         </trans-unit>
-        <trans-unit id="Exchange" translate="yes" xml:space="preserve">
-          <source>Exchange</source>
-          <target state="new">Exchange</target>
-        </trans-unit>
         <trans-unit id="InterfaceLanguage" translate="yes" xml:space="preserve">
           <source>Interface language</source>
           <target state="new">Interface language</target>
@@ -121,6 +117,78 @@
         <trans-unit id="Settings" translate="yes" xml:space="preserve">
           <source>Settings</source>
           <target state="new">Settings</target>
+        </trans-unit>
+        <trans-unit id="Trading" translate="yes" xml:space="preserve">
+          <source>Trading</source>
+          <target state="new">Trading</target>
+        </trans-unit>
+        <trans-unit id="ChooseFileToUpload" translate="yes" xml:space="preserve">
+          <source>Choose file to upload</source>
+          <target state="new">Choose file to upload</target>
+        </trans-unit>
+        <trans-unit id="FileFormatsShouldBe" translate="yes" xml:space="preserve">
+          <source>File format should be</source>
+          <target state="new">File format should be</target>
+        </trans-unit>
+        <trans-unit id="FileShouldBeNoBiggerThan" translate="yes" xml:space="preserve">
+          <source>File should not be bigger then 3Mb</source>
+          <target state="new">File should not be bigger then 3Mb</target>
+        </trans-unit>
+        <trans-unit id="InternetConnectionProblem" translate="yes" xml:space="preserve">
+          <source>Internet connection problem</source>
+          <target state="new">Internet connection problem</target>
+        </trans-unit>
+        <trans-unit id="InvalidFileExtention" translate="yes" xml:space="preserve">
+          <source>Invalid file extention</source>
+          <target state="new">Invalid file extention</target>
+        </trans-unit>
+        <trans-unit id="MaximumFileSizeExceed" translate="yes" xml:space="preserve">
+          <source>Maximus file size exceed</source>
+          <target state="new">Maximus file size exceed</target>
+        </trans-unit>
+        <trans-unit id="PleaseUploadYouPassport" translate="yes" xml:space="preserve">
+          <source>Please, upload your passport or Id card</source>
+          <target state="new">Please, upload your passport or Id card</target>
+        </trans-unit>
+        <trans-unit id="Delete" translate="yes" xml:space="preserve">
+          <source>Delete</source>
+          <target state="new">Delete</target>
+        </trans-unit>
+        <trans-unit id="Uploaded" translate="yes" xml:space="preserve">
+          <source>Uploaded</source>
+          <target state="new">Uploaded</target>
+        </trans-unit>
+        <trans-unit id="View" translate="yes" xml:space="preserve">
+          <source>View</source>
+          <target state="new">View</target>
+        </trans-unit>
+        <trans-unit id="FileSizeDisclamer" translate="yes" xml:space="preserve">
+          <source>File should be not bigger than 4Mb.</source>
+          <target state="new">File should be not bigger than 4Mb.</target>
+        </trans-unit>
+        <trans-unit id="SubmitDocuments" translate="yes" xml:space="preserve">
+          <source>Submit documents</source>
+          <target state="new">Submit documents</target>
+        </trans-unit>
+        <trans-unit id="UploadYouProofOfAddress" translate="yes" xml:space="preserve">
+          <source>Please, upload your proof of address</source>
+          <target state="new">Please, upload your proof of address</target>
+        </trans-unit>
+        <trans-unit id="MakeSelfiePhoto" translate="yes" xml:space="preserve">
+          <source>Please, make selfie photo</source>
+          <target state="new">Please, make selfie photo</target>
+        </trans-unit>
+        <trans-unit id="PleaseBePatient" translate="yes" xml:space="preserve">
+          <source>Please, be patient</source>
+          <target state="new">Please, be patient</target>
+        </trans-unit>
+        <trans-unit id="RestrictedAreaMessage" translate="yes" xml:space="preserve">
+          <source>Unfortunately we cannot provide you any of our service. Apologies for any inconvenience</source>
+          <target state="new">Unfortunately we cannot provide you any of our service. Apologies for any inconvenience</target>
+        </trans-unit>
+        <trans-unit id="YourDocsAreWithCompliance" translate="yes" xml:space="preserve">
+          <source>Your documents are with compliance officer now.</source>
+          <target state="new">Your documents are with compliance officer now.</target>
         </trans-unit>
       </group>
     </body>

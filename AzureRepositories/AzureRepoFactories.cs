@@ -1,7 +1,9 @@
 ﻿using AzureRepositories.Assets;
 using AzureRepositories.Finance;
+using AzureRepositories.Kyc;
 using AzureRepositories.Orders;
 using AzureRepositories.Traders;
+using AzureStorage;
 using AzureStorage.Tables;
 using AzureStorage.Tables.Templates;
 using Common.Log;
@@ -11,13 +13,7 @@ namespace AzureRepositories
     public static class AzureRepoFactories
     {
 
-        public static TradersRepository CreateTradersRepository(string connstring, ILog log)
-        {
-            const string tableName = "Traders";
-            return new TradersRepository(
-                new AzureTableStorage<ClientAccountEntity>(connstring, tableName, log), 
-                new AzureTableStorage<AzureIndex>(connstring, tableName, log));
-        }
+
 
         public static BalanceRepository CreateBalanceRepository(string connstring, ILog log)
         {
@@ -50,6 +46,43 @@ namespace AzureRepositories
         }
 
 
+        public static class Clients
+        {
+            public static ClientsRepository CreateTradersRepository(string connstring, ILog log)
+            {
+                const string tableName = "Traders";
+                return new ClientsRepository(
+                    new AzureTableStorage<ClientAccountEntity>(connstring, tableName, log),
+                    new AzureTableStorage<AzureIndex>(connstring, tableName, log));
+            }
+
+            public static KycRepository CreateKycRepository(string connString, ILog log)
+            {
+                return new KycRepository(new AzureTableStorage<KycEntity>(connString, "KycStatuses", log));
+            }
+
+
+
+            public static KycDocumentsRepository CreateKycDocumentsRepository(string connString, ILog log)
+            {
+                return new KycDocumentsRepository(new AzureTableStorage<KycDocumentEntity>(connString, "KycDocuments", log));
+            }
+
+            public static KycDocumentsScansRepository CreatKycDocumentsScansRepository(string connString)
+            {
+                return new KycDocumentsScansRepository(new AzureBlobStorage(connString));
+            }
+
+            public static KycUploadsLog CreateKycUploadsLog(string connString, ILog log)
+            {
+                return
+                    new KycUploadsLog(new AzureTableStorage<KycUploadsLogItemEntity>(connString, "KycUploadsLog", log));
+            }
+
+
+        }
+
+
         private const string TableNameDictionaries = "Dictionaries";
         public static class Dictionaries
         {
@@ -66,6 +99,7 @@ namespace AzureRepositories
                 return new AssetPairsRepository(new AzureTableStorage<AssetPairEntity>(connString, TableNameDictionaries, log));
             }
         }
+
 
 
 

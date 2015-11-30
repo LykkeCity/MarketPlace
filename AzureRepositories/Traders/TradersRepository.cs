@@ -69,14 +69,14 @@ namespace AzureRepositories.Traders
     }
 
 
-    public class TradersRepository : IClientAccountsRepository
+    public class ClientsRepository : IClientAccountsRepository
     {
         private readonly INoSQLTableStorage<ClientAccountEntity> _tradersTableStorage;
         private readonly INoSQLTableStorage<AzureIndex> _emailIndices;
 
         private const string IndexEmail = "IndexEmail";
 
-        public TradersRepository(INoSQLTableStorage<ClientAccountEntity> tradersTableStorage, INoSQLTableStorage<AzureIndex> emailIndices)
+        public ClientsRepository(INoSQLTableStorage<ClientAccountEntity> tradersTableStorage, INoSQLTableStorage<AzureIndex> emailIndices)
         {
             _tradersTableStorage = tradersTableStorage;
             _emailIndices = emailIndices;

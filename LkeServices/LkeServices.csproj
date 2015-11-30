@@ -49,6 +49,7 @@
     <Compile Include="Feed\AssetPairsDictionary.cs" />
     <Compile Include="Feed\AssetPairsBestRateCache.cs" />
     <Compile Include="Feed\FeedUtils.cs" />
+    <Compile Include="Kyc\SrvKycDocuments.cs" />
     <Compile Include="Orders\SrvAssetPairBestPriceBroadcaster.cs" />
     <Compile Include="Orders\SrvLimitOrderBookGenerator.cs" />
     <Compile Include="Orders\SrvOrdersExecutor.cs" />

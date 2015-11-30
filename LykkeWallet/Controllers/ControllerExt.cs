@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Security.Claims;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Common;
 using Core.Clients;
+using Core.Kyc;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
@@ -94,5 +96,20 @@ namespace LykkeWallet.Controllers
             var authManager = controller.HttpContext.GetOwinContext().Authentication;
             authManager.SignOut();
         }
+
+
+        public static async Task<JsonResult> GetKycStatus(this Controller controller)
+        {
+            var clientId = controller.GetClientId();
+
+            var status = await Dependencies.KycRepository.GetKycStatusAsync(clientId);
+
+            if (status != KycStatus.Ok)
+                return controller.JsonShowContentResultAndShowLoading("#pamain",
+                    controller.Url.Action("Index", "Page", new {area = "Kyc"}));
+
+            return null;
+        }
+
     }
 }

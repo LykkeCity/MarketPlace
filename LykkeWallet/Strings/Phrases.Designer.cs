@@ -79,6 +79,24 @@ namespace LykkeWallet.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Choose file to upload.
+        /// </summary>
+        public static string ChooseFileToUpload {
+            get {
+                return ResourceManager.GetString("ChooseFileToUpload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Do not have account?.
         /// </summary>
         public static string DoNotHaveAnAccount {
@@ -97,20 +115,38 @@ namespace LykkeWallet.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Exchange.
-        /// </summary>
-        public static string Exchange {
-            get {
-                return ResourceManager.GetString("Exchange", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Field should not be empty.
         /// </summary>
         public static string FieldShouldNotBeEmpty {
             get {
                 return ResourceManager.GetString("FieldShouldNotBeEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File format should be.
+        /// </summary>
+        public static string FileFormatsShouldBe {
+            get {
+                return ResourceManager.GetString("FileFormatsShouldBe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File should not be bigger then 3Mb.
+        /// </summary>
+        public static string FileShouldBeNoBiggerThan {
+            get {
+                return ResourceManager.GetString("FileShouldBeNoBiggerThan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File should be not bigger than 4Mb..
+        /// </summary>
+        public static string FileSizeDisclamer {
+            get {
+                return ResourceManager.GetString("FileSizeDisclamer", resourceCulture);
             }
         }
         
@@ -129,6 +165,24 @@ namespace LykkeWallet.Strings {
         public static string InterfaceLanguage {
             get {
                 return ResourceManager.GetString("InterfaceLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Internet connection problem.
+        /// </summary>
+        public static string InternetConnectionProblem {
+            get {
+                return ResourceManager.GetString("InternetConnectionProblem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid file extention.
+        /// </summary>
+        public static string InvalidFileExtention {
+            get {
+                return ResourceManager.GetString("InvalidFileExtention", resourceCulture);
             }
         }
         
@@ -165,6 +219,24 @@ namespace LykkeWallet.Strings {
         public static string LanguageName {
             get {
                 return ResourceManager.GetString("LanguageName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please, make selfie photo.
+        /// </summary>
+        public static string MakeSelfiePhoto {
+            get {
+                return ResourceManager.GetString("MakeSelfiePhoto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximus file size exceed.
+        /// </summary>
+        public static string MaximumFileSizeExceed {
+            get {
+                return ResourceManager.GetString("MaximumFileSizeExceed", resourceCulture);
             }
         }
         
@@ -223,6 +295,15 @@ namespace LykkeWallet.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please, be patient.
+        /// </summary>
+        public static string PleaseBePatient {
+            get {
+                return ResourceManager.GetString("PleaseBePatient", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please, type email here.
         /// </summary>
         public static string PleaseTypeEmailHere {
@@ -237,6 +318,24 @@ namespace LykkeWallet.Strings {
         public static string PleaseTypeVerificationCode {
             get {
                 return ResourceManager.GetString("PleaseTypeVerificationCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please, upload your passport or Id card.
+        /// </summary>
+        public static string PleaseUploadYouPassport {
+            get {
+                return ResourceManager.GetString("PleaseUploadYouPassport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unfortunately we cannot provide you any of our service. Apologies for any inconvenience.
+        /// </summary>
+        public static string RestrictedAreaMessage {
+            get {
+                return ResourceManager.GetString("RestrictedAreaMessage", resourceCulture);
             }
         }
         
@@ -286,6 +385,42 @@ namespace LykkeWallet.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Submit documents.
+        /// </summary>
+        public static string SubmitDocuments {
+            get {
+                return ResourceManager.GetString("SubmitDocuments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trading.
+        /// </summary>
+        public static string Trading {
+            get {
+                return ResourceManager.GetString("Trading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uploaded.
+        /// </summary>
+        public static string Uploaded {
+            get {
+                return ResourceManager.GetString("Uploaded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please, upload your proof of address.
+        /// </summary>
+        public static string UploadYouProofOfAddress {
+            get {
+                return ResourceManager.GetString("UploadYouProofOfAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User with the chosen email already exists.
         /// </summary>
         public static string UserWithEmalExists {
@@ -318,6 +453,24 @@ namespace LykkeWallet.Strings {
         public static string Verify {
             get {
                 return ResourceManager.GetString("Verify", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View.
+        /// </summary>
+        public static string View {
+            get {
+                return ResourceManager.GetString("View", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your documents are with compliance officer now..
+        /// </summary>
+        public static string YourDocsAreWithCompliance {
+            get {
+                return ResourceManager.GetString("YourDocsAreWithCompliance", resourceCulture);
             }
         }
     }

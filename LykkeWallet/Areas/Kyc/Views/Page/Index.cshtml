@@ -1,0 +1,86 @@
+﻿@using Core.Kyc
+@using LykkeWallet.Strings
+@model LykkeWallet.Areas.Kyc.Models.KycIndexPageViewModel
+
+@{
+    Layout = null;
+
+    if (Model.KycStatus == KycStatus.NeedToFillData)
+    {
+        @RenderNeedFeelData()
+        return;
+    }
+
+    if (Model.KycStatus == KycStatus.Pending || Model.KycStatus == KycStatus.Rejected)
+    {
+        @RenderPendingStatus()
+        return;
+    }
+
+    if (Model.KycStatus == KycStatus.RestrictedArea)
+    {
+        @RenderRestrictedArea()
+        return;
+    }
+}
+
+
+
+@helper RenderNeedFeelData()
+{
+    <div class="mobile-content" style="text-align: center">
+            <h4>@Phrases.PleaseUploadYouPassport</h4>
+        <div id="docsArea@(KycDocumentTypes.IdCard)">
+            <script>
+                requests.doRequest({ url: '@Url.Action("UploadFrame", "Documents")', params: 'type=@KycDocumentTypes.IdCard', divResult: '#docsArea@(KycDocumentTypes.IdCard)', showLoading: true })
+            </script>
+        </div>
+        <div>@Phrases.FileSizeDisclamer</div>
+        <hr/>
+            <h4>@Phrases.UploadYouProofOfAddress</h4>
+        <div id="docsArea@(KycDocumentTypes.ProofOfAddress)">
+
+            <script>
+                requests.doRequest({ url: '@Url.Action("UploadFrame", "Documents")', params: 'type=@KycDocumentTypes.ProofOfAddress', divResult: '#docsArea@(KycDocumentTypes.ProofOfAddress)', showLoading: true })
+            </script>
+        </div>
+        <div>@Phrases.FileSizeDisclamer</div>
+
+        <hr />
+            <h4>@Phrases.MakeSelfiePhoto</h4>
+        <div id="docsArea@(KycDocumentTypes.Selfie)">
+
+            <script>
+                requests.doRequest({ url: '@Url.Action("UploadFrame", "Documents")', params: 'type=@KycDocumentTypes.Selfie', divResult: '#docsArea@(KycDocumentTypes.Selfie)', showLoading: true })
+            </script>
+        </div>
+        <div>
+            @Phrases.FileSizeDisclamer
+        </div>
+        <hr />
+        <button class="btn btn-success btn-lg btn-block"
+                onclick="requests.doRequest({url:'@Url.Action("SubmitDocuments", "Documents", new {area="Kyc"})'})">@Phrases.SubmitDocuments</button>
+
+    </div>
+}
+
+
+@helper RenderPendingStatus()
+{
+    <div class="mobile-content" style="text-align: center">
+        <h1>@Phrases.PleaseBePatient</h1>
+        <div class="alert alert-warning">
+            @Phrases.YourDocsAreWithCompliance
+        </div>
+    </div>
+}
+
+
+@helper RenderRestrictedArea()
+{
+    <div class="mobile-content" style="text-align: center">
+        <div class="alert alert-dange">
+            @Phrases.RestrictedAreaMessage
+        </div>
+    </div>
+}
