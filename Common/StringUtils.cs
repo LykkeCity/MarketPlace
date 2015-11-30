@@ -340,6 +340,25 @@ namespace Common
             return src.Substring(indexFrom + 2, indexTo - indexFrom - 2);
         }
 
+
+        public static string ExtractWebSiteRoot(this string src)
+        {
+            if (src == null)
+                return null;
+
+            var indexFrom = src.IndexOf(@"//", StringComparison.InvariantCulture);
+            if (indexFrom < 0)
+                return null;
+
+            var indexTo = src.IndexOf(@"/", indexFrom + 2, StringComparison.InvariantCulture);
+
+            if (indexTo < 0)
+                return src.Substring(indexFrom + 2, src.Length - indexFrom - 2);
+
+
+            return src.Substring(0, indexTo);
+        }
+
         public static int FindFirstNonSpaceSymbolIndex(this string src, int from = 0)
         {
             if (src == null)

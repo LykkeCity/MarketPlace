@@ -27,6 +27,7 @@ namespace LykkeWallet
                 "~/Scripts/bootstrap.js",
                 "~/Scripts/Requests.js",
                 "~/Scripts/UI.js",
+
                 "~/Scripts/utils.js"
                 ));
 
@@ -40,6 +41,7 @@ namespace LykkeWallet
                 "~/Scripts/bootstrap.js",
                 "~/Scripts/Requests.js",
                 "~/Scripts/MobileUi.js",
+                "~/Scripts/WalletMobile.js",
                 "~/Scripts/utils.js"
                 ));
 

@@ -166,3 +166,35 @@ box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
     height: 100%;
     background: #222;
 }
+
+.menu-item {
+    padding: 6px;
+    border-bottom: 1px #2d2d2d solid;
+    cursor: pointer;
+    text-align: left;
+}
+
+.mnu-active {
+    background: red;
+}
+
+.menu-item .img {
+    height: 36px;
+}
+
+.menu-item .menu-title {
+    font-size: 14px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    padding-left: 5px;
+}
+
+.menu-item .menu-subtitle {
+    font-size: 12px;
+    color: #b8c6cc;
+        padding-left: 5px;
+}
+
+.menu-item table tr td {
+    vertical-align: top;
+}

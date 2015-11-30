@@ -176,6 +176,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\Startup.Localization.cs" />
+    <Compile Include="Areas\Accounts\AccountsAreaRegistration.cs" />
+    <Compile Include="Areas\Accounts\Controllers\ListController.cs" />
+    <Compile Include="Areas\Exchange\Controllers\AssetsController.cs" />
+    <Compile Include="Areas\Exchange\ExchangeAreaRegistration.cs" />
+    <Compile Include="Areas\PersonalData\Controllers\PageController.cs" />
+    <Compile Include="Areas\PersonalData\PersonalDataAreaRegistration.cs" />
+    <Compile Include="Areas\Settings\Controllers\LanguageController.cs" />
+    <Compile Include="Areas\Settings\Controllers\PageController.cs" />
+    <Compile Include="Areas\Settings\SettingsAreaRegistration.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\ControllerExt.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -214,6 +223,10 @@
     <Content Include="Images\bg_box-shadow-left-300.png" />
     <Content Include="Images\bg_box-shadow-right-300.png" />
     <Content Include="Images\favicon.png" />
+    <Content Include="Images\Icons\exchange.png" />
+    <Content Include="Images\Icons\logout.png" />
+    <Content Include="Images\Icons\PersonalData.png" />
+    <Content Include="Images\Icons\safe.png" />
     <Content Include="Images\Lang\en.png" />
     <Content Include="Images\Lang\ru.png" />
     <Content Include="Images\Loading.gif" />
@@ -222,6 +235,7 @@
     <Content Include="Images\Pads\security.jpg" />
     <Content Include="Images\processing-menu.gif" />
     <Content Include="Images\processing.gif" />
+    <Content Include="Images\Icons\Settings.png" />
     <Content Include="Images\shadow-300.png" />
     <Content Include="Images\shadow-in-250.png" />
     <Content Include="App_Code\HelpersUi.cshtml" />
@@ -236,6 +250,15 @@
     <Content Include="Images\wallet.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Accounts\Views\web.config" />
+    <Content Include="Areas\Accounts\Views\List\Index.cshtml" />
+    <Content Include="Areas\Exchange\Views\web.config" />
+    <Content Include="Areas\Exchange\Views\Assets\Index.cshtml" />
+    <Content Include="Areas\PersonalData\Views\web.config" />
+    <Content Include="Areas\Settings\Views\web.config" />
+    <Content Include="Areas\Settings\Views\Page\Index.cshtml" />
+    <Content Include="Areas\PersonalData\Views\Page\Index.cshtml" />
+    <Content Include="Areas\Settings\Views\Language\Index.cshtml" />
     <None Include="Properties\PublishProfiles\lykke-wallet.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
@@ -266,16 +289,16 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Accounts\SignInDialog.cshtml" />
-    <Content Include="Views\Accounts\SignUpDialog.cshtml" />
+    <Content Include="Views\Client\SignInDialog.cshtml" />
+    <Content Include="Views\Client\SignUpDialog.cshtml" />
     <Content Include="Scripts\Requests.js.map" />
     <Content Include="Scripts\UI.js.map" />
     <Content Include="Scripts\utils.js.map" />
     <Content Include="Views\Shared\_Layout.mobile.cshtml" />
     <Content Include="Views\Shared\PartialInitScripts.cshtml" />
     <Content Include="Views\Shared\PartialInitScripts.mobile.cshtml" />
-    <Content Include="Views\Accounts\SignInDialog.mobile.cshtml" />
-    <Content Include="Views\Accounts\SignUpDialog.mobile.cshtml" />
+    <Content Include="Views\Client\SignInDialog.mobile.cshtml" />
+    <Content Include="Views\Client\SignUpDialog.mobile.cshtml" />
     <Content Include="Views\Home\Index.mobile.cshtml" />
     <Content Include="Views\IdentityVerification\Index.cshtml" />
     <Content Include="Views\Wallet\Index.cshtml" />
@@ -283,6 +306,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Accounts\Models\" />
+    <Folder Include="Areas\Accounts\Views\Shared\" />
+    <Folder Include="Areas\Exchange\Models\" />
+    <Folder Include="Areas\Exchange\Views\Shared\" />
+    <Folder Include="Areas\PersonalData\Models\" />
+    <Folder Include="Areas\PersonalData\Views\Shared\" />
+    <Folder Include="Areas\Settings\Models\" />
+    <Folder Include="Areas\Settings\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -297,6 +328,7 @@
     <TypeScriptCompile Include="Scripts\typings\lib.d.ts" />
     <TypeScriptCompile Include="Scripts\UI.ts" />
     <TypeScriptCompile Include="Scripts\utils.ts" />
+    <TypeScriptCompile Include="Scripts\WalletMobile.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

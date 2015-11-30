@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
+using Common;
 using Core.Clients;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
@@ -31,9 +32,17 @@ namespace LykkeWallet.Controllers
             if (prms == null)
                 return new JsonResult {Data = new {Status = "Request", divResult, url, showLoading = true}};
 
-
             return new JsonResult {Data = new {Status = "Request", divResult, url, prms, showLoading = true}};
         }
+
+
+        public static JsonResult JsonRefreshRoot(this Controller ctx)
+        {
+            var host = ctx.Request.Url.OriginalString.ExtractWebSiteRoot();
+
+            return new JsonResult { Data = new { Status = "Redirect", url = host } };
+        }
+
 
         public static JsonResult JsonShowContentResult(this Controller ctx, string divResult, string url,
             object prms = null)
@@ -80,7 +89,7 @@ namespace LykkeWallet.Controllers
             return ctx.User.Identity.Name;
         }
 
-        public static void SignOut(this Controller controller)
+        public static void SignUserOut(this Controller controller)
         {
             var authManager = controller.HttpContext.GetOwinContext().Authentication;
             authManager.SignOut();

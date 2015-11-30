@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Accounts" xml:space="preserve">
+    <value>Accounts</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
@@ -126,17 +129,29 @@
   <data name="Email" xml:space="preserve">
     <value>Email</value>
   </data>
+  <data name="Exchange" xml:space="preserve">
+    <value>Exchange</value>
+  </data>
   <data name="FieldShouldNotBeEmpty" xml:space="preserve">
     <value>Field should not be empty</value>
   </data>
   <data name="IdentityVerification" xml:space="preserve">
     <value>Identity verification</value>
   </data>
+  <data name="InterfaceLanguage" xml:space="preserve">
+    <value>Interface language</value>
+  </data>
   <data name="InvalidUsernameOrPassword" xml:space="preserve">
     <value>Invalid username or password</value>
   </data>
   <data name="InvalidVerificaionCode" xml:space="preserve">
     <value>Invalid verification code</value>
+  </data>
+  <data name="Lang" xml:space="preserve">
+    <value>en</value>
+  </data>
+  <data name="LanguageName" xml:space="preserve">
+    <value>English</value>
   </data>
   <data name="MobilePhone" xml:space="preserve">
     <value>Mobile phone</value>
@@ -153,6 +168,9 @@
   <data name="PasswordDoesNotMatch" xml:space="preserve">
     <value>Password does not match</value>
   </data>
+  <data name="PersonalData" xml:space="preserve">
+    <value>Personal Data</value>
+  </data>
   <data name="PleaseTypeEmailHere" xml:space="preserve">
     <value>Please, type email here</value>
   </data>
@@ -162,8 +180,14 @@
   <data name="SendCodeAgain" xml:space="preserve">
     <value>Send code again</value>
   </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
   <data name="SignIn" xml:space="preserve">
     <value>SignIn</value>
+  </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>Sign out</value>
   </data>
   <data name="SignUp" xml:space="preserve">
     <value>Sign up</value>

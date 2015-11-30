@@ -90,6 +90,38 @@
           <source>Verify</source>
           <target state="final">Проверка</target>
         </trans-unit>
+        <trans-unit id="Accounts" translate="yes" xml:space="preserve">
+          <source>Accounts</source>
+          <target state="new">Accounts</target>
+        </trans-unit>
+        <trans-unit id="SignOut" translate="yes" xml:space="preserve">
+          <source>Sign out</source>
+          <target state="new">Sign out</target>
+        </trans-unit>
+        <trans-unit id="PersonalData" translate="yes" xml:space="preserve">
+          <source>Personal Data</source>
+          <target state="new">Personal Data</target>
+        </trans-unit>
+        <trans-unit id="Exchange" translate="yes" xml:space="preserve">
+          <source>Exchange</source>
+          <target state="new">Exchange</target>
+        </trans-unit>
+        <trans-unit id="InterfaceLanguage" translate="yes" xml:space="preserve">
+          <source>Interface language</source>
+          <target state="new">Interface language</target>
+        </trans-unit>
+        <trans-unit id="Lang" translate="yes" xml:space="preserve">
+          <source>en</source>
+          <target state="new">en</target>
+        </trans-unit>
+        <trans-unit id="LanguageName" translate="yes" xml:space="preserve">
+          <source>English</source>
+          <target state="new">English</target>
+        </trans-unit>
+        <trans-unit id="Settings" translate="yes" xml:space="preserve">
+          <source>Settings</source>
+          <target state="new">Settings</target>
+        </trans-unit>
       </group>
     </body>
   </file>

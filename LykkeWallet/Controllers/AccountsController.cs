@@ -8,12 +8,12 @@ using LykkeWallet.Strings;
 
 namespace LykkeWallet.Controllers
 {
-    public class AccountsController : Controller
+    public class ClientController : Controller
     {
         private readonly IClientAccountsRepository _tradersRepository;
         private readonly SrvClientManager _srvClientManager;
 
-        public AccountsController(IClientAccountsRepository tradersRepository, SrvClientManager srvClientManager)
+        public ClientController(IClientAccountsRepository tradersRepository, SrvClientManager srvClientManager)
         {
             _tradersRepository = tradersRepository;
             _srvClientManager = srvClientManager;
@@ -92,6 +92,13 @@ namespace LykkeWallet.Controllers
             this.AuthenticateUserViaOwin(trader);
 
             return GetAuthenticatedJsonResult();
+        }
+
+        [HttpPost]
+        public ActionResult SignOut()
+        {
+            this.SignUserOut();
+            return this.JsonRefreshRoot();
         }
 
         private JsonResult GetAuthenticatedJsonResult()
