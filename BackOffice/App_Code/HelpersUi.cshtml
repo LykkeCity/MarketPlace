@@ -74,3 +74,16 @@ var id = name.FirstLetterLowCase();
        </select>
    </div>
 }
+
+@helper RenderCountryFlag(string countryCode)
+{
+if (string.IsNullOrEmpty(countryCode))
+{
+        <span>???</span>
+    return;
+}
+
+
+    <div class="flag flag-@(countryCode.ToLower())" ></div>
+    <div style="height: 10px;position: relative; font-size:8px; text-align: center;">@countryCode</div>
+}

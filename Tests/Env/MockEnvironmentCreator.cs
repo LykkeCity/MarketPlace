@@ -22,7 +22,7 @@ namespace Tests.Env
 
             ioc.Register<ILog>(log);
 
-            AzureRepoBinder.BindAzureReposInMem(ioc);
+            ioc.BindAzureReposInMem();
             SrvBinder.BindTraderPortalServices(ioc);
 
             ioc.RegisterSingleTone<OrderBookChangesRegistrator>();

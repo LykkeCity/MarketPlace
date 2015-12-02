@@ -7,6 +7,7 @@ using BackOfficeAzureRepositories;
 using Common.IocContainer;
 using Common.Log;
 using Core;
+using LkeServices;
 
 namespace BackOffice
 {
@@ -21,6 +22,23 @@ namespace BackOffice
                 try
                 {
                     return ConfigurationManager.AppSettings["ConnectionString"];
+                }
+                catch (Exception)
+                {
+
+                    return "UseDevelopmentStorage=true";
+                }
+            }
+        }
+
+
+        public static string BackOfficeConnectionString
+        {
+            get
+            {
+                try
+                {
+                    return ConfigurationManager.AppSettings["BackOfficeConnectionString"];
                 }
                 catch (Exception)
                 {
@@ -57,9 +75,11 @@ namespace BackOffice
             dr.IoC.BindBackOfficeRepositoriesInMemory();
 
 #else
-            AzureRepoBinder.BindAzureRepositories(dr.IoC, Settings.ConnectionString, log);
+            dr.IoC.BindAzureRepositories(Settings.ConnectionString, Settings.BackOfficeConnectionString, log);
             dr.IoC.BindBackOfficeRepositories(Settings.ConnectionString, log);
 #endif
+
+            dr.IoC.BindBackOfficeServices();
             CreateAdminUser(dr.IoC);
             return dr;
         }

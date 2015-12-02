@@ -14,7 +14,7 @@ namespace Core.Kyc
 
         Task<KycStatus> GetKycStatusAsync(string clientId);
 
-        Task<IEnumerable<string>> GetTradersByStatus(KycStatus kycStatus);
+        Task<IEnumerable<string>> GetClientsByStatus(KycStatus kycStatus);
 
         Task SetStatusAsync(string clientId, KycStatus status);
 

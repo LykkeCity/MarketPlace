@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
+using AzureStorage;
 using Common;
 using Core;
 using Microsoft.WindowsAzure.Storage.Table;

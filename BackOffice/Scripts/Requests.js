@@ -163,4 +163,5 @@ var Requests = (function () {
     };
     return Requests;
 })();
+var requests = Requests;
 //# sourceMappingURL=Requests.js.map

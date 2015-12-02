@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Core.Clients;
 
 namespace LkeServices.Clients
@@ -11,18 +7,21 @@ namespace LkeServices.Clients
     {
         private readonly IClientAccountsRepository _tradersRepository;
         private readonly ISrvSmsConfirmator _srvSmsConfirmator;
+        private readonly IPersonalDataRepository _personalDataRepository;
 
-        public SrvClientManager(IClientAccountsRepository tradersRepository, ISrvSmsConfirmator srvSmsConfirmator)
+        public SrvClientManager(IClientAccountsRepository tradersRepository, ISrvSmsConfirmator srvSmsConfirmator, IPersonalDataRepository personalDataRepository)
         {
             _tradersRepository = tradersRepository;
             _srvSmsConfirmator = srvSmsConfirmator;
+            _personalDataRepository = personalDataRepository;
         }
-
 
         public async Task<IClientAccount> RegisterClientAsync(IClientAccount clientAccount, string password)
         {
             clientAccount = await _tradersRepository.RegisterAsync(clientAccount, password);
             await _srvSmsConfirmator.SendSmsAsync(clientAccount.Id);
+
+            await _personalDataRepository.SaveAsync(PersonalData.Create(clientAccount));
             return clientAccount;
         }
 

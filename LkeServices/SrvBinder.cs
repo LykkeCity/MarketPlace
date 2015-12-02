@@ -16,7 +16,6 @@ namespace LkeServices
 
         public static void BindTraderPortalServices(IoC ioc)
         {
-
             ioc.RegisterSingleTone<SrvClientManager>();
 
             ioc.RegisterSingleTone<SrvBalanceAccess>();
@@ -41,7 +40,15 @@ namespace LkeServices
         public static void BindLykkeWalletServices(this IoC ioc)
         {
             ioc.RegisterSingleTone<SrvClientManager>();
-            ioc.RegisterSingleTone<SrvKycDocuments>();
+            ioc.RegisterSingleTone<SrvKycDocumentsManager>();
+            ioc.RegisterSingleTone<SrvKycStatusManager>();
+        }
+
+        public static void BindBackOfficeServices(this IoC ioc)
+        {
+            ioc.RegisterSingleTone<SrvClientFinder>();
+            ioc.RegisterSingleTone<SrvKycDocumentsManager>();
+            ioc.RegisterSingleTone<SrvKycStatusManager>();
         }
 
 

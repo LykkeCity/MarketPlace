@@ -1,11 +1,11 @@
 ﻿using System.Threading.Tasks;
-using Common;
+using AzureStorage;
 using Core.Clients;
 using Microsoft.WindowsAzure.Storage.Table;
 
-namespace AzureRepositories.Traders
+namespace AzureRepositories.Clients
 {
-    public class TraderSettingsEntity : TableEntity
+    public class ClientSettingsEntity : TableEntity
     {
         public static string GeneratePartitionKey(string traderId)
         {
@@ -30,9 +30,9 @@ namespace AzureRepositories.Traders
         }
 
 
-        public static TraderSettingsEntity Create(string traderId, TraderSettingsBase settings)
+        public static ClientSettingsEntity Create(string traderId, TraderSettingsBase settings)
         {
-            var result = new TraderSettingsEntity
+            var result = new ClientSettingsEntity
             {
                 PartitionKey = GeneratePartitionKey(traderId),
                 RowKey = GenerateRowKey(settings),
@@ -45,25 +45,25 @@ namespace AzureRepositories.Traders
 
     public class ClientSettingsRepository : IClientSettingsRepository
     {
-        private readonly INoSQLTableStorage<TraderSettingsEntity> _tableStorage;
+        private readonly INoSQLTableStorage<ClientSettingsEntity> _tableStorage;
 
-        public ClientSettingsRepository(INoSQLTableStorage<TraderSettingsEntity> tableStorage)
+        public ClientSettingsRepository(INoSQLTableStorage<ClientSettingsEntity> tableStorage)
         {
             _tableStorage = tableStorage;
         }
 
         public async Task<T> GetSettings<T>(string traderId) where T : TraderSettingsBase, new()
         {
-            var partitionKey = TraderSettingsEntity.GeneratePartitionKey(traderId);
+            var partitionKey = ClientSettingsEntity.GeneratePartitionKey(traderId);
             var defaultValue = TraderSettingsBase.CreateDefault<T>();
-            var rowKey = TraderSettingsEntity.GenerateRowKey(defaultValue);
+            var rowKey = ClientSettingsEntity.GenerateRowKey(defaultValue);
             var entity = await _tableStorage.GetDataAsync(partitionKey, rowKey);
             return entity == null ? defaultValue : entity.GetSettings<T>();
         }
 
         public Task SetSettings<T>(string traderId, T settings) where T : TraderSettingsBase, new()
         {
-            var newEntity = TraderSettingsEntity.Create(traderId, settings);
+            var newEntity = ClientSettingsEntity.Create(traderId, settings);
             return _tableStorage.InsertOrReplaceAsync(newEntity);
         }
 

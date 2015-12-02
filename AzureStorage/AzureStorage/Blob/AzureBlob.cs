@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Common;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 
-namespace AzureStorage
+namespace AzureStorage.Blob
 {
     public class AzureBlobStorage : IBlobStorage
     {
@@ -19,7 +18,6 @@ namespace AzureStorage
             _blobClient = storageAccount.CreateCloudBlobClient();
 
         }
-
 
         public void SaveBlob(string container, string key, Stream bloblStream)
         {

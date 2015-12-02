@@ -75,7 +75,7 @@ namespace AzureRepositories.Kyc
             return entity?.GetSatus() ?? KycEntity.DefaultStatus;
         }
 
-        public async Task<IEnumerable<string>> GetTradersByStatus(KycStatus kycStatus)
+        public async Task<IEnumerable<string>> GetClientsByStatus(KycStatus kycStatus)
         {
             var partitionKey = KycEntity.GeneratePartitionKey(kycStatus);
             return (await _tableStorage.GetDataAsync(partitionKey)).Select(itm => itm.GetClientId());

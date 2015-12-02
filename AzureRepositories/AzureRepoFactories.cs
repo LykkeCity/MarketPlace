@@ -1,11 +1,13 @@
 ﻿using AzureRepositories.Assets;
+using AzureRepositories.BackOffice;
+using AzureRepositories.Clients;
 using AzureRepositories.Finance;
 using AzureRepositories.Kyc;
 using AzureRepositories.Orders;
-using AzureRepositories.Traders;
 using AzureStorage;
+using AzureStorage.Blob;
 using AzureStorage.Tables;
-using AzureStorage.Tables.Templates;
+using AzureStorage.Tables.Templates.Index;
 using Common.Log;
 
 namespace AzureRepositories
@@ -36,7 +38,7 @@ namespace AzureRepositories
 
         public static ClientSettingsRepository CreateTraderSettingsRepository(string connString, ILog log)
         {
-            return new ClientSettingsRepository(new AzureTableStorage<TraderSettingsEntity>(connString, "TraderSettings", log));
+            return new ClientSettingsRepository(new AzureTableStorage<ClientSettingsEntity>(connString, "TraderSettings", log));
         }
 
 
@@ -54,6 +56,11 @@ namespace AzureRepositories
                 return new ClientsRepository(
                     new AzureTableStorage<ClientAccountEntity>(connstring, tableName, log),
                     new AzureTableStorage<AzureIndex>(connstring, tableName, log));
+            }
+
+            public static PersonalDataRepository CreatePersonalDataRepository(string connString, ILog log)
+            {
+                return new PersonalDataRepository(new AzureTableStorage<PersonalDataEntity>(connString, "PersonalData", log));
             }
 
             public static KycRepository CreateKycRepository(string connString, ILog log)
@@ -83,16 +90,22 @@ namespace AzureRepositories
         }
 
 
+        public static class BackOffice
+        {
+            public static MenuBadgesRepository CreateMenuBadgesRepository(string connecionString, ILog log)
+            {
+                return new MenuBadgesRepository(new AzureTableStorage<MenuBadgeEntity>(connecionString, "MenuBadges", log));
+            }
+
+        }
+
         private const string TableNameDictionaries = "Dictionaries";
         public static class Dictionaries
         {
-            
-
             public static AssetsRepository CreateAssetsRepository(string connstring, ILog log)
             {
                 return new AssetsRepository(new AzureTableStorage<AssetEntity>(connstring, TableNameDictionaries, log));
             }
-
 
             public static AssetPairsRepository CreateAssetPairsRepository(string connString, ILog log)
             {
@@ -100,9 +113,6 @@ namespace AzureRepositories
             }
         }
 
-
-
-
-
     }
+
 }

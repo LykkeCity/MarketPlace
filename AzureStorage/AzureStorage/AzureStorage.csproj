@@ -103,15 +103,17 @@
     <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AzureBlob.cs" />
-    <Compile Include="AzureBlobInMemory.cs" />
+    <Compile Include="Blob\AzureBlob.cs" />
+    <Compile Include="Blob\AzureBlobInMemory.cs" />
     <Compile Include="AzureQueue.cs" />
     <Compile Include="AzureQueueExt.cs" />
     <Compile Include="AzureStorageUtils.cs" />
+    <Compile Include="Blob\AzureBlobLocal.cs" />
     <Compile Include="IBlobStorage.cs" />
     <Compile Include="INoSqlTableStorage.cs" />
+    <Compile Include="Tables\AzureTableStorageLocal.cs" />
     <Compile Include="Tables\AzureTableStorageWithCache.cs" />
-    <Compile Include="Tables\Templates\AzureIndex.cs" />
+    <Compile Include="Tables\Templates\Index\AzureIndex.cs" />
     <Compile Include="Tables\NoSqlTableInMemory.cs" />
     <Compile Include="Tables\AzureTableStorage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

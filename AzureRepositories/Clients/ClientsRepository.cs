@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
-using AzureStorage.Tables.Templates;
+using AzureStorage;
+using AzureStorage.Tables.Templates.Index;
 using Common;
 using Core.Clients;
 using Microsoft.WindowsAzure.Storage.Table;
 
-namespace AzureRepositories.Traders
+namespace AzureRepositories.Clients
 {
     public class ClientAccountEntity : TableEntity, IClientAccount
     {
@@ -20,6 +21,7 @@ namespace AzureRepositories.Traders
             return id;
         }
 
+        public DateTime Registered { get; set; }
         public string Id => RowKey;
         public string Email { get; set; }
         public string Phone { get; set; }
@@ -33,7 +35,8 @@ namespace AzureRepositories.Traders
                 PartitionKey = GeneratePartitionKey(),
                 RowKey = Guid.NewGuid().ToString(),
                 Email = clientAccount.Email.ToLower(),
-                Phone = clientAccount.Phone
+                Phone = clientAccount.Phone,
+                Registered = clientAccount.Registered
             };
 
             result.SetPassword(password);
@@ -124,12 +127,32 @@ namespace AzureRepositories.Traders
 
         }
 
+        public Task ChangePassword(string clientId, string newPassword)
+        {
+            var partitionKey = ClientAccountEntity.GeneratePartitionKey();
+            var rowKey = ClientAccountEntity.GenerateRowKey(clientId);
+
+            return _tradersTableStorage.ReplaceAsync(partitionKey, rowKey, itm =>
+            {
+                itm.SetPassword(newPassword);
+                return itm;
+            });
+        }
+
         public async Task<IClientAccount> GetByIdAsync(string id)
         {
             var partitionKey = ClientAccountEntity.GeneratePartitionKey();
             var rowKey = ClientAccountEntity.GenerateRowKey(id);
 
             return await _tradersTableStorage.GetDataAsync(partitionKey, rowKey);
+        }
+
+        public async Task<IClientAccount> GetByEmailAsync(string email)
+        {
+            if (string.IsNullOrEmpty(email))
+                return null;
+
+            return await _emailIndices.GetDataAsync(_tradersTableStorage, IndexEmail, email.ToLower());
         }
     }
 }

@@ -15,13 +15,16 @@ namespace LykkeWallet.Areas.Kyc.Controllers
     {
         private readonly IKycDocumentsRepository _kycDocumentsRepository;
         private readonly IKycDocumentsScansRepository _kycDocumentsScansRepository;
-        private readonly SrvKycDocuments _srvKycDocuments;
+        private readonly SrvKycDocumentsManager _srvKycDocumentsManager;
+        private readonly SrvKycStatusManager _srvKycStatusManager;
 
-        public DocumentsController(IKycDocumentsRepository kycDocumentsRepository, IKycDocumentsScansRepository kycDocumentsScansRepository, SrvKycDocuments srvKycDocuments)
+        public DocumentsController(IKycDocumentsRepository kycDocumentsRepository, IKycDocumentsScansRepository kycDocumentsScansRepository, 
+            SrvKycDocumentsManager srvKycDocumentsManager, SrvKycStatusManager srvKycStatusManager)
         {
             _kycDocumentsRepository = kycDocumentsRepository;
             _kycDocumentsScansRepository = kycDocumentsScansRepository;
-            _srvKycDocuments = srvKycDocuments;
+            _srvKycDocumentsManager = srvKycDocumentsManager;
+            _srvKycStatusManager = srvKycStatusManager;
         }
 
         [HttpPost]
@@ -56,7 +59,7 @@ namespace LykkeWallet.Areas.Kyc.Controllers
             var mime = Request.Files[0].ContentType;
             var stream = Request.Files[0].InputStream;
 
-            var id = await _srvKycDocuments.UploadDocument(clientId, docId, fileName, mime, stream.ToBytes());
+            var id = await _srvKycDocumentsManager.UploadDocument(clientId, docId, fileName, mime, stream.ToBytes());
 
             return Json(new { result = "ok", id });
         }
@@ -79,7 +82,7 @@ namespace LykkeWallet.Areas.Kyc.Controllers
         public async Task<ActionResult> Delete(string id)
         {
             var clientId = this.GetClientId();
-            var doc = await _srvKycDocuments.DeleteAsync(clientId, id);
+            var doc = await _srvKycDocumentsManager.DeleteAsync(clientId, id);
 
             return this.JsonShowContentResultAndShowLoading("#docsArea" + doc.Type, Url.Action("UploadFrame", new { type = doc.Type}));
         }
@@ -99,7 +102,7 @@ namespace LykkeWallet.Areas.Kyc.Controllers
             if (documents.FirstOrDefault(itm => itm.Type == KycDocumentTypes.Selfie) == null)
                 return this.JsonFailResult("#panelPickUpFile" + KycDocumentTypes.Selfie, Phrases.MakeSelfiePhoto);
 
-            await _srvKycDocuments.ChangeKycStatus(clientId, KycStatus.Pending);
+            await _srvKycStatusManager.ChangeKycStatus(clientId, KycStatus.Pending);
 
             return this.JsonShowContentResultAndShowLoading("#pamain", Url.Action("Index","Page", new {area="Kyc"}));
 

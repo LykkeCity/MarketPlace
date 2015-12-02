@@ -20,8 +20,9 @@ namespace BackOfficeAzureRepositories
 
         public static void BindBackOfficeRepositoriesInMemory(this IoC ioc)
         {
+            var localHost = @"http://127.0.0.1:8998";
             ioc.Register<IBackOfficeUsersRepository>(
-                new BackOfficeUsersRepository(new NoSqlTableInMemory<BackOfficeUserEntity>()));
+                new BackOfficeUsersRepository(new AzureTableStorageLocal<BackOfficeUserEntity>(localHost, "BackOfficeUsers" )));
         }
 
     }

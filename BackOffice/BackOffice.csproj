@@ -181,11 +181,15 @@
     <Compile Include="Areas\Dictionaries\DictionariesAreaRegistration.cs" />
     <Compile Include="Areas\Dictionaries\Models\AssetPairsDictionariesModels.cs" />
     <Compile Include="Areas\Dictionaries\Models\AssetsDictionariesModels.cs" />
+    <Compile Include="Areas\Kyc\Controllers\DocumentsCheckingController.cs" />
+    <Compile Include="Areas\Kyc\KycAreaRegistration.cs" />
+    <Compile Include="Areas\Kyc\Models\DocumentsCheckingModels.cs" />
     <Compile Include="Areas\Users\Controllers\ChangeMyPasswordController.cs" />
     <Compile Include="Areas\Users\Controllers\ManagementController.cs" />
     <Compile Include="Areas\Users\Models\ChangeMyPasswordModels.cs" />
     <Compile Include="Areas\Users\Models\UsersManagementModels.cs" />
     <Compile Include="Areas\Users\UsersAreaRegistration.cs" />
+    <Compile Include="Controllers\BackOfficeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -276,6 +280,9 @@
     <Content Include="Areas\Dictionaries\Views\AssetPairs\Index.cshtml" />
     <Content Include="Areas\Dictionaries\Views\Assets\EditAssetDialog.cshtml" />
     <Content Include="Areas\Dictionaries\Views\AssetPairs\EditDialog.cshtml" />
+    <Content Include="Areas\Kyc\Views\web.config" />
+    <Content Include="Areas\Kyc\Views\DocumentsChecking\Index.cshtml" />
+    <Content Include="Areas\Kyc\Views\DocumentsChecking\FindClient.cshtml" />
     <None Include="Properties\PublishProfiles\Lke-BackOffice.pubxml" />
     <None Include="Properties\PublishProfiles\lykke-backoffice.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
@@ -310,16 +317,18 @@
     <Content Include="Views\Shared\_Layout.mobile.cshtml" />
     <Content Include="Views\Shared\_PersonalAreaDialog.cshtml" />
     <Content Include="Views\Shared\_PersonalAreaDialog.mobile.cshtml" />
-    <Content Include="Views\Home\Layout.cshtml" />
+    <Content Include="Views\BackOffice\Layout.cshtml" />
     <Content Include="Views\Home\Index.mobile.cshtml" />
-    <Content Include="Views\Home\Layout.mobile.cshtml" />
-    <Content Include="Views\Home\Menu.cshtml" />
-    <Content Include="Views\Home\Menu.mobile.cshtml" />
-    <Content Include="Views\Home\PartialMenu.cshtml" />
+    <Content Include="Views\BackOffice\Layout.mobile.cshtml" />
+    <Content Include="Views\BackOffice\Menu.cshtml" />
+    <Content Include="Views\BackOffice\Menu.mobile.cshtml" />
+    <Content Include="Views\BackOffice\PartialMenu.cshtml" />
+    <Content Include="Views\Shared\PartialFindCleint.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Dictionaries\Views\Shared\" />
+    <Folder Include="Areas\Kyc\Views\Shared\" />
     <Folder Include="Areas\Users\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>

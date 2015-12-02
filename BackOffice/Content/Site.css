@@ -207,3 +207,23 @@ border-radius: 5px;
 .clmn-90 {
     width:89%
 }
+
+
+.select-list .select-item {
+        padding: 7px;
+    margin: 5px 0 0 5px;
+    border: 1px solid #ddd;
+    padding-bottom: 5px;
+    background: #fff;
+    line-height: 1.4em;
+    font-size: 12px;
+    -moz-box-shadow: 1px 1px 4px #ccc;
+    -webkit-box-shadow: 1px 1px 4px #ccc;
+    -ms-box-shadow: 1px 1px 4px #ccc;
+    box-shadow: 1px 1px 4px #ccc;
+    cursor: pointer;
+}
+
+.select-list .active {
+    background: navajowhite;
+}

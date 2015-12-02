@@ -1,0 +1,18 @@
+﻿@using BackOffice.Translates
+@model BackOffice.Models.IFindClientViewModel
+
+@{
+    var div = string.IsNullOrEmpty(Model.Div) ? "#foundClient" : Model.Div;
+}
+
+<div class="input-group">
+    <form id="findClient">
+        <input name="Phrase" type="text" class="form-control" placeholder="@Phrases.TypePhraseHere">
+        <input style="display: none"/>
+    </form>
+    <span class="input-group-btn">
+        <button class="btn btn-default" type="button"
+                onclick="requests.doRequest({ url: '@Model.RequestUrl', divResult: '@div', formId:'#findClient', showLoading: true })"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+    </span>
+</div>
+

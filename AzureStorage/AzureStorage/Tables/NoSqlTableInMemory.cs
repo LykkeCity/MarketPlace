@@ -466,7 +466,7 @@ namespace AzureStorage.Tables
             return Task.FromResult(this[partition, row]);
         }
 
-        public Task<T> ScanDataAsync(string partitionKey, Func<IEnumerable<T>, T> dataToSearch)
+        public Task<T> FirstOrNullViaScanAsync(string partitionKey, Func<IEnumerable<T>, T> dataToSearch)
         {
             return Task.Run(() => dataToSearch(this[partitionKey]));
         }
@@ -479,7 +479,7 @@ namespace AzureStorage.Tables
                 try
                 {
                     var partition = GetPartition(partitionKey,false);
-                    return partition == null ? _empty : partition.Rows.Values.Select(row => row.Deserialize<T>()).ToArray();
+                    return partition?.Rows.Values.Select(row => row.Deserialize<T>()).ToArray() ?? _empty;
                 }
                 finally
                 {

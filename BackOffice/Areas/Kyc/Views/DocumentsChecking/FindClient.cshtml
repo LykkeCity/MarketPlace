@@ -1,0 +1,91 @@
+﻿@using BackOffice.Translates
+@using Common
+@using Core
+@using Core.Kyc
+@model BackOffice.Areas.Kyc.Models.DocumentsCheckingFindClientViewModel
+
+@{
+    Layout = null;
+    if (Model.PersonalData == null)
+    {
+        <h1>@Phrases.ClientNotFound</h1>
+        return;
+    }
+}
+
+<div class="panel panel-default" style="width: 600px; margin: 10px auto; padding: 10px;">
+    <form id="frmUpdatePd">
+        <input name="Id" type="hidden" value="@Model.PersonalData.Id"/>
+        <table style="width: 100%">
+            <tr>
+                <td style="width: 50%">
+                    @HelpersUi.RenderInputWithLabelOnTop("FirstName", Phrases.FirstName, Model.PersonalData.FirstName, Phrases.FirstName)
+                </td>
+                <td>
+                    @HelpersUi.RenderInputWithLabelOnTop("LastName", Phrases.LastName, Model.PersonalData.LastName, Phrases.LastName)
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 50%">
+                    @HelpersUi.RenderSelect("Country", Phrases.Country, CountryManager.AllAlpha3Codes(), CountryDictionary.GetCountryName, Model.PersonalData.Country)
+                </td>
+                <td>
+                    @HelpersUi.RenderInputWithLabelOnTop("Zip", Phrases.ZipCode, Model.PersonalData.Zip, Phrases.ZipCode)
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 50%">
+                    @HelpersUi.RenderInputWithLabelOnTop("City", Phrases.City, Model.PersonalData.City, Phrases.City)
+                </td>
+                <td>
+                    @HelpersUi.RenderInputWithLabelOnTop("ContactPhone", Phrases.ContactPhone, Model.PersonalData.ContactPhone, Phrases.ContactPhone)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    @HelpersUi.RenderInputWithLabelOnTop("Address", Phrases.Address, Model.PersonalData.Address, Phrases.Address)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @HelpersUi.RenderSelect("KycStatus", Phrases.KycStatus, Utils.Enumerate<KycStatus>().Select(itm => itm.ToString()), null, Model.KycStatus.ToString())
+                </td>
+                <td style="text-align: right; vertical-align: bottom;">
+                    <a class="btn btn-success btn-xs btn-raised"
+                       onclick="requests.doRequest({url:'@Url.Action("Change")', formId:'#frmUpdatePd'});"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> @Phrases.Save</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div style="text-align: center">
+    <h2>@Phrases.Documents</h2>
+</div>
+<table class="table" style="width: 600px; margin: 10px auto;">
+    <tr>
+        <th>
+            @Phrases.DocumentType
+        </th>
+        <th>
+            @Phrases.Date
+        </th>
+        <th>
+
+        </th>
+    </tr>
+    @foreach (var kycDocument in Model.Documents)
+    {
+        <tr>
+            <td>
+                @kycDocument.Type
+            </td>
+            <td>
+                @kycDocument.DateTime
+            </td>
+            <td>
+                <a class="btn btn-xs btn-primary btn-raised" href="@Url.Action("Show", new {kycDocument.ClientId, kycDocument.DocumentId })" target="_blank"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
+            </td>
+        </tr>
+  
+    }
+</table>

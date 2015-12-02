@@ -1,5 +1,4 @@
-﻿
-namespace BackOffice.Models
+﻿namespace BackOffice.Models
 {
 
     public static class WebSiteConstants
@@ -14,5 +13,16 @@ namespace BackOffice.Models
         string Width { get; set; }
     }
 
+    public interface IFindClientViewModel
+    {
+        /// <summary>
+        /// Where should I Do Search request
+        /// </summary>
+        string RequestUrl { get; }
+        /// <summary>
+        /// Where should I put result Html
+        /// </summary>
+        string Div { get; }
+    }
 
 }

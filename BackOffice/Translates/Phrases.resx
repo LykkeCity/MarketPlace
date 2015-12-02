@@ -120,6 +120,9 @@
   <data name="Accuracy" xml:space="preserve">
     <value>Accuracy</value>
   </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
   <data name="AssetName" xml:space="preserve">
     <value>Asset name</value>
   </data>
@@ -141,17 +144,38 @@
   <data name="ChangeTheAccessPassword" xml:space="preserve">
     <value>Change access password</value>
   </data>
+  <data name="City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="ClientNotFound" xml:space="preserve">
+    <value>Client  not found</value>
+  </data>
   <data name="Confirmation" xml:space="preserve">
     <value>Confirmation</value>
   </data>
+  <data name="ContactPhone" xml:space="preserve">
+    <value>Contact Phone</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Create</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
   </data>
   <data name="DictionaryAssetPairs" xml:space="preserve">
     <value>Dictionary Asset Pairs</value>
   </data>
   <data name="DictionaryAssets" xml:space="preserve">
     <value>Dictionary Assets</value>
+  </data>
+  <data name="Documents" xml:space="preserve">
+    <value>Documents</value>
+  </data>
+  <data name="DocumentType" xml:space="preserve">
+    <value>Document type</value>
   </data>
   <data name="EditAsset" xml:space="preserve">
     <value>Edit asset</value>
@@ -165,11 +189,20 @@
   <data name="FieldShouldNotBeEmpty" xml:space="preserve">
     <value>Field should not be empty</value>
   </data>
+  <data name="Find" xml:space="preserve">
+    <value>Find</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
   <data name="FullName" xml:space="preserve">
     <value>Full Name</value>
   </data>
   <data name="InvalidUsernameOrPassword" xml:space="preserve">
     <value>Invalid username or password</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last Name</value>
   </data>
   <data name="NewPassword" xml:space="preserve">
     <value>New password</value>
@@ -198,6 +231,9 @@
   <data name="SignIn" xml:space="preserve">
     <value>Sign In</value>
   </data>
+  <data name="TypePhraseHere" xml:space="preserve">
+    <value>Type phrase here</value>
+  </data>
   <data name="UserExists" xml:space="preserve">
     <value>User Exists</value>
   </data>
@@ -206,5 +242,11 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>Users</value>
+  </data>
+  <data name="ZipCode" xml:space="preserve">
+    <value>ZipCode</value>
+  </data>
+  <data name="KycStatus" xml:space="preserve">
+    <value>Kyc Status</value>
   </data>
 </root>

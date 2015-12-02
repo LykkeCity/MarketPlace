@@ -44,12 +44,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clients\SrvClientFinder.cs" />
     <Compile Include="Clients\SrvClientManager.cs" />
     <Compile Include="Feed\AssetsDictionary.cs" />
     <Compile Include="Feed\AssetPairsDictionary.cs" />
     <Compile Include="Feed\AssetPairsBestRateCache.cs" />
     <Compile Include="Feed\FeedUtils.cs" />
-    <Compile Include="Kyc\SrvKycDocuments.cs" />
+    <Compile Include="Kyc\SrvKycDocumentsManager.cs" />
+    <Compile Include="Kyc\SrvKycStatusManager.cs" />
     <Compile Include="Orders\SrvAssetPairBestPriceBroadcaster.cs" />
     <Compile Include="Orders\SrvLimitOrderBookGenerator.cs" />
     <Compile Include="Orders\SrvOrdersExecutor.cs" />

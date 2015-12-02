@@ -48,6 +48,9 @@
     <Compile Include="Assets\IAssetsDictionary.cs" />
     <Compile Include="Assets\IAssetPairsRepository.cs" />
     <Compile Include="Assets\IAssetsRepository.cs" />
+    <Compile Include="BackOffice\IMenuBadgesRepository.cs" />
+    <Compile Include="Clients\IPersonalDataRepository.cs" />
+    <Compile Include="CountryDictionary.cs" />
     <Compile Include="Finance\Currency.cs" />
     <Compile Include="Feed\AssetQuote.cs" />
     <Compile Include="Finance\IBalanceRepository.cs" />

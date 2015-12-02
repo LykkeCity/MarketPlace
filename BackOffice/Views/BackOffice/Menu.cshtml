@@ -61,4 +61,33 @@
     });
 
 
+
+    window.setInterval(RefreshBadges, 5000);
+
+    function RefreshBadges() {
+        var options = { url: '@Url.Action("GetBadges")', type: 'POST' };
+        $.ajax(options)
+
+               .then(function (result) {
+
+                   //$('#srvTime').html(result.Time);
+
+                   result.forEach(function (itm) {
+                       var node = $('#smi' + itm.id);
+                       console.log(node);
+                       console.log(itm.value);
+                       if (itm.value === "0")
+                           node.html(node.attr('data-text'));
+                       else
+                           node.html(node.attr('data-text') + ' <span class="badge" style="background:red; font-size:9px;padding: 1px 5px 2px 4px;">' + itm.value + "</span>");
+                   });
+
+               }).fail(function (fr) {
+
+
+               });
+    }
+    RefreshBadges();
+
+
 </script>

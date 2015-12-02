@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Common;
+using AzureStorage;
 using Core.Kyc;
 using Microsoft.WindowsAzure.Storage.Table;
 

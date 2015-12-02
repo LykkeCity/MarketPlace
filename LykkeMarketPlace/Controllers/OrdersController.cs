@@ -3,8 +3,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using Core.Assets;
+using Core.Clients;
 using Core.Orders;
-using Core.Traders;
 using LykkeMarketPlace.Models;
 
 namespace LykkeMarketPlace.Controllers
@@ -13,13 +13,13 @@ namespace LykkeMarketPlace.Controllers
     public class OrdersController : Controller
     {
         private readonly IOrdersRepository _ordersRepository;
-        private readonly ITraderSettingsRepository _traderSettingsRepository;
+        private readonly IClientSettingsRepository _clientSettingsRepository;
         private readonly IAssetPairsDictionary _assetPairsDictionary;
 
-        public OrdersController(IOrdersRepository ordersRepository, ITraderSettingsRepository traderSettingsRepository, IAssetPairsDictionary assetPairsDictionary)
+        public OrdersController(IOrdersRepository ordersRepository, IClientSettingsRepository clientSettingsRepository, IAssetPairsDictionary assetPairsDictionary)
         {
             _ordersRepository = ordersRepository;
-            _traderSettingsRepository = traderSettingsRepository;
+            _clientSettingsRepository = clientSettingsRepository;
             _assetPairsDictionary = assetPairsDictionary;
         }
 
@@ -30,7 +30,7 @@ namespace LykkeMarketPlace.Controllers
 
             var viewModel = new OrdersIndexViewModel
             {
-                OrdersRequestSettings = await _traderSettingsRepository.GetSettings<OrdersRequestSettings>(traderId)
+                OrdersRequestSettings = await _clientSettingsRepository.GetSettings<OrdersRequestSettings>(traderId)
             };
             return View(viewModel);
         }
@@ -47,7 +47,7 @@ namespace LykkeMarketPlace.Controllers
                 DoneChecked = data.Done != null,
                 CanceledChecked = data.Canceled != null,
             };
-            await _traderSettingsRepository.SetSettings(traderId, orderSettings);
+            await _clientSettingsRepository.SetSettings(traderId, orderSettings);
 
             var orders = await _ordersRepository.GetOrdersByTraderAsync(traderId, o =>
                 (data.Active != null && o.Status == OrderStatus.Registered) |

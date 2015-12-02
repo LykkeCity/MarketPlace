@@ -1,0 +1,53 @@
+﻿@model BackOffice.Areas.Kyc.Models.DocumentsCheckingIndexViewModel
+
+@{
+    Layout = null;
+}
+
+<table style="width: 100%; height: 100%;">
+    <tr>
+        <td style="width: 200px; vertical-align: top; background: rgb(242, 242, 242);">
+            @Html.Partial("PartialFindCleint", Model)
+
+            <div class="select-list">
+                @foreach (var personalData in Model.ClientAccounts)
+                {
+                    <div id="@personalData.Id" class="select-item" onclick="selectClient('@personalData.Id')">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td>
+                                    @HelpersUi.RenderCountryFlag(personalData.Country)
+                                </td>
+                                <td>
+                                    <div style="font-size: 10px">@personalData.Regitered</div>
+                                    <div>@personalData.Email</div>
+                                    <div>@personalData.FirstName @personalData.LastName</div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                }
+            </div>
+        </td>
+        <td style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.32);">
+            <div id="foundClient" style="height: 100%;overflow-y: auto;">
+                
+            </div>
+        </td>
+    </tr>
+
+</table>
+
+<script>
+    var selectedClient = undefined;
+    function selectClient(id) {
+        if (selectedClient)
+            $('#' + selectedClient).removeClass('active');
+        selectedClient = id;
+
+        $('#' + selectedClient).addClass('active');
+
+        requests.doRequest({ url: '@Url.Action("FindClient")', divResult: '#foundClient', showLoading:true, params:{phrase:id} });
+
+    }
+</script>

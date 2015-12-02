@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using Core.Assets;
-using Core.Feed;
+using Core.Clients;
 using Core.Finance;
-using Core.Traders;
 
 namespace LykkeMarketPlace.Models
 {
@@ -10,7 +9,7 @@ namespace LykkeMarketPlace.Models
     {
         public Dictionary<string, IAsset> Assets { get; set; } 
 
-        public ITrader Trader { get; set; }
+        public IClientAccount Trader { get; set; }
         public CurrencyBalance[] CurrencyBalances { get; set; }
     }
 

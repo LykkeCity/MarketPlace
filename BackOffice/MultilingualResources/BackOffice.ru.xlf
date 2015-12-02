@@ -126,6 +126,62 @@
           <source>Asset with the same Id exists</source>
           <target state="final">Валюта с таким Id уже сущаствует</target>
         </trans-unit>
+        <trans-unit id="Find" translate="yes" xml:space="preserve">
+          <source>Find</source>
+          <target state="final">Найти</target>
+        </trans-unit>
+        <trans-unit id="TypePhraseHere" translate="yes" xml:space="preserve">
+          <source>Type phrase here</source>
+          <target state="final">Введите фразу</target>
+        </trans-unit>
+        <trans-unit id="Address" translate="yes" xml:space="preserve">
+          <source>Address</source>
+          <target state="final">Адрес</target>
+        </trans-unit>
+        <trans-unit id="City" translate="yes" xml:space="preserve">
+          <source>City</source>
+          <target state="final" state-qualifier="tm-suggestion">Город</target>
+        </trans-unit>
+        <trans-unit id="ClientNotFound" translate="yes" xml:space="preserve">
+          <source>Client  not found</source>
+          <target state="final" state-qualifier="mt-suggestion">Клиент не найден</target>
+        </trans-unit>
+        <trans-unit id="ContactPhone" translate="yes" xml:space="preserve">
+          <source>Contact Phone</source>
+          <target state="final" state-qualifier="tm-suggestion">Контактный телефон</target>
+        </trans-unit>
+        <trans-unit id="Country" translate="yes" xml:space="preserve">
+          <source>Country</source>
+          <target state="final">Страна</target>
+        </trans-unit>
+        <trans-unit id="FirstName" translate="yes" xml:space="preserve">
+          <source>First Name</source>
+          <target state="final">Имя</target>
+        </trans-unit>
+        <trans-unit id="LastName" translate="yes" xml:space="preserve">
+          <source>Last Name</source>
+          <target state="final">Фамилия</target>
+        </trans-unit>
+        <trans-unit id="ZipCode" translate="yes" xml:space="preserve">
+          <source>ZipCode</source>
+          <target state="final" state-qualifier="mt-suggestion">Почтовый индекс</target>
+        </trans-unit>
+        <trans-unit id="Date" translate="yes" xml:space="preserve">
+          <source>Date</source>
+          <target state="final" state-qualifier="tm-suggestion">Дата</target>
+        </trans-unit>
+        <trans-unit id="Documents" translate="yes" xml:space="preserve">
+          <source>Documents</source>
+          <target state="final" state-qualifier="tm-suggestion">Документы</target>
+        </trans-unit>
+        <trans-unit id="DocumentType" translate="yes" xml:space="preserve">
+          <source>Document type</source>
+          <target state="final" state-qualifier="mt-suggestion">Тип документа</target>
+        </trans-unit>
+        <trans-unit id="KycStatus" translate="yes" xml:space="preserve">
+          <source>Kyc Status</source>
+          <target state="new">Kyc Status</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using AzureStorage;
 using Common;
 using Core;
 using Microsoft.WindowsAzure.Storage.Table;

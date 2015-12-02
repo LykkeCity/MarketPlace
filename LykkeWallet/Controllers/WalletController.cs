@@ -11,7 +11,6 @@ namespace LykkeWallet.Controllers
             return View();
         }
 
-
         [HttpPost]
         public ActionResult GetMenu()
         {

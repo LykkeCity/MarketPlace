@@ -71,7 +71,10 @@
     <Compile Include="Assets\AssetPairsRepository.cs" />
     <Compile Include="Assets\AssetsRepository.cs" />
     <Compile Include="AzureRepoFactories.cs" />
+    <Compile Include="AzureRepoMockBinder.cs" />
+    <Compile Include="BackOffice\MenuBadgesRepository.cs" />
     <Compile Include="BrowserSessionsRepository.cs" />
+    <Compile Include="Clients\PersonalDataRepository.cs" />
     <Compile Include="Finance\BalanceRepository.cs" />
     <Compile Include="IdentityGenerator.cs" />
     <Compile Include="Kyc\KycDocumentsRepository.cs" />
@@ -81,8 +84,8 @@
     <Compile Include="Orders\OrdersRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AzureRepoBinder.cs" />
-    <Compile Include="Traders\TraderSettingsRepository.cs" />
-    <Compile Include="Traders\TradersRepository.cs" />
+    <Compile Include="Clients\ClientSettingsRepository.cs" />
+    <Compile Include="Clients\ClientsRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

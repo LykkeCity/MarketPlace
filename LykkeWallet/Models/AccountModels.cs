@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using Core.Clients;
 
 namespace LykkeWallet.Models
@@ -19,6 +16,7 @@ namespace LykkeWallet.Models
 
     public class SignUpModel : IClientAccount
     {
+        public DateTime Registered => DateTime.UtcNow;
         public string Id => null;
         public string Email { get; set; }
         public string Phone { get; set; }

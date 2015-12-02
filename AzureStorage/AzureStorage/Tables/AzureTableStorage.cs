@@ -751,7 +751,7 @@ namespace AzureStorage.Tables
         }
 
 
-        public async Task<T> ScanDataAsync(string partitionKey, Func<IEnumerable<T>, T> dataToSearch)
+        public async Task<T> FirstOrNullViaScanAsync(string partitionKey, Func<IEnumerable<T>, T> dataToSearch)
         {
             var query = CompileTableQuery(partitionKey);
 

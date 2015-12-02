@@ -186,12 +186,9 @@ namespace BackOffice.Controllers
 
             SignIn(user);
 
-            if (Request.Browser.IsMobileDevice)
-            {
-                return this.JsonRequestResult("#pamain", Url.Action(nameof(HomeController.Layout)));
-            }
+            var divResult = Request.Browser.IsMobileDevice ? "#pamain" : "body";
 
-            return this.JsonRequestResult("body", Url.Action(nameof(HomeController.Layout)));
+            return this.JsonRequestResult(divResult, Url.Action(nameof(BackOfficeController.Layout), "BackOffice"));
         }
 
         private static ClaimsIdentity MakeIdentity(IBackOfficeUser user)
@@ -218,20 +215,6 @@ namespace BackOffice.Controllers
             authManager.SignIn(new AuthenticationProperties { IsPersistent = false }, identity);
         }
 
-        [HttpPost]
-        [Authorize]
-        public ActionResult Layout()
-        {
-            return View();
-        }
-
-
-        [HttpPost]
-        [Authorize]
-        public ActionResult Menu()
-        {
-            return View();
-        }
 
     }
 }

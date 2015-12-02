@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AzureStorage.Tables.Templates;
-using Common;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Table;
 
@@ -513,10 +512,6 @@ namespace AzureStorage
         }
 
 
-        public static Task<T> DeleteAsync<T>(this INoSQLTableStorage<T> tableStorage, IAzureIndex index) where T : ITableEntity, new()
-        {
-            return tableStorage.DeleteAsync(index.PrimaryPartitionKey, index.PrimaryRowKey);
-        }
 
         public static Task<IEnumerable<T>> WhereAsync<T>(this INoSQLTableStorage<T> tableStorage, string partitionKey,
             DateTime from, DateTime to, ToIntervalOption intervalOption, Func<T, bool> filter = null)
@@ -633,18 +628,6 @@ namespace AzureStorage
         }
 
 
-        public static async Task<IEnumerable<T>> GetDataAsync<T>(this INoSQLTableStorage<T> tableStorage,
-IEnumerable<IAzureIndex> indices, int pieces = 15, Func<T, bool> filter = null) where T : ITableEntity, new()
-        {
-            var idx = indices.ToArray();
-            if (idx.Length == 0)
-                return new T[0];
-
-            var partitionKey = idx.First().PrimaryPartitionKey;
-            var rowKeys = idx.Select(itm => itm.PrimaryRowKey).ToArray();
-            return await tableStorage.GetDataAsync(partitionKey, rowKeys, pieces, filter);
-        }
-
         public static Task<T> ReplaceAsync<T>(this INoSQLTableStorage<T> tableStorage, T item,
             Func<T, T> updateAction) where T : ITableEntity, new()
         {
@@ -657,7 +640,7 @@ IEnumerable<IAzureIndex> indices, int pieces = 15, Func<T, bool> filter = null) 
         {
             var result = new List<T>();
 
-            await tableStorage.ScanDataAsync(partitionKey, items =>
+            await tableStorage.FirstOrNullViaScanAsync(partitionKey, items =>
             {
                 result.AddRange(items.Where(condition));
                 return null;
