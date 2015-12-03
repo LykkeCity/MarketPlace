@@ -11,7 +11,7 @@ namespace Tests
     {
 
         [TestMethod]
-        public void Text_Exchange1()
+        public void Test_Exchange1()
         {
             var ioc = MockEnvironmentCreator.Create();
 
@@ -55,6 +55,11 @@ namespace Tests
 
             ioc.DepositAcount(trader1.Id, "USD", 500);
             ioc.DepositAcount(trader2.Id, "EUR", 10000);
+
+            Assert.AreEqual(500, ioc.GetBalance(trader1.Id, "USD"));
+            Assert.AreEqual(0, ioc.GetBalance(trader1.Id, "EUR"));
+            Assert.AreEqual(0, ioc.GetBalance(trader2.Id, "USD"));
+            Assert.AreEqual(10000, ioc.GetBalance(trader2.Id, "EUR"));
 
             var limitOrder = LimitOrder.Create(trader1.Id, "EURUSD", "USD", OrderAction.Sell, 1000, 1.55555);
             srvOrderRegistrator.RegisterTradeOrderAsync(limitOrder).Wait();
