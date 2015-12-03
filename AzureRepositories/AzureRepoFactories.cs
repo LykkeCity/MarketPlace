@@ -1,4 +1,5 @@
-﻿using AzureRepositories.Assets;
+﻿using AzureRepositories.Accounts;
+using AzureRepositories.Assets;
 using AzureRepositories.BackOffice;
 using AzureRepositories.Clients;
 using AzureRepositories.Finance;
@@ -14,8 +15,6 @@ namespace AzureRepositories
 {
     public static class AzureRepoFactories
     {
-
-
 
         public static BalanceRepository CreateBalanceRepository(string connstring, ILog log)
         {
@@ -45,6 +44,15 @@ namespace AzureRepositories
         public static BrowserSessionsRepository CreateBrowserSessionsRepository(string connString, ILog log)
         {
             return new BrowserSessionsRepository(new AzureTableStorage<BrowserSessionEntity>(connString, "BrowserSessions", log));
+        }
+
+
+        public static class Accounts
+        {
+            public static AccountsRepository CreateAccountsRepository(string connString, ILog log)
+            {
+                return new AccountsRepository(new AzureTableStorage<AccountEntity>(connString, "Accounts", log));
+            }
         }
 
 

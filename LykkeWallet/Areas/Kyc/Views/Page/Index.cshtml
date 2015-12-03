@@ -73,6 +73,20 @@
             @Phrases.YourDocsAreWithCompliance
         </div>
     </div>
+
+    <script>
+        var reqInterval = window.setInterval(function() {
+            $.ajax({ url: '@Url.Action("GetKycStatus")', type: 'POST' })
+                .then(function(result) {
+
+                    if (!result.approved)
+                        return;
+
+                    requests.doRequest({ url: '@Url.Action("Index","List", new {area="Accounts"})', divResult: '#pamain' });
+                    window.clearInterval(reqInterval);
+                });
+        },5000);
+    </script>
 }
 
 

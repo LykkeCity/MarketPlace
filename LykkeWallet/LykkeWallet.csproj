@@ -369,6 +369,10 @@
       <Project>{1d9eb60a-97ba-4bb5-9ed0-0d971ecf33f1}</Project>
       <Name>MockServices</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RepositoriesMock\RepositoriesMock.csproj">
+      <Project>{c72adc47-28b5-4748-9f95-71c9fd256ac1}</Project>
+      <Name>RepositoriesMock</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Strings\Phrases.resx">

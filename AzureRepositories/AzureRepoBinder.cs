@@ -1,6 +1,7 @@
 ﻿using Common.IocContainer;
 using Common.Log;
 using Core;
+using Core.Accounts;
 using Core.Assets;
 using Core.BackOffice;
 using Core.Clients;
@@ -57,6 +58,10 @@ namespace AzureRepositories
 
             ioc.Register<IMenuBadgesRepository>(
                 AzureRepoFactories.BackOffice.CreateMenuBadgesRepository(connStringBackOffice, log));
+
+            ioc.Register<IAccountsRepository>(
+                AzureRepoFactories.Accounts.CreateAccountsRepository(connString, log));
+
 
         }
 

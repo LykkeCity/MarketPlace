@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BitCoin\SrvLykkeWalletMock.cs" />
     <Compile Include="Clients\SrvSmsConfirmatorMock.cs" />
     <Compile Include="MockServicesBinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

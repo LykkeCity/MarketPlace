@@ -71,7 +71,6 @@ namespace AzureRepositories.Clients
 
     }
 
-
     public class ClientsRepository : IClientAccountsRepository
     {
         private readonly INoSQLTableStorage<ClientAccountEntity> _tradersTableStorage;
@@ -84,7 +83,6 @@ namespace AzureRepositories.Clients
             _tradersTableStorage = tradersTableStorage;
             _emailIndices = emailIndices;
         }
-
 
         public async Task<IClientAccount> RegisterAsync(IClientAccount clientAccount, string password)
         {

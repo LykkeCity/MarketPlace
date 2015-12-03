@@ -44,11 +44,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accounts\IAccountsRepository.cs" />
     <Compile Include="Assets\IAssetPairsDictionary.cs" />
     <Compile Include="Assets\IAssetsDictionary.cs" />
     <Compile Include="Assets\IAssetPairsRepository.cs" />
     <Compile Include="Assets\IAssetsRepository.cs" />
     <Compile Include="BackOffice\IMenuBadgesRepository.cs" />
+    <Compile Include="BitCoin\IMockLykkeWalletRepository.cs" />
+    <Compile Include="BitCoin\ISrvLykkeWallet.cs" />
     <Compile Include="Clients\IPersonalDataRepository.cs" />
     <Compile Include="CountryDictionary.cs" />
     <Compile Include="Finance\Currency.cs" />

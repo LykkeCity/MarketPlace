@@ -43,8 +43,6 @@ namespace AzureRepositories.Kyc
             }
         }
 
-
-
         public static KycEntity Create(string clientId, KycStatus status)
         {
             return new KycEntity

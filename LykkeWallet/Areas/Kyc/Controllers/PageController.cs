@@ -28,5 +28,15 @@ namespace LykkeWallet.Areas.Kyc.Controllers
 
             return View(viewModel);
         }
+
+        [HttpPost]
+        public async Task<ActionResult> GetKycStatus()
+        {
+            var clientId = this.GetClientId();
+
+            var kycStatus = await _kycRepository.GetKycStatusAsync(clientId);
+
+            return Json(new {approved = kycStatus == KycStatus.Ok});
+        }
     }
 }

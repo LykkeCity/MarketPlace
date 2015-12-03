@@ -52,7 +52,7 @@ namespace LkeServices
         }
 
 
-        public static void StartTraderPortalServices(IoC ioc)
+        public static void StartTraderPortalServices(this IoC ioc)
         {
             foreach (var starter in ioc.GetObjects<IStarter>())
                 starter.Start();

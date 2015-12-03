@@ -1,4 +1,5 @@
-﻿using AzureRepositories.Assets;
+﻿using AzureRepositories.Accounts;
+using AzureRepositories.Assets;
 using AzureRepositories.BackOffice;
 using AzureRepositories.Clients;
 using AzureRepositories.Finance;
@@ -10,6 +11,7 @@ using AzureStorage.Tables;
 using AzureStorage.Tables.Templates.Index;
 using Common.IocContainer;
 using Core;
+using Core.Accounts;
 using Core.Assets;
 using Core.BackOffice;
 using Core.Clients;
@@ -71,6 +73,10 @@ namespace AzureRepositories
 
             ioc.Register<IMenuBadgesRepository>(
                 new MenuBadgesRepository(new AzureTableStorageLocal<MenuBadgeEntity>(localHost, "MenuBadgesRepository")));
+
+
+            ioc.Register<IAccountsRepository>(
+                new AccountsRepository(new AzureTableStorageLocal<AccountEntity>(localHost, "Accounts")));
         }
 
 

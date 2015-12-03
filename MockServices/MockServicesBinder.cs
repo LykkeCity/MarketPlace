@@ -1,5 +1,7 @@
 ﻿using Common.IocContainer;
+using Core.BitCoin;
 using Core.Clients;
+using MockServices.BitCoin;
 using MockServices.Clients;
 
 namespace MockServices
@@ -9,7 +11,7 @@ namespace MockServices
         public static void BindMockServices(this IoC ioc)
         {
             ioc.RegisterSingleTone<ISrvSmsConfirmator, SrvSmsConfirmatorMock>();
-
+            ioc.RegisterSingleTone<ISrvLykkeWallet, SrvLykkeWalletMock>();
         }
     }
 }
