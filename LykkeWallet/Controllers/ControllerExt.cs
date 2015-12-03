@@ -12,6 +12,15 @@ using Microsoft.Owin.Security;
 
 namespace LykkeWallet.Controllers
 {
+    public class JsonResultExtParams
+    {
+        public bool ShowLoading { get; set; }
+        public bool HideDialog { get; set; }
+        public bool HideDetails { get; set; }
+
+    }
+
+
     public static class ControllerExt
     {
 
@@ -28,13 +37,25 @@ namespace LykkeWallet.Controllers
         }
 
 
-        public static JsonResult JsonShowContentResultAndShowLoading(this Controller ctx, string divResult, string url,
-            object prms = null)
+        public static JsonResult JsonShowContentResult(this Controller ctx, string divResult, string url,
+          object prms = null, JsonResultExtParams extraExtParams = null)
         {
-            if (prms == null)
-                return new JsonResult {Data = new {Status = "Request", divResult, url, showLoading = true}};
 
-            return new JsonResult {Data = new {Status = "Request", divResult, url, prms, showLoading = true}};
+            if (extraExtParams == null)
+            {
+                if (prms == null)
+                    return new JsonResult {Data = new {Status = "Request", divResult, url}};
+
+
+                return new JsonResult {Data = new {Status = "Request", divResult, url, prms}};
+            }
+
+                if (prms == null)
+                    return new JsonResult { Data = new { Status = "Request", divResult, url, showLoading = extraExtParams.ShowLoading, hideDialog = extraExtParams.HideDialog, hideDetails = extraExtParams.HideDetails } };
+
+
+                return new JsonResult { Data = new { Status = "Request", divResult, url, prms, showLoading = extraExtParams.ShowLoading, hideDialog = extraExtParams.HideDialog, hideDetails = extraExtParams.HideDetails } };
+
         }
 
 
@@ -46,15 +67,7 @@ namespace LykkeWallet.Controllers
         }
 
 
-        public static JsonResult JsonShowContentResult(this Controller ctx, string divResult, string url,
-            object prms = null)
-        {
-            if (prms == null)
-                return new JsonResult {Data = new {Status = "Request", divResult, url}};
 
-
-            return new JsonResult {Data = new {Status = "Request", divResult, url, prms}};
-        }
 
 
         public static void AuthenticateUserViaOwin(this Controller ctx, IClientAccount user)
@@ -105,8 +118,8 @@ namespace LykkeWallet.Controllers
             var status = await Dependencies.KycRepository.GetKycStatusAsync(clientId);
 
             if (status != KycStatus.Ok)
-                return controller.JsonShowContentResultAndShowLoading("#pamain",
-                    controller.Url.Action("Index", "Page", new {area = "Kyc"}));
+                return controller.JsonShowContentResult("#pamain",
+                    controller.Url.Action("Index", "Page", new {area = "Kyc"}), null, new JsonResultExtParams {ShowLoading = true});
 
             return null;
         }

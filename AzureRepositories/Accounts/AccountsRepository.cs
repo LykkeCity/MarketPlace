@@ -57,5 +57,24 @@ namespace AzureRepositories.Accounts
             var partitionKey = AccountEntity.GeneratePartitionKey(clientId);
             return await _tableStorage.GetDataAsync(partitionKey);
         }
+
+        public async Task<IAccount> GetAccountAsync(string clientId, string accountId)
+        {
+            var partitionKey = AccountEntity.GeneratePartitionKey(clientId);
+            var rowKey = AccountEntity.GenerateRowKey(accountId);
+            return await _tableStorage.GetDataAsync(partitionKey, rowKey);
+        }
+
+        public Task UpdateBalanceAsync(string clientId, string accountId, double balance)
+        {
+            var partitionKey = AccountEntity.GeneratePartitionKey(clientId);
+            var rowKey = AccountEntity.GenerateRowKey(accountId);
+
+            return _tableStorage.ReplaceAsync(partitionKey, rowKey, itm =>
+            {
+                itm.Balance = balance;
+                return itm;
+            });
+        }
     }
 }

@@ -177,7 +177,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\Startup.Localization.cs" />
     <Compile Include="Areas\Accounts\AccountsAreaRegistration.cs" />
+    <Compile Include="Areas\Accounts\Controllers\FundController.cs" />
     <Compile Include="Areas\Accounts\Controllers\ListController.cs" />
+    <Compile Include="Areas\Accounts\Models\AccountsIndexViewModel.cs" />
+    <Compile Include="Areas\Accounts\Models\FundAccountModels.cs" />
     <Compile Include="Areas\Exchange\Controllers\AssetsController.cs" />
     <Compile Include="Areas\Exchange\ExchangeAreaRegistration.cs" />
     <Compile Include="Areas\Kyc\Controllers\DocumentsController.cs" />
@@ -241,6 +244,42 @@
     <Content Include="Images\processing-menu.gif" />
     <Content Include="Images\processing.gif" />
     <Content Include="Images\Icons\Settings.png" />
+    <Content Include="Images\PsIcons\alfabank.png" />
+    <Content Include="Images\PsIcons\american-express.png" />
+    <Content Include="Images\PsIcons\assist.png" />
+    <Content Include="Images\PsIcons\cashu.png" />
+    <Content Include="Images\PsIcons\chronopay.png" />
+    <Content Include="Images\PsIcons\cirrus.png" />
+    <Content Include="Images\PsIcons\contact.png" />
+    <Content Include="Images\PsIcons\cup.png" />
+    <Content Include="Images\PsIcons\diners-club.png" />
+    <Content Include="Images\PsIcons\elecsnet.png" />
+    <Content Include="Images\PsIcons\ETA.png" />
+    <Content Include="Images\PsIcons\Ewallet.png" />
+    <Content Include="Images\PsIcons\Intellectmoney.png" />
+    <Content Include="Images\PsIcons\jcb.png" />
+    <Content Include="Images\PsIcons\maestro.png" />
+    <Content Include="Images\PsIcons\mail-money.png" />
+    <Content Include="Images\PsIcons\mastercard.png" />
+    <Content Include="Images\PsIcons\migom.png" />
+    <Content Include="Images\PsIcons\moneymail.png" />
+    <Content Include="Images\PsIcons\mts-bank.png" />
+    <Content Include="Images\PsIcons\Neteller.png" />
+    <Content Include="Images\PsIcons\paypal.png" />
+    <Content Include="Images\PsIcons\payu.png" />
+    <Content Include="Images\PsIcons\PCI.png" />
+    <Content Include="Images\PsIcons\qiwi.png" />
+    <Content Include="Images\PsIcons\rbk-money.png" />
+    <Content Include="Images\PsIcons\robokassa.png" />
+    <Content Include="Images\PsIcons\robokassa2.png" />
+    <Content Include="Images\PsIcons\sberbank.png" />
+    <Content Include="Images\PsIcons\skrill-moneybookers.png" />
+    <Content Include="Images\PsIcons\telemoney.png" />
+    <Content Include="Images\PsIcons\unistream.png" />
+    <Content Include="Images\PsIcons\visa.png" />
+    <Content Include="Images\PsIcons\webmoney.png" />
+    <Content Include="Images\PsIcons\western-union.png" />
+    <Content Include="Images\PsIcons\yandex-money.png" />
     <Content Include="Images\shadow-300.png" />
     <Content Include="Images\shadow-in-250.png" />
     <Content Include="App_Code\HelpersUi.cshtml" />
@@ -268,6 +307,8 @@
     <Content Include="Areas\Kyc\Views\web.config" />
     <Content Include="Areas\Kyc\Views\Page\Index.cshtml" />
     <Content Include="Areas\Kyc\Views\Documents\UploadFrame.cshtml" />
+    <Content Include="Areas\Accounts\Views\Fund\Details.cshtml" />
+    <None Include="Properties\PublishProfiles\lykke-wallet - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\lykke-wallet.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
@@ -315,7 +356,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Accounts\Models\" />
     <Folder Include="Areas\Accounts\Views\Shared\" />
     <Folder Include="Areas\Exchange\Models\" />
     <Folder Include="Areas\Exchange\Views\Shared\" />
@@ -330,6 +370,7 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\BrowserHistoryManager.ts" />
     <TypeScriptCompile Include="Scripts\FileUploader.ts" />
     <TypeScriptCompile Include="Scripts\typings\Framework.d.ts" />
     <TypeScriptCompile Include="Scripts\MobileUi.ts" />

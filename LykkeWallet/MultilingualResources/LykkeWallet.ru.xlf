@@ -190,6 +190,42 @@
           <source>Your documents are with compliance officer now.</source>
           <target state="new">Your documents are with compliance officer now.</target>
         </trans-unit>
+        <trans-unit id="DepositAccount" translate="yes" xml:space="preserve">
+          <source>Deposit account</source>
+          <target state="new">Deposit account</target>
+        </trans-unit>
+        <trans-unit id="AccountDetails" translate="yes" xml:space="preserve">
+          <source>Account details</source>
+          <target state="new">Account details</target>
+        </trans-unit>
+        <trans-unit id="BankCardNumber" translate="yes" xml:space="preserve">
+          <source>Card number</source>
+          <target state="new">Card number</target>
+        </trans-unit>
+        <trans-unit id="BankCardHolder" translate="yes" xml:space="preserve">
+          <source>Name on card</source>
+          <target state="new">Name on card</target>
+        </trans-unit>
+        <trans-unit id="BankCardCcv" translate="yes" xml:space="preserve">
+          <source>Ccv code</source>
+          <target state="new">Ccv code</target>
+        </trans-unit>
+        <trans-unit id="BankCardExpires" translate="yes" xml:space="preserve">
+          <source>Expires</source>
+          <target state="new">Expires</target>
+        </trans-unit>
+        <trans-unit id="MoneyAmount" translate="yes" xml:space="preserve">
+          <source>Amount</source>
+          <target state="new">Amount</target>
+        </trans-unit>
+        <trans-unit id="InvalidCardNumberFormat" translate="yes" xml:space="preserve">
+          <source>Invalid Card Number Format</source>
+          <target state="new">Invalid Card Number Format</target>
+        </trans-unit>
+        <trans-unit id="InvalidAmountFormat" translate="yes" xml:space="preserve">
+          <source>Invalid amount format</source>
+          <target state="new">Invalid amount format</target>
+        </trans-unit>
       </group>
     </body>
   </file>

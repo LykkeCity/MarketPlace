@@ -66,7 +66,7 @@ var UiMobile = (function () {
     };
     UiMobile.prototype.loadModalContent = function (j, url, params) {
         var _this = this;
-        j.html('<div style="text-align:center;"><img src="/Images/Loading-pa.gif" style="margin-top:20px;"/></div>');
+        j.html('<div style="text-align:center;"><img src="/Images/Loading.gif" style="margin-top:20px;"/></div>');
         $.ajax({
             url: url,
             data: params,
@@ -123,17 +123,18 @@ var UiMobile = (function () {
     };
     UiMobile.prototype.getScreenWrapper = function () {
         if (!this.screenWrapperItm)
-            this.screenWrapperItm = $('#screenWrapper');
+            this.screenWrapperItm = $('#msrtDtl');
         return this.screenWrapperItm;
     };
-    UiMobile.prototype.requestScreenWraperData = function (url, params) {
+    UiMobile.prototype.setDetailsCaption = function (caption) {
+        $('#detailsHeader').html(caption);
     };
     UiMobile.prototype.showDetails = function (data) {
         var _this = this;
         if (this.isDetailsShown)
             return;
-        $('#detailsHeader').html(data.title);
-        var w = window.innerWidth;
+        this.setDetailsCaption(data.title);
+        var w = this.getScreenWidth();
         var itm = this.getScreenWrapper();
         itm.animate({
             left: -w + 'px'
@@ -175,9 +176,15 @@ var UiMobile = (function () {
         this.isConnected = true;
         $('#noConnection').hide();
     };
+    UiMobile.prototype.getScreenHeight = function () {
+        return window.innerHeight;
+    };
+    UiMobile.prototype.getScreenWidth = function () {
+        return window.innerWidth;
+    };
     UiMobile.prototype.ressize = function () {
-        var w = window.innerWidth;
-        var h = window.innerHeight;
+        var w = this.getScreenWidth();
+        var h = this.getScreenHeight();
         if (this.isDetailsShown) {
             var itm = this.getScreenWrapper();
             itm.css({ left: -w + "px" });
@@ -188,10 +195,12 @@ var UiMobile = (function () {
         }
         var headerH = $('.header').innerHeight();
         var contH = h - headerH;
-        $('#rootContent').css({ height: contH + "px" });
+        $('#rootContent').css({ height: h + "px", width: w + "px" });
+        $('#msrtDtl').css({ height: contH + "px", width: w * 2 + "px" });
         var padCss = { height: contH, top: headerH, left: 0, width: w };
         $('#dialogPad').css(padCss);
         $('#mainMenu').css(padCss);
+        $('#pamain').css(padCss);
     };
     UiMobile.prototype.menuClick = function () {
         this.hideShowMenu();

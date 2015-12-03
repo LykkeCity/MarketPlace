@@ -174,7 +174,7 @@ class UiDesktop implements IUi  {
             var ahData = $(element).attr("data-autoheight");
 
 
-            var oh: number = (ahData.length > 0 && ahData[0] == '#')
+            var oh: number = (ahData.length > 0 && ahData[0] === '#')
                 ? -this.calcHeight(ahData)
                 : <number>new Number(ahData);
 
@@ -201,7 +201,7 @@ class UiDesktop implements IUi  {
         this.ressizeDependency({width:w, height:h});
     }
 
-
+    hideDetails() {}
 }
 
 

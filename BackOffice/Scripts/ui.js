@@ -68,7 +68,7 @@ var UiDesktop = (function () {
         this.hideDialogLaptop(undefined, result);
     };
     UiDesktop.prototype.showError = function (component, text, caption, placement) {
-        if (text != "") {
+        if (text !== "") {
             if (!placement)
                 placement = "top";
             var options = { title: caption, html: true, content: '<div style="color:black">' + text + '</div>', placement: placement };

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AzureStorage;
 using AzureStorage.Tables.Templates;
 using Core.BitCoin;
@@ -54,17 +52,20 @@ namespace RepositoriesMock.BitCoin
             return (await _tableStorage.GetDataAsync(partitionKey, rowKey)).Instance;
         }
 
-        public Task DepositWithdrawAsync(string id, double amount)
+        public async Task<LykkeAccount> DepositWithdrawAsync(string id, double amount)
         {
             var partitionKey = MockLykkeAccountEntity.GeneratePartitionKey();
             var rowKey = MockLykkeAccountEntity.GenerateRowKey(id);
-            return _tableStorage.ReplaceAsync(partitionKey, rowKey, itm =>
+            var result = await _tableStorage.ReplaceAsync(partitionKey, rowKey, itm =>
             {
                 var instance = itm.Instance;
                 instance.Balance += amount;
                 itm.Instance = instance;
                 return itm;
             });
+
+            return result.Instance;
+
         }
     }
 }

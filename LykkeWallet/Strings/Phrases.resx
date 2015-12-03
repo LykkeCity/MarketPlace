@@ -255,4 +255,31 @@
   <data name="YourDocsAreWithCompliance" xml:space="preserve">
     <value>Your documents are with compliance officer now.</value>
   </data>
+  <data name="DepositAccount" xml:space="preserve">
+    <value>Deposit account</value>
+  </data>
+  <data name="AccountDetails" xml:space="preserve">
+    <value>Account details</value>
+  </data>
+  <data name="BankCardNumber" xml:space="preserve">
+    <value>Card number</value>
+  </data>
+  <data name="BankCardHolder" xml:space="preserve">
+    <value>Name on card</value>
+  </data>
+  <data name="BankCardCcv" xml:space="preserve">
+    <value>Ccv code</value>
+  </data>
+  <data name="BankCardExpires" xml:space="preserve">
+    <value>Expires</value>
+  </data>
+  <data name="MoneyAmount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="InvalidCardNumberFormat" xml:space="preserve">
+    <value>Invalid Card Number Format</value>
+  </data>
+  <data name="InvalidAmountFormat" xml:space="preserve">
+    <value>Invalid amount format</value>
+  </data>
 </root>

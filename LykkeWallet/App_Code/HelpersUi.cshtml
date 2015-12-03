@@ -22,6 +22,46 @@
     <img src="~/Images/shadow-300.png" class="btn-shadow"/>
 }
 
+
+@helper RenderBankCardExpiration(string caption)
+{
+    var month = DateTime.UtcNow.Month;
+    var year = DateTime.UtcNow.Year;
+
+    <div class="input-group">
+        <span class="input-group-addon">@caption</span>
+        <table style="width:100%">
+            <tr>
+                <td>
+                    <select name="ExpirationMonth" class="form-control">
+                        @for (var m = 1; m <= 12; m++)
+                        {
+                            if (m == month)
+                            {
+                                <option selected="selected">@m.ToString("00")</option>
+                            }
+                            else
+                            {
+                                <option>@m.ToString("00")</option>
+                            }
+                        }
+                    </select>
+                </td>
+                <td>
+                    <select name="ExpirationYear" class="form-control">
+                        @for (var y = year; y < year+10; y++)
+                        {
+                           <option>@y</option>
+                        }
+                    </select>                        
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <img src="~/Images/shadow-300.png" class="btn-shadow" />
+}
+
 @helper RenderEditAndLabelFocused(string caption, string name, string type = null, string placeholder = null)
 {
 if (placeholder == null)

@@ -120,7 +120,7 @@ var UiDesktop = (function () {
         var _this = this;
         $("[data-autoheight]").each(function (indx, element) {
             var ahData = $(element).attr("data-autoheight");
-            var oh = (ahData.length > 0 && ahData[0] == '#')
+            var oh = (ahData.length > 0 && ahData[0] === '#')
                 ? -_this.calcHeight(ahData)
                 : new Number(ahData);
             if (ahData.length > 0 && ahData[0] === '#') {
@@ -138,6 +138,7 @@ var UiDesktop = (function () {
         var h = window.innerHeight;
         this.ressizeDependency({ width: w, height: h });
     };
+    UiDesktop.prototype.hideDetails = function () { };
     return UiDesktop;
 })();
 //# sourceMappingURL=UI.js.map

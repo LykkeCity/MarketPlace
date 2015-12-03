@@ -63,6 +63,10 @@ var Requests = (function () {
             return;
         }
         if (result.Status === "Request") {
+            if (result.hideDetails)
+                this.ui.hideDetails();
+            if (result.hideDialog)
+                this.ui.hideDialog();
             this.doRequest({ url: result.url, params: result.prms, divResult: result.divResult, putToHistory: result.putToHistory, showLoading: result.showLoading });
             return;
         }

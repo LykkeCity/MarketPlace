@@ -1,10 +1,10 @@
 ﻿class UiMobile implements IUi {
 
-    public init(demoOrRealUrl: string) {
+    init(demoOrRealUrl: string) {
         this.demoOrRealUrl = demoOrRealUrl;
     }
 
-    public showError(component: string, text: string, caption?: string, placement?: string) {
+    showError(component: string, text: string, caption?: string, placement?: string) {
 
         if (text !== "") {
             if (!placement)
@@ -87,8 +87,8 @@
         itm.animate({ left: 0 },200, callBack);
     }
 
-    private loadModalContent(j:JQuery, url: string, params?: string) {
-        j.html('<div style="text-align:center;"><img src="/Images/Loading-pa.gif" style="margin-top:20px;"/></div>');
+    private loadModalContent(j:JQuery, url: string, params?: any) {
+        j.html('<div style="text-align:center;"><img src="/Images/Loading.gif" style="margin-top:20px;"/></div>');
         $.ajax({
             url: url,
             data: params,
@@ -103,9 +103,9 @@
     }
 
     private onClose: (result?: string) => void;
-    public dialogIsShown = false;
+    dialogIsShown = false;
 
-    public showDialog(url: string, params?: string) {
+    showDialog(url: string, params?: string) {
         if (this.dialogIsShown) {
             this.hideDialog(() => {
                 this.showDialog(url, params);
@@ -161,25 +161,25 @@
     private screenWrapperItm : JQuery;
     private getScreenWrapper():JQuery {
         if (!this.screenWrapperItm)
-            this.screenWrapperItm = $('#screenWrapper');
+            this.screenWrapperItm = $('#msrtDtl');
 
         return this.screenWrapperItm;
     }
 
-    private isDetailsShown = false;
-
-    private requestScreenWraperData(url:string, params?:string) {
+    setDetailsCaption(caption: string) {
+        $('#detailsHeader').html(caption);
         
     }
 
-    public showDetails(data: { url: string; params?: string; title: string }) {
+    private isDetailsShown = false;
+    showDetails(data: { url: string; params?: any; title: string }) {
 
         if (this.isDetailsShown)
             return;
 
-        $('#detailsHeader').html(data.title);
+        this.setDetailsCaption(data.title);
 
-        var w = window.innerWidth;
+        var w = this.getScreenWidth();
         var itm = this.getScreenWrapper();
 
         itm.animate({
@@ -188,13 +188,13 @@
             200, () => {
             //PersonalArea.pushMobileBackToHistory();
             this.isDetailsShown = true;
-                this.loadModalContent($('#detailsContent'), data.url, data.params);
+            this.loadModalContent($('#detailsContent'), data.url, data.params);
         });
 
     }
 
 
-    public hideDetails():boolean {
+    hideDetails():boolean {
         if (!this.isDetailsShown)
             return false;
 
@@ -213,17 +213,17 @@
     }
 
 
-    public showHeaderShadow() {
+    showHeaderShadow() {
         $('#appHeader').css('box-shadow', '0 2px 2px rgba(0, 0, 0, 0.17)');
     }
 
 
-    public hideHeaderShadow() {
+    hideHeaderShadow() {
         $('#appHeader').css('box-shadow','none');
     }
 
     private isConnected = true;
-    public noConnection() {
+    noConnection() {
         if (!this.isConnected)
             return;
 
@@ -231,7 +231,7 @@
         $('#noConnection').show();
     }
 
-    public hasConnection() {
+    hasConnection() {
         if (this.isConnected)
             return;
 
@@ -239,9 +239,18 @@
         $('#noConnection').hide();
     }
 
-    public ressize() {
-        var w = window.innerWidth;
-        var h = window.innerHeight;
+
+    private getScreenHeight() {
+        return window.innerHeight;
+    }
+
+    private getScreenWidth() {
+        return window.innerWidth;
+    }
+
+    ressize() {
+        var w = this.getScreenWidth();
+        var h = this.getScreenHeight();
 
         if (this.isDetailsShown) {
             var itm = this.getScreenWrapper();
@@ -257,12 +266,13 @@
         var headerH = $('.header').innerHeight();
         var contH = h - headerH; 
 
-        $('#rootContent').css({ height: contH + "px" });
+        $('#rootContent').css({ height: h + "px", width: w + "px" });
+        $('#msrtDtl').css({ height: contH + "px", width: w*2 + "px"});
 
         var padCss = { height: contH, top: headerH, left: 0, width: w };
         $('#dialogPad').css(padCss);
         $('#mainMenu').css(padCss);
-
+        $('#pamain').css(padCss);
 
     }
 
@@ -270,6 +280,7 @@
     menuClick() {
         this.hideShowMenu();
     }
+
 
 
 

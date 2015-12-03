@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace Core.BitCoin
 {
@@ -19,16 +15,8 @@ namespace Core.BitCoin
     {
         Task<LykkeAccount> GenerateAccountsAsync(string currency);
         Task<LykkeAccount> GetAsync(string id);
-        Task DepositWithdrawAsync(string id, double amount);
+        Task<LykkeAccount> DepositWithdrawAsync(string accountId, double amount);
     }
 
-    public class MyClass
-    {
-        public MyClass()
-        {
-            
-        }
-
-    }
 
 }

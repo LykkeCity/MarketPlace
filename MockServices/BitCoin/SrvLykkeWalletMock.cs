@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Core.Accounts;
 using Core.BitCoin;
 
 namespace MockServices.BitCoin
@@ -7,10 +8,12 @@ namespace MockServices.BitCoin
     public class SrvLykkeWalletMock : ISrvLykkeWallet
     {
         private readonly IMockLykkeWalletRepository _mockLykkeWalletRepository;
+        private readonly IAccountsRepository _accountsRepository;
 
-        public SrvLykkeWalletMock(IMockLykkeWalletRepository mockLykkeWalletRepository)
+        public SrvLykkeWalletMock(IMockLykkeWalletRepository mockLykkeWalletRepository, IAccountsRepository accountsRepository)
         {
             _mockLykkeWalletRepository = mockLykkeWalletRepository;
+            _accountsRepository = accountsRepository;
         }
 
         public async Task<LykkeAccount> GenerateAccountsAsync(string currency)
@@ -34,9 +37,10 @@ namespace MockServices.BitCoin
             return _mockLykkeWalletRepository.GetAsync(accountid);
         }
 
-        public Task DepositWithdrawAsync(string accountid, double amount)
+        public Task<LykkeAccount> DepositWithdrawAsync(string accountId, double amount)
         {
-            return _mockLykkeWalletRepository.DepositWithdrawAsync(accountid, amount);
+            return _mockLykkeWalletRepository.DepositWithdrawAsync(accountId, amount);
         }
+
     }
 }

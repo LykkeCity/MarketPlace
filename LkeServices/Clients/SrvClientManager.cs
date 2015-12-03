@@ -31,6 +31,7 @@ namespace LkeServices.Clients
 
         public async Task<IClientAccount> RegisterClientAsync(IClientAccount clientAccount, string password)
         {
+
             clientAccount = await _tradersRepository.RegisterAsync(clientAccount, password);
             await _srvSmsConfirmator.SendSmsAsync(clientAccount.Id);
 
@@ -40,8 +41,8 @@ namespace LkeServices.Clients
             await RegisterAccountAsync(clientAccount, "USD");
             await RegisterAccountAsync(clientAccount, "CHF");
 
-
             return clientAccount;
+
         }
 
     }

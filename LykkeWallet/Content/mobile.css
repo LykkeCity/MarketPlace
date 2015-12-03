@@ -9,6 +9,10 @@
     font-size: 18px;
 }
 
+#msrtDtl {
+    position: absolute;   
+}
+
 .lang-icon {
     width: 48px;
 }
@@ -19,7 +23,6 @@
 
 .panel {
 box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
     border: none;
     border-radius: 2px;
 }
@@ -193,4 +196,39 @@ box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 
 .menu-item table tr td {
     vertical-align: top;
+}
+
+.list-view {
+    
+}
+
+.list-view .list-item {
+
+
+        border-color: #ddd;
+    background-color: #fff;
+    color: #444;
+    position: relative;
+    z-index: 2;
+    display: block;
+    margin: -1px;
+    padding: 16px;
+    border-width: 1px;
+    border-style: solid;
+    font-size: 16px;
+}
+
+.list-view .list-separator {
+        padding-top: 8px;
+    padding-bottom: 8px;
+    min-height: 30px;
+    background-color: #f5f5f5;
+    color: #222;
+    font-weight: 500;
+}
+
+
+.list-view .icon {
+    height: 24px;
+    margin-right: 10px;
 }

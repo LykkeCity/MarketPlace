@@ -35,6 +35,8 @@ namespace Core.Accounts
     {
         Task RegisterAccount(IAccount src);
         Task<IEnumerable<IAccount>> GetAccountsAsync(string clientId);
+        Task<IAccount> GetAccountAsync(string clientId, string accountId);
+        Task UpdateBalanceAsync(string clientId, string id, double balance);
 
     }
 }

@@ -75,7 +75,7 @@ namespace LykkeWallet
             dr.IoC.BindAzureReposInMem();
             dr.IoC.BinMockAzureDebug();
             #else
-            AzureRepoBinder.BindAzureRepositories(dr.IoC, Settings.ConnectionString, log);
+            dr.IoC.BindAzureRepositories(Settings.ConnectionString, Settings.ConnectionString, log);
             dr.IoC.BindMockAzureRepositories(Settings.ConnectionString, log);
             #endif
 

@@ -105,9 +105,9 @@ namespace LykkeWallet.Controllers
         {
 
             if (Request.Browser.IsMobileDevice)
-                return this.JsonShowContentResultAndShowLoading("#pamain", Url.Action("Index", "IdentityVerification"));
+                return this.JsonShowContentResult("#pamain", Url.Action("Index", "IdentityVerification"), null, new JsonResultExtParams { ShowLoading = true });
 
-            return this.JsonShowContentResultAndShowLoading("body", Url.Action("Index", "IdentityVerification"));
+            return this.JsonShowContentResult("body", Url.Action("Index", "IdentityVerification"), null, new JsonResultExtParams { ShowLoading = true });
         }
 
     }

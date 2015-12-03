@@ -11,7 +11,7 @@ namespace Core.BitCoin
 
         Task SaveAsync(LykkeAccount account);
         Task<LykkeAccount> GetAsync(string accountId);
-        Task DepositWithdrawAsync(string accountId, double amount);
+        Task<LykkeAccount> DepositWithdrawAsync(string accountId, double amount);
     }
 
 

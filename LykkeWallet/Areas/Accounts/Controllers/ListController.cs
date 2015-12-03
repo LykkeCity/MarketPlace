@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
+﻿using System.Threading.Tasks;
 using System.Web.Mvc;
+using Core.Accounts;
+using LykkeWallet.Areas.Accounts.Models;
 using LykkeWallet.Controllers;
 
 namespace LykkeWallet.Areas.Accounts.Controllers
@@ -11,6 +9,13 @@ namespace LykkeWallet.Areas.Accounts.Controllers
     [Authorize]
     public class ListController : Controller
     {
+        private readonly IAccountsRepository _accountsRepository;
+
+        public ListController(IAccountsRepository accountsRepository)
+        {
+            _accountsRepository = accountsRepository;
+        }
+
         [HttpPost]
         public async Task<ActionResult> Index()
         {
@@ -18,7 +23,14 @@ namespace LykkeWallet.Areas.Accounts.Controllers
             if (kycResult != null)
                 return kycResult;
 
-            return View();
+            var clientId = this.GetClientId();
+
+            var viewModel = new AccountsIndexViewModel
+            {
+                Accounts = await _accountsRepository.GetAccountsAsync(clientId)
+            };
+
+            return View(viewModel);
         }
     }
 }

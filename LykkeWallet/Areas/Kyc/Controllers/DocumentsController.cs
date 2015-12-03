@@ -84,7 +84,7 @@ namespace LykkeWallet.Areas.Kyc.Controllers
             var clientId = this.GetClientId();
             var doc = await _srvKycDocumentsManager.DeleteAsync(clientId, id);
 
-            return this.JsonShowContentResultAndShowLoading("#docsArea" + doc.Type, Url.Action("UploadFrame", new { type = doc.Type}));
+            return this.JsonShowContentResult("#docsArea" + doc.Type, Url.Action("UploadFrame", new { type = doc.Type}), null, new JsonResultExtParams { ShowLoading = true });
         }
 
         [HttpPost]
@@ -104,7 +104,7 @@ namespace LykkeWallet.Areas.Kyc.Controllers
 
             await _srvKycStatusManager.ChangeKycStatus(clientId, KycStatus.Pending);
 
-            return this.JsonShowContentResultAndShowLoading("#pamain", Url.Action("Index","Page", new {area="Kyc"}));
+            return this.JsonShowContentResult("#pamain", Url.Action("Index","Page", new {area="Kyc"}), null, new JsonResultExtParams { ShowLoading = true });
 
         }
 

@@ -7,9 +7,9 @@ interface IShowDialog {
 
 class UiDesktop implements IUi {
 
-    public pageManager:IPageManager;
+    pageManager:IPageManager;
 
-    public initFocus() {
+    initFocus() {
         $('.setCursor').focus();
         $('.setCursor').select();
     }
@@ -79,7 +79,7 @@ class UiDesktop implements IUi {
     }
 
 
-    public hideDialog(callback?: () => void) {
+    hideDialog(callback?: () => void) {
         if (!this.dialogIsShown) {
             if (callback)
                 callback();
@@ -92,13 +92,13 @@ class UiDesktop implements IUi {
             this.hideDialogLaptop(callback);
     }
 
-    public hideDialogWithResult(result:string) {
+    hideDialogWithResult(result:string) {
             this.hideDialogLaptop(undefined, result);
     }
 
-    public showError(component: string, text: string, caption?: string, placement?: string) {
+    showError(component: string, text: string, caption?: string, placement?: string) {
 
-        if (text != "") {
+        if (text !== "") {
             if (!placement)
                 placement = "top";
             var options = { title: caption, html: true, content: '<div style="color:black">' + text + '</div>', placement: placement };
@@ -119,7 +119,7 @@ class UiDesktop implements IUi {
 
 
     private isConnected = true;
-    public noConnection() {
+    noConnection() {
         if (!this.isConnected)
             return;
 
