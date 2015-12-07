@@ -20,13 +20,13 @@
             @HelpersUi.RenderEditAndLabel(Phrases.BankCardNumber, "CardNumber")
             @HelpersUi.RenderBankCardExpiration(Phrases.BankCardExpires)
             @HelpersUi.RenderEditAndLabel(Phrases.BankCardCcv, "CardCcv")
-            @HelpersUi.RenderEditAndLabel(Phrases.MoneyAmount, "Amount", null, null, Model.Account.CurrencyId)
+            @HelpersUi.RenderEditAndLabel(Phrases.MoneyAmount, "Amount", null, Model.Account.CurrencyId)
         </form>
     </div>
 
     <button class="btn btn-success btn-lg btn-block"
-            onclick="requests.doRequest({url:'@Url.Action("Do")', formId:'#frmCardCredentials'});">
+            onclick="requests.doRequest({ url: '@Url.Action("Do")', formId: '#frmCardCredentials' });">
         @Phrases.DepositAccount
-        </button>
+    </button>
 
     </div>

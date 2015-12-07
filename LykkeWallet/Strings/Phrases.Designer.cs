@@ -205,6 +205,15 @@ namespace LykkeWallet.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to First Name.
+        /// </summary>
+        public static string FirstName {
+            get {
+                return ResourceManager.GetString("FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Identity verification.
         /// </summary>
         public static string IdentityVerification {
@@ -291,6 +300,15 @@ namespace LykkeWallet.Strings {
         public static string LanguageName {
             get {
                 return ResourceManager.GetString("LanguageName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last Name.
+        /// </summary>
+        public static string LastName {
+            get {
+                return ResourceManager.GetString("LastName", resourceCulture);
             }
         }
         
@@ -385,6 +403,15 @@ namespace LykkeWallet.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please, complete registration.
+        /// </summary>
+        public static string PleaseCompleteRegistration {
+            get {
+                return ResourceManager.GetString("PleaseCompleteRegistration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please, type email here.
         /// </summary>
         public static string PleaseTypeEmailHere {
@@ -439,7 +466,7 @@ namespace LykkeWallet.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SignIn.
+        ///   Looks up a localized string similar to Sign in.
         /// </summary>
         public static string SignIn {
             get {
@@ -462,6 +489,15 @@ namespace LykkeWallet.Strings {
         public static string SignUp {
             get {
                 return ResourceManager.GetString("SignUp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit.
+        /// </summary>
+        public static string Submit {
+            get {
+                return ResourceManager.GetString("Submit", resourceCulture);
             }
         }
         
@@ -543,6 +579,15 @@ namespace LykkeWallet.Strings {
         public static string View {
             get {
                 return ResourceManager.GetString("View", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What I should know?.
+        /// </summary>
+        public static string WhatIShouldKnow {
+            get {
+                return ResourceManager.GetString("WhatIShouldKnow", resourceCulture);
             }
         }
         

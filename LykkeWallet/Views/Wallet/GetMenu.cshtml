@@ -31,20 +31,6 @@
     </table>
 </div>
 
-<div id="mnuPersonalData" class="menu-item" onclick="wallet.selectPage('@Url.Action("Index","Page", new {area="PersonalData"})', '#mnuPersonalData')">
-    <table>
-        <tr>
-            <td>
-                <img class="img" src="~/Images/Icons/PersonalData.png" />
-            </td>
-            <td>
-                <div class="menu-title">@Phrases.PersonalData</div>
-            </td>
-        </tr>
-    </table>
-</div>
-
-
 <div id="mnuSettins" class="menu-item" onclick="wallet.selectPage('@Url.Action("Index","Page", new {area="Settings"})', '#mnuSettins')">
     <table>
         <tr>
@@ -58,19 +44,6 @@
     </table>
 </div>
 
-<div id="mnuLanguage" class="menu-item" onclick="wallet.selectPage('@Url.Action("Index","Language", new {area="Settings"})', '#mnuLanguage')">
-    <table>
-        <tr>
-            <td>
-                <img class="img" src="~/Images/Lang/@(Phrases.Lang).png" />
-            </td>
-            <td>
-                <div class="menu-title">@Phrases.InterfaceLanguage</div>
-                <div class="menu-subtitle">@Phrases.LanguageName</div>
-            </td>
-        </tr>
-    </table>
-</div>
 
 <div id="mnuSignOut" class="menu-item" onclick="requests.doRequest({url:'@Url.Action("SignOut","Client")'})">
     <table>

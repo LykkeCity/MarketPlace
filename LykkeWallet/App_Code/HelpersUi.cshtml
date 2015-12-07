@@ -1,25 +1,9 @@
 ﻿@using Common
 @using LykkeWallet.Strings
 
-@helper RenderEditAndLabel(string caption, string name, string type = null, string value = null, string placeholder = null)
+@helper RenderEditAndLabel(string caption, string name, string type = null, string value = null)
 {
-    if (placeholder == null)
-    {
-        placeholder = caption;
-    }
-
-    <div class="input-group">
-        <span class="input-group-addon">@caption</span>
-        @if (string.IsNullOrEmpty(type))
-        {
-            <input id="@name.FirstLetterLowCase()" name="@name" class="form-control" placeholder="@placeholder" value="@value">
-        }
-        else
-        {
-            <input id="@name.FirstLetterLowCase()" name="@name" class="form-control" type="@type" placeholder="@placeholder" value="@value">
-        }
-    </div>
-    <img src="~/Images/shadow-300.png" class="btn-shadow"/>
+   <input id="@name.FirstLetterLowCase()" name="@name" class="form-control" type="@type" placeholder="@caption" value="@value">
 }
 
 
@@ -62,24 +46,16 @@
     <img src="~/Images/shadow-300.png" class="btn-shadow" />
 }
 
-@helper RenderEditAndLabelFocused(string caption, string name, string type = null, string placeholder = null)
+@helper RenderEditAndLabelFocused(string caption, string name, string type = null, string value = null)
 {
-if (placeholder == null)
-{
-    placeholder = caption;
-}
-
-<div class="input-group">
-    <span class="input-group-addon">@caption</span>
-    @if (string.IsNullOrEmpty(type))
+    if (type == null)
     {
-        <input id="@name.FirstLetterLowCase()" name="@name" class="form-control setCursor" placeholder="@placeholder">
+        <input id="@name.FirstLetterLowCase()" name="@name" class="form-control setCursor" placeholder="@caption" value="@value">
     }
     else
     {
-        <input id="@name.FirstLetterLowCase()" name="@name" class="form-control setCursor" type="@type" placeholder="@placeholder">
+        <input id="@name.FirstLetterLowCase()" name="@name" class="form-control setCursor" type="@type" value="@value" placeholder="@caption">
     }
-</div>    <img src="~/Images/shadow-300.png" class="btn-shadow" />
 }
 
 
@@ -122,4 +98,72 @@ if (placeholder == null)
     <div style="height: 20px;">
         
     </div>
+}
+
+@helper RenderSteps(int step)
+{
+    <table style="width: 100%; margin-top: 10px;">
+        <tr>
+            <td style="text-align: left; width:33%">
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="width: 50%">
+                            @if (step == 0)
+                            {
+                                <div class="unchecked-pad" style="margin-left: -5px">
+                                    <div class="current-dot">
+                                        <div class="current-subdot"></div>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="checked-pad">
+                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                </div>
+                            }
+                            <div class="reg-line"></div>
+                        </td>
+                        <td style="width: 50%; text-align: right;">
+                            @if (step < 1)
+                            {
+                                <div class="unchecked-pad" style="margin-right: -20px;">
+                                    <div class="the-dot"></div>
+                                </div>
+                            }
+                            else if (step == 1)
+                            {
+                                <div class="unchecked-pad" style="margin-right: -20px;">
+                                    <div class="current-dot">
+                                        <div class="current-subdot"></div>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="checked-pad" style="margin-right: -20px;">
+                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                </div>
+                            }
+                            <div class="reg-line"></div>
+                        </td>
+                    </tr>
+
+                </table>
+
+            </td>
+            <td style="text-align: right; width:33%">
+                <div class="unchecked-pad" style="margin-right: -20px;">
+                    <div class="the-dot"></div>
+                </div>
+                <div class="reg-line"></div>
+            </td>
+            <td style="text-align: right; width:33%">
+                <div class="unchecked-pad" style="text-align: right;">
+                    <div class="the-dot"></div>
+                </div>
+                <div class="reg-line"></div>
+            </td>
+        </tr>
+    </table>
 }

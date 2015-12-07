@@ -14,6 +14,11 @@ namespace LykkeWallet.Models
         public string Password { get; set; }
     }
 
+    public class SignUpViewModel
+    {
+        public string Email { get; set; }
+    }
+
     public class SignUpModel : IClientAccount
     {
         public DateTime Registered => DateTime.UtcNow;

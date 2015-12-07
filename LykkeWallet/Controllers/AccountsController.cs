@@ -30,9 +30,13 @@ namespace LykkeWallet.Controllers
         }
 
         [HttpPost]
-        public ActionResult SignUpDialog()
+        public ActionResult SignUpDialog(string email)
         {
-            return View();
+            var viewModel = new SignUpViewModel
+            {
+                Email = email
+            };
+            return View(viewModel);
         }
 
         [HttpPost]

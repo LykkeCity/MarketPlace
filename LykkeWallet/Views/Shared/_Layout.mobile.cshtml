@@ -21,21 +21,6 @@
         <table id="msrtDtl" style="position: relative;">
             <tr>
                 <td style="vertical-align: top; width:50%">
-                    <div class="header">
-                        <table style="width: 100%;">
-                            <tr>
-                                <td style="width: 40px;">
-                                    <div id="btnMnu" class="btn-menu" style="display: none;" onclick="ui.menuClick()">
-                                        <span class="glyphicon glyphicon-menu-hamburger btn-menu" aria-hidden="true"></span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <img src="~/Images/logo-white.png" style="height: 24px;" /> <span> wallet</span>
-                                </td>
-                            </tr>
-
-                        </table>
-                    </div>
                     <div id="pamain" style="overflow-y: auto; height: 100%">
                         @RenderBody()
 
@@ -43,21 +28,6 @@
                     </div>
                 </td>
                 <td style="vertical-align: top; width:50%">
-                    <div class="header">
-                        <table style="width: 100%;">
-                            <tr>
-                                <td style="width: 40px;">
-                                    <div class="btn-menu" onclick="ui.hideDetails()">
-                                        <span class="glyphicon glyphicon-arrow-left btn-menu" aria-hidden="true"></span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span id="detailsHeader"> wallet</span>
-                                </td>
-                            </tr>
-
-                        </table>
-                    </div>
                     <div id="detailsContent" style="overflow-y: auto; height: 100%; vertical-align: top;">
 
                     </div>

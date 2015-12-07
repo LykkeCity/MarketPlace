@@ -31,10 +31,10 @@ var UiMobile = (function () {
     UiMobile.prototype.hideShowMenu = function () {
         this.menuIsHidden = !this.menuIsHidden;
         if (this.menuIsHidden) {
-            $('#mainMenu').hide();
+            $('#mainMenu').fadeOut(300);
         }
         else {
-            $('#mainMenu').show();
+            $('#mainMenu').fadeIn(300);
         }
     };
     UiMobile.prototype.initFocus = function () {
@@ -195,12 +195,12 @@ var UiMobile = (function () {
         }
         var headerH = $('.header').innerHeight();
         var contH = h - headerH;
-        $('#rootContent').css({ height: h + "px", width: w + "px" });
+        var rcss = { height: h + "px", width: w + "px" };
+        $('#rootContent').css(rcss);
         $('#msrtDtl').css({ height: contH + "px", width: w * 2 + "px" });
-        var padCss = { height: contH, top: headerH, left: 0, width: w };
-        $('#dialogPad').css(padCss);
-        $('#mainMenu').css(padCss);
-        $('#pamain').css(padCss);
+        $('#mainMenu').css(rcss);
+        $('#pamain').css(rcss);
+        $('#dialogPad').css(rcss);
     };
     UiMobile.prototype.menuClick = function () {
         this.hideShowMenu();

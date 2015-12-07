@@ -63,8 +63,9 @@
           <target state="final" state-qualifier="mt-suggestion">Пожалуйста введите проверочный код</target>
         </trans-unit>
         <trans-unit id="SignIn" translate="yes" xml:space="preserve">
-          <source>SignIn</source>
-          <target state="final" state-qualifier="mt-suggestion">Вход</target>
+          <source>Sign in</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Вход</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="SignUp" translate="yes" xml:space="preserve">
           <source>Sign up</source>
@@ -225,6 +226,26 @@
         <trans-unit id="InvalidAmountFormat" translate="yes" xml:space="preserve">
           <source>Invalid amount format</source>
           <target state="new">Invalid amount format</target>
+        </trans-unit>
+        <trans-unit id="FirstName" translate="yes" xml:space="preserve">
+          <source>First Name</source>
+          <target state="new">First Name</target>
+        </trans-unit>
+        <trans-unit id="LastName" translate="yes" xml:space="preserve">
+          <source>Last Name</source>
+          <target state="new">Last Name</target>
+        </trans-unit>
+        <trans-unit id="Submit" translate="yes" xml:space="preserve">
+          <source>Submit</source>
+          <target state="new">Submit</target>
+        </trans-unit>
+        <trans-unit id="PleaseCompleteRegistration" translate="yes" xml:space="preserve">
+          <source>Please, complete registration</source>
+          <target state="new">Please, complete registration</target>
+        </trans-unit>
+        <trans-unit id="WhatIShouldKnow" translate="yes" xml:space="preserve">
+          <source>What I should know?</source>
+          <target state="new">What I should know?</target>
         </trans-unit>
       </group>
     </body>

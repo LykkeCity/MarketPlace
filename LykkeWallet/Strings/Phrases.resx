@@ -217,7 +217,7 @@
     <value>Settings</value>
   </data>
   <data name="SignIn" xml:space="preserve">
-    <value>SignIn</value>
+    <value>Sign in</value>
   </data>
   <data name="SignOut" xml:space="preserve">
     <value>Sign out</value>
@@ -281,5 +281,20 @@
   </data>
   <data name="InvalidAmountFormat" xml:space="preserve">
     <value>Invalid amount format</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="PleaseCompleteRegistration" xml:space="preserve">
+    <value>Please, complete registration</value>
+  </data>
+  <data name="WhatIShouldKnow" xml:space="preserve">
+    <value>What I should know?</value>
   </data>
 </root>

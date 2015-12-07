@@ -60,10 +60,10 @@ box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 }
 
 .form-control {
-    border-radius: 0;
+    margin: 10px 0;
     border: none;
-
     box-shadow: none;
+    background: #E8E9EA;
 }
 
 .form-control:focus {
@@ -79,7 +79,8 @@ box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 }
 
 .mobile-content {
-        padding: 5px;
+        padding: 15px;
+            color: #53565D;
 }
 
 .mobile-header {
@@ -118,18 +119,114 @@ box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
     top: 10px;
 }
 
+.headerIcon img {
+    width: 40px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.info-area {
+    text-align: center;
+    margin-top: 20px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
 .btn {
     position: relative;
     display: inline-block;
-    margin: 0;
+margin: 10px auto;
     border-width: 1px;
     border-style: solid;
-    border-radius: 2px;
+    border-radius: 30px;
     vertical-align: top;
     text-align: center;
     text-overflow: ellipsis;
-
     cursor: pointer;
+}
+
+.btn-lykke, .btn-lykke:focus, .btn-lykke:active, .btn-lykke:hover {
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff7f02+0,f51031+51,f51031+51,bc16ff+100 */
+background: #ff7f02; /* Old browsers */
+background: -moz-linear-gradient(left,  #ff7f02 0%, #f51031 51%, #f51031 51%, #bc16ff 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left,  #ff7f02 0%,#f51031 51%,#f51031 51%,#bc16ff 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right,  #ff7f02 0%,#f51031 51%,#f51031 51%,#bc16ff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7f02', endColorstr='#bc16ff',GradientType=1 ); /* IE6-9 */
+    color: white;
+
+}
+
+.title {
+   text-transform: uppercase;
+    text-align: center;
+font-size: 16px;
+    font-weight: bold;
+
+
+
+}
+
+.checked-pad {
+    background: #B00EFF;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 20px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: normal;
+    color: white;
+    font-size: 9px;
+    padding-top: 6px;
+}
+
+.unchecked-pad {
+    
+        background: none;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 20px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: normal;
+    color: black;
+    font-size: 9px;
+    padding-top: 6px;
+}
+
+
+
+.the-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 16px;
+    margin: 1px;
+    background: #CBCCD0;
+}
+
+.current-dot {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 16px;
+    margin: -2px;
+    background: #B00EFF;
+}
+.current-subdot {
+        display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: #B00EFF;
+    border-radius: 10px;
+    border: solid 2px white;
+    margin-top: 1px;
+}
+
+.reg-line {
+    width: 100%;
+    border-bottom: 1px solid #E8E5E5;
+    margin-top: -13px;
 }
 
 .btn-success {
