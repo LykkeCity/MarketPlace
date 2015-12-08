@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{55A87C36-E8B8-4A08-8E3C-CA57529391A3}"
 EndProject
@@ -36,6 +36,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoriesMock", "RepositoriesMock\RepositoriesMock.csproj", "{C72ADC47-28B5-4748-9F95-71C9FD256AC1}"
 EndProject
 Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "WalletCloud", "WalletCloud\WalletCloud.ccproj", "{E894FDE0-F35B-491F-9E9B-890044BEB2CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wallet-Api", "Wallet-Api\Wallet-Api.csproj", "{4A1FFCD4-D0EE-4192-BAC8-7E07896C2691}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -149,6 +151,14 @@ Global
 		{E894FDE0-F35B-491F-9E9B-890044BEB2CC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E894FDE0-F35B-491F-9E9B-890044BEB2CC}.Release|x64.ActiveCfg = Release|Any CPU
 		{E894FDE0-F35B-491F-9E9B-890044BEB2CC}.Release|x64.Build.0 = Release|Any CPU
+		{4A1FFCD4-D0EE-4192-BAC8-7E07896C2691}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A1FFCD4-D0EE-4192-BAC8-7E07896C2691}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A1FFCD4-D0EE-4192-BAC8-7E07896C2691}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4A1FFCD4-D0EE-4192-BAC8-7E07896C2691}.Debug|x64.Build.0 = Debug|Any CPU
+		{4A1FFCD4-D0EE-4192-BAC8-7E07896C2691}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A1FFCD4-D0EE-4192-BAC8-7E07896C2691}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A1FFCD4-D0EE-4192-BAC8-7E07896C2691}.Release|x64.ActiveCfg = Release|Any CPU
+		{4A1FFCD4-D0EE-4192-BAC8-7E07896C2691}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
