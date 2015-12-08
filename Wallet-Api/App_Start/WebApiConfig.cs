@@ -14,6 +14,8 @@ namespace Wallet_Api
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            config.DependencyResolver = ApiDependencies.Create();
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

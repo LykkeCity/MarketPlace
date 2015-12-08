@@ -54,6 +54,7 @@
     <Compile Include="BitCoin\IMockLykkeWalletRepository.cs" />
     <Compile Include="BitCoin\ISrvLykkeWallet.cs" />
     <Compile Include="Clients\IPersonalDataRepository.cs" />
+    <Compile Include="Clients\IPinSecurityControllers.cs" />
     <Compile Include="CountryDictionary.cs" />
     <Compile Include="Finance\Currency.cs" />
     <Compile Include="Feed\AssetQuote.cs" />

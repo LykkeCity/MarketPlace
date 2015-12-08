@@ -138,6 +138,7 @@
     <Compile Include="Log\LogToConsole.cs" />
     <Compile Include="Log\LogToMemory.cs" />
     <Compile Include="MyDynaimcObject.cs" />
+    <Compile Include="PasswordKeeping\PswdKeeping.cs" />
     <Compile Include="Platforms\DetectOpera.cs" />
     <Compile Include="Platforms\DetectWindows.cs" />
     <Compile Include="Platforms\PlatformDetector.cs" />

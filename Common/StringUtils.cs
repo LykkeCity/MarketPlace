@@ -114,7 +114,13 @@ namespace Common
             return src;
 
         }
+        public static string AddFirstSymbolIfNotExists(this string src, char symbol)
+        {
+            if (string.IsNullOrEmpty(src))
+                return symbol+"";
 
+            return src[0] == symbol ? src : symbol+src;
+        }
 
         public static string AddLastSymbolIfNotExists(this string src, char symbol)
         {

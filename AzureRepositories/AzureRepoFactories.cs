@@ -94,6 +94,11 @@ namespace AzureRepositories
                     new KycUploadsLog(new AzureTableStorage<KycUploadsLogItemEntity>(connString, "KycUploadsLog", log));
             }
 
+            public static PinSecurityRepository CreatePinSecurityRepository(string connString, ILog log)
+            {
+                return new PinSecurityRepository(new AzureTableStorage<PinSecurityEntity>(connString, "ClientPins", log));
+            }
+
 
         }
 

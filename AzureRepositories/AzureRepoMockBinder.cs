@@ -77,6 +77,9 @@ namespace AzureRepositories
 
             ioc.Register<IAccountsRepository>(
                 new AccountsRepository(new AzureTableStorageLocal<AccountEntity>(localHost, "Accounts")));
+
+            ioc.Register<IPinSecurityRepository>(
+                new PinSecurityRepository(new AzureTableStorageLocal<PinSecurityEntity>(localHost, "ClientPins")));
         }
 
 

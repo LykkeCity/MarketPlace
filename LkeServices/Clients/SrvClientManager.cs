@@ -29,13 +29,14 @@ namespace LkeServices.Clients
             await _accountsRepository.RegisterAccount(Account.Create(client.Id, lykkeAccount.Id, 0, currencyId));
         }
 
-        public async Task<IClientAccount> RegisterClientAsync(IClientAccount clientAccount, string password)
+        public async Task<IClientAccount> RegisterClientAsync(string email, string firstname, string lastname, string phone, string password)
         {
+            IClientAccount clientAccount = ClientAccount.Create(email, phone);
 
             clientAccount = await _tradersRepository.RegisterAsync(clientAccount, password);
             await _srvSmsConfirmator.SendSmsAsync(clientAccount.Id);
 
-            await _personalDataRepository.SaveAsync(PersonalData.Create(clientAccount));
+            await _personalDataRepository.SaveAsync(PersonalData.Create(clientAccount, firstname, lastname));
 
             await RegisterAccountAsync(clientAccount, "EUR");
             await RegisterAccountAsync(clientAccount, "USD");

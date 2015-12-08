@@ -25,6 +25,9 @@ namespace AzureRepositories
             ioc.Register<IKycRepository>(
                 AzureRepoFactories.Clients.CreateKycRepository(connString, log));
 
+            ioc.Register<IPinSecurityRepository>(
+                AzureRepoFactories.Clients.CreatePinSecurityRepository(connString, log));
+
             ioc.Register<IKycDocumentsRepository>(
                 AzureRepoFactories.Clients.CreateKycDocumentsRepository(connString, log));
 

@@ -4,12 +4,13 @@ using System.Threading.Tasks;
 using AzureStorage;
 using AzureStorage.Tables.Templates.Index;
 using Common;
+using Common.PasswordKeeping;
 using Core.Clients;
 using Microsoft.WindowsAzure.Storage.Table;
 
 namespace AzureRepositories.Clients
 {
-    public class ClientAccountEntity : TableEntity, IClientAccount
+    public class ClientAccountEntity : TableEntity, IClientAccount, IPasswordKeeping
     {
         public static string GeneratePartitionKey()
         {
@@ -45,31 +46,6 @@ namespace AzureRepositories.Clients
         }
     }
 
-    public static class TraderEntityExt
-    {
-        private static string CalcHash(string password, string salt)
-        {
-
-            var cryptoTransformSha1 = new SHA1CryptoServiceProvider();
-
-            var sha1 = cryptoTransformSha1.ComputeHash((password + salt).ToUtf8Bytes());
-
-            return Convert.ToBase64String(sha1);
-        }
-
-        public static void SetPassword(this ClientAccountEntity entity, string password)
-        {
-            entity.Salt = Guid.NewGuid().ToString();
-            entity.Hash = CalcHash(password, entity.Salt);
-        }
-
-        public static bool CheckPassword(this ClientAccountEntity entity, string password)
-        {
-            var hash = CalcHash(password, entity.Salt);
-            return entity.Hash == hash;
-        }
-
-    }
 
     public class ClientsRepository : IClientAccountsRepository
     {

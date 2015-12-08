@@ -1,6 +1,4 @@
-﻿using System;
-using Core.Clients;
-
+﻿
 namespace LykkeWallet.Models
 {
     public class SignInDialogViewModel
@@ -19,13 +17,14 @@ namespace LykkeWallet.Models
         public string Email { get; set; }
     }
 
-    public class SignUpModel : IClientAccount
+    public class SignUpModel
     {
-        public DateTime Registered => DateTime.UtcNow;
-        public string Id => null;
         public string Email { get; set; }
         public string Phone { get; set; }
         public string Password { get; set; }
         public string PasswordAgain { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
     }
 }

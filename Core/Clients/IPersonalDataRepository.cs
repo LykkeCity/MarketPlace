@@ -31,14 +31,16 @@ namespace Core.Clients
         public string Address { get; set; }
         public string ContactPhone { get; set; }
 
-        public static PersonalData Create(IClientAccount src)
+        public static PersonalData Create(IClientAccount src, string firstname, string lastname)
         {
             return new PersonalData
             {
                 Id = src.Id,
                 Email = src.Email,
                 ContactPhone = src.Phone,
-                Regitered = src.Registered
+                Regitered = src.Registered,
+                FirstName = firstname,
+                LastName = lastname
             };
         }
     }

@@ -17,6 +17,16 @@ namespace Core.Clients
         public string Id { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
+
+        public static ClientAccount Create(string email, string phone)
+        {
+            return new ClientAccount
+            {
+                Email = email,
+                Registered = DateTime.UtcNow,
+                Phone = phone
+            };
+        }
     }
 
     public interface IClientAccountsRepository

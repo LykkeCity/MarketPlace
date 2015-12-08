@@ -91,7 +91,7 @@ namespace LykkeWallet.Controllers
             if (string.IsNullOrEmpty(model.Phone))
                 return this.JsonFailResult("#phone", Phrases.FieldShouldNotBeEmpty);
 
-            var trader = await _srvClientManager.RegisterClientAsync(model, model.Password);
+            var trader = await _srvClientManager.RegisterClientAsync(model.Email, model.FirstName, model.LastName, model.Password, model.Password);
 
             this.AuthenticateUserViaOwin(trader);
 
