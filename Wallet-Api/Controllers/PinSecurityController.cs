@@ -27,21 +27,21 @@ namespace Wallet_Api.Controllers
             });
         }
 
-        public async Task<ResponseModel> Post(string pin)
+        public async Task<ResponseModel> Post(PinSecurityChangeModel data)
         {
 
-            if (string.IsNullOrEmpty(pin))
+            if (string.IsNullOrEmpty(data.Pin))
                 return ResponseModel.CreateInvalidFieldError("pin", Phrases.FieldShouldNotBeEmpty);
 
-            if (!pin.IsOnlyDigits())
+            if (!data.Pin.IsOnlyDigits())
                 return ResponseModel.CreateInvalidFieldError("pin", Phrases.PinShouldContainsDigitsOnly);
 
-            if (pin.Length<4)
+            if (data.Pin.Length<4)
                 return ResponseModel.CreateInvalidFieldError("pin", Phrases.MinLengthIs4Digits);
 
             var clientId = this.GetClientId();
 
-            await _puPinSecurityRepository.SaveAsync(clientId, pin);
+            await _puPinSecurityRepository.SaveAsync(clientId, data.Pin);
 
             return ResponseModel.CreateOk();
         }

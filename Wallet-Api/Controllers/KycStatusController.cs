@@ -18,10 +18,16 @@ namespace Wallet_Api.Controllers
         public async Task<ResponseModel<KycModelStatusResponseModel>> Get()
         {
             var clientId = this.GetClientId();
+
+            var kycStatus = await _kycRepository.GetKycStatusAsync(clientId);
+
+            if (kycStatus == KycStatus.Rejected)
+                kycStatus = KycStatus.NeedToFillData;
+            
             return ResponseModel<KycModelStatusResponseModel>.CreateOk(
                 new KycModelStatusResponseModel
                 {
-                    KycStatus = (await _kycRepository.GetKycStatusAsync(clientId)).ToString()
+                    KycStatus = kycStatus.ToString()
                 });
         }
 

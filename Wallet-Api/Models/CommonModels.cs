@@ -63,7 +63,7 @@ namespace Wallet_Api.Models
 
     public class ResponseModel<T> : ResponseModel
     {
-        public new T Result { get; set; }
+        public T Result { get; set; }
 
         public static ResponseModel<T> CreateOk(T result)
         {

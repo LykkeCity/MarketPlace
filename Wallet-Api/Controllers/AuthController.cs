@@ -16,18 +16,18 @@ namespace Wallet_Api.Controllers
             _clientAccountsRepository = clientAccountsRepository;
         }
 
-        public async Task<ResponseModel> Post(string email, string password)
+        public async Task<ResponseModel> Post(AuthenticateModel model)
         {
-            if (string.IsNullOrEmpty(email))
+            if (string.IsNullOrEmpty(model.Email))
                 return ResponseModel.CreateInvalidFieldError("email", Phrases.FieldShouldNotBeEmpty);
 
-            if (!email.IsValidEmail())
+            if (!model.Email.IsValidEmail())
                 return ResponseModel.CreateInvalidFieldError("email", Phrases.InvalidEmailFormat);
 
-            if (string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(model.Password))
                 return ResponseModel.CreateInvalidFieldError("passowrd", Phrases.FieldShouldNotBeEmpty);
 
-            var client = await _clientAccountsRepository.AuthenticateAsync(email, password);
+            var client = await _clientAccountsRepository.AuthenticateAsync(model.Email, model.Password);
 
             if (client == null)
                 return ResponseModel.CreateInvalidFieldError("passowrd", Phrases.InvalidUsernameOrPassword);

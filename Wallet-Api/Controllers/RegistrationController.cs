@@ -20,32 +20,32 @@ namespace Wallet_Api.Controllers
             _srvClientManager = srvClientManager;
         }
 
-        public async Task<ResponseModel> Post(string email, string firstname, string lastname, string contactphone, string password)
+        public async Task<ResponseModel> Post(AccountRegistrationModel model)
         {
-            if (string.IsNullOrEmpty(email))
+            if (string.IsNullOrEmpty(model.Email))
                 return ResponseModel.CreateInvalidFieldError("email", Phrases.FieldShouldNotBeEmpty);
 
-            if (!email.IsValidEmail())
+            if (!model.Email.IsValidEmail())
                 return ResponseModel.CreateInvalidFieldError("email", Phrases.InvalidEmailFormat);
 
-            if (string.IsNullOrEmpty(firstname))
+            if (string.IsNullOrEmpty(model.FirstName))
                 return ResponseModel.CreateInvalidFieldError("firstname", Phrases.FieldShouldNotBeEmpty);
 
-            if (string.IsNullOrEmpty(lastname))
+            if (string.IsNullOrEmpty(model.LastName))
                 return ResponseModel.CreateInvalidFieldError("lastname", Phrases.FieldShouldNotBeEmpty);
 
-            if (string.IsNullOrEmpty(contactphone))
+            if (string.IsNullOrEmpty(model.ContactPhone))
                 return ResponseModel.CreateInvalidFieldError("contactphone", Phrases.FieldShouldNotBeEmpty);
 
-            if (await _clientAccountsRepository.IsTraderWithEmailExistsAsync(email))
+            if (await _clientAccountsRepository.IsTraderWithEmailExistsAsync(model.Email))
                 return ResponseModel.CreateInvalidFieldError("email", Phrases.ClientWithEmailIsRegistered);
 
-            if (string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(model.Password))
                 return ResponseModel.CreateInvalidFieldError("passowrd", Phrases.FieldShouldNotBeEmpty);
 
             try
             {
-                var user = await _srvClientManager.RegisterClientAsync(email, firstname, lastname, contactphone, password);
+                var user = await _srvClientManager.RegisterClientAsync(model.Email, model.FirstName, model.LastName, model.ContactPhone, model.Password);
                 this.AuthenticateUserViaOwin(user);
                 return ResponseModel.CreateOk();
             }
