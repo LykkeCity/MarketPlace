@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Web.Http.Dependencies;
 using AzureRepositories;
+using AzureRepositories.Log;
+using AzureStorage.Tables;
 using Common.IocContainer;
 using Common.Log;
 using LkeServices;
@@ -36,19 +38,26 @@ namespace Wallet_Api
         public static IDependencyResolver Create()
         {
             var result = new MyDependencyResolver();
-            var log = new LogToConsole();
+
 #if DEBUG
+            var log = new LogToConsole();
             result.IoC.BindAzureReposInMem();
             result.IoC.BinMockAzureDebug();
+            
 
 
 #else
-                        result.IoC.BindAzureRepositories(Settings.ConnectionString, Settings.ConnectionString, log);
+            var log = new LogToTable(new AzureTableStorage<LogEntity>(Settings.ConnectionString, "LogApi", null));
+
+            result.IoC.BindAzureRepositories(Settings.ConnectionString, Settings.ConnectionString, log);
                       result.IoC.BindMockAzureRepositories(Settings.ConnectionString, log);
 #endif
 
             result.IoC.BindLykkeWalletServices();
             result.IoC.BindMockServices();
+
+
+            log.WriteInfo("ApiDependencies", "Create", "Create", "Create");
             return result;
         }
 

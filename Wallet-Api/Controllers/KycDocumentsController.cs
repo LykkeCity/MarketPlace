@@ -31,16 +31,16 @@ namespace Wallet_Api.Controllers
 
         }; 
 
-        public async Task<object> Post(string type, string ext)
+        public async Task<ResponseModel> Post(string type, string ext)
         {
             if (string.IsNullOrEmpty(type))
-                return FailFieldModel.Create("type", Phrases.FieldShouldNotBeEmpty);
+                return ResponseModel.CreateInvalidFieldError("type", Phrases.FieldShouldNotBeEmpty);
 
             if(!DocumentTypes.ContainsKey(type))
-                return FailFieldModel.Create("type", Phrases.InvalidDocumentType);
+                return ResponseModel.CreateInvalidFieldError("type", Phrases.InvalidDocumentType);
 
             if (string.IsNullOrEmpty(ext))
-                return FailFieldModel.Create("ext", Phrases.FieldShouldNotBeEmpty);
+                return ResponseModel.CreateInvalidFieldError("ext", Phrases.FieldShouldNotBeEmpty);
 
             var stream = new MemoryStream();
             await Request.Content.CopyToAsync(stream);
@@ -54,7 +54,7 @@ namespace Wallet_Api.Controllers
                 _srvKycDocumentsManager.UploadDocument(clientId, DocumentTypes[type], fileName, mimeType,
                     stream.ToArray());
 
-            return OkResponseModel.Instance;
+            return ResponseModel.CreateOk();
         }
 
     }

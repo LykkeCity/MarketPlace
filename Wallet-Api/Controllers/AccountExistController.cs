@@ -2,6 +2,8 @@
 using System.Web.Http;
 using Common;
 using Core.Clients;
+using Wallet_Api.Models;
+using Wallet_Api.Strings;
 
 namespace Wallet_Api.Controllers
 {
@@ -14,15 +16,16 @@ namespace Wallet_Api.Controllers
             _clientAccountsRepository = clientAccountsRepository;
         }
 
-        public async Task<bool?> Post(string email)
+        public async Task<ResponseModel<AccountExistResultModel>> Get(string email)
         {
             if (string.IsNullOrEmpty(email))
-                return null;
+                return ResponseModel<AccountExistResultModel>.CreateInvalidFieldError("email", Phrases.FieldShouldNotBeEmpty);
 
             if (!email.IsValidEmail())
-                return null;
+                return ResponseModel<AccountExistResultModel>.CreateInvalidFieldError("email", Phrases.InvalidEmailFormat);
 
-            return await _clientAccountsRepository.IsTraderWithEmailExistsAsync(email);
+            return ResponseModel<AccountExistResultModel>.CreateOk(
+                new AccountExistResultModel { IsEmailRegistered = await _clientAccountsRepository.IsTraderWithEmailExistsAsync(email)});
         }
     }
 }

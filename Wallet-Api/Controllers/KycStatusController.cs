@@ -15,13 +15,17 @@ namespace Wallet_Api.Controllers
             _kycRepository = kycRepository;
         }
 
-        public async Task<object> Get()
+        public async Task<ResponseModel<KycModelStatusResponseModel>> Get()
         {
             var clientId = this.GetClientId();
-            return (await _kycRepository.GetKycStatusAsync(clientId)).ToString();
+            return ResponseModel<KycModelStatusResponseModel>.CreateOk(
+                new KycModelStatusResponseModel
+                {
+                    KycStatus = (await _kycRepository.GetKycStatusAsync(clientId)).ToString()
+                });
         }
 
-        public async Task<object> Post()
+        public async Task<ResponseModel> Post()
         {
             var clientId = this.GetClientId();
 
@@ -30,13 +34,13 @@ namespace Wallet_Api.Controllers
             if (status == KycStatus.NeedToFillData)
             {
                 await _kycRepository.SetStatusAsync(clientId, KycStatus.Pending);
-                return OkResponseModel.Instance;
+                return ResponseModel.CreateOk();
             }
 
             if (status == KycStatus.Pending)
-                return OkResponseModel.Instance;
+                return ResponseModel.CreateOk();
 
-            return FailResponseModel.Create(Phrases.OperationCanNotBePerformed);
+            return ResponseModel.CreateFail(ResponseModel.ErrorCodeType.InconsistentData, Phrases.OperationCanNotBePerformed);
         }
 
     }

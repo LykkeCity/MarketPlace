@@ -134,4 +134,3 @@ function filterKeyNumbers(event) {
 function truncate(value) {
     return value - (value % 1);
 }
-//# sourceMappingURL=utils.js.map
