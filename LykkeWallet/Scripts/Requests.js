@@ -19,7 +19,7 @@ var Requests = (function () {
         if (o.onShowLoading)
             o.onShowLoading();
         else {
-            if (o.showLoading && o.divResult) {
+            if ((o.showLoading != false) && o.divResult) {
                 $(o.divResult).html('<div style="margin:50px auto; text-align:center"><img src="/Images/Loading.gif"/></div>');
                 $(o.divResult).show();
             }
@@ -134,3 +134,4 @@ var Requests = (function () {
     };
     return Requests;
 })();
+//# sourceMappingURL=Requests.js.map

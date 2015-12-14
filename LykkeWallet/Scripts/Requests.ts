@@ -1,5 +1,6 @@
 /// <reference path="typings/jquery/jquery.d.ts" />
 
+
 interface IRequestData {
     url: string;
     formId?: string;
@@ -38,14 +39,14 @@ class Requests {
         } else
             this.peformRequest(o);
 
-    }
+    } 
 
     private peformRequest(o: IRequestData) {
 
         if (o.onShowLoading)
             o.onShowLoading();
         else {
-            if (o.showLoading && o.divResult) {
+            if ((o.showLoading != false) && o.divResult) {
                 $(o.divResult).html('<div style="margin:50px auto; text-align:center"><img src="/Images/Loading.gif"/></div>');
                 $(o.divResult).show();
             }

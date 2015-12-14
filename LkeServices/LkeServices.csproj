@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LkeServices</RootNamespace>
     <AssemblyName>LkeServices</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -68,10 +68,6 @@
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{55a87c36-e8b8-4a08-8e3c-ca57529391a3}</Project>
       <Name>Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Sockets\TcpSockets.csproj">
-      <Project>{4f3389c2-7cc6-4d79-a5e1-091cf7ef940d}</Project>
-      <Name>TcpSockets</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

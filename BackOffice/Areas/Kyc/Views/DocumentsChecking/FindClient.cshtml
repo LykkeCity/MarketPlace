@@ -61,31 +61,8 @@
 <div style="text-align: center">
     <h2>@Phrases.Documents</h2>
 </div>
-<table class="table" style="width: 600px; margin: 10px auto;">
-    <tr>
-        <th>
-            @Phrases.DocumentType
-        </th>
-        <th>
-            @Phrases.Date
-        </th>
-        <th>
-
-        </th>
-    </tr>
-    @foreach (var kycDocument in Model.Documents)
-    {
-        <tr>
-            <td>
-                @kycDocument.Type
-            </td>
-            <td>
-                @kycDocument.DateTime
-            </td>
-            <td>
-                <a class="btn btn-xs btn-primary btn-raised" href="@Url.Action("Show", new {kycDocument.ClientId, kycDocument.DocumentId })" target="_blank"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
-            </td>
-        </tr>
-  
-    }
-</table>
+<div id="clientDocuments">
+    <script>
+        requests.doRequest({ url: '@Url.Action("Index", "Documents", new {id=Model.PersonalData.Id})', divResult: '#clientDocuments' })
+    </script>
+</div>

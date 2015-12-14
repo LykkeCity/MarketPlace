@@ -16,3 +16,4 @@ var WalletMobile = (function () {
     };
     return WalletMobile;
 })();
+//# sourceMappingURL=WalletMobile.js.map

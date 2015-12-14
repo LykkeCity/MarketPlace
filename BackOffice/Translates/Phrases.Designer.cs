@@ -367,6 +367,15 @@ namespace BackOffice.Translates {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please, confirm your action.
+        /// </summary>
+        public static string PleaseConfirmYourAction {
+            get {
+                return ResourceManager.GetString("PleaseConfirmYourAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please, type accuracy.
         /// </summary>
         public static string PleaseTypeAccuracy {

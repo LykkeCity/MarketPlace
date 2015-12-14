@@ -17,7 +17,7 @@ namespace BackOffice.Areas.Kyc.Models
     public class DocumentsCheckingFindClientViewModel
     {
         public IPersonalData PersonalData { get; set; }
-        public IEnumerable<IKycDocument> Documents { get; set; } 
+
         public KycStatus KycStatus {get;set;}
     }
 
@@ -41,6 +41,21 @@ namespace BackOffice.Areas.Kyc.Models
         public string Address { get; set; }
         public string ContactPhone { get; set; }
         public KycStatus KycStatus { get; set; }
+    }
+
+
+    public class DeleteDialogViewModel : IPersonalAreaDialog
+    {
+        public string Caption { get; set; }
+        public string Width { get; set; }
+        public DeleteDocumentModel Model { get; set; }
+    }
+
+
+    public class DeleteDocumentModel
+    {
+        public string ClientId { get; set; }
+        public string DocumentId { get; set; }
     }
 
 }

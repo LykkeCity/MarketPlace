@@ -249,4 +249,7 @@
   <data name="KycStatus" xml:space="preserve">
     <value>Kyc Status</value>
   </data>
+  <data name="PleaseConfirmYourAction" xml:space="preserve">
+    <value>Please, confirm your action</value>
+  </data>
 </root>

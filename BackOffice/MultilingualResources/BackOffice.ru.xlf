@@ -182,6 +182,10 @@
           <source>Kyc Status</source>
           <target state="new">Kyc Status</target>
         </trans-unit>
+        <trans-unit id="PleaseConfirmYourAction" translate="yes" xml:space="preserve">
+          <source>Please, confirm your action</source>
+          <target state="new">Please, confirm your action</target>
+        </trans-unit>
       </group>
     </body>
   </file>

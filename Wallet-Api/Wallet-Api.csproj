@@ -36,11 +36,10 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LkeServices">
-      <HintPath>..\LykkeWallet\Bin\LkeServices.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
       <Private>True</Private>
@@ -226,6 +225,10 @@
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{55a87c36-e8b8-4a08-8e3c-ca57529391a3}</Project>
       <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LkeServices\LkeServices.csproj">
+      <Project>{d23f4ad3-7240-4fad-9735-bc5bc22ca568}</Project>
+      <Name>LkeServices</Name>
     </ProjectReference>
     <ProjectReference Include="..\MockServices\MockServices.csproj">
       <Project>{1d9eb60a-97ba-4bb5-9ed0-0d971ecf33f1}</Project>

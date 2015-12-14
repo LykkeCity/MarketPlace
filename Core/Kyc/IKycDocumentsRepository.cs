@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Core.Kyc
@@ -52,6 +53,20 @@ namespace Core.Kyc
         public const string IdCard = "IdCard";
         public const string ProofOfAddress = "ProofOfAddress";
         public const string Selfie = "Selfie";
+
+
+        public static IEnumerable<string> GetAllTypes()
+        {
+            yield return IdCard;
+            yield return ProofOfAddress;
+            yield return Selfie;
+        } 
+
+        public static bool HasDocumentType(string type)
+        {
+            return GetAllTypes().FirstOrDefault(itm => itm == type) != null;
+        }
+
     }
 
 }
