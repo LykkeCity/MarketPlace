@@ -76,6 +76,7 @@
     <Compile Include="AzureRepoMockBinder.cs" />
     <Compile Include="BackOffice\MenuBadgesRepository.cs" />
     <Compile Include="BrowserSessionsRepository.cs" />
+    <Compile Include="Clients\ClientSessionsRepository.cs" />
     <Compile Include="Clients\PersonalDataRepository.cs" />
     <Compile Include="Clients\PinSecurityRepository.cs" />
     <Compile Include="Finance\BalanceRepository.cs" />

@@ -20,39 +20,41 @@ namespace Wallet_Api.Controllers
             _srvClientManager = srvClientManager;
         }
 
-        public async Task<ResponseModel> Post(AccountRegistrationModel model)
+        public async Task<ResponseModel<AccountsRegistrationResponseModel>> Post(AccountRegistrationModel model)
         {
             if (string.IsNullOrEmpty(model.Email))
-                return ResponseModel.CreateInvalidFieldError("email", Phrases.FieldShouldNotBeEmpty);
+                return ResponseModel<AccountsRegistrationResponseModel>.CreateInvalidFieldError("email", Phrases.FieldShouldNotBeEmpty);
 
             if (!model.Email.IsValidEmail())
-                return ResponseModel.CreateInvalidFieldError("email", Phrases.InvalidEmailFormat);
+                return ResponseModel<AccountsRegistrationResponseModel>.CreateInvalidFieldError("email", Phrases.InvalidEmailFormat);
 
             if (string.IsNullOrEmpty(model.FirstName))
-                return ResponseModel.CreateInvalidFieldError("firstname", Phrases.FieldShouldNotBeEmpty);
+                return ResponseModel<AccountsRegistrationResponseModel>.CreateInvalidFieldError("firstname", Phrases.FieldShouldNotBeEmpty);
 
             if (string.IsNullOrEmpty(model.LastName))
-                return ResponseModel.CreateInvalidFieldError("lastname", Phrases.FieldShouldNotBeEmpty);
+                return ResponseModel<AccountsRegistrationResponseModel>.CreateInvalidFieldError("lastname", Phrases.FieldShouldNotBeEmpty);
 
             if (string.IsNullOrEmpty(model.ContactPhone))
-                return ResponseModel.CreateInvalidFieldError("contactphone", Phrases.FieldShouldNotBeEmpty);
+                return ResponseModel<AccountsRegistrationResponseModel>.CreateInvalidFieldError("contactphone", Phrases.FieldShouldNotBeEmpty);
 
             if (await _clientAccountsRepository.IsTraderWithEmailExistsAsync(model.Email))
-                return ResponseModel.CreateInvalidFieldError("email", Phrases.ClientWithEmailIsRegistered);
+                return ResponseModel<AccountsRegistrationResponseModel>.CreateInvalidFieldError("email", Phrases.ClientWithEmailIsRegistered);
 
             if (string.IsNullOrEmpty(model.Password))
-                return ResponseModel.CreateInvalidFieldError("passowrd", Phrases.FieldShouldNotBeEmpty);
+                return ResponseModel<AccountsRegistrationResponseModel>.CreateInvalidFieldError("passowrd", Phrases.FieldShouldNotBeEmpty);
 
             try
             {
                 var user = await _srvClientManager.RegisterClientAsync(model.Email, model.FirstName, model.LastName, model.ContactPhone, model.Password);
-                this.AuthenticateUserViaOwin(user);
-                return ResponseModel.CreateOk();
+
+                var token = await user.AuthenticateViaToken();
+
+                return ResponseModel<AccountsRegistrationResponseModel>.CreateOk(new AccountsRegistrationResponseModel {Token = token });
             }
             catch (Exception ex)
             {
 
-                return ResponseModel.CreateInvalidFieldError("email", ex.StackTrace);
+                return ResponseModel<AccountsRegistrationResponseModel>.CreateInvalidFieldError("email", ex.StackTrace);
             }
 
         }

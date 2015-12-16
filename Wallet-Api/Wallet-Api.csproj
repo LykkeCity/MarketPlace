@@ -171,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\ApiDependencies.cs" />
+    <Compile Include="Middleware\LykkeAuthMiddlware.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\Startup.Localization.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />

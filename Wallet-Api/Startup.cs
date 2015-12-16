@@ -12,7 +12,7 @@ namespace Wallet_Api
         public void Configuration(IAppBuilder app)
         {
             app.Localize();
-            ConfigureAuth(app);
+            app.ConfigureLykkeAuth();
         }
     }
 }

@@ -8,6 +8,7 @@ using Wallet_Api.Strings;
 namespace Wallet_Api.Controllers
 {
 
+    [Authorize]
     public class CheckDocumentsToUploadController : ApiController
     {
         private readonly IKycDocumentsRepository _kycDocumentsRepository;

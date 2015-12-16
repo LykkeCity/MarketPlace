@@ -6,7 +6,7 @@ using Wallet_Api.Models;
 namespace Wallet_Api.Controllers
 {
 
-    [ApiAuthenticationHandler]
+    [Authorize]
     public class IsPinEnteredController : ApiController
     {
         private readonly IPinSecurityRepository _pinSecurityRepository;

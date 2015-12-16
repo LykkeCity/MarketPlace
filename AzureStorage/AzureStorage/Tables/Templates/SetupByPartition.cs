@@ -115,8 +115,8 @@ namespace AzureStorage.Tables.Templates
 
     public class AzureSetupByPartition : NoSqlSetupByPartition
     {
-        public AzureSetupByPartition(string connStr, string tableName, ILog log, bool caseSensitive = true)
-            : base(new AzureTableStorage<SetupByPartitionEntity>(connStr, tableName, log, caseSensitive))
+        public AzureSetupByPartition(string connStr, string tableName, ILog log)
+            : base(new AzureTableStorage<SetupByPartitionEntity>(connStr, tableName, log))
         {
         }
     }

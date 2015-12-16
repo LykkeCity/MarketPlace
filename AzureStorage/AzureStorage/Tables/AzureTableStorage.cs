@@ -16,7 +16,6 @@ namespace AzureStorage.Tables
         private readonly string _connstionString;
         private readonly string _tableName;
         private readonly ILog _log;
-        private bool CaseSensitive { get; }
 
         private CloudStorageAccount _cloudStorageAccount;
 
@@ -50,12 +49,11 @@ namespace AzureStorage.Tables
         }
 
 
-        public AzureTableStorage(string connstionString, string tableName, ILog log, bool caseSensitive = true)
+        public AzureTableStorage(string connstionString, string tableName, ILog log)
         {
             _connstionString = connstionString;
             _tableName = tableName;
             _log = log;
-            CaseSensitive = caseSensitive;
         }
 
         protected IEnumerable<T> GetItemsByPartition(string partitionKey, Func<T, bool> filter = null)
@@ -220,11 +218,6 @@ namespace AzureStorage.Tables
         {
             try
             {
-                if (!CaseSensitive)
-                {
-                    item.PartitionKey = item.PartitionKey.ToLower();
-                    item.RowKey = item.RowKey.ToLower();
-                }
 
                 GetTable().Execute(TableOperation.Insert(item));
             }
@@ -239,12 +232,6 @@ namespace AzureStorage.Tables
         {
             try
             {
-                if (!CaseSensitive)
-                {
-                    item.PartitionKey = item.PartitionKey.ToLower();
-                    item.RowKey = item.RowKey.ToLower();
-                }
-
                 await GetTable().ExecuteAsync(TableOperation.Insert(item));
             }
             catch (Exception ex)
@@ -258,12 +245,6 @@ namespace AzureStorage.Tables
         {
             try
             {
-                if (!CaseSensitive)
-                {
-                    item.PartitionKey = item.PartitionKey.ToLower();
-                    item.RowKey = item.RowKey.ToLower();
-                }
-
 
                 GetTable().Execute(TableOperation.InsertOrMerge(item));
             }
@@ -284,11 +265,6 @@ namespace AzureStorage.Tables
             object itm = "Not read";
             try
             {
-                if (!CaseSensitive)
-                {
-                    partitionKey = partitionKey.ToLower();
-                    rowKey = rowKey.ToLower();
-                }
                 while (true)
                 {
                     try
@@ -329,13 +305,6 @@ namespace AzureStorage.Tables
             object itm = "Not read";
             try
             {
-                if (!CaseSensitive)
-                {
-                    partitionKey = partitionKey.ToLower();
-                    rowKey = rowKey.ToLower();
-                }
-
-             
                 while (true)
                 {
                     try
@@ -377,12 +346,6 @@ namespace AzureStorage.Tables
 
             try
             {
-                if (!CaseSensitive)
-                {
-                    partitionKey = partitionKey.ToLower();
-                    rowKey = rowKey.ToLower();
-                }
-
                 while (true)
                 {
                     try
@@ -442,13 +405,6 @@ namespace AzureStorage.Tables
 
             try
             {
-
-                if (!CaseSensitive)
-                {
-                    partitionKey = partitionKey.ToLower();
-                    rowKey = rowKey.ToLower();
-                }
-
                 while (true)
                 {
                     try
@@ -498,13 +454,6 @@ namespace AzureStorage.Tables
         {
             try
             {
-                if (!CaseSensitive)
-                {
-                    item.PartitionKey = item.PartitionKey.ToLower();
-                    item.RowKey = item.RowKey.ToLower();
-                }
-
-
                 GetTable().Execute(TableOperation.InsertOrReplace(item));
             }
             catch (Exception ex)
@@ -520,13 +469,6 @@ namespace AzureStorage.Tables
         {
             try
             {
-                if (!CaseSensitive)
-                {
-                    item.PartitionKey = item.PartitionKey.ToLower();
-                    item.RowKey = item.RowKey.ToLower();
-                }
-
-
                await GetTable().ExecuteAsync(TableOperation.InsertOrReplace(item));
             }
             catch (Exception ex)
@@ -589,12 +531,6 @@ namespace AzureStorage.Tables
         {
             try
             {
-                if (!CaseSensitive)
-                {
-                    item.PartitionKey = item.PartitionKey.ToLower();
-                    item.RowKey = item.RowKey.ToLower();
-                }
-
                 if (this[item.PartitionKey, item.RowKey] == null)
                     InsertOrReplace(item);
 
@@ -611,11 +547,6 @@ namespace AzureStorage.Tables
         {
             try
             {
-                if (!CaseSensitive)
-                {
-                    partition = partition.ToLower();
-                    row = row.ToLower();
-                }
                 var retrieveOperation = TableOperation.Retrieve<T>(partition, row);
                 var retrievedResult = GetTable().Execute(retrieveOperation);
                 return (T)retrievedResult.Result;
@@ -632,9 +563,6 @@ namespace AzureStorage.Tables
 
         private TableQuery<T> CompileTableQuery(string partition)
         {
-            if (!CaseSensitive)
-                partition = partition.ToLower();
-
             var filter = TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, partition);
             return  new TableQuery<T>().Where(filter);
         }
@@ -733,11 +661,6 @@ namespace AzureStorage.Tables
 
             try
             {
-                if (!CaseSensitive)
-                {
-                    partition = partition.ToLower();
-                    row = row.ToLower();
-                }
                 var retrieveOperation = TableOperation.Retrieve<T>(partition, row);
                 var retrievedResult = await GetTable().ExecuteAsync(retrieveOperation);
                 return (T)retrievedResult.Result;

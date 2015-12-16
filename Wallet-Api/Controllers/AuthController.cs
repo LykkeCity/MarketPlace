@@ -38,12 +38,13 @@ namespace Wallet_Api.Controllers
             if (client == null)
                 return ResponseModel<AuthenticateResponseModel>.CreateInvalidFieldError("passowrd", Phrases.InvalidUsernameOrPassword);
 
-            this.AuthenticateUserViaOwin(client);
+            var token = await client.AuthenticateViaToken();
 
             return ResponseModel<AuthenticateResponseModel>.CreateOk(new AuthenticateResponseModel
             {
                 KycStatus = (await _kycRepository.GetKycStatusAsync(client.Id)).ToString(),
-                PinIsEntered = await _pinSecurityRepository.IsPinEntered(client.Id)
+                PinIsEntered = await _pinSecurityRepository.IsPinEntered(client.Id),
+                Token = token
             });
         }
 

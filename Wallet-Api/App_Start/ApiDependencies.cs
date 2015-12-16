@@ -8,6 +8,7 @@ using AzureRepositories.Log;
 using AzureStorage.Tables;
 using Common.IocContainer;
 using Common.Log;
+using Core.Clients;
 using LkeServices;
 using MockServices;
 using RepositoriesMock;
@@ -39,6 +40,9 @@ namespace Wallet_Api
 
         public static Func<object, string> GetIdentity;
 
+
+        public static IClientsSessionsRepository ClientsSessionsRepository { get; private set; }
+
         public static IDependencyResolver Create()
         {
             var result = new MyDependencyResolver();
@@ -47,27 +51,26 @@ namespace Wallet_Api
             var log = new LogToConsole();
             result.IoC.BindAzureReposInMem();
             result.IoC.BinMockAzureDebug();
-            
 
-
-#else
+            #else
             var log = new LogToTable(new AzureTableStorage<LogEntity>(Settings.ConnectionString, "LogApi", null));
 
             result.IoC.BindAzureRepositories(Settings.ConnectionString, Settings.ConnectionString, log);
                       result.IoC.BindMockAzureRepositories(Settings.ConnectionString, log);
-#endif
+            #endif
 
             result.IoC.BindLykkeWalletServices();
             result.IoC.BindMockServices();
-
-
-            log.WriteInfo("ApiDependencies", "Create", "Create", "Create");
 
             GetIdentity = ctr =>
             {
                 var ctx = ctr as ApiController;
                 return ctx?.User.Identity.Name;
             };
+
+            ClientsSessionsRepository = result.IoC.GetObject<IClientsSessionsRepository>();
+
+            log.WriteInfo("ApiDependencies", "Create", "Create", "Create");
 
             return result;
         }

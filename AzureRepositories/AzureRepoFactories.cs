@@ -66,6 +66,12 @@ namespace AzureRepositories
                     new AzureTableStorage<AzureIndex>(connstring, tableName, log));
             }
 
+            public static ClientSessionsRepository CreateClientSessionsRepository(string connstring, ILog log)
+            {
+                return new ClientSessionsRepository(
+                    new AzureTableStorage<ClientSessionEntity>(connstring, "Sessions", log));
+            }
+
             public static PersonalDataRepository CreatePersonalDataRepository(string connString, ILog log)
             {
                 return new PersonalDataRepository(new AzureTableStorage<PersonalDataEntity>(connString, "PersonalData", log));

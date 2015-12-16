@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Security.Claims;
+using System.Threading.Tasks;
 using System.Web.Http;
 using Core.Clients;
 using Microsoft.AspNet.Identity;
@@ -22,7 +25,7 @@ namespace Wallet_Api.Controllers
         private static ClaimsIdentity MakeIdentity(IClientAccount user)
         {
             var claims = new List<Claim> { new Claim(ClaimTypes.Name, user.Id) };
-            var identity = new ClaimsIdentity(claims, DefaultAuthenticationTypes.ApplicationCookie);
+            var identity = new ClaimsIdentity(claims, DefaultAuthenticationTypes.ExternalBearer);
             return identity;
         }
 
@@ -30,5 +33,20 @@ namespace Wallet_Api.Controllers
         {
             return ApiDependencies.GetIdentity(ctx);
         }
+
+        public static async Task<string> AuthenticateViaToken(this IClientAccount clientAccount)
+        {
+            var clientSession =
+                (await ApiDependencies.ClientsSessionsRepository.GetByClientAsync(clientAccount.Id)).FirstOrDefault();
+
+            if (clientSession != null)
+                return clientSession.Token;
+
+            var newtoken = Guid.NewGuid().ToString("N")+ Guid.NewGuid().ToString("N");
+            await ApiDependencies.ClientsSessionsRepository.SaveAsync(clientAccount.Id, newtoken);
+            return newtoken;
+
+        }
+
     }
 }

@@ -80,6 +80,9 @@ namespace AzureRepositories
 
             ioc.Register<IPinSecurityRepository>(
                 new PinSecurityRepository(new AzureTableStorageLocal<PinSecurityEntity>(localHost, "ClientPins")));
+
+            ioc.Register<IClientsSessionsRepository>(
+                new ClientSessionsRepository(new AzureTableStorageLocal<ClientSessionEntity>(localHost, "Sessions")));
         }
 
         public static void BindAzureReposInMemForTests(this IoC ioc)
@@ -137,6 +140,9 @@ namespace AzureRepositories
 
             ioc.Register<IPinSecurityRepository>(
                 new PinSecurityRepository(new NoSqlTableInMemory<PinSecurityEntity>()));
+
+            ioc.Register<IClientsSessionsRepository>(
+                new ClientSessionsRepository(new NoSqlTableInMemory<ClientSessionEntity>()));
         }
 
 

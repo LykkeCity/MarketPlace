@@ -7,7 +7,7 @@ using Wallet_Api.Strings;
 
 namespace Wallet_Api.Controllers
 {
-
+    [Authorize]
     public class PinSecurityController : ApiController
     {
         private readonly IPinSecurityRepository _puPinSecurityRepository;

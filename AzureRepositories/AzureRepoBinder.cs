@@ -65,6 +65,8 @@ namespace AzureRepositories
             ioc.Register<IAccountsRepository>(
                 AzureRepoFactories.Accounts.CreateAccountsRepository(connString, log));
 
+            ioc.Register<IClientsSessionsRepository>(
+                AzureRepoFactories.Clients.CreateClientSessionsRepository(connString, log));
 
         }
 

@@ -53,6 +53,7 @@
     <Compile Include="BackOffice\IMenuBadgesRepository.cs" />
     <Compile Include="BitCoin\IMockLykkeWalletRepository.cs" />
     <Compile Include="BitCoin\ISrvLykkeWallet.cs" />
+    <Compile Include="Clients\IClientsSessionsRepository.cs" />
     <Compile Include="Clients\IPersonalDataRepository.cs" />
     <Compile Include="Clients\IPinSecurityControllers.cs" />
     <Compile Include="CountryDictionary.cs" />

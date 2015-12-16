@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using Common;
 using Common.Log;
 
 namespace AzureStorage.Tables.Templates
@@ -66,8 +65,8 @@ namespace AzureStorage.Tables.Templates
 
     public class NoSqlTableForSetup : NoSqlTableForSetupAbstract
     {
-        public NoSqlTableForSetup(string connStr, string tableName, ILog log, bool caseSensitive = true) :
-            base(new AzureSetupByPartition(connStr, tableName, log, caseSensitive))
+        public NoSqlTableForSetup(string connStr, string tableName, ILog log) :
+            base(new AzureSetupByPartition(connStr, tableName, log))
         {
         }
 

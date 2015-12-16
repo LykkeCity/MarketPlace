@@ -24,10 +24,10 @@ namespace AzureStorage.Tables
                 _cache.Insert(item);
         }
 
-        public AzureTableStorageWithCache(string connstionString, string tableName, ILog log, bool caseSensitive = true)
+        public AzureTableStorageWithCache(string connstionString, string tableName, ILog log)
         {
             _cache = new NoSqlTableInMemory<T>();
-            _table = new AzureTableStorage<T>(connstionString, tableName, log, caseSensitive);
+            _table = new AzureTableStorage<T>(connstionString, tableName, log);
             Init();
         }
 

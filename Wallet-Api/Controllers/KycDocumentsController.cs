@@ -10,7 +10,7 @@ using Wallet_Api.Strings;
 
 namespace Wallet_Api.Controllers
 {
-
+    [Authorize]
     public class KycDocumentsController : ApiController
     {
         private readonly SrvKycDocumentsManager _srvKycDocumentsManager;

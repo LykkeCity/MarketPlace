@@ -31,10 +31,6 @@ namespace Wallet_Api
 
         public static IAppBuilder Localize(this IAppBuilder app, PipelineStage stage = PipelineStage.PreHandlerExecute)
         {
-            if (app == null)
-            {
-                throw new ArgumentNullException("app");
-            }
 
             app.Use(
                 (ctx, next) =>
