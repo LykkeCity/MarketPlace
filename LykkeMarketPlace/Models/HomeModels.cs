@@ -1,5 +1,4 @@
-﻿
-using Core.Traders;
+﻿using Core.Clients;
 
 namespace LykkeMarketPlace.Models
 {
@@ -15,10 +14,11 @@ namespace LykkeMarketPlace.Models
         public string Password { get; set; }
     }
 
-    public class SignUpModel : ITrader
+    public class SignUpModel : IClientAccount
     {
         public string Id => null;
         public string Email { get; set; }
+        public string Phone { get; set; }
         public string Password { get; set; }
         public string PasswordAgain { get; set; }
     }

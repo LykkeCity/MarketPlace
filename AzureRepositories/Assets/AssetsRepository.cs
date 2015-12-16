@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using AzureStorage;
 using Common;
 using Core.Assets;
 using Microsoft.WindowsAzure.Storage.Table;
@@ -48,10 +49,25 @@ namespace AzureRepositories.Assets
             return _tableStorage.InsertAsync(newAsset);
         }
 
+        public async Task EditAssetAsync(string id, IAsset asset)
+        {
+            await _tableStorage.DeleteAsync(AssetEntity.GeneratePartitionKey(), AssetEntity.GenerateRowKey(id));
+            await RegisterAssetAsync(asset);
+        }
+
+
         public async Task<IEnumerable<IAsset>> GetAssetsAsync()
         {
             var partitionKey = AssetEntity.GeneratePartitionKey();
             return await _tableStorage.GetDataAsync(partitionKey);
+        }
+
+        public async Task<IAsset> GetAssetAsync(string id)
+        {
+            var partitionKey = AssetEntity.GeneratePartitionKey();
+            var rowKey = AssetEntity.GenerateRowKey(id);
+
+            return await _tableStorage.GetDataAsync(partitionKey, rowKey);
         }
     }
 }

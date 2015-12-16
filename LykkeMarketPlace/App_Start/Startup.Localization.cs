@@ -30,6 +30,18 @@ namespace LykkeMarketPlace
             app.Use(
                 (ctx, next) =>
                 {
+
+#if DEBUG
+#else
+                    if (!ctx.Request.IsSecure)
+                    {
+                        string url = "https://" + ctx.Request.Uri.Host + ctx.Request.Uri.PathAndQuery;
+                        ctx.Response.Redirect(url);
+                    }
+
+#endif
+
+
                     DetectLanguage(ctx.Request);
 
                     return next.Invoke();

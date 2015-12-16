@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackOffice", "BackOffice\BackOffice.csproj", "{0E297C04-56A8-4BC4-938C-4EB19C60500D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackOfficeAzureRepositories", "BackOfficeAzureRepositories\BackOfficeAzureRepositories.csproj", "{03B31D63-8104-4534-AB4B-8BE4F199A566}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,14 @@ Global
 		{0E297C04-56A8-4BC4-938C-4EB19C60500D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0E297C04-56A8-4BC4-938C-4EB19C60500D}.Release|x64.ActiveCfg = Release|Any CPU
 		{0E297C04-56A8-4BC4-938C-4EB19C60500D}.Release|x64.Build.0 = Release|Any CPU
+		{03B31D63-8104-4534-AB4B-8BE4F199A566}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03B31D63-8104-4534-AB4B-8BE4F199A566}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03B31D63-8104-4534-AB4B-8BE4F199A566}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{03B31D63-8104-4534-AB4B-8BE4F199A566}.Debug|x64.Build.0 = Debug|Any CPU
+		{03B31D63-8104-4534-AB4B-8BE4F199A566}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03B31D63-8104-4534-AB4B-8BE4F199A566}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03B31D63-8104-4534-AB4B-8BE4F199A566}.Release|x64.ActiveCfg = Release|Any CPU
+		{03B31D63-8104-4534-AB4B-8BE4F199A566}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -129,5 +139,6 @@ Global
 		{4F3389C2-7CC6-4D79-A5E1-091CF7EF940D} = {8140CF92-0BBD-4F60-B7F6-D140474FA2F2}
 		{D23F4AD3-7240-4FAD-9735-BC5BC22CA568} = {8140CF92-0BBD-4F60-B7F6-D140474FA2F2}
 		{071F69DA-EBAC-458C-8FBD-163E0B83B2CA} = {BCDBE6D9-B428-46B9-A36B-02958498181B}
+		{03B31D63-8104-4534-AB4B-8BE4F199A566} = {EE15E73E-CBC2-43F5-A47A-469FDC82DF5C}
 	EndGlobalSection
 EndGlobal

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Common;
-using Core.Traders;
+using Core.Clients;
 using LykkeMarketPlace.Models;
 using LykkeMarketPlace.Services;
 using LykkeMarketPlace.Strings;
@@ -17,13 +17,11 @@ namespace LykkeMarketPlace.Controllers
 
     public class HomeController : Controller
     {
-        private readonly ITradersRepository _tradersRepository;
+        private readonly IClientAccountsRepository _clientAccountsRepository;
 
-
-
-        public HomeController(ITradersRepository tradersRepository)
+        public HomeController(IClientAccountsRepository clientAccountsRepository)
         {
-            _tradersRepository = tradersRepository;
+            _clientAccountsRepository = clientAccountsRepository;
         }
 
 
@@ -32,12 +30,6 @@ namespace LykkeMarketPlace.Controllers
 
             if (langId != null)
                 this.SetLanguage(langId);
-
-#if DEBUG
-#else
-            if (Request.Url.Scheme == "http")
-                return Redirect("https://" + Request.Url.Authority);
-#endif
 
             return View();
         }
@@ -79,7 +71,7 @@ namespace LykkeMarketPlace.Controllers
                 return this.JsonFailResult("#password", Phrases.FieldShouldNotBeEmpty);
 
 
-            var trader = await _tradersRepository.AuthenticateAsync(model.Email, model.Password);
+            var trader = await _clientAccountsRepository.AuthenticateAsync(model.Email, model.Password);
 
             if (trader == null)
                 return this.JsonFailResult("#password", Phrases.InvalidUsernameOrPassword);
@@ -101,7 +93,7 @@ namespace LykkeMarketPlace.Controllers
                 return this.JsonFailResult("#email", Phrases.PleaseTypeEmailHere);
 
 
-            if (await _tradersRepository.IsTraderWithEmailExistsAsync(model.Email))
+            if (await _clientAccountsRepository.IsTraderWithEmailExistsAsync(model.Email))
                 return this.JsonFailResult("#email", Phrases.UserWithEmalExists);
 
             if (string.IsNullOrEmpty(model.Password))
@@ -115,7 +107,7 @@ namespace LykkeMarketPlace.Controllers
                 return this.JsonFailResult("#passwordAgain", Phrases.PasswordDoesNotMatch);
 
 
-            var trader = await _tradersRepository.RegisterAsync(model, model.Password);
+            var trader = await _clientAccountsRepository.RegisterAsync(model, model.Password);
 
             this.AuthenticateUserViaOwin(trader);
 
@@ -168,7 +160,7 @@ namespace LykkeMarketPlace.Controllers
         }
 
 
-        public static void AuthenticateUserViaOwin(this Controller ctx, ITrader user)
+        public static void AuthenticateUserViaOwin(this Controller ctx, IClientAccount user)
         {
             var authManager = ctx.HttpContext.GetOwinContext().Authentication;
             var identity = MakeIdentity(user);
@@ -178,7 +170,7 @@ namespace LykkeMarketPlace.Controllers
 
         }
 
-        private static ClaimsIdentity MakeIdentity(ITrader user)
+        private static ClaimsIdentity MakeIdentity(IClientAccount user)
         {
             var claims = new List<Claim> { new Claim(ClaimTypes.Name, user.Id) };
             var identity = new ClaimsIdentity(claims, DefaultAuthenticationTypes.ApplicationCookie);

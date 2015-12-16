@@ -1,0 +1,25 @@
+﻿@using LykkeWallet.Strings
+@model dynamic
+
+@{
+    Layout = null;
+}
+
+<div class="panel panel-default  panel-SignIn">
+    <div class="panel-heading">
+        <h3 class="panel-title">@Phrases.SignUp</h3>
+    </div>
+    <div class="panel-body">
+        <form id="frmAuth">
+            @HelpersUi.RenderEditAndLabelFocused(Phrases.Email, "Email", "email")
+            @HelpersUi.RenderEditAndLabel(Phrases.Password, "Password", "password")
+            @HelpersUi.RenderEditAndLabel(Phrases.PasswordAgain, "PasswordAgain", "password")
+            @HelpersUi.RenderEditAndLabel(Phrases.MobilePhone, "Phone")
+        </form>
+    </div>
+    @HelpersUi.RanderOkCancelAction(Phrases.SignUp, Url.Action("SignUp"), "#frmAuth", Url.Action("SignInDialog"), "#entranceContent")
+</div>
+
+
+
+

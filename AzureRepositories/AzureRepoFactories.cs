@@ -1,23 +1,20 @@
-﻿using AzureRepositories.Assets;
+﻿using AzureRepositories.Accounts;
+using AzureRepositories.Assets;
+using AzureRepositories.BackOffice;
+using AzureRepositories.Clients;
 using AzureRepositories.Finance;
+using AzureRepositories.Kyc;
 using AzureRepositories.Orders;
-using AzureRepositories.Traders;
+using AzureStorage;
+using AzureStorage.Blob;
 using AzureStorage.Tables;
-using AzureStorage.Tables.Templates;
+using AzureStorage.Tables.Templates.Index;
 using Common.Log;
 
 namespace AzureRepositories
 {
     public static class AzureRepoFactories
     {
-
-        public static TradersRepository CreateTradersRepository(string connstring, ILog log)
-        {
-            const string tableName = "Traders";
-            return new TradersRepository(
-                new AzureTableStorage<TraderEntity>(connstring, tableName, log), 
-                new AzureTableStorage<AzureIndex>(connstring, tableName, log));
-        }
 
         public static BalanceRepository CreateBalanceRepository(string connstring, ILog log)
         {
@@ -38,22 +35,90 @@ namespace AzureRepositories
         }
 
 
-        public static TraderSettingsRepository CreateTraderSettingsRepository(string connString, ILog log)
+        public static ClientSettingsRepository CreateTraderSettingsRepository(string connString, ILog log)
         {
-            return new TraderSettingsRepository(new AzureTableStorage<TraderSettingsEntity>(connString, "TraderSettings", log));
+            return new ClientSettingsRepository(new AzureTableStorage<ClientSettingsEntity>(connString, "TraderSettings", log));
         }
 
+
+        public static BrowserSessionsRepository CreateBrowserSessionsRepository(string connString, ILog log)
+        {
+            return new BrowserSessionsRepository(new AzureTableStorage<BrowserSessionEntity>(connString, "BrowserSessions", log));
+        }
+
+
+        public static class Accounts
+        {
+            public static AccountsRepository CreateAccountsRepository(string connString, ILog log)
+            {
+                return new AccountsRepository(new AzureTableStorage<AccountEntity>(connString, "Accounts", log));
+            }
+        }
+
+
+        public static class Clients
+        {
+            public static ClientsRepository CreateTradersRepository(string connstring, ILog log)
+            {
+                const string tableName = "Traders";
+                return new ClientsRepository(
+                    new AzureTableStorage<ClientAccountEntity>(connstring, tableName, log),
+                    new AzureTableStorage<AzureIndex>(connstring, tableName, log));
+            }
+
+            public static PersonalDataRepository CreatePersonalDataRepository(string connString, ILog log)
+            {
+                return new PersonalDataRepository(new AzureTableStorage<PersonalDataEntity>(connString, "PersonalData", log));
+            }
+
+            public static KycRepository CreateKycRepository(string connString, ILog log)
+            {
+                return new KycRepository(new AzureTableStorage<KycEntity>(connString, "KycStatuses", log));
+            }
+
+
+
+            public static KycDocumentsRepository CreateKycDocumentsRepository(string connString, ILog log)
+            {
+                return new KycDocumentsRepository(new AzureTableStorage<KycDocumentEntity>(connString, "KycDocuments", log));
+            }
+
+            public static KycDocumentsScansRepository CreatKycDocumentsScansRepository(string connString)
+            {
+                return new KycDocumentsScansRepository(new AzureBlobStorage(connString));
+            }
+
+            public static KycUploadsLog CreateKycUploadsLog(string connString, ILog log)
+            {
+                return
+                    new KycUploadsLog(new AzureTableStorage<KycUploadsLogItemEntity>(connString, "KycUploadsLog", log));
+            }
+
+            public static PinSecurityRepository CreatePinSecurityRepository(string connString, ILog log)
+            {
+                return new PinSecurityRepository(new AzureTableStorage<PinSecurityEntity>(connString, "ClientPins", log));
+            }
+
+
+        }
+
+
+        public static class BackOffice
+        {
+            public static MenuBadgesRepository CreateMenuBadgesRepository(string connecionString, ILog log)
+            {
+                return new MenuBadgesRepository(new AzureTableStorage<MenuBadgeEntity>(connecionString, "MenuBadges", log));
+            }
+
+        }
 
         private const string TableNameDictionaries = "Dictionaries";
         public static class Dictionaries
         {
-            
-
             public static AssetsRepository CreateAssetsRepository(string connstring, ILog log)
             {
                 return new AssetsRepository(new AzureTableStorage<AssetEntity>(connstring, TableNameDictionaries, log));
             }
-
 
             public static AssetPairsRepository CreateAssetPairsRepository(string connString, ILog log)
             {
@@ -62,4 +127,5 @@ namespace AzureRepositories
         }
 
     }
+
 }

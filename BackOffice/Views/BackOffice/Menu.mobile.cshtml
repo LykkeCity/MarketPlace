@@ -1,0 +1,43 @@
+﻿@model BackOffice.Models.MainMenuViewModel
+@{
+    Layout = null;
+}
+
+@Html.Partial("PartialMenu", Model)
+
+<script>
+    $('.smi').each(function () {
+        $(this).html($(this).attr('data-text'));
+        $(this).click(menuItemClick);
+    });
+    var activeItem;
+    function menuItemClick() {
+
+        if (activeItem)
+            activeItem.removeClass('smiSel');
+
+        activeItem = $(this);
+        var url = activeItem.attr('data-url');
+
+
+        if (url) {
+            $('#pamain').html('<div style="text-align:center; margin-top:20px;"><img src="/Images/Loading-pa.gif"/></div>');
+            var options = { url: url, type: 'POST' };
+            $.ajax(options)
+                .then(function (result) {
+                    activeItem.addClass('smiSel');
+                    $('#pamain').html(result);
+                    layout.ressize();
+                }).fail(function (fr) {
+                    activeItem.addClass('smiSel');
+                    $('#pamain').html(fr.responseText);
+                });
+        } else {
+            $('#pamain').html('<h1>No content</h1>');
+            activeItem.addClass('smiSel');
+        }
+
+    }
+
+</script>
+

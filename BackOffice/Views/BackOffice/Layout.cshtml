@@ -1,0 +1,28 @@
+﻿@model dynamic
+
+@{
+    Layout = null;
+}
+
+<nav class="navigation-pinned" style="position: absolute;background-color: #3A3633;">
+    <div id="menuwrapper" class="menuwrapper" data-autoheight="0">
+        <script>
+            Requests.doRequest({ url: '@Url.Action("Menu")', divResult: '#menuwrapper' })
+        </script>
+    </div>
+
+</nav>
+<section id="pamain" data-autoheight="0" data-autowidth="-200" style="overflow-y: auto; background: white;position: absolute;top: 0;left: 200px;-webkit-user-select: initial;"></section>
+<div id="modalBackground" onclick="Ui.hideDialog()" style="position: fixed; z-index: 10000; left:200px; top:0;background: rgba(0, 0, 0, 0.8); display: none; " data-autowidth="-200" data-autoheight="0">
+    <table style="width: 100%; height: 100%">
+        <tr>
+            <td>
+                <div id="modalData" onclick="event.stopPropagation()">
+
+                </div>
+            </td>
+        </tr>
+
+    </table>
+
+</div>

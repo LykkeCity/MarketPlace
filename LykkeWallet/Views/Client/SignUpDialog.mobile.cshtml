@@ -1,0 +1,23 @@
+﻿@using LykkeWallet.Strings
+@model LykkeWallet.Models.SignUpViewModel
+
+@{
+    Layout = null;
+}
+
+<div class="mobile-content">
+    <div class="title">@Phrases.SignUp</div>
+    <div class="info-area">@Phrases.PleaseCompleteRegistration</div>
+
+    @HelpersUi.RenderSteps(0)
+
+    <form id="frmAuth" style="margin-top: 100px;">
+        @HelpersUi.RenderEditAndLabel(Phrases.Email, "Email", "email", Model.Email)
+        @HelpersUi.RenderEditAndLabelFocused(Phrases.FirstName, "Password", "password")
+        @HelpersUi.RenderEditAndLabel(Phrases.LastName, "PasswordAgain", "password")
+        @HelpersUi.RenderEditAndLabel(Phrases.MobilePhone, "Phone")
+    </form>
+
+    <button id="btnSignUp" class="btn btn-lykke btn-block" onclick="requests.doRequest({ url: '@Url.Action("SignUp")', formId: '#frmAuth' });">@Phrases.Submit</button>
+
+</div>

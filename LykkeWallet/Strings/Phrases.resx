@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Accounts" xml:space="preserve">
+    <value>Accounts</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ChooseFileToUpload" xml:space="preserve">
+    <value>Choose file to upload</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DoNotHaveAnAccount" xml:space="preserve">
+    <value>Do not have account?</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="FieldShouldNotBeEmpty" xml:space="preserve">
+    <value>Field should not be empty</value>
+  </data>
+  <data name="FileFormatsShouldBe" xml:space="preserve">
+    <value>File format should be</value>
+  </data>
+  <data name="FileShouldBeNoBiggerThan" xml:space="preserve">
+    <value>File should not be bigger then 3Mb</value>
+  </data>
+  <data name="FileSizeDisclamer" xml:space="preserve">
+    <value>File should be not bigger than 4Mb.</value>
+  </data>
+  <data name="IdentityVerification" xml:space="preserve">
+    <value>Identity verification</value>
+  </data>
+  <data name="InterfaceLanguage" xml:space="preserve">
+    <value>Interface language</value>
+  </data>
+  <data name="InternetConnectionProblem" xml:space="preserve">
+    <value>Internet connection problem</value>
+  </data>
+  <data name="InvalidFileExtention" xml:space="preserve">
+    <value>Invalid file extention</value>
+  </data>
+  <data name="InvalidUsernameOrPassword" xml:space="preserve">
+    <value>Invalid username or password</value>
+  </data>
+  <data name="InvalidVerificaionCode" xml:space="preserve">
+    <value>Invalid verification code</value>
+  </data>
+  <data name="Lang" xml:space="preserve">
+    <value>en</value>
+  </data>
+  <data name="LanguageName" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="MakeSelfiePhoto" xml:space="preserve">
+    <value>Please, make selfie photo</value>
+  </data>
+  <data name="MaximumFileSizeExceed" xml:space="preserve">
+    <value>Maximus file size exceed</value>
+  </data>
+  <data name="MobilePhone" xml:space="preserve">
+    <value>Mobile phone</value>
+  </data>
+  <data name="NewVerificationCodeHasBeenSent" xml:space="preserve">
+    <value>New verification code has been sent</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PasswordAgain" xml:space="preserve">
+    <value>Password again</value>
+  </data>
+  <data name="PasswordDoesNotMatch" xml:space="preserve">
+    <value>Password does not match</value>
+  </data>
+  <data name="PersonalData" xml:space="preserve">
+    <value>Personal Data</value>
+  </data>
+  <data name="PleaseBePatient" xml:space="preserve">
+    <value>Please, be patient</value>
+  </data>
+  <data name="PleaseTypeEmailHere" xml:space="preserve">
+    <value>Please, type email here</value>
+  </data>
+  <data name="PleaseTypeVerificationCode" xml:space="preserve">
+    <value>Please, type verification code</value>
+  </data>
+  <data name="PleaseUploadYouPassport" xml:space="preserve">
+    <value>Please, upload your passport or Id card</value>
+  </data>
+  <data name="RestrictedAreaMessage" xml:space="preserve">
+    <value>Unfortunately we cannot provide you any of our service. Apologies for any inconvenience</value>
+  </data>
+  <data name="SendCodeAgain" xml:space="preserve">
+    <value>Send code again</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Sign in</value>
+  </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>Sign out</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>Sign up</value>
+  </data>
+  <data name="SubmitDocuments" xml:space="preserve">
+    <value>Submit documents</value>
+  </data>
+  <data name="Trading" xml:space="preserve">
+    <value>Trading</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Uploaded</value>
+  </data>
+  <data name="UploadYouProofOfAddress" xml:space="preserve">
+    <value>Please, upload your proof of address</value>
+  </data>
+  <data name="UserWithEmalExists" xml:space="preserve">
+    <value>User with the chosen email already exists</value>
+  </data>
+  <data name="VerificationCode" xml:space="preserve">
+    <value>Verification code</value>
+  </data>
+  <data name="VerificationSmsHasBeenSent" xml:space="preserve">
+    <value>Verification sms has been sent to the mobile number:</value>
+  </data>
+  <data name="Verify" xml:space="preserve">
+    <value>Verify</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="YourDocsAreWithCompliance" xml:space="preserve">
+    <value>Your documents are with compliance officer now.</value>
+  </data>
+  <data name="DepositAccount" xml:space="preserve">
+    <value>Deposit account</value>
+  </data>
+  <data name="AccountDetails" xml:space="preserve">
+    <value>Account details</value>
+  </data>
+  <data name="BankCardNumber" xml:space="preserve">
+    <value>Card number</value>
+  </data>
+  <data name="BankCardHolder" xml:space="preserve">
+    <value>Name on card</value>
+  </data>
+  <data name="BankCardCcv" xml:space="preserve">
+    <value>Ccv code</value>
+  </data>
+  <data name="BankCardExpires" xml:space="preserve">
+    <value>Expires</value>
+  </data>
+  <data name="MoneyAmount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="InvalidCardNumberFormat" xml:space="preserve">
+    <value>Invalid Card Number Format</value>
+  </data>
+  <data name="InvalidAmountFormat" xml:space="preserve">
+    <value>Invalid amount format</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="PleaseCompleteRegistration" xml:space="preserve">
+    <value>Please, complete registration</value>
+  </data>
+  <data name="WhatIShouldKnow" xml:space="preserve">
+    <value>What I should know?</value>
+  </data>
+</root>

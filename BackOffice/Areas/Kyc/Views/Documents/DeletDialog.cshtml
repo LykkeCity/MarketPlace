@@ -1,0 +1,13 @@
+﻿@using BackOffice.Translates
+@model BackOffice.Areas.Kyc.Models.DeleteDialogViewModel
+
+@{
+    Layout = "~/Views/Shared/_PersonalAreaDialog.cshtml";
+}
+
+<form id="frmDeleteDocs">
+    <h4 >@Phrases.PleaseConfirmYourAction</h4>
+    <input name="ClientId" type="hidden" value="@Model.Model.ClientId"/>
+    <input name="DocumentId" type="hidden" value="@Model.Model.DocumentId" />
+</form>
+@HelpersUi.RenderSaveCancelButtonPair(Url.Action("DeleteDocument"), "#frmDeleteDocs")

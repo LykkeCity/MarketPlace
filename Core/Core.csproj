@@ -11,6 +11,7 @@
     <AssemblyName>Core</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,22 +45,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accounts\IAccountsRepository.cs" />
     <Compile Include="Assets\IAssetPairsDictionary.cs" />
     <Compile Include="Assets\IAssetsDictionary.cs" />
     <Compile Include="Assets\IAssetPairsRepository.cs" />
     <Compile Include="Assets\IAssetsRepository.cs" />
+    <Compile Include="BackOffice\IMenuBadgesRepository.cs" />
+    <Compile Include="BitCoin\IMockLykkeWalletRepository.cs" />
+    <Compile Include="BitCoin\ISrvLykkeWallet.cs" />
+    <Compile Include="Clients\IPersonalDataRepository.cs" />
+    <Compile Include="Clients\IPinSecurityControllers.cs" />
+    <Compile Include="CountryDictionary.cs" />
     <Compile Include="Finance\Currency.cs" />
     <Compile Include="Feed\AssetQuote.cs" />
     <Compile Include="Finance\IBalanceRepository.cs" />
     <Compile Include="Finance\SrvBalanceAccess.cs" />
     <Compile Include="GlobalSettings.cs" />
+    <Compile Include="IBackOfficeUsersRepository.cs" />
+    <Compile Include="IBrowserSessionsRepository.cs" />
     <Compile Include="IIdentityGenerator.cs" />
+    <Compile Include="Kyc\IKycDocumentsRepository.cs" />
+    <Compile Include="Kyc\IKycDocumentsScansRepository.cs" />
+    <Compile Include="Kyc\IKycRepository.cs" />
+    <Compile Include="Kyc\IKycUploadsLog.cs" />
     <Compile Include="Orders\IOrderExecuter.cs" />
     <Compile Include="Orders\IOrderFlowFeedConsumer.cs" />
     <Compile Include="Orders\IOrdersRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Traders\ITraderSettingsRepository.cs" />
-    <Compile Include="Traders\ITradersRepository.cs" />
+    <Compile Include="Clients\ISrvSmsConfirmator.cs" />
+    <Compile Include="Clients\IClientSettingsRepository.cs" />
+    <Compile Include="Clients\IClientAccountsRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Core.Assets;
+using Core.Clients;
 using Core.Orders;
-using Core.Traders;
 
 namespace LykkeMarketPlace.Models
 {

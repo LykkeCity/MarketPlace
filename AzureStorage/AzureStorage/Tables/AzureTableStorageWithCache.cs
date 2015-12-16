@@ -175,8 +175,8 @@ namespace AzureStorage.Tables
         public Task GetDataByChunksAsync(string partitionKey, Action<IEnumerable<T>> chunks)
              => _cache.GetDataByChunksAsync(partitionKey, chunks);
 
-        public Task<T> ScanDataAsync(string partitionKey, Func<IEnumerable<T>, T> dataToSearch)
-             => _cache.ScanDataAsync(partitionKey, dataToSearch);
+        public Task<T> FirstOrNullViaScanAsync(string partitionKey, Func<IEnumerable<T>, T> dataToSearch)
+             => _cache.FirstOrNullViaScanAsync(partitionKey, dataToSearch);
 
         public IEnumerable<T> GetData(string partitionKey, Func<T, bool> filter = null)
              => _cache.GetData(partitionKey, filter);

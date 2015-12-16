@@ -16,6 +16,7 @@
     <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
     <IsCodedUITest>False</IsCodedUITest>
     <TestProjectType>UnitTest</TestProjectType>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -80,10 +81,9 @@
       <Project>{d23f4ad3-7240-4fad-9735-bc5bc22ca568}</Project>
       <Name>LkeServices</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Sockets\TcpSockets.csproj">
-      <Project>{4f3389c2-7cc6-4d79-a5e1-091cf7ef940d}</Project>
-      <Name>TcpSockets</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

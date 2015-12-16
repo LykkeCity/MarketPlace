@@ -1,0 +1,6 @@
+﻿@model dynamic
+
+<script>
+    $('#btnMnu').show();
+    requests.doRequest({ url: '@Url.Action("GetMenu")', divResult: '#mnuContent' });
+</script>

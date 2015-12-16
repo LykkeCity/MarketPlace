@@ -1,13 +1,15 @@
-﻿using Microsoft.Owin;
+﻿using BackOffice;
+using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(BackOffice.Startup))]
+[assembly: OwinStartup(typeof(BackOffice.Startup))]
 namespace BackOffice
 {
     public partial class Startup
     {
         public void Configuration(IAppBuilder app)
         {
+            app.Localize();
             ConfigureAuth(app);
         }
     }

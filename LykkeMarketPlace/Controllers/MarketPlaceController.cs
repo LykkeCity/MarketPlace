@@ -1,10 +1,9 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using Core;
 using Core.Assets;
+using Core.Clients;
 using Core.Finance;
-using Core.Traders;
 using LykkeMarketPlace.Models;
 
 namespace LykkeMarketPlace.Controllers
@@ -12,16 +11,15 @@ namespace LykkeMarketPlace.Controllers
     [Authorize]
     public class MarketPlaceController : Controller
     {
-        private readonly ITradersRepository _tradersRepository;
+        private readonly IClientAccountsRepository _clientAccountsRepository;
         private readonly SrvBalanceAccess _srvBalanceAccess;
         private readonly IAssetsDictionary _assetsDictionary;
         private readonly IAssetPairsDictionary _assetPairsDictionary;
 
-
-        public MarketPlaceController(ITradersRepository tradersRepository, SrvBalanceAccess srvBalanceAccess, 
+        public MarketPlaceController(IClientAccountsRepository clientAccountsRepository, SrvBalanceAccess srvBalanceAccess, 
             IAssetsDictionary assetsDictionary, IAssetPairsDictionary assetPairsDictionary)
         {
-            _tradersRepository = tradersRepository;
+            _clientAccountsRepository = clientAccountsRepository;
             _srvBalanceAccess = srvBalanceAccess;
             _assetsDictionary = assetsDictionary;
             _assetPairsDictionary = assetPairsDictionary;
@@ -34,7 +32,7 @@ namespace LykkeMarketPlace.Controllers
             var viewModel = new MarketPlaceIndexViewModel
             {
                 Assets = _assetsDictionary.GetAll().ToDictionary(itm => itm.Id),
-                Trader = await _tradersRepository.GetByIdAsync(id),
+                Trader = await _clientAccountsRepository.GetByIdAsync(id),
                 CurrencyBalances = await _srvBalanceAccess.GetCurrencyBalances(id)
             };
 

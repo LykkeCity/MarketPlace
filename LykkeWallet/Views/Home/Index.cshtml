@@ -1,0 +1,19 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="text-align: center;">
+    <div style="margin-top: 20px;">
+        <img src="~/Images/logo-black.png"/>
+        <span style="font-size: 48px;">Wallet</span>
+    </div>
+
+    <img src="~/Images/wallet.png" />
+    <div id="entranceContent">
+       <script>
+          requests.doRequest({ url: '@Url.Action("SignInDialog", "Client")', divResult: '#entranceContent', showLoading: true });
+       </script>
+    </div>
+
+
+
+</div>

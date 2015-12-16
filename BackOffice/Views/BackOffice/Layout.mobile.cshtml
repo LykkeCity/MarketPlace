@@ -1,0 +1,11 @@
+﻿@{
+    Layout = null;
+}
+
+<script>
+    $('#btnMnu').show();
+
+    Requests.doRequest({ url: '@Url.Action("Menu")', divResult: '#mnuContent' });
+    ui.menuClick();
+</script>
+

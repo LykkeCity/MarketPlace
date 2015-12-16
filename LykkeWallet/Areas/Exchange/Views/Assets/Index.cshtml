@@ -1,0 +1,45 @@
+﻿@using LykkeWallet.Services
+@using LykkeWallet.Strings
+@model LykkeWallet.Areas.Exchange.Models.AssetsExchangeIndexViewModel
+
+@{
+    Layout = null;
+}
+<div class="mobile-header" style="background-image: url(/Images/Pads/trading.jpg)">
+</div>
+<div class="headerIcon">
+    <img src="~/Images/Icons/exchange.png"/>
+</div>
+<div class="mobile-title">
+    <h2>@Phrases.Trading</h2>
+</div>
+
+
+<div class="list-view">
+
+    <div class="list-item list-separator">
+        @Phrases.Accounts
+    </div>
+
+    @foreach (var account in Model.Accounts)
+    {
+        <div class="list-item" onclick="ui.showDetails({title:'@Phrases.DepositAccount : @account.CurrencyId', url:'@Url.Action("Details","Fund")', params:{id:'@account.AccountId'}})">
+            <table style="width: 100%;">
+                <tr>
+                    <td>
+                        <img class="icon" src="~/Images/Icons/safe.png" />
+                    </td>
+                    <td style="width: 100%;">
+                        @account.CurrencyId : @account.Balance.MoneyToStr()
+                    </td>
+                    <td>
+                        <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    }
+</div>
+
+
+

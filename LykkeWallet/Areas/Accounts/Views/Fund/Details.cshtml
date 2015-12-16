@@ -1,0 +1,32 @@
+﻿@using LykkeWallet.Strings
+@model LykkeWallet.Areas.Accounts.Models.DepositAccountModels
+
+@{
+    Layout = null;
+}
+<div class="mobile-content">
+    <div style="text-align: right;">
+        <img src="~/Images/PsIcons/visa.png" />
+        <img src="~/Images/PsIcons/mastercard.png" />
+        <img src="~/Images/PsIcons/maestro.png" />
+        <img src="~/Images/PsIcons/PCI.png" />
+    </div>
+    <h2>@Phrases.AccountDetails</h2>
+
+    <div class="panel panel-default">
+        <form id="frmCardCredentials">
+            <input name="AccountId" value="@Model.Account.AccountId" type="hidden"/>
+            @HelpersUi.RenderEditAndLabel(Phrases.BankCardHolder, "CardOwner")
+            @HelpersUi.RenderEditAndLabel(Phrases.BankCardNumber, "CardNumber")
+            @HelpersUi.RenderBankCardExpiration(Phrases.BankCardExpires)
+            @HelpersUi.RenderEditAndLabel(Phrases.BankCardCcv, "CardCcv")
+            @HelpersUi.RenderEditAndLabel(Phrases.MoneyAmount, "Amount", null, Model.Account.CurrencyId)
+        </form>
+    </div>
+
+    <button class="btn btn-success btn-lg btn-block"
+            onclick="requests.doRequest({ url: '@Url.Action("Do")', formId: '#frmCardCredentials' });">
+        @Phrases.DepositAccount
+    </button>
+
+    </div>

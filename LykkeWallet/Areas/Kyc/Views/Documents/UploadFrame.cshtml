@@ -1,0 +1,75 @@
+﻿@using LykkeWallet.Strings
+@model LykkeWallet.Areas.Kyc.Models.UploadFrameViewModel
+
+@{
+    Layout = null;
+}
+<div style="text-align: center">
+    @foreach (var doc in Model.Documents)
+    {
+        <div><b style="color: green"> @Phrases.Uploaded</b></div>
+        <div class="btn-group">
+            <a class="btn btn-success btn-xs" target="_blank"
+               href="@Url.Action("Get")?Id=@doc.DocumentId"><span class="ion-search"></span>@Phrases.View</a>
+            <a class="btn btn-warning btn-xs"
+               onclick="requests.doRequest({url:'@Url.Action("Delete")', params:'Id=@doc.DocumentId'})">
+                <span class="ion-android-close"></span> @Phrases.Delete
+            </a>
+        </div>
+    }
+</div>
+
+<div id="panelPickUpFile@(Model.Type)" style="margin: 20px 0">
+    <form id="form@(Model.Type)" enctype="multipart/form-data" style="text-align: center; width: 100%">
+        <input type="hidden" name="docId" value="@Model.Type" />
+        <input id="filePicker@(Model.Type)" type="file" class="filestyle" style="width:100%" data-icon="false" name="document" />
+    </form>
+</div>
+<div id="progressPanel@(Model.Type)" style="display: none; width: 100%;">
+    <progress style="width:100%;height: 29px;display: block" id="progress@(Model.Type)"></progress>
+</div>
+
+<script>
+
+
+    $('#filePicker@(Model.Type)').bind("change", function () {
+        var fileName = $('#filePicker@(Model.Type)').val();
+
+        if (!fileName || fileName == "")
+            return;
+
+
+        FileUpploader.uploadFile({
+            id: '@(Model.Type)',
+            maxFileSize: 4096,
+            exts: ['png', 'gif', 'jpg', 'pdf', 'bmp', 'doc', 'jpeg', 'tiff'],
+            url: '@Model.UploadUrl',
+            onBeginUpload: function () {
+                $('#panelPickUpFile@(Model.Type)').hide();
+                $("#progressPanel@(Model.Type)").show();
+            },
+            onWrongExtention: function () {
+                ui.showError('#form@(Model.Type)', '@Phrases.FileFormatsShouldBe ', '@Phrases.InvalidFileExtention');
+            },
+            onFileSizeExceed: function () {
+                ui.showError('#form@(Model.Type)', '@Phrases.FileShouldBeNoBiggerThan', '@Phrases.MaximumFileSizeExceed');
+            },
+            onSuccess: function (result) {
+                requests.doRequest({ url: '@Url.Action("UploadFrame","Documents")', params: 'type=@Model.Type', divResult: '#docsArea@(Model.Type)' });
+            },
+            onFail: function () {
+                $('#panelPickUpFile@(Model.Type)').show();
+                $("#progressPanel@(Model.Type)").hide();
+
+                ui.showError('#form@(Model.Type)', '@Phrases.InternetConnectionProblem', '@Phrases.InternetConnectionProblem');
+
+            }
+        });
+    });
+
+    $("#filePicker@(Model.Type)").filestyle({ buttonText: ' @Phrases.ChooseFileToUpload', buttonName: "btn-success", size: "sm", buttonBefore: false, iconName: 'ion-upload', input: false });
+
+
+    $('.bootstrap-filestyle').css({ 'width': '100%' });
+
+</script>

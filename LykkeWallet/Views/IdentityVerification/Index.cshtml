@@ -1,0 +1,35 @@
+﻿@using LykkeWallet.Strings
+@model LykkeWallet.Models.IdentityVerificationIndexViewModel
+
+@{
+    Layout = null;
+}
+<div class="mobile-header" style="background-image: url(/Images/Pads/security.jpg)">
+</div>
+<div class="headerIcon">
+    <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+</div>
+<div class="mobile-title">
+    <h2>@Phrases.IdentityVerification</h2>
+    <div>@Phrases.PleaseTypeVerificationCode</div>
+</div>
+
+
+<div class="mobile-content">
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h4 style="text-align: center;">@Phrases.VerificationSmsHasBeenSent @Model.ClientAccount.Phone</h4>
+
+            <form id="frmVerCode">
+                @HelpersUi.RenderEditAndLabelFocused(Phrases.VerificationCode, "Code")
+                <input style="display: none"/>
+            </form>
+        </div>
+    </div>
+
+    <button class="btn btn-lg btn-warning btn-block" style="cursor: pointer" onclick="requests.doRequest({ url: '@Url.Action("CheckCode")', formId: '#frmVerCode'});">@Phrases.Verify</button>
+    <button class="btn btn-lg btn-default btn-block" style="cursor: pointer" onclick="requests.doRequest({ url: '@Url.Action("SendCode")'});">@Phrases.SendCodeAgain</button>
+
+</div>
+

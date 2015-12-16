@@ -1,0 +1,70 @@
+﻿.menuwrapper{
+  color: #999999;
+  background-color: #3A3633;
+
+font: 0.75em "Open Sans", "Segoe UI", verdana, Arial, Helvetica, Sans-Serif;  
+  background-image: url("/images/Side.png");
+  background-position: right;
+  background-repeat: repeat-y;
+      width: 200px;
+}
+
+.sidemenu {
+    padding: 5px 0 5px 5px;
+    margin: 0;
+    text-align: left;
+
+}
+
+.smi {
+    padding: 2px 0 2px 4px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    cursor: pointer;
+    list-style-type: none;
+    height: 25px;
+    border-left: 3px solid transparent;
+    -webkit-transition: all 0.28s ease-in-out 0;
+    -moz-transition: all 0.28s ease-in-out 0;
+    -ms-transition: all 0.28s ease-in-out 0;
+    -o-transition: all 0.28s ease-in-out 0;
+    transition: all 0.28s ease-in-out 0;
+}
+
+.smiSub {
+    padding-left: 12px; 
+      font-size: 11px;  
+       height: 18px;
+}
+
+.smiSel{
+    color: white;
+    border-left: 3px solid #4389cc;
+    font-weight: 600;
+    background-image: url(/Images/SideConer.png);
+background-repeat: no-repeat;
+background-position: right 0;
+}
+
+.smi:hover{
+  color: white;
+}
+
+.smiSel:hover {
+  color: yellow;
+}
+
+.smiNull{
+  border: none;
+border-bottom: 1px solid #525151;
+border-top: 1px solid #1a1817;
+margin: 10px 20px 10px 13px;
+padding: 0;
+margin: 5px;
+}
+
+
+.selected {
+    background: rgb(245, 245, 220);
+}

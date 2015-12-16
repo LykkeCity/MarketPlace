@@ -1,0 +1,10 @@
+﻿<script>
+    // var Localization = new LocalizationDesktop();
+    var Ui = new UiMobile();
+    ui = Ui;
+    Requests.ui = Ui;
+    layout.ui = Ui;
+    Requests.pageManager = layout;
+    ui.pageManager = layout;
+    $(window).resize(function () { layout.ressize(); });
+</script>

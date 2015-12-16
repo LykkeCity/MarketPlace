@@ -1,0 +1,57 @@
+﻿@using LykkeWallet.Services
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width">
+    <link href="~/Images/favicon.png" rel="shortcut icon" type="image/png" />
+    <title>@WebSiteHelpers.AppCaption</title>
+    @Styles.Render(BundleConfig.MobileCss)
+    @Scripts.Render(BundleConfig.MobileJs)
+    @Html.Partial("PartialInitScripts.mobile")
+</head>
+<body style="overflow: hidden; background: white;">
+
+
+    <div id="rootContent" style="left: 0; top: 0; overflow: hidden; position: absolute">
+        <table id="msrtDtl" style="position: relative;">
+            <tr>
+                <td style="vertical-align: top; width:50%">
+                    <div id="pamain" style="overflow-y: auto; height: 100%">
+                        @RenderBody()
+
+
+                    </div>
+                </td>
+                <td style="vertical-align: top; width:50%">
+                    <div id="detailsContent" style="overflow-y: auto; height: 100%; vertical-align: top;">
+
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div id="dialogPad" style="display: none;" onclick="ui.padClick()">
+        <div id="dialog" class="well page active" style="display: none;">
+
+        </div>
+    </div>
+<div id="mainMenu" style="display: none; overflow-y: auto;" onclick="ui.menuClick()">
+    <div class="mnu">
+        <div id="mnuLogo" style="padding: 6px;">
+            <img src="~/Images/logo-white.png" style="width: 100%;" />
+        </div>
+        <div id="mnuContent"></div>
+    </div>
+</div>
+    <script>
+    ui.ressize();
+    </script>
+</body>
+</html>

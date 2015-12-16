@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div style="text-align: center;">
+    <div style="margin-top: 20px;">
+        <img src="~/Images/Icons/Logo.png" style="width:25%; margin-bottom: 100px"/>
+    </div>
+
+    <div id="entranceContent" class="mobile-content">
+        <script>
+          requests.doRequest({ url: '@Url.Action("SignInDialog", "Client")', divResult: '#entranceContent', showLoading: true });
+        </script>
+    </div>
+
+</div>

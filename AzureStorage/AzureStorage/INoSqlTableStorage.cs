@@ -1,22 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.Storage.Table;
 
-namespace Common
+namespace AzureStorage
 {
-    public interface IAzureIndex
-    {
-        string PrimaryPartitionKey { get; }
-        string PrimaryRowKey { get; }
-    }
-
-    public interface IAzureDoubleIndex : IAzureIndex
-    {
-        string PrimaryPartitionKey2 { get; }
-        string PrimaryRowKey2 { get; }
-    }
 
     public interface INoSQLTableStorage<T> : IEnumerable<T> where T : ITableEntity, new()
     {
@@ -30,6 +18,7 @@ namespace Common
 
         // Добавить новый элемент асинхронно (элемент вообще не должен существовать)
         Task InsertAsync(T item, params int[] notLogCodes);
+
 
         // Добавить новый элемент, или добавиить поля к существующему элементу
         void InsertOrMerge(T item);
@@ -122,13 +111,12 @@ namespace Common
         Task GetDataByChunksAsync(string partitionKey, Action<IEnumerable<T>> chunks);
 
         /// <summary>
-        /// Use if we want to find a record by scanning by chunks
+        /// Scan table by chinks and find an instane
         /// </summary>
         /// <param name="partitionKey">Partition we are going to scan</param>
-        /// <param name="dataToSearch">CallBack, which we going to call when we have chunk of data to scan. 
-        /// If we return null after scan - we did not find a record yet, so we still continue to scan</param>
-        /// <returns></returns>
-        Task<T> ScanDataAsync(string partitionKey, Func<IEnumerable<T>, T> dataToSearch);
+        /// <param name="dataToSearch">CallBack, which we going to call when we have chunk of data to scan. </param>
+        /// <returns>Null or instance</returns>
+        Task<T> FirstOrNullViaScanAsync(string partitionKey, Func<IEnumerable<T>, T> dataToSearch);
 
         IEnumerable<T> GetData(string partitionKey, Func<T, bool> filter = null);
         Task<IEnumerable<T>> GetDataAsync(string partition, Func<T, bool> filter = null);

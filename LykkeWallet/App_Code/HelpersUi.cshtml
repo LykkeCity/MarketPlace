@@ -1,0 +1,169 @@
+﻿@using Common
+@using LykkeWallet.Strings
+
+@helper RenderEditAndLabel(string caption, string name, string type = null, string value = null)
+{
+   <input id="@name.FirstLetterLowCase()" name="@name" class="form-control" type="@type" placeholder="@caption" value="@value">
+}
+
+
+@helper RenderBankCardExpiration(string caption)
+{
+    var month = DateTime.UtcNow.Month;
+    var year = DateTime.UtcNow.Year;
+
+    <div class="input-group">
+        <span class="input-group-addon">@caption</span>
+        <table style="width:100%">
+            <tr>
+                <td>
+                    <select name="ExpirationMonth" class="form-control">
+                        @for (var m = 1; m <= 12; m++)
+                        {
+                            if (m == month)
+                            {
+                                <option selected="selected">@m.ToString("00")</option>
+                            }
+                            else
+                            {
+                                <option>@m.ToString("00")</option>
+                            }
+                        }
+                    </select>
+                </td>
+                <td>
+                    <select name="ExpirationYear" class="form-control">
+                        @for (var y = year; y < year+10; y++)
+                        {
+                           <option>@y</option>
+                        }
+                    </select>                        
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <img src="~/Images/shadow-300.png" class="btn-shadow" />
+}
+
+@helper RenderEditAndLabelFocused(string caption, string name, string type = null, string value = null)
+{
+    if (type == null)
+    {
+        <input id="@name.FirstLetterLowCase()" name="@name" class="form-control setCursor" placeholder="@caption" value="@value">
+    }
+    else
+    {
+        <input id="@name.FirstLetterLowCase()" name="@name" class="form-control setCursor" type="@type" value="@value" placeholder="@caption">
+    }
+}
+
+
+@helper RanderActionButton(string iconType, string caption, string url, string formId)
+{
+    <div style="text-align: right; margin-top: 20px">
+        <button class="btn btn-success" style="min-width: 150px;" onclick="requests.doRequest({ url: '@url', formId: '@formId' });"><span class="glyphicon glyphicon-@iconType hideOnRequest" aria-hidden="true"></span><img src="~/Images/processing.gif" class="showOnRequest"/> @caption</button>
+    </div>
+    <img src="~/Images/shadow-300.png" class="btn-shadow" style="margin-right: 0; width: 150px;" />
+}
+
+
+@helper RanderOkCancelAction(string caption, string url, string formId, string cancelUrl, string cancelDiv)
+{
+    <div style="text-align: right; margin-top: 20px">
+        <div class="btn-group">
+            <button class="btn btn-success" style="min-width: 150px;" onclick="requests.doRequest({ url: '@url', formId: '@formId' });"><span class="glyphicon glyphicon-ok hideOnRequest" aria-hidden="true"></span><img src="~/Images/processing.gif" class="showOnRequest"/> @caption</button>
+            <button class="btn btn-default" style="min-width: 150px;" onclick="requests.doRequest({ url: '@cancelUrl', divResult: '@cancelDiv', showLoading: true });"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>@Phrases.Cancel</button>
+        </div>
+    </div>
+    <img src="~/Images/shadow-300.png" class="btn-shadow" style="margin-right:0" />
+}
+
+@helper RanderOkCancelMobileAction(string caption, string url, string formId, string cancelUrl, string cancelDiv)
+{
+            <button class="btn btn-success btn-lg btn-block" onclick="requests.doRequest({ url: '@url', formId: '@formId' });"><span class="glyphicon glyphicon-ok hideOnRequest" aria-hidden="true"></span><img src="~/Images/processing.gif" class="showOnRequest" /> @caption</button>
+            <button class="btn btn-default btn-lg btn-block" onclick="requests.doRequest({ url: '@cancelUrl', divResult: '@cancelDiv', showLoading: true });"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> @Phrases.Cancel</button>
+}
+
+
+@helper RenderOkCancelDialog(string caption, string url, string formId)
+{
+    <div style="text-align: right; margin-top: 20px;">
+        <div class="btn-group">
+            <button class="btn btn-success" style="min-width: 150px;" onclick="requests.doRequest({ url: '@url', formId: '@formId' });"><span class="glyphicon glyphicon-ok hideOnRequest" aria-hidden="true"></span><img src="~/Images/processing.gif" class="showOnRequest" /> @caption</button>
+            <button class="btn btn-default" style="min-width: 150px;" onclick="ui.hideDialog();"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>@Phrases.Cancel</button>
+        </div>
+    </div>
+    <img src="~/Images/shadow-300.png" class="btn-shadow" style="margin-right: 0"/>
+    <div style="height: 20px;">
+        
+    </div>
+}
+
+@helper RenderSteps(int step)
+{
+    <table style="width: 100%; margin-top: 10px;">
+        <tr>
+            <td style="text-align: left; width:33%">
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="width: 50%">
+                            @if (step == 0)
+                            {
+                                <div class="unchecked-pad" style="margin-left: -5px">
+                                    <div class="current-dot">
+                                        <div class="current-subdot"></div>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="checked-pad">
+                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                </div>
+                            }
+                            <div class="reg-line"></div>
+                        </td>
+                        <td style="width: 50%; text-align: right;">
+                            @if (step < 1)
+                            {
+                                <div class="unchecked-pad" style="margin-right: -20px;">
+                                    <div class="the-dot"></div>
+                                </div>
+                            }
+                            else if (step == 1)
+                            {
+                                <div class="unchecked-pad" style="margin-right: -20px;">
+                                    <div class="current-dot">
+                                        <div class="current-subdot"></div>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="checked-pad" style="margin-right: -20px;">
+                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                </div>
+                            }
+                            <div class="reg-line"></div>
+                        </td>
+                    </tr>
+
+                </table>
+
+            </td>
+            <td style="text-align: right; width:33%">
+                <div class="unchecked-pad" style="margin-right: -20px;">
+                    <div class="the-dot"></div>
+                </div>
+                <div class="reg-line"></div>
+            </td>
+            <td style="text-align: right; width:33%">
+                <div class="unchecked-pad" style="text-align: right;">
+                    <div class="the-dot"></div>
+                </div>
+                <div class="reg-line"></div>
+            </td>
+        </tr>
+    </table>
+}

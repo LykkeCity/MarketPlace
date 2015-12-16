@@ -1,0 +1,93 @@
+﻿@model BackOffice.Models.MainMenuViewModel
+
+@{
+    Layout = null;
+}
+
+
+<div>
+    <div style="text-align: center; font-size: 9px;">
+        <span id="srvTime" style="color: white; text-align: right;"></span>
+    </div>
+    <img src="~/Images/logo-white.png" style="padding: 5px; width: 100%;" />
+</div>
+<hr style="border-bottom: 1px solid #080606; margin: 5px 36px 0 5px;" />
+
+
+<div id="wrapper" data-autoheight="-74" style="position: absolute; overflow: hidden">
+    @Html.Partial("PartialMenu", Model)
+</div>
+<script>
+
+    $('.smi').each(function() {
+        $(this).html($(this).attr('data-text'));
+        $(this).click(menuItemClick);
+    });
+
+    var activeItem;
+
+    function menuItemClick() {
+
+        if (activeItem)
+            activeItem.removeClass('smiSel');
+
+        activeItem = $(this);
+        var url = activeItem.attr('data-url');
+
+
+        if (url) {
+            $('#pamain').html('<div style="text-align:center; margin-top:20px;"><img src="/Images/Loading-pa.gif"/></div>');
+            var options = { url: url, type: 'POST' };
+            $.ajax(options)
+                .then(function(result) {
+                    activeItem.addClass('smiSel');
+                    $('#pamain').html(result);
+                    layout.ressize();
+                }).fail(function(fr) {
+                    activeItem.addClass('smiSel');
+                    $('#pamain').html(fr.responseText);
+                });
+        } else {
+            $('#pamain').html('<h1>No content</h1>');
+            activeItem.addClass('smiSel');
+        }
+
+    }
+
+
+    $('#wrapper').perfectScrollbar({
+        wheelSpeed: 20,
+        wheelPropagation: false
+    });
+
+
+
+    window.setInterval(RefreshBadges, 5000);
+
+    function RefreshBadges() {
+        var options = { url: '@Url.Action("GetBadges")', type: 'POST' };
+        $.ajax(options)
+
+               .then(function (result) {
+
+                   //$('#srvTime').html(result.Time);
+
+                   result.forEach(function (itm) {
+                       var node = $('#smi' + itm.id);
+                       console.log(node);
+                       console.log(itm.value);
+                       if (itm.value === "0")
+                           node.html(node.attr('data-text'));
+                       else
+                           node.html(node.attr('data-text') + ' <span class="badge" style="background:red; font-size:9px;padding: 1px 5px 2px 4px;">' + itm.value + "</span>");
+                   });
+
+               }).fail(function (fr) {
+
+
+               });
+    }
+    RefreshBadges();
+
+
+</script>

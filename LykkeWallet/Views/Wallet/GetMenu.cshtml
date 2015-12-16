@@ -1,0 +1,63 @@
+﻿@using LykkeWallet.Strings
+@model dynamic
+
+@{
+    Layout = null;
+}
+
+<div id="mnuAccounts" class="menu-item" onclick="wallet.selectPage('@Url.Action("Index","List", new {area="Accounts"})', '#mnuAccounts')">
+    <table>
+        <tr>
+            <td>
+                <img class="img" src="~/Images/Icons/safe.png"/>
+            </td>
+            <td>
+                <div class="menu-title">@Phrases.Accounts</div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="mnuExchange" class="menu-item" onclick="wallet.selectPage('@Url.Action("Index","Assets", new {area="Exchange"})', '#mnuExchange')">
+    <table>
+        <tr>
+            <td>
+                <img class="img" src="~/Images/Icons/exchange.png" />
+            </td>
+            <td>
+                <div class="menu-title">@Phrases.Trading</div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="mnuSettins" class="menu-item" onclick="wallet.selectPage('@Url.Action("Index","Page", new {area="Settings"})', '#mnuSettins')">
+    <table>
+        <tr>
+            <td>
+                <img class="img" src="~/Images/Icons/Settings.png" />
+            </td>
+            <td>
+                <div class="menu-title">@Phrases.Settings</div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<div id="mnuSignOut" class="menu-item" onclick="requests.doRequest({url:'@Url.Action("SignOut","Client")'})">
+    <table>
+        <tr>
+            <td>
+                <img class="img" src="~/Images/Icons/logout.png"/>
+            </td>
+            <td>
+                <div class="menu-title">@Phrases.SignOut</div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    wallet.selectPage('@Url.Action("Index","List", new {area="Accounts"})', '#mnuAccounts')
+</script>

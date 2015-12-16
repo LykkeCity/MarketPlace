@@ -1,0 +1,22 @@
+﻿@using BackOffice.Translates
+@model string
+
+@{
+    Layout = null;
+}
+
+
+<div class="checkout" style="width: 555px; margin-top: 20px;">
+    <h2 style="margin-bottom: 20px;">@Phrases.PleaseTypeYourNewPassword</h2>
+    <form id="frmMyPswd">
+        @HelpersUi.RenderInputWithLabelOnTop("NewPassword", Phrases.NewPassword, null, Phrases.NewPassword, "password")
+        @HelpersUi.RenderInputWithLabelOnTop("PasswordConfirmation", Phrases.NewPassword, null, Phrases.Confirmation, "password")
+    </form>
+    <div style="text-align: right;">
+        <button id="btnChangePassword" class="btn btn-success btn-raised"
+                onclick="Requests.doRequest({ url: '@Url.Action("ChangeMyPassword")', formId: '#frmMyPswd' })">
+            <span class="hideOnRequest glyphicon glyphicon-pencil"></span>
+            <img class="showOnRequest" src="~/Images/processing.gif" style="display: none" /> @Phrases.ChangeTheAccessPassword
+        </button>
+    </div>
+</div>

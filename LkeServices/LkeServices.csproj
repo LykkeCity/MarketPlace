@@ -11,6 +11,7 @@
     <AssemblyName>LkeServices</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,10 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clients\SrvClientFinder.cs" />
+    <Compile Include="Clients\SrvClientManager.cs" />
     <Compile Include="Feed\AssetsDictionary.cs" />
     <Compile Include="Feed\AssetPairsDictionary.cs" />
     <Compile Include="Feed\AssetPairsBestRateCache.cs" />
     <Compile Include="Feed\FeedUtils.cs" />
+    <Compile Include="Kyc\SrvKycDocumentsManager.cs" />
+    <Compile Include="Kyc\SrvKycStatusManager.cs" />
     <Compile Include="Orders\SrvAssetPairBestPriceBroadcaster.cs" />
     <Compile Include="Orders\SrvLimitOrderBookGenerator.cs" />
     <Compile Include="Orders\SrvOrdersExecutor.cs" />
@@ -63,10 +68,6 @@
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{55a87c36-e8b8-4a08-8e3c-ca57529391a3}</Project>
       <Name>Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Sockets\TcpSockets.csproj">
-      <Project>{4f3389c2-7cc6-4d79-a5e1-091cf7ef940d}</Project>
-      <Name>TcpSockets</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

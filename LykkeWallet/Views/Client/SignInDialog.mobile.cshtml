@@ -1,0 +1,65 @@
+﻿@using LykkeWallet.Services
+@using LykkeWallet.Strings
+@model LykkeWallet.Models.SignInDialogViewModel
+
+@{
+    Layout = null;
+}
+        <form id="frmAuth">
+                @HelpersUi.RenderEditAndLabelFocused(Phrases.Email, "Email", "email")
+            <input style="display: none"/>
+        </form>
+
+<button id="btnSignIn" class="btn btn-lykke btn-block" style="display: none" onclick="requests.doRequest({ url: '@Url.Action("SignIn")', formId: '#frmAuth' });">@Phrases.SignIn</button>
+
+<button id="btnSignUp" class="btn btn-lykke btn-block" onclick="requests.doRequest({ url: '@Url.Action("SignUpDialog")', formId: '#frmAuth',divResult:'#pamain' });">@Phrases.SignUp</button>
+
+
+<div style="margin-top: 20px; text-align: right;">
+    @foreach (var langId in ControllerLangExtention.GetLanguages())
+    {
+        <a href="@Url.Action("Index", "Home", new {langId})"><img class="lang-icon" src="~/Images/Lang/@(langId).png"/></a>
+    }
+</div>
+
+<div class="info-area">
+    @Phrases.WhatIShouldKnow.ToUpper()
+</div>
+
+<script>
+
+    var prevEmail;
+
+    var handleId = window.setInterval(function() {
+        var itm = $('#email');
+        if ((itm).length === 0) {
+            window.clearTimeout(handleId);
+            return;
+        }
+
+        var nowEmail = itm.val();
+        if (prevEmail === nowEmail)
+            return;
+
+        prevEmail = nowEmail;
+        $.ajax({ url: '@Url.Action("Exist","Accounts", new {area="Api"})', type: 'GET' }).
+            then(function (result) {
+
+                if (nowEmail !== itm.val())
+                    return;
+
+                if (result.result === true) {
+                    $('#btnSignIn').show();
+                    $('#btnSignUp').hide();
+                }
+                else
+                    if (result.result === false) {
+                    $('#btnSignIn').hide();
+                    $('#btnSignUp').show();
+
+                }
+            });
+
+    }, 1000);
+
+</script>

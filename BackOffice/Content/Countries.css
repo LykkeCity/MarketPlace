@@ -1,0 +1,453 @@
+﻿.flag {
+    display: block;
+    margin: 2px auto 0 auto;
+    width: 25px;
+    height: 25px;
+    background-image: url(/Images/flags/sprite-flags02.png);
+}
+
+.flag-rus {
+     background-position: -25px 0px;   
+}
+
+.flag-chn {
+ background-position: -50px 0px;   
+}
+
+.flag-ukr {
+    background-position: -75px 0px;    
+}
+
+.flag-alb {
+    background-position: -100px 0px;    
+}
+
+
+.flag-ind {
+    background-position: -125px 0px;    
+}
+.flag-cyp {
+    background-position: -150px 0px;    
+}
+
+.flag-uzb {
+    background-position: -175px 0px;    
+}
+
+.flag-nga {
+     background-position: 0px -25px;   
+}
+
+.flag-gbr {
+     background-position: -25px -25px;   
+}
+
+.flag-idn {
+     background-position: -50px -25px;   
+}
+
+.flag-egy {
+     background-position: -75px -25px;   
+}
+
+.flag-blr {
+     background-position: -100px -25px;   
+}
+
+.flag-svk {
+     background-position: -125px -25px;   
+}
+
+.flag-tha {
+     background-position: -150px -25px;   
+}
+
+.flag-nor {
+     background-position: -175px -25px;   
+}
+
+
+.flag-mda {
+     background-position: 0px -50px;   
+}
+
+.flag-usa {
+     background-position: -25px -50px;   
+}
+
+.flag-umi {
+     background-position: -25px -50px;   
+}
+
+.flag-arg {
+     background-position: -50px -50px;   
+}
+
+.flag-kaz {
+     background-position: -75px -50px;   
+}
+
+.flag-bra {
+     background-position: -100px -50px;   
+}
+
+.flag-isr {
+     background-position: -125px -50px;   
+}
+
+.flag-hkg {
+     background-position: -150px -50px;   
+}
+
+.flag-nld {
+     background-position: -175px -50px;   
+}
+
+.flag-can {
+     background-position: 0px -75px;   
+}
+
+.flag-lva {
+     background-position: -25px -75px;   
+}
+
+.flag-sau {
+     background-position: -50px -75px;   
+}
+
+.flag-aze {
+     background-position: -75px -75px;   
+}
+
+.flag-ltu {
+     background-position: -100px -75px;   
+}
+
+.flag-jpn {
+     background-position: -125px -75px;   
+}
+
+.flag-cze {
+     background-position: -150px -75px;   
+}
+
+.flag-irl {
+     background-position: -175px -75px;   
+}
+
+
+.flag-mys {
+     background-position: 0px -100px;   
+}
+
+.flag-khm {
+     background-position: -25px -100px;   
+}
+
+.flag-vnm {
+     background-position: -50px -100px;   
+}
+
+.flag-pak {
+     background-position: -75px -100px;   
+}
+
+.flag-are {
+     background-position: -100px -100px;   
+}   
+
+.flag-bgr {
+     background-position: -125px -100px;   
+}  
+
+
+.flag-arm {
+     background-position: -150px -100px;   
+}   
+
+.flag-mne {
+     background-position: -175px -100px;   
+}   
+
+
+.flag-hrv {
+     background-position: 0px -125px;   
+}   
+
+.flag-srb {
+     background-position: -25px -125px;   
+}   
+
+.flag-bih {
+     background-position: -50px -125px;   
+} 
+
+
+.flag-deu {
+     background-position: -75px -125px;   
+} 
+
+
+.flag-fra {
+     background-position: -100px -125px;   
+} 
+
+.flag-bel {
+     background-position: -125px -125px;   
+} 
+
+.flag-aut {
+     background-position: -150px -125px;   
+} 
+
+.flag-esp {
+     background-position: -175px -125px;   
+} 
+
+
+.flag-prt {
+     background-position: 0px -150px;   
+} 
+
+
+.flag-kor {
+     background-position: -25px -150px;   
+}
+
+
+.flag-mex {
+     background-position: -50px -150px;   
+}
+
+
+.flag-est {
+     background-position: -75px -150px;   
+}
+
+
+.flag-ita {
+     background-position: -100px -150px;   
+}
+
+.flag-pol {
+     background-position: -125px -150px;   
+}
+
+.flag-rou {
+     background-position: -150px -150px;   
+}
+
+.flag-grc {
+     background-position: -175px -150px;   
+}
+
+
+.flag-rwa {
+     background-position: 0px -175px;   
+} 
+
+.flag-tur {
+     background-position: -25px -175px;   
+} 
+
+.flag-hun {
+     background-position: -50px -175px;   
+} 
+
+.flag-prk {
+     background-position: -75px -175px;   
+} 
+
+.flag-zaf {
+     background-position: -100px -175px;   
+} 
+
+.flag-gha {
+     background-position: -125px -175px;   
+}
+
+.flag-irn {
+     background-position: -150px -175px;   
+}  
+
+.flag-kwt {
+     background-position: -175px -175px;   
+}  
+
+
+
+.flag-bgd {
+     background-position: 0px -200px;   
+} 
+
+.flag-tls {
+     background-position: -25px -200px;   
+} 
+
+.flag-mlt {
+     background-position: -50px -200px;   
+} 
+
+.flag-dnk {
+     background-position: -75px -200px;   
+} 
+
+.flag-dza {
+     background-position: -100px -200px;   
+} 
+
+.flag-civ {
+     background-position: -125px -200px;   
+} 
+
+.flag-tjk {
+     background-position: -150px -200px;   
+} 
+
+.flag-ncl {
+     background-position: -175px -200px;   
+} 
+
+.flag-aus {
+     background-position: -0px -225px;   
+} 
+
+.flag-nzl {
+     background-position: -25px -225px;   
+} 
+
+
+.flag-kgz {
+     background-position: -50px -225px;   
+} 
+
+.flag-lbn {
+     background-position: -75px -225px;   
+} 
+
+.flag-geo {
+     background-position: -100px -225px;   
+} 
+
+
+.flag-and {
+     background-position: -125px -225px;   
+} 
+
+
+.flag-vct {
+     background-position: -150px -225px;   
+} 
+
+
+.flag-lux {
+     background-position: -175px -225px;   
+} 
+
+
+.flag-isl {
+     background-position: 0 -250px;   
+} 
+
+.flag-afg {
+     background-position: -25px -250px;   
+} 
+
+
+.flag-svn {
+     background-position: -50px -250px;   
+} 
+
+
+.flag-lka {
+     background-position: -75px -250px;   
+}
+
+.flag-che {
+     background-position: -100px -250px;   
+} 
+
+
+.flag-twn {
+     background-position: -125px -250px;   
+} 
+
+
+.flag-tkm {
+     background-position: -150px -250px;   
+} 
+
+
+.flag-sgp {
+     background-position: -175px -250px;   
+} 
+
+
+
+.flag-phl {
+     background-position: 0 -275px;   
+} 
+
+.flag-lao {
+     background-position: -25px -275px;   
+} 
+
+
+.flag-chl {
+     background-position: -50px -275px;   
+} 
+
+
+.flag-col {
+     background-position: -75px -275px;   
+} 
+
+
+.flag-eth {
+     background-position: -100px -275px;   
+} 
+
+
+.flag-irq {
+     background-position: -125px -275px;   
+} 
+
+.flag-syr {
+     background-position: -150px -275px;   
+} 
+
+
+.flag-mar {
+     background-position: -175px -275px;   
+} 
+
+
+.flag-abw {
+     background-position: 0 -300px;   
+}
+.flag-brn {
+     background-position: -25px -300px;   
+} 
+.flag-tun {
+     background-position: -50px -300px;   
+}
+
+.flag-pse {
+     background-position: -75px -300px;   
+}
+
+.flag-ago {
+     background-position: -100px -300px;   
+}  
+
+.flag-aia {
+     background-position: -125px -300px;   
+}
+
+.flag-bhs {
+     background-position: -150px -300px;   
+}
+
+.flag-qat {
+     background-position: -175px -300px;   
+}       

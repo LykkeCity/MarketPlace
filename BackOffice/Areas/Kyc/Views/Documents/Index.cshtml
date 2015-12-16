@@ -1,0 +1,37 @@
+﻿@using BackOffice.Translates
+@model BackOffice.Areas.Kyc.Models.DocumentsListIndexViewModel
+
+@{
+    Layout = null;
+}
+
+<table class="table" style="width: 600px; margin: 10px auto;">
+    <tr>
+        <th>
+            @Phrases.DocumentType
+        </th>
+        <th>
+            @Phrases.Date
+        </th>
+        <th>
+
+        </th>
+    </tr>
+    @foreach (var kycDocument in Model.Documents)
+    {
+        <tr>
+            <td>
+                @kycDocument.Type
+            </td>
+            <td>
+                @kycDocument.DateTime
+            </td>
+            <td>
+                <a class="btn btn-xs btn-primary btn-raised" href="@Url.Action("Show", new {kycDocument.ClientId, kycDocument.DocumentId})" target="_blank"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+                <button class="btn btn-xs btn-danger btn-raised" onclick="ui.showDialog('@Url.Action("DeletDialog", new {kycDocument.ClientId, kycDocument.DocumentId })')" target="_blank"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
+
+            </td>
+        </tr>
+
+    }
+</table>

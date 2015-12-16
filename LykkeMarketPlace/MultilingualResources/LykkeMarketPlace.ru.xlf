@@ -24,8 +24,7 @@
         </trans-unit>
         <trans-unit id="CanceldOrders" translate="yes" xml:space="preserve">
           <source>Canceled Orders</source>
-          <target state="needs-review-translation">Отмененные ордера</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="final">Отмененные ордера</target>
         </trans-unit>
         <trans-unit id="Currency" translate="yes" xml:space="preserve">
           <source>Currency</source>
@@ -142,6 +141,10 @@
         <trans-unit id="Volume" translate="yes" xml:space="preserve">
           <source>Volume</source>
           <target state="final">Объем</target>
+        </trans-unit>
+        <trans-unit id="Save" translate="yes" xml:space="preserve">
+          <source>Save</source>
+          <target state="new">Save</target>
         </trans-unit>
       </group>
     </body>

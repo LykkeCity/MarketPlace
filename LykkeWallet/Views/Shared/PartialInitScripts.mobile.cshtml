@@ -1,0 +1,10 @@
+﻿<script>
+    var ui = new UiMobile();
+    var requests = new Requests();
+    requests.ui = ui;
+    var wallet = new WalletMobile();
+    wallet.ui = ui;
+    wallet.requests = requests;
+    $(window).resize(function() { ui.ressize(); });
+
+</script>
