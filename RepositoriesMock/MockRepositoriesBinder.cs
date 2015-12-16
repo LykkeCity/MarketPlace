@@ -22,5 +22,12 @@ namespace RepositoriesMock
             ioc.Register<IMockLykkeWalletRepository>(
                 new MockLykkeWalletsRepository(new AzureTableStorageLocal<MockLykkeAccountEntity>(localHost, "MockLykkeWallets")));
         }
+
+        public static void BinMockAzureTests(this IoC ioc)
+        {
+
+            ioc.Register<IMockLykkeWalletRepository>(
+                new MockLykkeWalletsRepository(new NoSqlTableInMemory<MockLykkeAccountEntity>()));
+        }
     }
 }

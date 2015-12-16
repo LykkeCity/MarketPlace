@@ -11,4 +11,3 @@ var ModalDialogEngine = (function () {
     return ModalDialogEngine;
 })();
 var ModalDialog = new ModalDialogEngine();
-//# sourceMappingURL=ModalDialog.js.map

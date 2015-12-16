@@ -1,11 +1,7 @@
 ﻿/// <reference path="ui.ts" />
 
 
-interface IModalDialogData {
-    url: string;
-    data?: string;
-    callBack?: (result) => void;
-}
+
 
 class ModalDialogEngine {
 

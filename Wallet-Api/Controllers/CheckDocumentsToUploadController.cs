@@ -3,10 +3,11 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using Core.Kyc;
 using Wallet_Api.Models;
+using Wallet_Api.Strings;
 
 namespace Wallet_Api.Controllers
 {
-    [Authorize]
+
     public class CheckDocumentsToUploadController : ApiController
     {
         private readonly IKycDocumentsRepository _kycDocumentsRepository;
@@ -20,8 +21,10 @@ namespace Wallet_Api.Controllers
         public async Task<ResponseModel<CheckDocumentsToUploadModel>> Get()
         {
             var clientId = this.GetClientId();
-            var documents = (await _kycDocumentsRepository.GetAsync(clientId)).ToArray();
+            if (string.IsNullOrEmpty(clientId))
+                return ResponseModel<CheckDocumentsToUploadModel>.CreateFail(ResponseModel.ErrorCodeType.NotAuthenticated, Phrases.NotAuthenticated);
 
+            var documents = (await _kycDocumentsRepository.GetAsync(clientId)).ToArray();
 
             var result = new CheckDocumentsToUploadModel
             {

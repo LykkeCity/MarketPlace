@@ -7,7 +7,7 @@ using Wallet_Api.Strings;
 
 namespace Wallet_Api.Controllers
 {
-    [Authorize]
+
     public class PinSecurityController : ApiController
     {
         private readonly IPinSecurityRepository _puPinSecurityRepository;
@@ -20,6 +20,8 @@ namespace Wallet_Api.Controllers
         public async Task<ResponseModel<PinSecurityCheckResultModel>> Get(string pin)
         {
             var clientId = this.GetClientId();
+            if (string.IsNullOrEmpty(clientId))
+                return ResponseModel<PinSecurityCheckResultModel>.CreateFail(ResponseModel.ErrorCodeType.NotAuthenticated, Phrases.NotAuthenticated);
             var passed = await _puPinSecurityRepository.CheckAsync(clientId, pin);
             return ResponseModel<PinSecurityCheckResultModel>.CreateOk(new PinSecurityCheckResultModel
             {
@@ -40,7 +42,8 @@ namespace Wallet_Api.Controllers
                 return ResponseModel.CreateInvalidFieldError("pin", Phrases.MinLengthIs4Digits);
 
             var clientId = this.GetClientId();
-
+            if (string.IsNullOrEmpty(clientId))
+                return ResponseModel<PinSecurityCheckResultModel>.CreateFail(ResponseModel.ErrorCodeType.NotAuthenticated, Phrases.NotAuthenticated);
             await _puPinSecurityRepository.SaveAsync(clientId, data.Pin);
 
             return ResponseModel.CreateOk();

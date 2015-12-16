@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Web.Http;
 using System.Web.Http.Dependencies;
 using AzureRepositories;
 using AzureRepositories.Log;
@@ -35,6 +36,9 @@ namespace Wallet_Api
             }
         }
 
+
+        public static Func<object, string> GetIdentity;
+
         public static IDependencyResolver Create()
         {
             var result = new MyDependencyResolver();
@@ -58,6 +62,13 @@ namespace Wallet_Api
 
 
             log.WriteInfo("ApiDependencies", "Create", "Create", "Create");
+
+            GetIdentity = ctr =>
+            {
+                var ctx = ctr as ApiController;
+                return ctx?.User.Identity.Name;
+            };
+
             return result;
         }
 

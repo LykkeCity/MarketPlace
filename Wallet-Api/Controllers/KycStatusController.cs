@@ -18,6 +18,8 @@ namespace Wallet_Api.Controllers
         public async Task<ResponseModel<KycModelStatusResponseModel>> Get()
         {
             var clientId = this.GetClientId();
+            if (string.IsNullOrEmpty(clientId))
+                return ResponseModel<KycModelStatusResponseModel>.CreateFail(ResponseModel.ErrorCodeType.NotAuthenticated, Phrases.NotAuthenticated);
 
             var kycStatus = await _kycRepository.GetKycStatusAsync(clientId);
 
@@ -34,6 +36,8 @@ namespace Wallet_Api.Controllers
         public async Task<ResponseModel> Post()
         {
             var clientId = this.GetClientId();
+            if (string.IsNullOrEmpty(clientId))
+                return ResponseModel<KycModelStatusResponseModel>.CreateFail(ResponseModel.ErrorCodeType.NotAuthenticated, Phrases.OperationCanNotBePerformed);
 
             var status = await _kycRepository.GetKycStatusAsync(clientId);
 

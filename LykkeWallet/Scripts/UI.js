@@ -141,4 +141,3 @@ var UiDesktop = (function () {
     UiDesktop.prototype.hideDetails = function () { };
     return UiDesktop;
 })();
-//# sourceMappingURL=UI.js.map

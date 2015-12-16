@@ -82,6 +82,63 @@ namespace AzureRepositories
                 new PinSecurityRepository(new AzureTableStorageLocal<PinSecurityEntity>(localHost, "ClientPins")));
         }
 
+        public static void BindAzureReposInMemForTests(this IoC ioc)
+        {
+
+            ioc.Register<IClientAccountsRepository>(
+                new ClientsRepository(
+                    new NoSqlTableInMemory<ClientAccountEntity>(), new NoSqlTableInMemory<AzureIndex>()));
+
+            ioc.Register<IPersonalDataRepository>(
+                new PersonalDataRepository(new NoSqlTableInMemory<PersonalDataEntity>()));
+
+            ioc.Register<IKycRepository>(
+                new KycRepository(new NoSqlTableInMemory<KycEntity>()));
+
+
+            ioc.Register<IKycDocumentsRepository>(
+                new KycDocumentsRepository(new NoSqlTableInMemory<KycDocumentEntity>()));
+
+            ioc.Register<IKycDocumentsScansRepository>(
+                new KycDocumentsScansRepository(new AzureBlobInMemory()));
+
+            ioc.Register<IKycUploadsLog>(
+               new KycUploadsLog(new NoSqlTableInMemory<KycUploadsLogItemEntity>()));
+
+            ioc.Register<IBalanceRepository>(
+                new BalanceRepository(new NoSqlTableInMemory<TraderBalanceEntity>()));
+
+            ioc.Register<IIdentityGenerator>(
+                new IdentityGenerator(new NoSqlTableInMemory<IdentityEntity>()));
+
+            ioc.Register<IOrdersRepository>(
+                new OrdersRepository(new NoSqlTableInMemory<OrderEntity>()));
+
+            ioc.Register<IClientSettingsRepository>(
+                new ClientSettingsRepository(new NoSqlTableInMemory<ClientSettingsEntity>()));
+
+            var assetsRepositry = new AssetsRepository(new NoSqlTableInMemory<AssetEntity>());
+            assetsRepositry.PopulateAssets();
+            ioc.Register<IAssetsRepository>(assetsRepositry);
+
+            var assetPairsRepository = new AssetPairsRepository(new NoSqlTableInMemory<AssetPairEntity>());
+            assetPairsRepository.PopulateAssetPairsRepository();
+            ioc.Register<IAssetPairsRepository>(assetPairsRepository);
+
+            ioc.Register<IBrowserSessionsRepository>(
+                new BrowserSessionsRepository(new NoSqlTableInMemory<BrowserSessionEntity>()));
+
+            ioc.Register<IMenuBadgesRepository>(
+                new MenuBadgesRepository(new NoSqlTableInMemory<MenuBadgeEntity>()));
+
+
+            ioc.Register<IAccountsRepository>(
+                new AccountsRepository(new NoSqlTableInMemory<AccountEntity>()));
+
+            ioc.Register<IPinSecurityRepository>(
+                new PinSecurityRepository(new NoSqlTableInMemory<PinSecurityEntity>()));
+        }
+
 
         private static void PopulateAssets(this IAssetsRepository assetsRepository)
         {

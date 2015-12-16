@@ -428,10 +428,10 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\BrowserHistoryManager.ts" />
     <TypeScriptCompile Include="Scripts\FileUploader.ts" />
+    <TypeScriptCompile Include="Scripts\typings\bootstrap\bootstrap.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\Framework.d.ts" />
     <TypeScriptCompile Include="Scripts\MobileUi.ts" />
     <TypeScriptCompile Include="Scripts\Requests.ts" />
-    <TypeScriptCompile Include="Scripts\typings\bootstrap\bootstrap.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\lib.d.ts" />
     <TypeScriptCompile Include="Scripts\UI.ts" />

@@ -1,4 +1,5 @@
-﻿class UiMobile implements IUi {
+﻿
+class UiMobile implements IUi {
 
 
 

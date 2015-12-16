@@ -1,9 +1,6 @@
-﻿
-interface IShowDialog {
-    url: string;
-    data?: string;
-    onClose: (result?: string) => void;
-}
+﻿/// <reference path="typings/framework.d.ts" />
+
+
 
 class UiDesktop implements IUi {
 

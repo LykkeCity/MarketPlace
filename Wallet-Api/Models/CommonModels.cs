@@ -6,7 +6,7 @@ namespace Wallet_Api.Models
     {
         public enum ErrorCodeType
         {
-            InvalidInputField, InconsistentData
+            InvalidInputField, InconsistentData, NotAuthenticated
         }
 
 
@@ -81,6 +81,18 @@ namespace Wallet_Api.Models
                 {
                     Code = ErrorCodeType.InvalidInputField,
                     Field = field,
+                    Message = message
+                }
+            };
+        }
+
+        public new static ResponseModel<T> CreateFail(ErrorCodeType errorCodeType, string message)
+        {
+            return new ResponseModel<T>
+            {
+                Error = new ErrorModel
+                {
+                    Code = errorCodeType,
                     Message = message
                 }
             };

@@ -94,4 +94,3 @@ var UiMobile = (function () {
     };
     return UiMobile;
 })();
-//# sourceMappingURL=UiMobile.js.map

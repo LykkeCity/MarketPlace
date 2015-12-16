@@ -1,3 +1,4 @@
+/// <reference path="typings/framework.d.ts" />
 var UiDesktop = (function () {
     function UiDesktop() {
         this.dialogIsShown = false;
@@ -111,4 +112,3 @@ var UiDesktop = (function () {
     };
     return UiDesktop;
 })();
-//# sourceMappingURL=ui.js.map

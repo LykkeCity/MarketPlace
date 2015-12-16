@@ -135,6 +135,9 @@
   <data name="MinLengthIs4Digits" xml:space="preserve">
     <value>Minimum length is four digits</value>
   </data>
+  <data name="NotAuthenticated" xml:space="preserve">
+    <value>Not authenticated</value>
+  </data>
   <data name="OperationCanNotBePerformed" xml:space="preserve">
     <value>Operation CanNot Be Performed</value>
   </data>

@@ -28,7 +28,7 @@ namespace Wallet_Api.Controllers
 
         public static string GetClientId(this ApiController ctx)
         {
-            return ctx.User.Identity.Name;
+            return ApiDependencies.GetIdentity(ctx);
         }
     }
 }

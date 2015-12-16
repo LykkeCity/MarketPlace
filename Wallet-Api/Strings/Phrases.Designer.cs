@@ -115,6 +115,15 @@ namespace Wallet_Api.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Not authenticated.
+        /// </summary>
+        internal static string NotAuthenticated {
+            get {
+                return ResourceManager.GetString("NotAuthenticated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Operation CanNot Be Performed.
         /// </summary>
         internal static string OperationCanNotBePerformed {
