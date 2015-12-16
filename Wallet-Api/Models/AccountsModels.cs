@@ -37,6 +37,13 @@ namespace Wallet_Api.Models
         public string Password { get; set; }
     }
 
+    public class AuthenticateResponseModel
+    {
+        public string KycStatus { get; set; }
+        public bool PinIsEntered { get; set; }
+    }
+
+
     public class PinSecurityChangeModel
     {
         public string Pin { get; set; }

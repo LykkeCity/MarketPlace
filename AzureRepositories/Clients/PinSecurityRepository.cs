@@ -65,5 +65,12 @@ namespace AzureRepositories.Clients
             var entity = await _tableStorage.GetDataAsync(partitionKey, rowKey);
             return entity != null && entity.CheckPassword(pin);
         }
+
+        public async Task<bool> IsPinEntered(string clientId)
+        {
+            var partitionKey = PinSecurityEntity.GeneratePartitionKey();
+            var rowKey = PinSecurityEntity.GenerateRowKey(clientId);
+            return await _tableStorage.GetDataAsync(partitionKey, rowKey) != null;
+        }
     }
 }

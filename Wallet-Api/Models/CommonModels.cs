@@ -1,6 +1,21 @@
 ﻿
+using System;
+
 namespace Wallet_Api.Models
 {
+
+
+    public class MyWebException : Exception
+    {
+
+        public MyWebException(ResponseModel.ErrorCodeType codeType, string message):base(message)
+        {
+            CodeType = codeType;
+        }
+
+        public ResponseModel.ErrorCodeType CodeType { get; private set; }
+    }
+
 
     public class ResponseModel
     {

@@ -22,11 +22,13 @@ namespace Wallet_Api.Controllers
             var clientId = this.GetClientId();
             if (string.IsNullOrEmpty(clientId))
                 return ResponseModel<PinSecurityCheckResultModel>.CreateFail(ResponseModel.ErrorCodeType.NotAuthenticated, Phrases.NotAuthenticated);
+
             var passed = await _puPinSecurityRepository.CheckAsync(clientId, pin);
             return ResponseModel<PinSecurityCheckResultModel>.CreateOk(new PinSecurityCheckResultModel
             {
                 Passed = passed
             });
+
         }
 
         public async Task<ResponseModel> Post(PinSecurityChangeModel data)

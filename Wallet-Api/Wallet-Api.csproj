@@ -175,6 +175,7 @@
     <Compile Include="App_Start\Startup.Localization.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\IsPinEnteredController.cs" />
     <Compile Include="Controllers\PinSecurityController.cs" />
     <Compile Include="Controllers\AccountExistController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
@@ -188,7 +189,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountsModels.cs" />
+    <Compile Include="Models\AuthenticationHandler.cs" />
     <Compile Include="Models\CommonModels.cs" />
+    <Compile Include="Models\ExceptionHandler.cs" />
     <Compile Include="Models\KycModels.cs" />
     <Compile Include="Models\PinSecurityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
