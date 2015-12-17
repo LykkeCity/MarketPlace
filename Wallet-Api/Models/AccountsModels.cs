@@ -44,6 +44,12 @@ namespace Wallet_Api.Models
         public string Token { get; set; }
     }
 
+    public class GetRegistrationStatusResponseModel
+    {
+        public string KycStatus { get; set; }
+        public bool PinIsEntered { get; set; }
+    }
+
 
     public class PinSecurityChangeModel
     {
@@ -54,6 +60,11 @@ namespace Wallet_Api.Models
     {
         public string Token { get; set; }
         
+    }
+
+    public class GetRegistrationStateModel
+    {
+        public string KycStatus { get; set; }
     }
 
 }

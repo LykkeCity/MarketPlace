@@ -24,13 +24,12 @@ namespace Wallet_Api.Controllers
 
             var kycStatus = await _kycRepository.GetKycStatusAsync(clientId);
 
-            if (kycStatus == KycStatus.Rejected)
-                kycStatus = KycStatus.NeedToFillData;
+
             
             return ResponseModel<KycModelStatusResponseModel>.CreateOk(
                 new KycModelStatusResponseModel
                 {
-                    KycStatus = kycStatus.ToString()
+                    KycStatus = kycStatus.ToResponseModel()
                 });
         }
 

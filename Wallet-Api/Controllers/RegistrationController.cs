@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using Common;
 using Core.Clients;
+using Core.Kyc;
 using LkeServices.Clients;
 using Wallet_Api.Models;
 using Wallet_Api.Strings;
@@ -13,12 +14,33 @@ namespace Wallet_Api.Controllers
     {
         private readonly IClientAccountsRepository _clientAccountsRepository;
         private readonly SrvClientManager _srvClientManager;
+        private readonly IKycRepository _kycRepository;
+        private readonly IPinSecurityRepository _puSecurityRepository;
 
-        public RegistrationController(IClientAccountsRepository clientAccountsRepository, SrvClientManager srvClientManager)
+        public RegistrationController(IClientAccountsRepository clientAccountsRepository, SrvClientManager srvClientManager, 
+            IKycRepository kycRepository, IPinSecurityRepository puSecurityRepository)
         {
             _clientAccountsRepository = clientAccountsRepository;
             _srvClientManager = srvClientManager;
+            _kycRepository = kycRepository;
+            _puSecurityRepository = puSecurityRepository;
         }
+
+        [Authorize]
+        public async Task<ResponseModel<GetRegistrationStatusResponseModel>> Get()
+        {
+            var clientId = this.GetClientId();
+
+            var kycStatus = await _kycRepository.GetKycStatusAsync(clientId);
+
+            return ResponseModel<GetRegistrationStatusResponseModel>.CreateOk(
+                new GetRegistrationStatusResponseModel
+                {
+                    KycStatus = kycStatus.ToResponseModel(),
+                    PinIsEntered = await _puSecurityRepository.IsPinEntered(clientId)
+                });
+        }
+
 
         public async Task<ResponseModel<AccountsRegistrationResponseModel>> Post(AccountRegistrationModel model)
         {

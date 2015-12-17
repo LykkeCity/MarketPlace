@@ -1,5 +1,6 @@
 ﻿
 using System;
+using Core.Kyc;
 
 namespace Wallet_Api.Models
 {
@@ -135,6 +136,19 @@ namespace Wallet_Api.Models
                 result = "ok-bool"
             };
             
+        }
+    }
+
+
+
+    public static class ResponseModelsUtils
+    {
+        public static string ToResponseModel(this KycStatus kycStatus)
+        {
+            if (kycStatus == KycStatus.Rejected)
+                return KycStatus.NeedToFillData.ToString();
+
+            return kycStatus.ToString();
         }
     }
 

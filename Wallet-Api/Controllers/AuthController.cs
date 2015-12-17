@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using System.Web.Http;
 using Common;
 using Core.Clients;
@@ -22,6 +23,8 @@ namespace Wallet_Api.Controllers
             _pinSecurityRepository = pinSecurityRepository;
         }
 
+
+
         public async Task<ResponseModel<AuthenticateResponseModel>> Post(AuthenticateModel model)
         {
             if (string.IsNullOrEmpty(model.Email))
@@ -42,7 +45,7 @@ namespace Wallet_Api.Controllers
 
             return ResponseModel<AuthenticateResponseModel>.CreateOk(new AuthenticateResponseModel
             {
-                KycStatus = (await _kycRepository.GetKycStatusAsync(client.Id)).ToString(),
+                KycStatus = (await _kycRepository.GetKycStatusAsync(client.Id)).ToResponseModel(),
                 PinIsEntered = await _pinSecurityRepository.IsPinEntered(client.Id),
                 Token = token
             });
