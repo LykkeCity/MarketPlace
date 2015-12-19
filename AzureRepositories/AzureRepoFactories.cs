@@ -2,10 +2,10 @@
 using AzureRepositories.Assets;
 using AzureRepositories.BackOffice;
 using AzureRepositories.Clients;
+using AzureRepositories.EventLogs;
 using AzureRepositories.Finance;
 using AzureRepositories.Kyc;
 using AzureRepositories.Orders;
-using AzureStorage;
 using AzureStorage.Blob;
 using AzureStorage.Tables;
 using AzureStorage.Tables.Templates.Index;
@@ -52,6 +52,14 @@ namespace AzureRepositories
             public static AccountsRepository CreateAccountsRepository(string connString, ILog log)
             {
                 return new AccountsRepository(new AzureTableStorage<AccountEntity>(connString, "Accounts", log));
+            }
+        }
+
+        public static class EventLogs
+        {
+            public static RegistrationLogs CreateRegistrationLogs(string connecionString, ILog log)
+            {
+                return new RegistrationLogs(new AzureTableStorage<RegistrationLogEventEntity>(connecionString, "LogRegistrations", log));
             }
         }
 

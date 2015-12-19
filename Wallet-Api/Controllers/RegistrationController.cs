@@ -50,12 +50,6 @@ namespace Wallet_Api.Controllers
             if (!model.Email.IsValidEmail())
                 return ResponseModel<AccountsRegistrationResponseModel>.CreateInvalidFieldError("email", Phrases.InvalidEmailFormat);
 
-            if (string.IsNullOrEmpty(model.FirstName))
-                return ResponseModel<AccountsRegistrationResponseModel>.CreateInvalidFieldError("firstname", Phrases.FieldShouldNotBeEmpty);
-
-            if (string.IsNullOrEmpty(model.LastName))
-                return ResponseModel<AccountsRegistrationResponseModel>.CreateInvalidFieldError("lastname", Phrases.FieldShouldNotBeEmpty);
-
             if (string.IsNullOrEmpty(model.ContactPhone))
                 return ResponseModel<AccountsRegistrationResponseModel>.CreateInvalidFieldError("contactphone", Phrases.FieldShouldNotBeEmpty);
 
@@ -67,9 +61,12 @@ namespace Wallet_Api.Controllers
 
             try
             {
-                var user = await _srvClientManager.RegisterClientAsync(model.Email, model.FirstName, model.LastName, model.ContactPhone, model.Password);
+                if (string.IsNullOrEmpty(model.FullName))
+                    model.FullName = model.FirstName + " " + model.LastName;
 
-                var token = await user.AuthenticateViaToken();
+                var user = await _srvClientManager.RegisterClientAsync(model.Email, model.FullName, model.ContactPhone, model.Password, model.ClientInfo, this.GetIp());
+
+                var token = await user.AuthenticateViaToken(model.ClientInfo);
 
                 return ResponseModel<AccountsRegistrationResponseModel>.CreateOk(new AccountsRegistrationResponseModel {Token = token });
             }

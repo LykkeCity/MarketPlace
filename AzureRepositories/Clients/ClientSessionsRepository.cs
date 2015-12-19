@@ -16,9 +16,9 @@ namespace AzureRepositories.Clients
                 return "Sess";
             }
 
-            public static string GenerateRowKey(string sessionId)
+            public static string GenerateRowKey(string token)
             {
-                return sessionId;
+                return token;
             }
         }
 
@@ -29,18 +29,25 @@ namespace AzureRepositories.Clients
                 return clientId;
             }
 
-            public static string GenerateRowKey(string sessionId)
+            public static string GenerateRowKey(string token)
             {
-                return sessionId;
+                return token;
             }
         }
 
         public string ClientId { get; set; }
         public string Token => RowKey;
+        public string ClientInfo { get; set; }
         public DateTime Registered { get; set; }
         public DateTime LastAction { get; set; }
 
-        public static ClientSessionEntity CreateByToken(string clientId, string token)
+        internal void UpdateClientInfo(string clientInfo)
+        {
+            ClientInfo = clientInfo;
+            LastAction = DateTime.UtcNow;
+        }
+
+        public static ClientSessionEntity CreateByToken(string clientId, string token, string clientInfo)
         {
             return new ClientSessionEntity
             {
@@ -48,11 +55,12 @@ namespace AzureRepositories.Clients
                 RowKey = ByToken.GenerateRowKey(token),
                 ClientId = clientId,
                 Registered = DateTime.UtcNow,
-                LastAction = DateTime.UtcNow
+                LastAction = DateTime.UtcNow,
+                ClientInfo = clientInfo
             };
         }
 
-        public static ClientSessionEntity CreateByClient(string clientId, string token)
+        public static ClientSessionEntity CreateByClient(string clientId, string token, string clientInfo)
         {
             return new ClientSessionEntity
             {
@@ -60,7 +68,8 @@ namespace AzureRepositories.Clients
                 RowKey = ByClient.GenerateRowKey(token),
                 ClientId = clientId,
                 Registered = DateTime.UtcNow,
-                LastAction = DateTime.UtcNow
+                LastAction = DateTime.UtcNow,
+                ClientInfo = clientInfo
             };
         }
 
@@ -76,11 +85,11 @@ namespace AzureRepositories.Clients
             _tableStorage = tableStorage;
         }
 
-        public Task SaveAsync(string clientId, string sessionId)
+        public Task SaveAsync(string clientId, string sessionId, string clientInfo)
         {
             return Task.WhenAll(
-                _tableStorage.InsertAsync(ClientSessionEntity.CreateByToken(clientId, sessionId)),
-                _tableStorage.InsertAsync(ClientSessionEntity.CreateByClient(clientId, sessionId))
+                _tableStorage.InsertAsync(ClientSessionEntity.CreateByToken(clientId, sessionId, clientInfo)),
+                _tableStorage.InsertAsync(ClientSessionEntity.CreateByClient(clientId, sessionId, clientInfo))
                 );
         }
 
@@ -95,6 +104,30 @@ namespace AzureRepositories.Clients
         {
             var partitionKey = ClientSessionEntity.ByClient.GeneratePartitionKey(clientId);
             return await _tableStorage.GetDataAsync(partitionKey);
+        }
+
+
+        public async Task UpdateClientInfoAsync(string clientId, string token, string clientInfo)
+        {
+
+            var partitionKey = ClientSessionEntity.ByClient.GeneratePartitionKey(clientId);
+            var rowKey = ClientSessionEntity.ByClient.GenerateRowKey(token);
+
+            await _tableStorage.ReplaceAsync(partitionKey, rowKey, entity =>
+            {
+                entity.UpdateClientInfo(clientInfo);
+                return entity;
+            });
+
+            partitionKey = ClientSessionEntity.ByToken.GeneratePartitionKey();
+            rowKey = ClientSessionEntity.ByToken.GenerateRowKey(token);
+
+            await _tableStorage.ReplaceAsync(partitionKey, rowKey, entity =>
+            {
+                entity.UpdateClientInfo(clientInfo);
+                return entity;
+            });
+
         }
     }
 }

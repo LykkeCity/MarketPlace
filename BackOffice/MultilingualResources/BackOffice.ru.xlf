@@ -186,6 +186,26 @@
           <source>Please, confirm your action</source>
           <target state="new">Please, confirm your action</target>
         </trans-unit>
+        <trans-unit id="Clients" translate="yes" xml:space="preserve">
+          <source>Clients</source>
+          <target state="new">Clients</target>
+        </trans-unit>
+        <trans-unit id="Device" translate="yes" xml:space="preserve">
+          <source>Device</source>
+          <target state="new">Device</target>
+        </trans-unit>
+        <trans-unit id="LastAction" translate="yes" xml:space="preserve">
+          <source>LastAction</source>
+          <target state="new">LastAction</target>
+        </trans-unit>
+        <trans-unit id="KickSession" translate="yes" xml:space="preserve">
+          <source>Kick session</source>
+          <target state="new">Kick session</target>
+        </trans-unit>
+        <trans-unit id="Registrations" translate="yes" xml:space="preserve">
+          <source>Registrations</source>
+          <target state="new">Registrations</target>
+        </trans-unit>
       </group>
     </body>
   </file>

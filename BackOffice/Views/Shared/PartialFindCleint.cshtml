@@ -11,8 +11,8 @@
         <input style="display: none"/>
     </form>
     <span class="input-group-btn">
-        <button class="btn btn-default" type="button"
-                onclick="requests.doRequest({ url: '@Model.RequestUrl', divResult: '@div', formId:'#findClient', showLoading: true })"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+        <button class="btn btn-default btn-xs" type="button" style="padding: 8px;"
+                onclick="requests.doRequest({ url: '@Model.RequestUrl', divResult: '@div', formId:'#findClient', showLoading: true })"><span class="glyphicon glyphicon-search hideOnRequest" aria-hidden="true"></span><img src="~/Images/processing-menu.gif" class="showOnRequest"/></button>
     </span>
 </div>
 

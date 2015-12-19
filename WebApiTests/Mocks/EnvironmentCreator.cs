@@ -19,7 +19,7 @@ namespace WebApiTests.Mocks
             var ioc = new IoC();
              ioc.BindAzureReposInMemForTests();
              ioc.BinMockAzureTests();
-             ioc.BindLykkeWalletServices();
+             ioc.BindLykkeWalletApiServices();
              ioc.BindMockServices();
             return ioc;
         }

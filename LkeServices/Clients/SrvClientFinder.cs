@@ -34,8 +34,7 @@ namespace LkeServices.Clients
             }
 
             return await _personalDataRepository.ScanAndFindAsync(itm =>
-                (!string.IsNullOrEmpty(itm.FirstName) && itm.FirstName.ToLower().Contains(phrase)) 
-                || (!string.IsNullOrEmpty(itm.LastName) && itm.LastName.ToLower().Contains(phrase))
+                (!string.IsNullOrEmpty(itm.FullName) && itm.FullName.ToLower().Contains(phrase))
                 || (!string.IsNullOrEmpty(itm.Email) && itm.Email.ToLower().Contains(phrase))
                 );
         }

@@ -9,8 +9,7 @@ namespace Core.Clients
         DateTime Regitered { get; }
         string Id { get; }
         string Email { get; }
-        string FirstName { get; }
-        string LastName { get; }
+        string FullName { get; }
         string Country { get; }
         string Zip { get; }
         string City { get; }
@@ -23,15 +22,14 @@ namespace Core.Clients
         public DateTime Regitered { get; set; }
         public string Id { get; set; }
         public string Email { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string FullName { get; set; }
         public string Country { get; set; }
         public string Zip { get; set; }
         public string City { get; set; }
         public string Address { get; set; }
         public string ContactPhone { get; set; }
 
-        public static PersonalData Create(IClientAccount src, string firstname, string lastname)
+        public static PersonalData Create(IClientAccount src, string fullName)
         {
             return new PersonalData
             {
@@ -39,8 +37,7 @@ namespace Core.Clients
                 Email = src.Email,
                 ContactPhone = src.Phone,
                 Regitered = src.Registered,
-                FirstName = firstname,
-                LastName = lastname
+                FullName = fullName
             };
         }
     }
@@ -53,6 +50,7 @@ namespace Core.Clients
         Task<IPersonalData> ScanAndFindAsync(Func<IPersonalData, bool> func);
 
         Task UpdateAsync(IPersonalData personalData);
+        Task UpdateGeolocationDataAsync(string id, string countryCode, string city);
     }
 
 }

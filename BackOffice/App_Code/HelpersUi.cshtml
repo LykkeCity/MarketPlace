@@ -42,6 +42,17 @@
     </div>
 }
 
+@helper RenderInputWithLabelOnTopReadOnly(string caption, string value , string type = null)
+{
+var typeAttr = MvcHtmlString.Create(type == null ? string.Empty : "type=\"" + type + "\"");
+var valueAttr = MvcHtmlString.Create(value == null ? string.Empty : "value=\"" + value + "\"");
+
+    <div class="form-group">
+        <label class="control-label" >@caption</label>
+        <input @typeAttr @valueAttr class="form-control input-lg" readonly="readonly"/>
+    </div>
+}
+
 @helper RenderInputWithLabelOnTopFocused(string name, string caption, string value = null, string placeHolder = null, string type = null)
 {
 var typeAttr = MvcHtmlString.Create(type == null ? string.Empty : "type=\"" + type + "\"");

@@ -5,6 +5,7 @@ using Core.Accounts;
 using Core.Assets;
 using Core.BackOffice;
 using Core.Clients;
+using Core.EventLogs;
 using Core.Finance;
 using Core.Kyc;
 using Core.Orders;
@@ -67,6 +68,10 @@ namespace AzureRepositories
 
             ioc.Register<IClientsSessionsRepository>(
                 AzureRepoFactories.Clients.CreateClientSessionsRepository(connString, log));
+
+
+            ioc.Register<IRegistrationLogs>(
+                AzureRepoFactories.EventLogs.CreateRegistrationLogs(connString, log));
 
         }
 

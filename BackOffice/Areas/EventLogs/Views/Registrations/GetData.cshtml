@@ -1,0 +1,72 @@
+﻿@using BackOffice.Translates
+@model BackOffice.Areas.EventLogs.Models.GetEvntLogsRegsViewModel
+
+@{
+    Layout = null;
+}
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            
+        </th>
+        <th>
+            @Phrases.Date
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            @Phrases.FullName
+        </th>
+        <th>
+            @Phrases.City
+        </th>
+        <th>
+            @Phrases.ContactPhone
+        </th>
+        <th>
+            @Phrases.Device
+        </th>
+        <th>
+            Ip
+        </th>
+        <th>
+            Isp
+        </th>
+    </tr>
+
+    @foreach (var itm in Model.Events)
+    {
+        <tr>
+            <td>
+                @HelpersUi.RenderCountryFlag(itm.Country)
+            </td>
+            <td>
+                @itm.DateTime
+            </td>
+
+            <td>
+                @itm.Email
+            </td>
+            <td>
+                @itm.FullName
+            </td>
+            <td>
+                @itm.City
+            </td>
+            <td>
+                @itm.ContactPhone
+            </td>
+            <td>
+                @itm.DeviceInfo
+            </td>
+            <td>
+                @itm.Ip
+            </td>
+            <td>
+                @itm.Isp
+            </td>
+        </tr>
+    }
+</table>

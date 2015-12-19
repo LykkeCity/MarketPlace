@@ -160,6 +160,15 @@ namespace BackOffice.Translates {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clients.
+        /// </summary>
+        public static string Clients {
+            get {
+                return ResourceManager.GetString("Clients", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirmation.
         /// </summary>
         public static string Confirmation {
@@ -201,6 +210,15 @@ namespace BackOffice.Translates {
         public static string Date {
             get {
                 return ResourceManager.GetString("Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Device.
+        /// </summary>
+        public static string Device {
+            get {
+                return ResourceManager.GetString("Device", resourceCulture);
             }
         }
         
@@ -313,11 +331,29 @@ namespace BackOffice.Translates {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kick session.
+        /// </summary>
+        public static string KickSession {
+            get {
+                return ResourceManager.GetString("KickSession", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kyc Status.
         /// </summary>
         public static string KycStatus {
             get {
                 return ResourceManager.GetString("KycStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LastAction.
+        /// </summary>
+        public static string LastAction {
+            get {
+                return ResourceManager.GetString("LastAction", resourceCulture);
             }
         }
         
@@ -399,6 +435,15 @@ namespace BackOffice.Translates {
         public static string QuotingAsset {
             get {
                 return ResourceManager.GetString("QuotingAsset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registrations.
+        /// </summary>
+        public static string Registrations {
+            get {
+                return ResourceManager.GetString("Registrations", resourceCulture);
             }
         }
         

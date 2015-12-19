@@ -1,0 +1,55 @@
+﻿@using BackOffice.Translates
+@using Core.Clients
+@model BackOffice.Areas.Clients.Models.ClientViewFindViewModel
+
+@{
+    Layout = null;
+
+    if (Model.PersonalData == null)
+    {
+        <h1>@Phrases.ClientNotFound</h1>
+        return;
+    }
+}
+
+@RenderClientSessions(Model.Sessions)
+
+@helper RenderClientSessions(IClientSession[] sessions)
+{
+
+    <table class="table" style="width: 80%; margin: auto">
+        <tr>
+            <th>
+                @Phrases.Date
+            </th>
+            <th>
+                @Phrases.LastAction
+            </th>
+            <th>
+                @Phrases.Device
+            </th>
+            <th>
+
+            </th>
+        </tr>
+
+
+        @foreach (var clientSession in sessions)
+        {
+            <tr>
+                <td>
+                    @clientSession.Registered
+                </td>
+                <td>
+                    @clientSession.LastAction
+                </td>
+                <td>
+                    @clientSession.ClientInfo
+                </td>
+                <td>
+                    <button class="btn btn-xs btn-primary">@Phrases.KickSession</button>
+                </td>
+            </tr>
+        }
+    </table>
+}

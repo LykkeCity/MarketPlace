@@ -1,6 +1,8 @@
 ﻿using Common;
 using Common.IocContainer;
+using Core;
 using Core.Assets;
+using Core.Clients;
 using Core.Finance;
 using Core.Orders;
 using LkeServices.Clients;
@@ -34,14 +36,26 @@ namespace LkeServices
             ioc.RegisterSingleTone<AssetPairsDictionary>();
             ioc.SelfBond<IAssetPairsDictionary, AssetPairsDictionary>();
             ioc.SelfBond<IStarter, AssetPairsDictionary>();
+            ioc.RegisterSingleTone<ISrvIpGetLocation, SrvIpGeolocation>();
         }
 
 
-        public static void BindLykkeWalletServices(this IoC ioc)
+        public static void BindLykkeWalletApiServices(this IoC ioc)
         {
             ioc.RegisterSingleTone<SrvClientManager>();
             ioc.RegisterSingleTone<SrvKycDocumentsManager>();
             ioc.RegisterSingleTone<SrvKycStatusManager>();
+
+            ioc.RegisterSingleTone<ISrvIpGetLocation, SrvIpGeolocation>();
+
+            ioc.RegisterSingleTone<JobGeolocationDataUpdater>();
+            ioc.SelfBond<IRegistrationConsumer, JobGeolocationDataUpdater>();
+
+        }
+
+        public static void StartLykkeWalletApiServices(this IoC ioc)
+        {
+            ioc.GetObject<JobGeolocationDataUpdater>().Start();
         }
 
         public static void BindBackOfficeServices(this IoC ioc)
@@ -49,6 +63,7 @@ namespace LkeServices
             ioc.RegisterSingleTone<SrvClientFinder>();
             ioc.RegisterSingleTone<SrvKycDocumentsManager>();
             ioc.RegisterSingleTone<SrvKycStatusManager>();
+            ioc.RegisterSingleTone<ISrvIpGetLocation, SrvIpGeolocation>();
         }
 
 

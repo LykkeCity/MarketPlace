@@ -25,8 +25,7 @@ namespace AzureRepositories.Clients
         public DateTime Regitered { get; set; }
         public string Id => RowKey;
         public string Email { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string FullName { get; set; }
         public string Country { get; set; }
         public string Zip { get; set; }
         public string City { get; set; }
@@ -35,8 +34,6 @@ namespace AzureRepositories.Clients
 
         internal void Update(IPersonalData src)
         {
-            FirstName = src.FirstName;
-            LastName = src.LastName;
             Country = src.Country;
             Zip = src.Zip;
             City = src.City;
@@ -108,6 +105,19 @@ namespace AzureRepositories.Clients
             return _tableStorage.ReplaceAsync(partitionKey, rowKey, itm =>
             {
                 itm.Update(personalData);
+                return itm;
+            });
+        }
+
+        public Task UpdateGeolocationDataAsync(string id, string countryCode, string city)
+        {
+            var partitionKey = PersonalDataEntity.GeneratePartitionKey();
+            var rowKey = PersonalDataEntity.GenerateRowKey(id);
+
+            return _tableStorage.ReplaceAsync(partitionKey, rowKey, itm =>
+            {
+                itm.Country = countryCode;
+                itm.City = city;
                 return itm;
             });
         }

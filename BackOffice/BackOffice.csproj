@@ -176,11 +176,17 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\Startup.Localization.cs" />
+    <Compile Include="Areas\Clients\ClientsAreaRegistration.cs" />
+    <Compile Include="Areas\Clients\Controllers\ViewController.cs" />
+    <Compile Include="Areas\Clients\Models\ClientViewModels.cs" />
     <Compile Include="Areas\Dictionaries\Controllers\AssetPairsController.cs" />
     <Compile Include="Areas\Dictionaries\Controllers\AssetsController.cs" />
     <Compile Include="Areas\Dictionaries\DictionariesAreaRegistration.cs" />
     <Compile Include="Areas\Dictionaries\Models\AssetPairsDictionariesModels.cs" />
     <Compile Include="Areas\Dictionaries\Models\AssetsDictionariesModels.cs" />
+    <Compile Include="Areas\EventLogs\Controllers\RegistrationsController.cs" />
+    <Compile Include="Areas\EventLogs\EventLogsAreaRegistration.cs" />
+    <Compile Include="Areas\EventLogs\Models\EvntLogsRegsIndexViewModel.cs" />
     <Compile Include="Areas\Kyc\Controllers\DocumentsCheckingController.cs" />
     <Compile Include="Areas\Kyc\Controllers\DocumentsController.cs" />
     <Compile Include="Areas\Kyc\KycAreaRegistration.cs" />
@@ -287,8 +293,13 @@
     <Content Include="Areas\Kyc\Views\DocumentsChecking\FindClient.cshtml" />
     <Content Include="Areas\Kyc\Views\Documents\DeletDialog.cshtml" />
     <Content Include="Areas\Kyc\Views\Documents\Index.cshtml" />
-    <None Include="Properties\PublishProfiles\Lke-BackOffice.pubxml" />
-    <None Include="Properties\PublishProfiles\lykke-backoffice.pubxml" />
+    <Content Include="Areas\Clients\Views\web.config" />
+    <Content Include="Areas\Clients\Views\View\Index.cshtml" />
+    <Content Include="Areas\Clients\Views\View\Find.cshtml" />
+    <Content Include="Areas\EventLogs\Views\web.config" />
+    <Content Include="Areas\EventLogs\Views\Registrations\Index.cshtml" />
+    <Content Include="Areas\EventLogs\Views\Registrations\GetData.cshtml" />
+    <None Include="Properties\PublishProfiles\lykke-backoffice - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
@@ -331,7 +342,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Clients\Views\Shared\" />
     <Folder Include="Areas\Dictionaries\Views\Shared\" />
+    <Folder Include="Areas\EventLogs\Views\Shared\" />
     <Folder Include="Areas\Kyc\Views\Shared\" />
     <Folder Include="Areas\Users\Views\Shared\" />
   </ItemGroup>

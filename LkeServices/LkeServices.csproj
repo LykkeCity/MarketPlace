@@ -35,6 +35,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\LykkeMarketPlace\Bin\LkeServices.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clients\JobGeolocationDataUpdater.cs" />
     <Compile Include="Clients\SrvClientFinder.cs" />
     <Compile Include="Clients\SrvClientManager.cs" />
     <Compile Include="Feed\AssetsDictionary.cs" />
@@ -59,6 +61,7 @@
     <Compile Include="Orders\SrvOrdersRegistrator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SrvBinder.cs" />
+    <Compile Include="SrvIpGeolocation.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

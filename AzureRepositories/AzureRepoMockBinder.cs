@@ -2,6 +2,7 @@
 using AzureRepositories.Assets;
 using AzureRepositories.BackOffice;
 using AzureRepositories.Clients;
+using AzureRepositories.EventLogs;
 using AzureRepositories.Finance;
 using AzureRepositories.Kyc;
 using AzureRepositories.Orders;
@@ -15,6 +16,7 @@ using Core.Accounts;
 using Core.Assets;
 using Core.BackOffice;
 using Core.Clients;
+using Core.EventLogs;
 using Core.Finance;
 using Core.Kyc;
 using Core.Orders;
@@ -83,6 +85,9 @@ namespace AzureRepositories
 
             ioc.Register<IClientsSessionsRepository>(
                 new ClientSessionsRepository(new AzureTableStorageLocal<ClientSessionEntity>(localHost, "Sessions")));
+
+            ioc.Register<IRegistrationLogs>(
+                new RegistrationLogs(new AzureTableStorageLocal<RegistrationLogEventEntity>(localHost,"LogRegistrations")));
         }
 
         public static void BindAzureReposInMemForTests(this IoC ioc)
@@ -143,6 +148,9 @@ namespace AzureRepositories
 
             ioc.Register<IClientsSessionsRepository>(
                 new ClientSessionsRepository(new NoSqlTableInMemory<ClientSessionEntity>()));
+
+            ioc.Register<IRegistrationLogs>(
+                new RegistrationLogs(new NoSqlTableInMemory<RegistrationLogEventEntity>()));
         }
 
 

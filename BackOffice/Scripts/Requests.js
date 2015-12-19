@@ -31,7 +31,7 @@ var Requests = (function () {
         if (o.onShowLoading)
             o.onShowLoading();
         else {
-            if (o.showLoading && o.divResult) {
+            if (o.showLoading !== false && o.divResult) {
                 $(o.divResult).html('<div style="text-align:center; margin-top:20px;"><img src="/Images/Loading-pa.gif"/></div>');
                 $(o.divResult).show();
             }

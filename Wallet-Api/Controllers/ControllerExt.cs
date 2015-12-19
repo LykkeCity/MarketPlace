@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
 using Core.Clients;
 using Microsoft.AspNet.Identity;
@@ -34,18 +35,28 @@ namespace Wallet_Api.Controllers
             return ApiDependencies.GetIdentity(ctx);
         }
 
-        public static async Task<string> AuthenticateViaToken(this IClientAccount clientAccount)
+        public static async Task<string> AuthenticateViaToken(this IClientAccount clientAccount, string clientInfo)
         {
             var clientSession =
                 (await ApiDependencies.ClientsSessionsRepository.GetByClientAsync(clientAccount.Id)).FirstOrDefault();
 
             if (clientSession != null)
+            {
+                await
+                    ApiDependencies.ClientsSessionsRepository.UpdateClientInfoAsync(clientAccount.Id,
+                        clientSession.Token, clientInfo);
                 return clientSession.Token;
+            }
 
             var newtoken = Guid.NewGuid().ToString("N")+ Guid.NewGuid().ToString("N");
-            await ApiDependencies.ClientsSessionsRepository.SaveAsync(clientAccount.Id, newtoken);
+            await ApiDependencies.ClientsSessionsRepository.SaveAsync(clientAccount.Id, newtoken, clientInfo);
             return newtoken;
 
+        }
+
+        public static string GetIp(this ApiController ctx)
+        {
+            return HttpContext.Current.Request.UserHostAddress;
         }
 
     }

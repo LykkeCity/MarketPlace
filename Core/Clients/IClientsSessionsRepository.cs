@@ -8,15 +8,18 @@ namespace Core.Clients
     {
         string ClientId { get; }
         string Token { get; }
+        string ClientInfo { get; }
         DateTime Registered { get; }
         DateTime LastAction { get; }
     }
 
     public interface IClientsSessionsRepository
     {
-        Task SaveAsync(string clientId, string token);
+        Task SaveAsync(string clientId, string token, string clientInfo);
         Task<IClientSession> GetAsync(string token);
         Task<IEnumerable<IClientSession>> GetByClientAsync(string clientId);
+
+        Task UpdateClientInfoAsync(string clientId, string token, string clientInfo);
     }
 
 }

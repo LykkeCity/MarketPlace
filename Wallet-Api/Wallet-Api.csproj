@@ -206,8 +206,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="apiapp.json" />
-    <None Include="Properties\PublishProfiles\lykke-api - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\lykke-api - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\lykke-api-dev - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

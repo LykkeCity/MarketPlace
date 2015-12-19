@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Web.Http;
 using Common;
 using Core.Clients;
@@ -23,8 +22,6 @@ namespace Wallet_Api.Controllers
             _pinSecurityRepository = pinSecurityRepository;
         }
 
-
-
         public async Task<ResponseModel<AuthenticateResponseModel>> Post(AuthenticateModel model)
         {
             if (string.IsNullOrEmpty(model.Email))
@@ -41,7 +38,7 @@ namespace Wallet_Api.Controllers
             if (client == null)
                 return ResponseModel<AuthenticateResponseModel>.CreateInvalidFieldError("passowrd", Phrases.InvalidUsernameOrPassword);
 
-            var token = await client.AuthenticateViaToken();
+            var token = await client.AuthenticateViaToken(model.ClientInfo);
 
             return ResponseModel<AuthenticateResponseModel>.CreateOk(new AuthenticateResponseModel
             {
@@ -50,7 +47,6 @@ namespace Wallet_Api.Controllers
                 Token = token
             });
         }
-
     }
 
 }

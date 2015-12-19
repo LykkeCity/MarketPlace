@@ -56,7 +56,9 @@
     <Compile Include="Clients\IClientsSessionsRepository.cs" />
     <Compile Include="Clients\IPersonalDataRepository.cs" />
     <Compile Include="Clients\IPinSecurityControllers.cs" />
+    <Compile Include="Clients\IRegistrationConsumer.cs" />
     <Compile Include="CountryDictionary.cs" />
+    <Compile Include="EventLogs\IRegistrationLogs.cs" />
     <Compile Include="Finance\Currency.cs" />
     <Compile Include="Feed\AssetQuote.cs" />
     <Compile Include="Finance\IBalanceRepository.cs" />
@@ -65,6 +67,7 @@
     <Compile Include="IBackOfficeUsersRepository.cs" />
     <Compile Include="IBrowserSessionsRepository.cs" />
     <Compile Include="IIdentityGenerator.cs" />
+    <Compile Include="ISrvIpGeolocation.cs" />
     <Compile Include="Kyc\IKycDocumentsRepository.cs" />
     <Compile Include="Kyc\IKycDocumentsScansRepository.cs" />
     <Compile Include="Kyc\IKycRepository.cs" />

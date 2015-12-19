@@ -300,19 +300,11 @@ namespace Common
 
         };
 
-        public static readonly Dictionary<string, string> Countrydetector = new Dictionary<string, string>
-        {
-            {"vietnam", "VNM"}
-        };
-        
 
         private static readonly Lazy<Dictionary<string, string>> DictCountryIso2ToIso3Links
             = new Lazy<Dictionary<string, string>>(() => CountryIso3ToIso2Links.ToDictionary(kpv => kpv.Value, kpv => kpv.Key));
 
-        public static Dictionary<string, string> CountryIso2ToIso3Links
-        {
-            get { return DictCountryIso2ToIso3Links.Value; }
-        }
+        public static Dictionary<string, string> CountryIso2ToIso3Links => DictCountryIso2ToIso3Links.Value;
 
         public static bool HasIso3(string iso3Id)
         {
@@ -341,7 +333,7 @@ namespace Common
 
         public static string Iso2ToIso3(string iso2)
         {
-            return CountryIso2ToIso3Links[iso2];
+            return CountryIso2ToIso3Links.ContainsKey(iso2) ? CountryIso2ToIso3Links[iso2] : iso2;
         }
 
     }

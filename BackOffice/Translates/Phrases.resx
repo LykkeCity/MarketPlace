@@ -252,4 +252,19 @@
   <data name="PleaseConfirmYourAction" xml:space="preserve">
     <value>Please, confirm your action</value>
   </data>
+  <data name="Clients" xml:space="preserve">
+    <value>Clients</value>
+  </data>
+  <data name="Device" xml:space="preserve">
+    <value>Device</value>
+  </data>
+  <data name="LastAction" xml:space="preserve">
+    <value>LastAction</value>
+  </data>
+  <data name="KickSession" xml:space="preserve">
+    <value>Kick session</value>
+  </data>
+  <data name="Registrations" xml:space="preserve">
+    <value>Registrations</value>
+  </data>
 </root>

@@ -49,17 +49,20 @@ namespace Wallet_Api
 
 #if DEBUG
             var log = new LogToConsole();
+
+            result.IoC.Register<ILog>(log);
+
             result.IoC.BindAzureReposInMem();
             result.IoC.BinMockAzureDebug();
 
             #else
             var log = new LogToTable(new AzureTableStorage<LogEntity>(Settings.ConnectionString, "LogApi", null));
-
+            result.IoC.Register<ILog>(log);
             result.IoC.BindAzureRepositories(Settings.ConnectionString, Settings.ConnectionString, log);
                       result.IoC.BindMockAzureRepositories(Settings.ConnectionString, log);
             #endif
 
-            result.IoC.BindLykkeWalletServices();
+            result.IoC.BindLykkeWalletApiServices();
             result.IoC.BindMockServices();
 
             GetIdentity = ctr =>
@@ -71,6 +74,8 @@ namespace Wallet_Api
             ClientsSessionsRepository = result.IoC.GetObject<IClientsSessionsRepository>();
 
             log.WriteInfo("ApiDependencies", "Create", "Create", "Create");
+
+            result.IoC.StartLykkeWalletApiServices();
 
             return result;
         }
