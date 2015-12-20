@@ -36,7 +36,7 @@ namespace Wallet_Api.Controllers
             var client = await _clientAccountsRepository.AuthenticateAsync(model.Email, model.Password);
 
             if (client == null)
-                return ResponseModel<AuthenticateResponseModel>.CreateInvalidFieldError("passowrd", Phrases.InvalidUsernameOrPassword);
+                return ResponseModel<AuthenticateResponseModel>.CreateFail(ResponseModel.ErrorCodeType.NotAuthenticated, Phrases.InvalidUsernameOrPassword);
 
             var token = await client.AuthenticateViaToken(model.ClientInfo);
 

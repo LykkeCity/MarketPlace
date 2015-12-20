@@ -61,13 +61,8 @@ namespace Wallet_Api.Controllers
 
             try
             {
-                if (string.IsNullOrEmpty(model.FullName))
-                    model.FullName = model.FirstName + " " + model.LastName;
-
                 var user = await _srvClientManager.RegisterClientAsync(model.Email, model.FullName, model.ContactPhone, model.Password, model.ClientInfo, this.GetIp());
-
                 var token = await user.AuthenticateViaToken(model.ClientInfo);
-
                 return ResponseModel<AccountsRegistrationResponseModel>.CreateOk(new AccountsRegistrationResponseModel {Token = token });
             }
             catch (Exception ex)

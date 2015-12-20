@@ -22,7 +22,13 @@ namespace Wallet_Api.Models
     {
         public enum ErrorCodeType
         {
-            InvalidInputField, InconsistentData, NotAuthenticated
+            InvalidInputField,
+            /// <summary>
+            /// Returns, when request is being invoked but it should not be invoked acording to the current status
+            /// </summary>
+            InconsistentData,
+            NotAuthenticated,
+            InvalidUsernameOrPassword
         }
 
 
