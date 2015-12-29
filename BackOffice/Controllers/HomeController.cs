@@ -37,7 +37,7 @@ namespace BackOffice.Controllers
 
         public static JsonResult JsonResultShowDialog(this Controller contr, string url, object model = null)
         {
-            return new JsonResult { Data = new { url, model } };
+            return new JsonResult { Data = new { status = "ShowDialog", url, prms = model } };
         }
 
         public static JsonResult JsonResultReloadData(this Controller contr)

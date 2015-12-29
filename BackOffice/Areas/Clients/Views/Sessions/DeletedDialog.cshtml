@@ -1,0 +1,10 @@
+﻿@using BackOffice.Translates
+@model BackOffice.Areas.Clients.Models.SessionDeletedDialogViewModel
+
+@{
+    Layout = "~/Views/Shared/_PersonalAreaDialog.cshtml";
+}
+
+<h2>@Phrases.SessionHasBeenDeleted</h2>
+
+@HelpersUi.RenderOkDialogButton()

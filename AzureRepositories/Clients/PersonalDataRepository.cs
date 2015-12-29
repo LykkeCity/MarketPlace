@@ -39,6 +39,7 @@ namespace AzureRepositories.Clients
             City = src.City;
             Address = src.Address;
             ContactPhone = src.ContactPhone;
+            FullName = src.FullName;
         }
 
         public static PersonalDataEntity Create(IPersonalData src)

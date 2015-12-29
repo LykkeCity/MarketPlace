@@ -177,7 +177,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\Startup.Localization.cs" />
     <Compile Include="Areas\Clients\ClientsAreaRegistration.cs" />
+    <Compile Include="Areas\Clients\Controllers\SessionsController.cs" />
     <Compile Include="Areas\Clients\Controllers\ViewController.cs" />
+    <Compile Include="Areas\Clients\Models\ClientSessionsModels.cs" />
     <Compile Include="Areas\Clients\Models\ClientViewModels.cs" />
     <Compile Include="Areas\Dictionaries\Controllers\AssetPairsController.cs" />
     <Compile Include="Areas\Dictionaries\Controllers\AssetsController.cs" />
@@ -299,6 +301,8 @@
     <Content Include="Areas\EventLogs\Views\web.config" />
     <Content Include="Areas\EventLogs\Views\Registrations\Index.cshtml" />
     <Content Include="Areas\EventLogs\Views\Registrations\GetData.cshtml" />
+    <Content Include="Areas\Clients\Views\Sessions\DeleteConfirmationDialog.cshtml" />
+    <Content Include="Areas\Clients\Views\Sessions\DeletedDialog.cshtml" />
     <None Include="Properties\PublishProfiles\lykke-backoffice - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />

@@ -66,7 +66,9 @@
     <Compile Include="GlobalSettings.cs" />
     <Compile Include="IBackOfficeUsersRepository.cs" />
     <Compile Include="IBrowserSessionsRepository.cs" />
+    <Compile Include="IClientLog.cs" />
     <Compile Include="IIdentityGenerator.cs" />
+    <Compile Include="IRequestsLog.cs" />
     <Compile Include="ISrvIpGeolocation.cs" />
     <Compile Include="Kyc\IKycDocumentsRepository.cs" />
     <Compile Include="Kyc\IKycDocumentsScansRepository.cs" />
@@ -79,6 +81,7 @@
     <Compile Include="Clients\ISrvSmsConfirmator.cs" />
     <Compile Include="Clients\IClientSettingsRepository.cs" />
     <Compile Include="Clients\IClientAccountsRepository.cs" />
+    <Compile Include="RequestsLogMock.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

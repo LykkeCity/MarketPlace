@@ -5,6 +5,7 @@ using AzureRepositories.Clients;
 using AzureRepositories.EventLogs;
 using AzureRepositories.Finance;
 using AzureRepositories.Kyc;
+using AzureRepositories.Log;
 using AzureRepositories.Orders;
 using AzureStorage;
 using AzureStorage.Blob;
@@ -88,6 +89,10 @@ namespace AzureRepositories
 
             ioc.Register<IRegistrationLogs>(
                 new RegistrationLogs(new AzureTableStorageLocal<RegistrationLogEventEntity>(localHost,"LogRegistrations")));
+
+
+            ioc.Register<IClientLog>(
+                new ClientLog(new AzureTableStorageLocal<ClientLogItem>(localHost, "LogClient")));
         }
 
         public static void BindAzureReposInMemForTests(this IoC ioc)

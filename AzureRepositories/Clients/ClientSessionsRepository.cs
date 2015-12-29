@@ -129,5 +129,18 @@ namespace AzureRepositories.Clients
             });
 
         }
+
+        public async Task DeleteSessionAsync(string clientId, string token)
+        {
+
+            var partitionKey = ClientSessionEntity.ByToken.GeneratePartitionKey();
+            var rowKey = ClientSessionEntity.ByToken.GenerateRowKey(token);
+            await _tableStorage.DeleteAsync(partitionKey, rowKey);
+
+            partitionKey = ClientSessionEntity.ByClient.GeneratePartitionKey(clientId);
+            rowKey = ClientSessionEntity.ByClient.GenerateRowKey(token);
+            await _tableStorage.DeleteAsync(partitionKey, rowKey);
+
+        }
     }
 }

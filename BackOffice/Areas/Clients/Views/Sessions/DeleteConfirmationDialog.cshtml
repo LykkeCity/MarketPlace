@@ -1,0 +1,15 @@
+﻿@using BackOffice.Translates
+@model BackOffice.Areas.Clients.Models.DeleteSessionConfirmationDialogViewModel
+
+@{
+    Layout = "~/Views/Shared/_PersonalAreaDialog.cshtml";
+}
+
+<h3>@Phrases.PleaseConfirmYourAction</h3>
+<form id="frmDeleteSession">
+    <input name="ClientId" type="hidden" value="@Model.Data.ClientId"/>
+    <input name="Token" type="hidden" value="@Model.Data.Token" />
+
+</form>
+
+@HelpersUi.RenderSaveCancelButtonPair(Url.Action("DeleteSession"), "#frmDeleteSession")

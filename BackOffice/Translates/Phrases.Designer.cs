@@ -457,6 +457,15 @@ namespace BackOffice.Translates {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Session has been deleted.
+        /// </summary>
+        public static string SessionHasBeenDeleted {
+            get {
+                return ResourceManager.GetString("SessionHasBeenDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sign In.
         /// </summary>
         public static string SignIn {

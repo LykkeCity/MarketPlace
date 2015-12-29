@@ -7,39 +7,69 @@ namespace Wallet_Api.Controllers
     public class LykkeWalletController : ApiController
     {
 
-        public ResponseModel<WalletResponseModel> Get()
+        private readonly ApiWalletAssetModel[] _mockLykkeWalletData = 
         {
-            return ResponseModel<WalletResponseModel>.CreateOk(
-                new WalletResponseModel
+            new ApiWalletAssetModel
+            {
+                Id = "USD",
+                Name = "ccUSD",
+                Balance = 0,
+                Symbol = "$"
+            },
+
+            new ApiWalletAssetModel
+            {
+                Id = "EUR",
+                Name = "ccEUR",
+                Balance = 0,
+                Symbol = "€"
+            },
+
+            new ApiWalletAssetModel
+            {
+                Id = "CHF",
+                Name = "ccCHF",
+                Balance = 0,
+                Symbol = "f"
+            }
+        };
+
+
+        private readonly ApiBankCardModel[] _mockBankCards =
+        {
+            new ApiBankCardModel
+            {
+                Id = "aaaaa",
+                LastDigits = "1798",
+                Type = 'V'
+            },
+
+            new ApiBankCardModel
+            {
+                Id = "bbbbb",
+                LastDigits = "0295",
+                Type = 'M'
+            }
+        };
+
+
+        public ResponseModel<GetWaletRespModel> Get()
+        {
+            return ResponseModel<GetWaletRespModel>.CreateOk(
+                new GetWaletRespModel
                 {
-                    Equity = 0,
-                    Assets = new[]
+                    Lykke = new GetWaletRespModel.LykkeWalletsModel
                     {
-                        new WalletAsset
-                        {
-                            Id = "USD",
-                            Name = "ccUSD",
-                            Balance = 0,
-                            Symbol = "$"
-                        },
+                        Assets = _mockLykkeWalletData,
+                        Equity = 0
+                    },
 
-                        new WalletAsset
-                        {
-                            Id = "EUR",
-                            Name = "ccEUR",
-                            Balance = 0,
-                            Symbol = "€"
-                        },
+                    BankCards = _mockBankCards
 
-                        new WalletAsset
-                        {
-                            Id = "CHF",
-                            Name = "ccCHF",
-                            Balance = 0,
-                            Symbol = "f"
-                        }
-                    }
+
+
                 });
         }
+
     }
 }

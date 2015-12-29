@@ -20,6 +20,8 @@ namespace Core.Clients
         Task<IEnumerable<IClientSession>> GetByClientAsync(string clientId);
 
         Task UpdateClientInfoAsync(string clientId, string token, string clientInfo);
+
+        Task DeleteSessionAsync(string clientId, string token);
     }
 
 }

@@ -75,7 +75,7 @@ namespace BackOffice
             dr.IoC.BindBackOfficeRepositoriesInMemory();
 
 #else
-            dr.IoC.BindAzureRepositories(Settings.ConnectionString, Settings.ConnectionString, log);
+            dr.IoC.BindAzureRepositories(Settings.ConnectionString, Settings.ConnectionString, Settings.ConnectionString, log);
             dr.IoC.BindBackOfficeRepositories(Settings.ConnectionString, log);
 #endif
 

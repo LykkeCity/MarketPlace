@@ -206,6 +206,10 @@
           <source>Registrations</source>
           <target state="new">Registrations</target>
         </trans-unit>
+        <trans-unit id="SessionHasBeenDeleted" translate="yes" xml:space="preserve">
+          <source>Session has been deleted</source>
+          <target state="new">Session has been deleted</target>
+        </trans-unit>
       </group>
     </body>
   </file>

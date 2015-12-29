@@ -13,13 +13,15 @@ namespace Wallet_Api.Controllers
         private readonly IClientAccountsRepository _clientAccountsRepository;
         private readonly IKycRepository _kycRepository;
         private readonly IPinSecurityRepository _pinSecurityRepository;
+        private readonly IPersonalDataRepository _personalDataRepository;
 
         public AuthController(IClientAccountsRepository clientAccountsRepository, IKycRepository kycRepository, 
-            IPinSecurityRepository pinSecurityRepository)
+            IPinSecurityRepository pinSecurityRepository, IPersonalDataRepository personalDataRepository)
         {
             _clientAccountsRepository = clientAccountsRepository;
             _kycRepository = kycRepository;
             _pinSecurityRepository = pinSecurityRepository;
+            _personalDataRepository = personalDataRepository;
         }
 
         public async Task<ResponseModel<AuthenticateResponseModel>> Post(AuthenticateModel model)
@@ -38,13 +40,17 @@ namespace Wallet_Api.Controllers
             if (client == null)
                 return ResponseModel<AuthenticateResponseModel>.CreateFail(ResponseModel.ErrorCodeType.NotAuthenticated, Phrases.InvalidUsernameOrPassword);
 
+
             var token = await client.AuthenticateViaToken(model.ClientInfo);
+
+            var personalData = await _personalDataRepository.GetAsync(client.Id);
 
             return ResponseModel<AuthenticateResponseModel>.CreateOk(new AuthenticateResponseModel
             {
                 KycStatus = (await _kycRepository.GetKycStatusAsync(client.Id)).ToResponseModel(),
                 PinIsEntered = await _pinSecurityRepository.IsPinEntered(client.Id),
-                Token = token
+                Token = token,
+                PersonalData = personalData.ConvertToApiModel()
             });
         }
     }

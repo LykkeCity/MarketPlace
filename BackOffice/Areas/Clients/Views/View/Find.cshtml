@@ -12,6 +12,11 @@
     }
 }
 
+<h3>Client Id: @Model.PersonalData.Id</h3>
+<h3>Email: @Model.PersonalData.Email</h3>
+<h3>FullName: @Model.PersonalData.FullName</h3>
+
+
 @RenderClientSessions(Model.Sessions)
 
 @helper RenderClientSessions(IClientSession[] sessions)
@@ -47,7 +52,8 @@
                     @clientSession.ClientInfo
                 </td>
                 <td>
-                    <button class="btn btn-xs btn-primary">@Phrases.KickSession</button>
+                    <button class="btn btn-xs btn-primary"
+                            onclick="ui.showDialog('@Url.Action("DeleteConfirmationDialog","Sessions", new {area="Clients"})', {ClientId:'@clientSession.ClientId', Token:'@clientSession.Token'})">@Phrases.KickSession</button>
                 </td>
             </tr>
         }

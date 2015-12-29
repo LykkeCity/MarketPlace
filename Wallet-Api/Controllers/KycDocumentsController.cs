@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using Common;
+using Core.Clients;
 using Core.Kyc;
 using LkeServices.Kyc;
 using Wallet_Api.Models;
@@ -14,31 +15,33 @@ namespace Wallet_Api.Controllers
     public class KycDocumentsController : ApiController
     {
         private readonly SrvKycDocumentsManager _srvKycDocumentsManager;
+        private readonly IPersonalDataRepository _personalDataRepository;
         private readonly IKycRepository _kycRepository;
 
 
-        public KycDocumentsController(IKycRepository kycRepository, SrvKycDocumentsManager srvKycDocumentsManager)
+        public KycDocumentsController(IKycRepository kycRepository, SrvKycDocumentsManager srvKycDocumentsManager, IPersonalDataRepository personalDataRepository)
         {
             _srvKycDocumentsManager = srvKycDocumentsManager;
+            _personalDataRepository = personalDataRepository;
             _kycRepository = kycRepository;
         }
 
 
-        public async Task<ResponseModel> Post(KycDocumentsModel model)
+        public async Task<ResponseModel<PostKycDocumentRespModel>> Post(KycDocumentsModel model)
         {
 
             if (string.IsNullOrEmpty(model.Type))
-                return ResponseModel.CreateInvalidFieldError("type", Phrases.FieldShouldNotBeEmpty);
+                return ResponseModel<PostKycDocumentRespModel>.CreateInvalidFieldError("type", Phrases.FieldShouldNotBeEmpty);
 
 
             if(!KycDocumentTypes.HasDocumentType(model.Type))
-                return ResponseModel.CreateInvalidFieldError("type", Phrases.InvalidDocumentType);
+                return ResponseModel<PostKycDocumentRespModel>.CreateInvalidFieldError("type", Phrases.InvalidDocumentType);
 
             if (string.IsNullOrEmpty(model.Ext))
-                return ResponseModel.CreateInvalidFieldError("ext", Phrases.FieldShouldNotBeEmpty);
+                return ResponseModel<PostKycDocumentRespModel>.CreateInvalidFieldError("ext", Phrases.FieldShouldNotBeEmpty);
 
             if (string.IsNullOrEmpty(model.Data))
-                return ResponseModel.CreateInvalidFieldError("data", Phrases.FieldShouldNotBeEmpty);
+                return ResponseModel<PostKycDocumentRespModel>.CreateInvalidFieldError("data", Phrases.FieldShouldNotBeEmpty);
 
 
             byte[] data;
@@ -49,17 +52,17 @@ namespace Wallet_Api.Controllers
             catch (Exception)
             {
 
-                return ResponseModel.CreateInvalidFieldError("data", "Base64 format expected");
+                return ResponseModel<PostKycDocumentRespModel>.CreateInvalidFieldError("data", "Base64 format expected");
             }
 
             var clientId = this.GetClientId();
 
             if (string.IsNullOrEmpty(clientId))
-                return ResponseModel.CreateFail(ResponseModel.ErrorCodeType.NotAuthenticated, Phrases.NotAuthenticated);
+                return ResponseModel<PostKycDocumentRespModel>.CreateFail(ResponseModel.ErrorCodeType.NotAuthenticated, Phrases.NotAuthenticated);
 
             var status = await _kycRepository.GetKycStatusAsync(clientId);
             if (status != KycStatus.NeedToFillData)
-                return ResponseModel.CreateFail(ResponseModel.ErrorCodeType.InconsistentData, Phrases.OperationCanNotBePerformed);
+                return ResponseModel<PostKycDocumentRespModel>.CreateFail(ResponseModel.ErrorCodeType.InconsistentData, Phrases.OperationCanNotBePerformed);
 
 
             var fileName = "myFile"+ model.Ext.AddFirstSymbolIfNotExists('.');
@@ -68,7 +71,9 @@ namespace Wallet_Api.Controllers
            await
               _srvKycDocumentsManager.UploadDocument(clientId, model.Type, fileName, mimeType, data);
 
-            return ResponseModel.CreateOk();
+
+            var personalData = await _personalDataRepository.GetAsync(clientId);
+            return ResponseModel<PostKycDocumentRespModel>.CreateOk(PostKycDocumentRespModel.Create(personalData.ConvertToApiModel()));
         }
 
     }

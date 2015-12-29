@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Owin;
 using Microsoft.Owin.Extensions;
 using Owin;
 
@@ -30,48 +32,25 @@ namespace Wallet_Api
             }
         }
 
-        private static readonly Dictionary<string, ClaimsPrincipal> PrincipalsCache = new Dictionary<string, ClaimsPrincipal>();
-
-        private  static readonly ReaderWriterLockSlim ReaderWriterLockSlim = new ReaderWriterLockSlim();
-
         private static async Task<ClaimsPrincipal> ReadPrincipal(string token)
         {
-            ReaderWriterLockSlim.EnterReadLock();
-            try
-            {
-                if (PrincipalsCache.ContainsKey(token))
-                    return PrincipalsCache[token];
-            }
-            finally
-            {
-                ReaderWriterLockSlim.ExitReadLock();
-            }
 
             var session = await ApiDependencies.ClientsSessionsRepository.GetAsync(token);
             if (session == null)
                 return null;
 
 
-            ReaderWriterLockSlim.EnterWriteLock();
-            try
-            {
-                if (PrincipalsCache.ContainsKey(token))
-                    return PrincipalsCache[token];
-
-                var principal =
-                    new ClaimsPrincipal(LykkeIdentity.Create(session.ClientId));
-
-                PrincipalsCache.Add(token, principal);
-
-                return principal;
-
-            }
-            finally
-            {
-                ReaderWriterLockSlim.ExitWriteLock();
-            }
+            return  new ClaimsPrincipal(LykkeIdentity.Create(session.ClientId));
+        }
 
 
+        private static async Task<string> ReadRequest(IOwinRequest request)
+        {
+            if (request.Method == "GET")
+                return null;
+
+            var sr = new StreamReader(request.Body);
+            return await sr.ReadToEndAsync();
         }
 
         public static void ConfigureLykkeAuth(this IAppBuilder app)
@@ -96,8 +75,21 @@ namespace Wallet_Api
                     if (string.IsNullOrEmpty(values[1]))
                         return;
 
-                    ctx.Authentication.User = await ReadPrincipal(values[1]);
-         
+                    var principal = await ReadPrincipal(values[1]);
+                    ctx.Authentication.User = principal;
+
+                    if (principal != null)
+                    {
+
+                        var request = await ReadRequest(ctx.Request);
+
+                        await
+                            ApiDependencies.RequestsLog.WriteAsync(principal.Identity.Name, "["+ctx.Request.Method+"]"+ctx.Request.Uri.PathAndQuery,
+                                request, null);
+
+
+                    }
+                        
 
                 }
                 finally

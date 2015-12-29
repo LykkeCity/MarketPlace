@@ -16,14 +16,16 @@ namespace Wallet_Api.Controllers
         private readonly SrvClientManager _srvClientManager;
         private readonly IKycRepository _kycRepository;
         private readonly IPinSecurityRepository _puSecurityRepository;
+        private readonly IPersonalDataRepository _personalDataRepository;
 
         public RegistrationController(IClientAccountsRepository clientAccountsRepository, SrvClientManager srvClientManager, 
-            IKycRepository kycRepository, IPinSecurityRepository puSecurityRepository)
+            IKycRepository kycRepository, IPinSecurityRepository puSecurityRepository, IPersonalDataRepository personalDataRepository)
         {
             _clientAccountsRepository = clientAccountsRepository;
             _srvClientManager = srvClientManager;
             _kycRepository = kycRepository;
             _puSecurityRepository = puSecurityRepository;
+            _personalDataRepository = personalDataRepository;
         }
 
         [Authorize]
@@ -33,11 +35,14 @@ namespace Wallet_Api.Controllers
 
             var kycStatus = await _kycRepository.GetKycStatusAsync(clientId);
 
+            var personalData = await _personalDataRepository.GetAsync(clientId);
+
             return ResponseModel<GetRegistrationStatusResponseModel>.CreateOk(
                 new GetRegistrationStatusResponseModel
                 {
                     KycStatus = kycStatus.ToResponseModel(),
-                    PinIsEntered = await _puSecurityRepository.IsPinEntered(clientId)
+                    PinIsEntered = await _puSecurityRepository.IsPinEntered(clientId),
+                    PersonalData = personalData.ConvertToApiModel()
                 });
         }
 
@@ -63,7 +68,16 @@ namespace Wallet_Api.Controllers
             {
                 var user = await _srvClientManager.RegisterClientAsync(model.Email, model.FullName, model.ContactPhone, model.Password, model.ClientInfo, this.GetIp());
                 var token = await user.AuthenticateViaToken(model.ClientInfo);
-                return ResponseModel<AccountsRegistrationResponseModel>.CreateOk(new AccountsRegistrationResponseModel {Token = token });
+                return ResponseModel<AccountsRegistrationResponseModel>.CreateOk(new AccountsRegistrationResponseModel
+                {
+                    Token = token,
+                    PersonalData = new ApiPersonalDataModel
+                    {
+                        FullName = model.FullName,
+                        Email = model.Email,
+                        Phone = model.ContactPhone
+                    }
+                });
             }
             catch (Exception ex)
             {

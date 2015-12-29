@@ -170,7 +170,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\ApiDependencies.cs" />
+    <Compile Include="Controllers\BankCardsController.cs" />
+    <Compile Include="Controllers\ClientLogController.cs" />
     <Compile Include="Controllers\LykkeWalletController.cs" />
+    <Compile Include="Controllers\PersonalDataController.cs" />
     <Compile Include="Middleware\LykkeAuthMiddlware.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\Startup.Localization.cs" />
@@ -191,11 +194,13 @@
     </Compile>
     <Compile Include="Models\AccountsModels.cs" />
     <Compile Include="Models\AuthenticationHandler.cs" />
+    <Compile Include="Models\ClientLogModels.cs" />
     <Compile Include="Models\CommonModels.cs" />
+    <Compile Include="Models\_ContractModels.cs" />
     <Compile Include="Models\ExceptionHandler.cs" />
     <Compile Include="Models\KycModels.cs" />
     <Compile Include="Models\PinSecurityModels.cs" />
-    <Compile Include="Models\WalletResponseModel.cs" />
+    <Compile Include="Models\WalletModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Strings\Phrases.Designer.cs">

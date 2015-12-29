@@ -17,6 +17,7 @@ namespace Core.Clients
         public string Id { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
+        public string FullName { get; set; }
 
         public static ClientAccount Create(string email, string phone)
         {

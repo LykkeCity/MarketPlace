@@ -1,4 +1,6 @@
-﻿using Common.IocContainer;
+﻿using AzureRepositories.Log;
+using AzureStorage.Tables;
+using Common.IocContainer;
 using Common.Log;
 using Core;
 using Core.Accounts;
@@ -15,7 +17,7 @@ namespace AzureRepositories
     public static class AzureRepoBinder
     {
 
-        public static void BindAzureRepositories(this IoC ioc, string connString, string connStringBackOffice, ILog log)
+        public static void BindAzureRepositories(this IoC ioc, string connString, string connStringBackOffice, string connStringLog, ILog log)
         {
             ioc.Register<IClientAccountsRepository>(
                 AzureRepoFactories.Clients.CreateTradersRepository(connString, log));
@@ -72,6 +74,9 @@ namespace AzureRepositories
 
             ioc.Register<IRegistrationLogs>(
                 AzureRepoFactories.EventLogs.CreateRegistrationLogs(connString, log));
+
+            ioc.Register<IClientLog>(new ClientLog(
+                new AzureTableStorage<ClientLogItem>(connStringLog, "LogClient", log)));
 
         }
 

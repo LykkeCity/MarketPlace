@@ -86,7 +86,9 @@
     <Compile Include="Kyc\KycDocumentsScansRepository.cs" />
     <Compile Include="Kyc\KycRepository.cs" />
     <Compile Include="Kyc\KycUploadLog.cs" />
+    <Compile Include="Log\ClientLog.cs" />
     <Compile Include="Log\LogToTable.cs" />
+    <Compile Include="Log\RequestsLog.cs" />
     <Compile Include="Orders\OrdersRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AzureRepoBinder.cs" />

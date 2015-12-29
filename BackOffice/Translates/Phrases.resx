@@ -267,4 +267,7 @@
   <data name="Registrations" xml:space="preserve">
     <value>Registrations</value>
   </data>
+  <data name="SessionHasBeenDeleted" xml:space="preserve">
+    <value>Session has been deleted</value>
+  </data>
 </root>

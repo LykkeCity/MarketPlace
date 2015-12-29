@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using Core.Clients;
 
 namespace Wallet_Api.Models
 {
+
     public class AccountExistResultModel
     {
         public bool IsEmailRegistered { get; set; }
@@ -22,7 +24,7 @@ namespace Wallet_Api.Models
     }
 
 
-    public class AccountRegistrationModel
+    public class AccountRegistrationModel 
     {
         public string Email { get; set; }
         public string FullName { get; set; }
@@ -43,12 +45,15 @@ namespace Wallet_Api.Models
         public string KycStatus { get; set; }
         public bool PinIsEntered { get; set; }
         public string Token { get; set; }
+        public ApiPersonalDataModel PersonalData { get; set; }
     }
 
     public class GetRegistrationStatusResponseModel
     {
         public string KycStatus { get; set; }
         public bool PinIsEntered { get; set; }
+        public ApiPersonalDataModel PersonalData { get; set; }
+
     }
 
 
@@ -60,12 +65,13 @@ namespace Wallet_Api.Models
     public class AccountsRegistrationResponseModel
     {
         public string Token { get; set; }
-        
+        public ApiPersonalDataModel PersonalData { get; set; }
     }
 
     public class GetRegistrationStateModel
     {
         public string KycStatus { get; set; }
     }
+
 
 }
